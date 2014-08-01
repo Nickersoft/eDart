@@ -1,0 +1,4 @@
+#notfound_container 		{ width:978px; position:fixed; top:50%; margin-top:-202px; left:50%; margin-left:-496px; height:404px; }
+#notfound_container h1 		{ font-family: "TitilliumBold", Trebuchet MS, sans-serif; color:white; text-align:center; font-size:92px; text-transform: uppercase; }
+#notfound_container p 		{ color:white; font-size:18px; text-align: center; font-family:VegurRegular, Trebuchet MS, sans-serif;}
+#notfound_container span 	{ color:white; font-size:100px; text-align: center; display:block; margin:0 auto;} 

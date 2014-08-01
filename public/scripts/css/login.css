@@ -1,0 +1,24 @@
+/*
+ * Description: Stylesheet to use on the login page (login.php)
+ * Last Updated: 6/11/2014
+ * Signature: Tyler Nickerson
+ * Copyright 2014 eDart
+ *
+ * [Do not remove this header. One MUST be included at the start of every page/script]
+ *
+ */
+
+/* The parent container */
+#login_cont 					{ width:100%;  color:white; float:left; display:inline-block; }
+
+/* The main container */
+#login_cont #login_pnl 			{ background:white; border:1px solid lightgray; overflow:hidden; display:block; margin:40px auto; width:600px; height:300px; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -o-border-radius:10px; -ms-border-radius:10px; behavior:url('/lib/pie/PIE.htc'); }
+
+/* A couple headers */
+#login_cont #login_pnl h1		{ color:dimgray; font-size:32px; margin-left:50px; margin-top:30px; font-family:VegurRegular,Trebuchet MS,sans-serif; }
+#login_cont #login_pnl h2		{ margin:0px; padding:0px; float:right; color:white; }
+
+/* The login boxes/buttons */
+#login_cont #login_pnl #un		{ float:left; margin-right:10px; }
+#login_cont #login_pnl #pw		{ float:right; }
+#login_cont #login_pnl #loginbx	{ position:relative; margin-left:100px; margin-top:40px; float:left; overflow:hidden; height:100%; }

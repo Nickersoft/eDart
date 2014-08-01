@@ -1,0 +1,166 @@
+/* 
+ * Description: Stylesheet to use on /me
+ * Last Updated: 6/11/2014
+ * Signature: Tyler Nickerson
+ * Copyright 2014 eDart 
+ * 
+ * [Do not remove this header. One MUST be included at the start of every page/script] 
+ * 
+ */
+
+/* Some global links */
+a:link		{ color:black; }
+a:visited 	{ color:black; }
+a:hover 	{ color:black; }
+a:active 	{ color:green; }
+
+/* * * * * * * * * * * * * SIDEBAR * * * * * * * * * * * * */
+
+/* The notifications/control panel on the left */
+#cont #links				{ width:420px; overflow:hidden; background:#2ecc71; float:left; display:block; position:fixed; border-left:0px solid black; height:100%; margin-top:-1px; z-index:1000; color:white; }
+#cont #links a   			{ color:white; }
+
+/* Placeholder for the side navigation */
+#cont #linkhold { width:420px;position:relative;height:1px;display:inline-block;float:left; }
+
+/* Sub-text on notifications */
+#cont #links .action_sub 	{ color:#A4FF95; display:inline-block; font-size:11px; text-align:right; width:100%; }
+
+/* Other link stuff */
+#cont #links #inner 		{ padding:10px; }
+#cont #links h3 			{ text-overflow:ellipsis; margin-top:10px; overflow:hidden; }
+
+/* Latest notifications */
+#cont #latnot #notcnt	 	{ max-height:150px; margin-bottom:20px; width:100%; overflow:auto; }
+
+/* Any info displayed in the sidebar */
+#cont #sidebar_info			{ display:block; }
+#cont #sidebar_info h5	 	{ color:white; cursor:pointer; }
+
+/* User biography */
+#cont #biotxt			{ border-radius:0px; -o-border-radius:0px; -ms-border-radius:0px; -webkit-border-radius:0px; -webkit-border-radius:0px; background:none; display:block; -moz-appearance:none; -webkit-appearance:none; outline:none; border-width:0px; width:100%; text-align: left; resize:none; height:300px; font-family:Trebuchet MS, sans-serif; font-family:"VegurRegular"; margin-left:10px; margin-top:0px; color:black; font-size:18px;padding:0px; overflow:auto; white-space:normal; }
+#cont #biotxt:focus 	{ border:none; -o-transition-property:border; -moz-transition-property:border; -ms-transition-property:border; -webkit-transition-property:border; transition-property:border; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; -webkit-box-shadow:none; box-shadow:none;box-shadow:none; transition:0.4s; -moz-transition:0.4s; -webkit-transition:0.4s; }
+
+
+#cont #additem #textholder { clear:both; }
+
+#bdy        { font-family:VegurRegular, Trebuchet MS, sans-serif; }
+
+
+/* * * * * * * * * * * * * MAIN CONTAINER * * * * * * * * * * * * */
+
+/* The main container (should think about renaming) */
+#cont						{ white-space:nowrap; width:100%; min-height:100%; position:relative; background:white; display:inline-block; }
+#cont h2					{ font-family:VegurLight, Trebuchet MS, sans-serif; color:#2b2b2b; font-size:48px; margin:0px; margin-bottom:4px; padding:0px; }
+#cont h3					{ color:white; font-family:VegurLight, Trebuchet MS, sans-serif; font-size:50px; margin:0px; }
+#cont h4					{ color:white; font-weight:bold; margin:0px; margin-bottom:0px; margin-left:20px; font-size:18px; }
+#cont h5					{ color:lightgreen; max-width:250px; white-space:normal; margin-top:10px; margin-bottom:0px; margin-left:40px; }
+#cont h6					{ font-family:VegurLight, Trebuchet MS, sans-serif; color:#2b2b2b; font-size:32px; margin:0px; margin-bottom:10px; margin-top:20px; padding:0px; }
+#cont span					{ color:dimgray; font-size:18px; float:left; }
+
+#cont .iconbig				{ width:64px; padding:10px; height:64px; cursor:pointer; }
+#cont .iconsmall			{ font-size:25px; display:block; margin:0 auto; cursor:pointer; }
+#cont .small 				{ font-size:16px !important; width:300px !important; margin-top:10px!important; display:block; white-space:nowrap!important; }
+
+/* An alternate h4 for the "add item" panel */
+#cont #additem h4 			{ color:#2b2b2b; font-weight:bold; margin:0px; margin-bottom:10px; font-size:18px; }
+
+/* The main panel (the one that slides in and out) */
+#cont #main					{ min-width:845px; display:inline-block; height:auto; overflow:hidden; margin-left:10px; padding-right:10px; position:relative; }
+#cont #main #picpnl			{ position:relative; display:inline-block; vertical-align:top; margin-right:10px; }
+#cont #main #infopnl		{ position:relative; display:inline-block; vertical-align:top; padding-left:30px; }
+#cont #main .iteminfo		{ margin-top:5px; width:300px; height:100px; color:dimgray; font-family:Trebuchet MS; font-size:12px; text-indent:0px; resize:none; margin-bottom:10px; }
+
+/* The loading image when uploading item images */
+#cont #img_loader 		{ background:#2ecc71; display:none; width:100%; height:100%; color:white; font-size:11px; text-align: center; }
+#cont #img_loader img 	{ width:50px; display:block; margin:0 auto; padding-top:30%; margin-bottom:20px; }
+
+/* Add Item "Basics" */
+#cont .additemh			{ color:#2b2b2b; margin:0px; margin-bottom:10px; margin-left:-20px; clear:both}
+
+/* Add Item "Pickup" */
+#cont .addph         	{ color:#2b2b2b; margin:0px; clear:left; margin-bottom:10px; }
+
+/* The date input boxes */
+#cont .hasDatepicker 		{ color:black !important; }
+
+/* * * * * * * * * * * * * MY BOARD * * * * * * * * * * * * */
+
+/* The "View Items" table container */
+#cont #item_table_cont																{ display:block; margin-top:10px; position:relative; height:auto; width:95%; overflow:auto; } 
+#cont #item_table_cont #item_table tr        										{ padding:10px; vertical-align:top; text-align:left; color:dimgray; border-width:0px; }
+
+/* The "View Items" table */
+#cont #item_table_cont #item_table													{ width:100%; white-space:normal; } /* The whole view item table */
+
+/* Each row in the "View Items" table */
+#cont #item_table_cont #item_table .item_row td										{ color:black; padding:10px; vertical-align:top; } /* Each row with item info */
+#cont #item_table_cont #item_table .item_row .item_pic_cell	 						{ width: 200px; }
+#cont #item_table_cont #item_table .item_row .item_pic_cell .item_pic 				{ width: 150px; height:150px; display:block; margin:0 auto; }
+
+/* The view count text */
+#cont #item_table_cont #item_table .view_count 										{ font-size:12px; color:dimgray; vertical-align:bottom; display:block; position:relative; text-align: right; }
+
+/* Each edit panel per row */
+#cont #item_table_cont #item_table .item_row .item_pic_cell .edit_cell 				{ cursor:pointer; width:32px; display:inline-block; float:left; vertical-align:middle; margin-top:30%; margin-right:10px; }
+#cont #item_table_cont #item_table .item_row .item_pic_cell .edit_cell .edit_icon 	{ color:dimgray; vertical-align:middle; width:18px; height:18px; }
+
+/* Each cell that contains info about the item */
+#cont #item_table_cont #item_table .item_row .item_info_cell 						{ display:block; margin-left:20px; }
+#cont #item_table_cont #item_table .item_row .item_info_cell .item_name 			{ font-size:32px; cursor:pointer; overflow:hidden; }
+#cont #item_table_cont #item_table .item_row .item_info_cell .item_emv 				{ float:right; white-space:nowrap; font-size:14px; }
+#cont #item_table_cont #item_table .item_row .item_info_cell .item_description 		{ white-space:normal; margin:0px; padding:0px; }
+#cont #item_table_cont #item_table .item_row .item_info_cell .item_error 			{ margin-top:10px; float:right; color:red; cursor:pointer; }
+#cont #item_table_cont #item_table .item_row .item_info_cell .view_trans 			{ margin-top:10px; float:right; color:red; margin-bottom:15px; cursor:pointer; }
+
+/* * * * * * * * * * * * * MY PROFILE * * * * * * * * * * * * */
+
+#cont #main #profile 										{ padding-top: 20px; display: block; left: 0px; position: relative; }
+#cont #main #profile h2										{ display:inline-block; }
+#cont #main #profile #profile_info							{ list-style:none; margin-top:0px; margin-left:5px; vertical-align:top; margin-right:10px; display:inline-block; font-size:18px; }
+#cont #main #profile #profile_info li						{ margin-bottom:10px; font-family:VegurRegular, sans-serif;}
+#cont #main #profile #profile_info li span					{ color:dimgray; margin-right:10px; }
+#cont #main #profile #profile_info .info_point 				{ vertical-align:top;display:inline-block; margin-left:25px; margin-right:10px; font-size:18px; }
+
+#cont #main #profile #left_side 							{ float:left;white-space:normal;width:210px; }
+#cont #main #profile #left_side h6							{font-size:28px; margin-top:10px;}
+#cont #main #profile #left_side #profpic					{ cursor:pointer; position: relative; display:block; }
+#cont #main #profile #left_side #profpic #pic 				{ width:200px;height:200px; }
+#cont #main #profile #left_side #profpic #overlay			{ width:200px; height:200px; position:absolute; top:0px; left:0px; background:url('/img/dim.png'); display:none; }
+#cont #main #profile #left_side #profpic:hover>#overlay		{ display:block; }
+#cont #main #profile #left_side #profpic #overlay .txt		{ text-align:center; color:white; margin-top:40%; font-size:20px; }
+
+/* * * * * * * * * * * * * MANAGE ACCOUNT * * * * * * * * * * * * */
+
+#cont #main #manage input[type="text"], #cont #main #manage input[type="password"]	{ font-size:16px; width:300px; color:black; margin-top:10px; display:block; white-space:nowrap; }
+#cont #main #manage #manage_groups 													{ float:left;white-space:normal;margin-left:25px;margin-top:10px; }
+#cont #main #manage .controls														{ margin-left:25px; }
+#cont #main #manage #manage_groups .first											{ padding-top:0px; margin-top:0px; }
+#cont #main #manage #manage_groups #pwrdfrm 										{ width:300px; }
+#cont #main #manage #manage_groups #pwrdfrm input[type="submit"]					{ margin:0 auto;margin-top:10px;display:block; }
+#cont #main #manage #manage_groups #password_alert 									{ margin-top:35px; margin-left:10px; font-size:12px; color:red; display:inline-block; float:left; }
+#cont #main #manage #manage_groups #delete_account 									{ width:500px; }
+
+
+/* Options Panel (the four white icons) */
+#cont #iopt				{ margin-top:10px; margin-bottom:10px; overflow:hidden; padding-left:70px; height:80px; position:relative; display:block; }
+#cont #iopt td			{ width:50px; height:40px; text-align:center; padding:5px; overflow:hidden; }   
+
+/* Options captions (under the four icons) */
+#cont #captbl td		{ height:10px; visibility:hidden; }
+#cont #captbl			{ font-size:11px; vertical-align:top; margin:0px; padding:0px; margin-bottom:10px; }
+
+/* * * * * * * * * * * * * MEDIA QUERIES * * * * * * * * * * * * */
+
+@media screen and (max-height: 700px) {
+  #cont #popitem { display:none; }
+} 
+
+@media screen and (max-width: 1060px) {
+  #cont .itemlist .item_pic { display:none; }
+  #cont .itemlist .item_pic_cell { width:32px; max-width:0px; }
+}
+
+@media screen and (max-height: 640px) {
+  #cont #recmsg { display: none; }
+}

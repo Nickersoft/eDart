@@ -1,0 +1,52 @@
+#home_container 											{ overflow:hidden; white-space:normal; position: relative; background:black; background:transparent; background:rgba(0,0,0,0.4); width:100%; height:100%; display:block; }
+#home_container #inner										{ width:978px; display:block; height:600px; margin:0 auto; }
+#home_container #inner h1 									{ color:white; font-family: TitilliumBold, Trebuchet MS, sans-serif; font-size:60px; margin-top:10px;  }
+#home_container #inner #inner_left 							{ float:left; margin-top:25px; vertical-align: top; display:inline-block; }
+#home_container #inner #inner_left table					{ color:white; margin-left:15px; }
+#home_container #inner #inner_left table td					{ padding:10px; font-size:20px; }
+#home_container #inner #inner_left table td	span 			{ font-weight:bold; font-size:22px; }
+#home_container #inner #inner_left .fronticon 				{ font-size:32px; color:white; }
+
+#home_container #inner #inner_right							{ float:right; margin-right:50px; margin-top:25px; vertical-align:top; width:350px; margin-left:100px; display:inline-block; }
+#home_container #inner #inner_right	#signup input			{ font-size:20px; width:100%; }
+#home_container #inner #inner_right	#signup span			{ font-size:11px; color:white; }
+
+#home_container #inner #inner_right	#signup #signup_form	{ text-align: center; }
+
+#home_container #inner #inner_right	#signup #signup_form #pword,
+#home_container #inner #inner_right	#signup #signup_form #rpword
+{ display:inline-block; width:48%; }
+
+#home_container #inner #inner_right	#signup #signup_form #pword  	{ float:left; }
+#home_container #inner #inner_right	#signup #signup_form #rpword 	{ float:right; }
+#home_container #inner #inner_right	#signup #signup_form #passwords { width:100%; display:table; }
+
+#home_container #inner #inner_right	#signup #geo_location			{ color:white; text-align: center; padding:10px; }
+#home_container #inner #inner_right	#signup #signup_submit			{ margin:0 auto; width:100%; display:block; }
+
+#home_container #home_arrow  { color:gold; font-size:48px; text-align:center; display:none; }
+
+@media (max-width: 400px) {
+    #home_container #inner,
+    #home_container #inner #inner_left,
+    #home_container #inner #inner_right
+    { width:100%; margin:0px; }
+
+    #home_container #inner h1
+    { font-size:40px; text-align:center; }
+
+    #home_container #inner #inner_left table td
+    { font-size:18px; }
+
+    #home_container #inner #inner_left table td	span
+    { font-size:20px; }
+
+    #home_container #inner #inner_right	#signup #signup_form
+    { padding:10px; }
+
+    #home_container #inner #inner_right	#signup #geo_location
+    { font-size:14px; }
+
+    #home_container #home_arrow
+    { display:block; }
+}

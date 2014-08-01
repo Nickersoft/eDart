@@ -1,0 +1,15 @@
+/* 
+ * Description: Stylesheet to use on "Forgot Password" page
+ * Last Updated: 6/11/2014
+ * Signature: Tyler Nickerson
+ * Copyright 2014 eDart 
+ * 
+ * [Do not remove this header. One MUST be included at the start of every page/script] 
+ * 
+ */
+
+/* The email address box */
+#forgotbox 	{ width:300px; display:block; margin:10px auto; font-size:18px; }
+
+/* The submit button */
+#forgotbtn 	{ display:block; margin:10px auto; }

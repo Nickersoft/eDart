@@ -1,0 +1,75 @@
+/*
+ * Description: Stylesheet to use on the feed
+ * Last Updated: 6/11/2014
+ * Signature: Tyler Nickerson
+ * Copyright 2014 eDart
+ *
+ * [Do not remove this header. One MUST be included at the start of every page/script]
+ *
+ */
+
+/* Feed container */
+#feed_cont 							{ display:block; margin:0 auto; position:relative; width:978px; height:auto; }
+
+/* Translucent white background (reusable) */
+.feed_child 				{ margin-bottom:10px; border-radius:2px; -moz-border-radius:2px; -ms-border-radius:2px; -webkit-border-radius:2px; padding:10px; border:1px solid white; background:white; box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -o-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -ms-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -webkit-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -moz-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); behavior: url('/lib/pie/PIE.htc'); }
+.feed_child					{ filter: none; }
+
+/* Feed */
+#feed 								{ overflow:hidden; width:100%; height:auto; display:inline-block; float:none; margin-top:0px; padding:15px; position:relative; }
+#feed h1 							{ color:dimgray; font-family:VegurLight, sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:4px; text-align:right; margin-top:10px; margin-left:10px; }
+#feed h3 							{ color:dimgray; font-family:VegurLight, sans-serif; font-size:16px; border-bottom:1px solid #eeeeee; padding-bottom:5px; text-align:left;  margin-top:5px; margin-left:5px; }
+#feed .img img 						{ max-width:100%; }
+#feed  p                            { font-size:12px; color:dimgray;}
+/* Main activity feed header */
+#feed #feed_title 					{ overflow:hidden; height:22px; display:block; margin-left:247px; width:460px; text-align: center;  padding-bottom:5px; color:dimgray; font-size: 18px; font-family:VegurRegular; margin-bottom: 10px; }
+
+/* Loading icon/text for feed */
+#feed #waitload	  					{ text-align: center; color:dimgray; font-size:11px; }
+#feed #waitload img 				{ width:75px; display:block; margin:0 auto; }
+
+/* Left panel */
+#feed #feed_left 						{ float:left; width:225px; }
+#feed #feed_left .hdr 					{ color:yellow; height:auto; font-size:20px; font-family:Trebuchet MS, sans-serif; padding:20px; }
+#feed #feed_left .img 					{ padding:10px; height:50px; float:left; display:inline-block; width:50px; }
+#feed #feed_left .txtcnt 				{ display:inline-block; width:auto; height:auto; float:left; }
+
+#feed #feed_left .member 				{ width:100%; height:75px; color:black; }
+#feed #feed_left .member .name 			{ padding-top:10px; font-size:14px; width:auto; font-family:Trebuchet MS, sans-serif; height:auto; }
+#feed #feed_left .member .sub 			{ font-size:11px; width:auto; height:auto; float:left; }
+
+/* The list of categories */
+#feed #feed_left #categories 			{ font-family:Arial, sans-serif; padding:0px; list-style:none; color:white; text-transform:uppercase; font-size:14px; margin:5px 0px 5px 0px; }
+#feed #feed_left #categories li 			{ font-family:VegurRegular, sans-serif; line-height:6px; cursor:pointer; padding:5px; color:#404040; text-align:right; margin-bottom:5px; margin-right:10px; transition:0.5s; -webkit-transition:0.5s; -moz-transition:0.5s; behavior: url('/lib/pie/PIE.htc'); }
+#feed #feed_left #categories li:hover	{ color:green; transition:0.5s; -webkit-transition:0.5s; -moz-transition:0.5s; behavior: url('/lib/pie/PIE.htc'); }
+#feed #feed_left #categories .active 	{ color:green; }
+
+/* The "Recent Activity" list button */
+#feed #feed_left #feed_toolbar 				{ padding:0px; margin:0 auto; margin-top:5px; margin-bottom:10px; width:25px; }
+#feed #feed_left #feed_toolbar li 			{ -o-text-shadow:0px 1px 1px green; -moz-text-shadow:0px 1px 1px green; -ms-text-shadow:0px 1px 1px green; -webkit-text-shadow:0px 1px 1px green; text-shadow:0px 1px 1px green; color:#5AC85A; cursor:pointer; display:inline-block; font-size:28px; text-transform:uppercase; list-style:none; text-align:center; letter-spacing:2px; }
+#feed #feed_left #feed_toolbar li:hover 		{ color:lightgreen; }
+#feed #feed_left #feed_toolbar .active 		{ color:white !important; -o-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); -moz-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); -ms-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); -webkit-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); }
+
+/* The right panel */
+#feed #feed_center 						{ overflow:hidden; display:block; margin-left:247px; width:460px; }
+#feed #feed_center .hidden     			{ position:relative !important; visibility:visible !important; display:block !important; -webkit-opacity:0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0; }
+
+/* Every post (activity & items) */
+#feed #feed_center .post 					{ white-space:normal; width:435px; position:relative; overflow:hidden; border-bottom:1px solid #E9E9E9; margin-bottom:5px; padding-bottom:5px; margin-left:10px; }
+#feed #feed_center .post .img 			{ width:60px; overflow:hidden; padding:5px; vertical-align:middle; height:60px; float:left; display:inline-block; }
+#feed #feed_center .post .cocnt 			{ color:black; font-family:Trebuchet MS, sans-serif; display: inline-block; margin-left:10px; margin-top:5px; width:350px; }
+#feed #feed_center .post .hdr 			{ height:auto; font-size:18px; display:block; }
+#feed #feed_center .post .hdr:hover 		{ color:#2ecc71; }
+#feed #feed_center .post .txt 			{ cursor:default; color:#404040; font-family:Trebuchet MS, sans-serif; font-style:italic; font-size:13px; display:block; }
+#feed #feed_center .post .date 			{ font-size:9px; position:absolute; right:5px; bottom:5px; color:gray; }
+
+/* "Just In" panel at the very top */
+#feed #feed_right 						{ color:black; float:right; width:203px; white-space:normal; display:block; }
+#feed #feed_right h2 					{ margin-top:5px; font-size:16px; display:block; color:black; }
+#feed #feed_right h2 a:hover 			{ color:green; }
+#feed #feed_right ul 					{ color:#2b2b2b; font-size:14px; display:block; margin-top:0px; padding:0px; padding-left:25px; }
+#feed #feed_right ul li 				{ margin-top: 5px; }
+
+#feed #feed_right #descpnl 				{ cursor:default; margin-top:5px; margin-left:15px; }
+
+#feed #feed_right .img 					{ float:left; display:none; height:50px; margin-top:10px; margin-left:-1px; width:200px; position:relative; }

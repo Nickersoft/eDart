@@ -1,0 +1,16 @@
+2014-06-01 18:05|Added the word 'ago' to relative dates on item viewing pages.
+2014-06-01 18:08|Removed some weird leftover scripts on the homepage.
+2014-06-01 18:08|Added a semicolon to the &copy HTML entity for added compatibility.
+2014-06-01 18:09|Changed 'others' to 'other' on the Manage Account page (under Privacy Settings).
+2014-06-01 18:09|Added 20 item limit to "Recent Activity" feed.
+2014-06-10 9:00|Fixed a bug on the account login page that not only disallowed users from logging in, but also showed a user's password as they typed it, instead of masking it.
+2014-06-10 21:20|Fixed duplicate use of the word "years" when printing a user's age on the viewing pages for items.
+2014-06-11 16:30|Added disclaimer to the "Report Bug" page stating that we do not in fact keep track of the IP addresses of users.
+2014-06-12 21:30|Converted relative date selection for expiration and due dates to absolute selection using a calender widget.
+2014-06-13 18:43|Fixed an issue involving POST requests which prohibited users from making and withdrawing offers.
+2014-06-14 23:50|Fixed errors on the exchanges pages in which chat was disfunctional and certain CSS styles were not being adhered to.
+2014-06-14 00:04|Fixed an error in which items could not be added due to an "Incomplete Form" error.
+2014-06-15 11:50|Last Location is now fully working and all geo-based code runs on the server side as opposed to the previous JavaScript implementation.
+2014-06-16 13:30|Finally sped up the home feed by making all recent activity static instead of being dynamically computed every time the page loads.
+2014-06-16 22:24|Reluctantly added the ability to delete your user account.
+2014-07-21 22:55|Patched a potential bug that would allow any array-based JSON calls to return malicious data
