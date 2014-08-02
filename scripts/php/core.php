@@ -5,7 +5,7 @@ define("EXPIRED", "expiration");
 define("TRANSACTION", "transactions");
 
 //Include the classes from the API
-include_once "/public/api/api_lib/call.php";
+include_once $_SERVER["DOC_ROOT"] . "/api/api_lib/call.php";
 
 //Turn on error reporting
 error_reporting(E_ALL);

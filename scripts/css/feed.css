@@ -22,7 +22,7 @@
 #feed .img img 						{ max-width:100%; }
 #feed  p                            { font-size:12px; color:dimgray;}
 /* Main activity feed header */
-#feed #feed_title 					{ overflow:hidden; height:22px; display:block; margin-left:247px; width:460px; text-align: center;  padding-bottom:5px; color:dimgray; font-size: 18px; font-family:VegurRegular; margin-bottom: 10px; }
+#feed #feed_title 					{ overflow:hidden; height:22px; display:block; margin-left:247px; width:480px; text-align: center;  padding-bottom:5px; color:dimgray; font-size: 18px; font-family:VegurRegular; margin-bottom: 10px; }
 
 /* Loading icon/text for feed */
 #feed #waitload	  					{ text-align: center; color:dimgray; font-size:11px; }
@@ -47,11 +47,11 @@
 /* The "Recent Activity" list button */
 #feed #feed_left #feed_toolbar 				{ padding:0px; margin:0 auto; margin-top:5px; margin-bottom:10px; width:25px; }
 #feed #feed_left #feed_toolbar li 			{ -o-text-shadow:0px 1px 1px green; -moz-text-shadow:0px 1px 1px green; -ms-text-shadow:0px 1px 1px green; -webkit-text-shadow:0px 1px 1px green; text-shadow:0px 1px 1px green; color:#5AC85A; cursor:pointer; display:inline-block; font-size:28px; text-transform:uppercase; list-style:none; text-align:center; letter-spacing:2px; }
-#feed #feed_left #feed_toolbar li:hover 		{ color:lightgreen; }
+#feed #feed_left #feed_toolbar li:hover 	{ color:lightgreen; }
 #feed #feed_left #feed_toolbar .active 		{ color:white !important; -o-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); -moz-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); -ms-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); -webkit-text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); text-shadow:0px 2px 6px rgba(100, 100, 0, 0.3); }
 
 /* The right panel */
-#feed #feed_center 						{ overflow:hidden; display:block; margin-left:247px; width:460px; }
+#feed #feed_center 						{ overflow:hidden; display:block; margin-left:247px; width:480px; }
 #feed #feed_center .hidden     			{ position:relative !important; visibility:visible !important; display:block !important; -webkit-opacity:0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0; }
 
 /* Every post (activity & items) */
