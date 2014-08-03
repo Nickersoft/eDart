@@ -19,8 +19,14 @@ h1, h2 			{ margin: 0px; padding: 0px; }
 
 main 			{ white-space:nowrap; width:100%; min-width:980px; display:block; overflow:hidden; background:#d0f8ce; }
 
-.background		{ background:url("/img/bg.jpg") repeat center center; }
-.blur 			{ filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=2); text-shadow:0px 0px 10px black; color:transparent; }
+.background					{ background:url("/img/bg.jpg") repeat center center; }
+.blur 						{ filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=2); text-shadow:0px 0px 10px black; color:transparent; }
+.data_table 				{ display:block; margin:0 auto;  margin-top:20px; }
+.data_table td 				{ padding:10px; }
+.data_table table td span 	{ color:dimgray; }
+.data_table td img 			{ border-radius:4px; -webkit-border-radius:4px; border:1px solid dimgray; }
+.valign_top	td		{ vertical-align:top; }
+.valign_bottom	td  { vertical-align:bottom; }
 
 /* Some alignment/sizing stuff */
 .center 		{ display:block; margin-left:auto !important; margin-right:auto !important; }
@@ -47,6 +53,9 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 
 /* Main white, rounded-corner container */
 #mc 			{ background:white; overflow:hidden; width:100%; height:auto; display:inline-block; float:none; margin:10px; padding:15px; position:relative; border-radius:10px; -moz-border-radius:10px; -ms-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border:1px solid lightgray; behavior: url('/lib/pie/PIE.htc'); }
+#mc p 			{ text-indent:20px; color:black; margin:0px; margin-top:5px; margin-bottom:5px; text-align:left; padding:0px 50px 0px 50px; }
+#mc h1			{ color:black; text-align:center; font-size:50px; margin-top:20px; }
+#mc p a 		{ text-decoration:underline; color:black;}
 
 /* The loading bootscreen that appears on pages and whatnot */
 #ldpnl 			{ background: #2ecc71; position:fixed; z-index:300000; width:100%; height:100%; }
@@ -64,6 +73,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #notification 		 { width:100%; min-width:945px; height:60px; max-height:60px; top:0px; display:block; position:fixed; z-index:1500; overflow:hidden; background: #A9E2F3; color:white; font-family:VegurLight; text-align:center; font-size:20px; border-bottom:1px solid #81BEF7; }
 #notification #inner { margin-top:20px;}
 #notification #close { width:25px; height:25px; cursor:pointer; position: absolute; top:20px; right:10px ;}
+
 /* * * * * * * * * * * * * THE BANNER * * * * * * * * * * * * */
 
 /* The infamous green eDart banner */
@@ -102,8 +112,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #banner_placeholder #banner #inner #infobox #user_options:hover		{ color:white; }
 
 /* The mini profile picture in the banner */
-#banner_placeholder #banner #inner #minippic 						{ overflow:hidden; position:relative; border:0px; background:black; width:50px; height:50px; float:right; margin-top:5px; margin-right:5px; }
-#banner_placeholder #banner #inner #minippic img 					{ margin:0px; padding:0px; border-width:0px; }
+#banner_placeholder #banner #inner #minippic 						{ box-shadow:inset 0px 2px 4px rgba(0,0,0,0.3); overflow:hidden; position:relative; border-radius:4px; -webkit-border-radius:4px; width:50px; height:50px; float:right; margin-top:5px; margin-right:5px; behavior: url('/lib/pie/PIE.htc'); }
 
 /* The action buttons shown next to the mini profile panel in the banner */
 #banner_placeholder #banner #inner #tooltips		  			{ z-index:200; text-align:center; float:left; margin-right:10px; margin-top:10px; }
@@ -140,7 +149,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #mcont #bdtxt td b	{ color:white; }
 
 /* The signup panel on the homepage */
-#supnl 				{ white-space:normal; z-index:200; margin: 0px; margin-top: 25px; margin-bottom: 25px; height: 500px; padding: 10px; padding-right: 18px; margin-right:50px; float:left; display:inline-block; width: 400px; color: dimgray; background: url('/img/misty.png'); border:1px solid #EEEEEE; border-left:none; -webkit-border-top-right-radius: 25px; -moz-border-top-right-radius: 25px; -ms-border-top-right-radius:25px; -o-border-top-right-radius: 25px; border-top-right-radius: 25px; -webkit-border-bottom-right-radius: 25px; -moz-border-bottom-right-radius: 25px; -ms-border-bottom-right-radius:25px; -o-border-bottom-right-radius: 25px; border-bottom-right-radius: 25px;  }
+#supnl 				{ white-space:normal; z-index:200; margin: 0px; margin-top: 25px; margin-bottom: 25px; height: 500px; padding: 10px; padding-right: 18px; margin-right:50px; float:left; display:inline-block; width: 400px; color: dimgray; background: url('/img/misty.png'); border:1px solid #EEEEEE; border-left:none; -webkit-border-top-right-radius: 25px; -moz-border-top-right-radius: 25px; -ms-border-top-right-radius:25px; -o-border-top-right-radius: 25px; border-top-right-radius: 25px; -webkit-border-bottom-right-radius: 25px; -moz-border-bottom-right-radius: 25px; -ms-border-bottom-right-radius:25px; -o-border-bottom-right-radius: 25px; border-bottom-right-radius: 25px; behavior: url('/lib/pie/PIE.htc'); }
 #supnl h1 			{ color: dimgray; font-size: 100px; }
 #supnl h2			{ float: right; color: gray; }
 #supnl h3			{ float: left; color: red; font-size:9px; }

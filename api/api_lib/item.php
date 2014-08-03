@@ -30,10 +30,13 @@ class Item
 			$return;
 			$updateBlock = array();
 			$createBlock = array();
+			$getBlock    = array();
+			
 			if(!$bypass)
 			{
 				$updateBlock = array("offers", "status", "image");
 				$createBlock = array("id","offers", "emv", "image");
+				$getBlock    = array("image");
 			}
 
 			switch(strtolower(trim($action)))
@@ -42,7 +45,8 @@ class Item
 					$filter = (isset($argv["filter"])) ? $argv["filter"] : null;
 					$sort   = (isset($argv["sort"]))   ? $argv["sort"]   : null;
 					$order  = (isset($argv["order"]))  ? $argv["order"]  : null;
-					$return = $this->get($filter, $sort, $order, array());
+					
+					$return = $this->get($filter, $sort, $order, $getBlock);
 					break;
 				case "update":
 					$return = $this->update($argv["id"], $argv["fields"], $updateBlock);
@@ -357,7 +361,7 @@ class Item
 		}
 	}
 
-	private function get($filter, $sort, $order, $forbidden=array())
+	private function get($filter, $sort, $order, $forbidden)
 	{
 		global $con;
 
@@ -388,7 +392,7 @@ class Item
 
 		$query .= "ORDER BY " . mysqli_real_escape_string($con, $sort) . " " . mysqli_real_escape_string($con, $order);
 
-		$ret_array = sqlToArray($con, $query, array());
+		$ret_array = sqlToArray($con, $query, $forbidden);
 		$fin_array = array();
 
 		foreach($ret_array as $v)
@@ -453,7 +457,7 @@ class Item
 			}
 			return $ret_arr;
 		}
-
+		
 		return $fin_array;
 	}
 

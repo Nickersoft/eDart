@@ -74,8 +74,7 @@
 				</form>
 
 				<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>">
-					<div id="minippic" >
-						<img src="/me/picture/?size=small" style="width:50px;height:50px;">
+					<div id="minippic" style="background:url('/me/picture/?size=small') center center;">
 					</div>
 				</a>
 
