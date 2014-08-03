@@ -6,14 +6,14 @@ $onload = null;
 
 abstract class Body
 {
-	public function add_action($javascript, $debug = false)
+	public static function add_action($javascript, $debug = false)
 	{
 		global $onload;
 		$debug_string = ($debug) ? "alert(e);" : "";
 		$onload = ($onload) ? ($onload . "try\{$javascript;\}catch(e){$debug_string}") : ($javascript . ";");
 	}
 
-	public function begin($include_banner = true)
+	public static function begin($include_banner = true)
 	{
 		global $onload;
 
@@ -31,7 +31,7 @@ abstract class Body
 		echo minify($body_tag);
 	}
 
-	public function end($include_footer = true)
+	public static function end($include_footer = true)
 	{
 		$body_end = <<<END
 					</main>

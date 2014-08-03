@@ -22,12 +22,12 @@ abstract class Lookup
 		}
 	}
 
-	public function Gender($code = NULL)
+	public static function Gender($code = NULL)
 	{
 		return static::match_class_code(3, $code);
 	}
 
-	public function Pronoun($code)
+	public static function Pronoun($code)
 	{
 		return static::match_class_code(4, $code);
 	}
@@ -37,17 +37,17 @@ abstract class Lookup
 		return static::match_class_code(1, $code);
 	}
 
-	public function Condition($code = NULL)
+	public static function Condition($code = NULL)
 	{
 		return static::match_class_code(2, $code);
 	}
 
-	public function Alert($code)
+	public static function Alert($code)
 	{
 		return static::match_class_code(6, $code);
 	}
 
-	public function Error($code)
+	public static function Error($code)
 	{
 		return static::match_class_code(5, $code);
 	}
