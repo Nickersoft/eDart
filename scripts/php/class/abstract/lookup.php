@@ -3,7 +3,7 @@ include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php";
 
 abstract class Lookup
 {
-	private function match_class_code($class, $code)
+	private static function match_class_code($class, $code)
 	{
 		$connect = mysqli_connect(host(), username(), password(), mainDb());
 		if($code) {
@@ -32,7 +32,7 @@ abstract class Lookup
 		return static::match_class_code(4, $code);
 	}
 
-	public function Category($code = NULL)
+	public static function Category($code = NULL)
 	{
 		return static::match_class_code(1, $code);
 	}
