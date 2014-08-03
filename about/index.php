@@ -110,7 +110,7 @@ Body::begin();
 
 				<div id="mc">
 					<div class="align">
-						<div class="norm" >About</div>
+						<div class="norm" >The Story</div>
 
 						<p>
 							The eDart Trading Initiative was started as a side-project of WPI freshman Tyler Nickerson during the August of 2013 in the bedroom of his parent's house. You can read his letter to the user (circa October 2013) <a href="./letter.php">here</a>.
@@ -139,7 +139,7 @@ Body::begin();
 
 				<div id="mc">
 					<div class="align">
-						<div class="norm">Info for Nerds</div>
+						<div class="norm">The Team</div>
 
 						<p>
 							eDart was (originally) built on an old <a href="http://dell.com/">Dell</a> PC running <a href="http://www.ubuntu.com/">Ubuntu Linux</a>, then later moved to a 2013 <a href="http://www.apple.com/macbook-pro/">MacBook Pro</a>. Written in PHP and JavaScript,

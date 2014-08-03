@@ -3,7 +3,7 @@ include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php";
 
 abstract class Lookup
 {
-	private function match_class_code($class, $code)
+	private static function match_class_code($class, $code)
 	{
 		$connect = mysqli_connect(host(), username(), password(), mainDb());
 		if($code) {
