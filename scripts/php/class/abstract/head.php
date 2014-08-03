@@ -43,7 +43,7 @@ abstract class Head
 		return (isset($DEVICE_TYPE) && $DEVICE_TYPE=="MOBILE");
 	}
 
-	public function begin($title, $use_prefix = true)
+	public static function begin($title, $use_prefix = true)
 	{
 		global $title_string;
 		$title_string = ($use_prefix) ? ("eDart Beta | " . $title) : $title;
@@ -104,12 +104,12 @@ HEAD;
 		echo minify($head_tag);
 	}
 
-	public function end()
+	public static function end()
 	{
 		echo "</head>";
 	}
 
-	public function make($title, $use_prefix = true)
+	public static function make($title, $use_prefix = true)
 	{
 		self::begin($title, $use_prefix);
 		self::end();

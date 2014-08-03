@@ -2,12 +2,12 @@
 
 abstract class HTML
 {
-	public function begin()
+	public static function begin()
 	{
 		echo "<!DOCTYPE html><html>";
 	}
 
-	public function end()
+	public static function end()
 	{
 		echo "</html>";
 	}
