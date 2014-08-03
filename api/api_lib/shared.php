@@ -28,6 +28,13 @@
 
 	function sqlToArray($connection, $query, $blockedFields=array())
 	{
+		if(trim($query)=="")
+		{
+			return array();
+		}
+		
+		mysqli_set_charset($connection, "utf8");
+		
 		$sql_query = mysqli_query ($connection, $query);
 		$masterArray = array();
 

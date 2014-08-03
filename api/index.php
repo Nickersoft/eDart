@@ -1,5 +1,5 @@
 <?php
-include_once "api_lib/call.php";
+include_once $_SERVER["DOC_ROOT"] . "/api/api_lib/call.php";
 
 $lib = strtolower(trim($_GET["lib"]));
 
@@ -39,6 +39,9 @@ switch($lib)
 		$return = 405;
 		break;
 }
+
+header('Content-type: text/html; charset=UTF-8');
+
 //If the return value isn't still null
 if($return){
 	if(is_array($return)) //And if the return value is an array

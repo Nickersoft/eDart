@@ -22,32 +22,7 @@ Body::begin();
 ?>
 		<style>
 
-		.norm{
-		color:black;
-		text-align:center;
-		font-size:50px;
-		margin-top:20px;
-		}
-
-		p {
-		text-indent:20px;
-		color:black;
-		margin:0px;
-		margin-top:5px;
-		margin-bottom:5px;
-		text-align:left;
-		padding:0px 50px 0px 50px;
-		}
-
-		#libtable {display:block; margin:0 auto;  margin-top:20px; }
-		#libtable td { padding:10px; }
-		#libtable td span { color:dimgray; }
-
-		a{text-decoration:underline;color:black;}
-
 		#code_count { border-top:1px solid green; font-family:TitilliumrRegular,Trebuchet MS, sans-serif;font-size:45px;color:green; padding:25px !important; text-align:center;}
-
-		.align{width:100%;display:block;margin:0px auto;margin-bottom:50px;}
 
 		</style>
 
@@ -109,8 +84,8 @@ Body::begin();
 				?>
 
 				<div id="mc">
-					<div class="align">
-						<div class="norm" >The Story</div>
+					<div class="center">
+						<h1>The Story</h1>
 
 						<p>
 							The eDart Trading Initiative was started as a side-project of WPI freshman Tyler Nickerson during the August of 2013 in the bedroom of his parent's house. You can read his letter to the user (circa October 2013) <a href="./letter.php">here</a>.
@@ -136,10 +111,32 @@ Body::begin();
 
 					</div>
 				</div>
+				
+				<div id="mc">
+					<div class="center">
+						<h1>The Team</h1>
+						<p>
+							<table class="data_table valign_top">
+								<tr>
+									<td><img src="/profile.php?id=1&load=image&size=small"></td>
+									<td><strong><a href="/profile.php?id=1">Tyler Nickerson</a></strong></td>
+									<td>Founder, head programmer, and commander-in-chief.</td>
+								</tr>
+							</table>
+							<table class="data_table valign_top">
+								<tr>
+									<td><img src="/profile.php?id=3&load=image&size=small"></td>
+									<td><strong><a href="/profile.php?id=3">Preston Mueller</a></strong></td>
+									<td>Server genius, Git wizard, and head of mobile development.</td>
+								</tr>
+							</table>
+						</p>
+					</div>
+				</div>
 
 				<div id="mc">
-					<div class="align">
-						<div class="norm">The Team</div>
+					<div class="center">
+						<h1>The Nerdy Stuff</h1>
 
 						<p>
 							eDart was (originally) built on an old <a href="http://dell.com/">Dell</a> PC running <a href="http://www.ubuntu.com/">Ubuntu Linux</a>, then later moved to a 2013 <a href="http://www.apple.com/macbook-pro/">MacBook Pro</a>. Written in PHP and JavaScript,
@@ -148,7 +145,7 @@ Body::begin();
 						</p>
 
 						<p>
-							<table id="libtable">
+							<table class="data_table">
 								<tr style="color:dimgray;">
 									<td style="width:200px;">Library</td>
 									<td>Description</td>
