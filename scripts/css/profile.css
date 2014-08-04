@@ -73,7 +73,7 @@
 #profile_container  #profile #content #center #post_container #item_board .item .controls button:hover  { background: dimgray; cursor:pointer; }
 
 /* USER REVIEWS */
-#profile_container  #profile #content #center #post_container #user_reviews .review		            { min-height:100px; overflow:hidden; cursor:default; border-bottom:1px solid #ddd; text-align:left; width:100%; position:relative; display:block;  padding:10px 0px 10px 0px; }
+#profile_container  #profile #content #center #post_container #user_reviews .review		            { min-height:75px; overflow:hidden; cursor:default; border-bottom:1px solid #ddd; text-align:left; width:100%; position:relative; display:block;  padding:10px 0px 10px 0px; }
 #profile_container  #profile #content #center #post_container #user_reviews .review .rating	        { display:block; margin:0 auto; margin-bottom:10px; font-size:32px; }
 #profile_container  #profile #content #center #post_container #user_reviews .review .info	        { white-space:normal; font-style:italic; color:#2b2b2b; font-size:18px; font-family: VegurRegular, sans-serif;  overflow:hidden; text-align:center; vertical-align:top; margin-top:5px; }
 #profile_container  #profile #content #center #post_container #user_reviews .review .info h2	    { margin-left:5px; font-size:20px; }
