@@ -29,7 +29,7 @@ main 			{ white-space:nowrap; width:100%; min-width:980px; display:block; overfl
 .valign_bottom	td  { vertical-align:bottom; }
 
 /* Some alignment/sizing stuff */
-.center 		{ display:block; margin-left:auto !important; margin-right:auto !important; }
+.center 		{ text-align:center; display:block; margin-left:auto !important; margin-right:auto !important; }
 .small_text 	{ font-size:14px !important; }
 .medium_text  	{ font-size:16px !important; }
 
