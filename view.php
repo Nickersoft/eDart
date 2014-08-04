@@ -41,7 +41,7 @@ if(mysqli_connect_errno())
 
 //Get the current item info
 $thisItem = new Item(array("action"=>"get", "filter"=>array("id"=>$_GET["itemid"], "usr"=>$_GET["userid"])));
-$gotItem  = $thisItem->run();
+$gotItem  = $thisItem->run(true);
 
 //If the item can't be found...
 if(count($gotItem)==0)
