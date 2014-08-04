@@ -86,15 +86,17 @@ foreach($items_info as $item)
 			<div id="ads" class="feed_child">
 				<h3>Temporary Ads (Coming Soon)</h3>
 				<p>We know you hate them, but just bare with us a little while, okay?</p>
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- eDart Ads 2 -->
-				<ins class="adsbygoogle"
-				     style="display:inline-block;width:120px;height:240px"
-				     data-ad-client="ca-pub-5519668009926053"
-				     data-ad-slot="9417230623"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
+				<div class="center">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- eDart Ads 2 -->
+					<ins class="adsbygoogle"
+					     style="display:inline-block;width:120px;height:240px"
+					     data-ad-client="ca-pub-5519668009926053"
+					     data-ad-slot="9417230623"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>				
+				</div>
 			</div>
 		</div>
 
