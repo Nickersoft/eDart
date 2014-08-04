@@ -85,23 +85,24 @@
 	</div>
 </div>
 
-<div onclick="display_menu('#notification_menu', this);" id="notify_icon" class="icon fa fa-globe">
-	<?php
-		$user_obj	    = new User(array("action"=>"get", "id"=>$_SESSION["userid"]));
-		$user_info      = $user_obj->run(true);
-		$user_info 		= $user_info[0];
-		$notifications  = $user_info["notify"];
-
-		//Unread message count
-		$new_count = 0;
-		foreach($notifications as $notification)
+<?php 
+	$user_obj	    = new User(array("action"=>"get", "id"=>$_SESSION["userid"]));
+	$user_info      = $user_obj->run(true);
+	$user_info 		= $user_info[0];
+	$notifications  = $user_info["notify"];
+	
+	//Unread message count
+	$new_count = 0;
+	foreach($notifications as $notification)
+	{
+		if($notification["read"]!=1)
 		{
-			if($notification["read"]!=1)
-			{
-				$new_count++;
-			}
+			$new_count++;
 		}
-
+	}
+?>
+<div onclick="display_menu('#notification_menu', this);" id="notify_icon" class="<?php if($new_count!=0): ?> static_active <?php endif; ?> icon fa fa-globe">
+	<?php
 		  if($new_count!=0):
 	?>
 		<div class="badge" onclick="display_menu('#notification_menu', this);"><?php echo $new_count; ?></div>
