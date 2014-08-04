@@ -216,7 +216,7 @@ Body::begin();
 												<span class="fa <?php echo ($i <= $total) ? 'fa-star' : 'fa-star-o' ?>"></span>
 											<?php endfor; ?>
 										</div>
-										<?php echo "&ldquo;{$ranking["description"]}&rdquo;" ?></p>
+										<?php echo (trim($ranking["description"])!="") ? "&ldquo;{$ranking["description"]}&rdquo;" : ""; ?></p>
 										<ul>
 											<li>Reliability: <?php echo $ranking["points"][0]; ?></li>
 											<li><div class="divide"></div></li>
