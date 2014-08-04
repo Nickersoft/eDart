@@ -51,15 +51,16 @@ function getRecentActivity($uid)
 	$user_log = array("id"=>$uid, "name"=>"$fname $lname", "string"=>$ulog_str, "date"=>$ulog_dte, "link"=>$ulog_lnk);
 
 	//Append the log
-	array_push($log, $user_log);
+	array_push($log, $user_log);	
+	
 
 	//Set the pronoun different if it's a girl
-	if(intval($userInfo[0]["gender"])==1)
+	if(intval($userInfo[0]["gender"])==2)
 	{
 		$posse = "her";
 		$prono = "she";
 	}
-	else if(intval($userInfo[0]["gender"])==0)
+	else if(intval($userInfo[0]["gender"])==1)
 	{
 		$posse = "his";
 		$prono = "he";
