@@ -31,7 +31,7 @@ class Item
 			$updateBlock = array();
 			$createBlock = array();
 			$getBlock    = array();
-			
+
 			if(!$bypass)
 			{
 				$updateBlock = array("offers", "status", "image");
@@ -45,7 +45,7 @@ class Item
 					$filter = (isset($argv["filter"])) ? $argv["filter"] : null;
 					$sort   = (isset($argv["sort"]))   ? $argv["sort"]   : null;
 					$order  = (isset($argv["order"]))  ? $argv["order"]  : null;
-					
+
 					$return = $this->get($filter, $sort, $order, $getBlock);
 					break;
 				case "update":
@@ -346,11 +346,11 @@ class Item
 			$pronoun = "his/her";
 			switch(intval($userInfo[0]["gender"]))
 			{
-				case 0:
+				case 1:
 					$pronoun = "his";
 					break;
 
-				case 1:
+				case 2:
 					$pronoun = "her";
 			}
 
@@ -457,7 +457,7 @@ class Item
 			}
 			return $ret_arr;
 		}
-		
+
 		return $fin_array;
 	}
 

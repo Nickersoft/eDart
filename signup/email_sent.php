@@ -56,7 +56,7 @@ Body::begin();
 
 					//Print out the header
 					$infotxt = <<<EOD
-					<h1 style="text-align:center;margin-bottom:10px;margin-top:10px;">Validation Email Sent</h1>
+					<h1 style="text-align:center;margin-bottom:10px;margin-top:10px;font-size:32px;">Validation Email Sent</h1>
 					<div style="font-size:14px;text-align:center;">to %s </div>
 EOD;
 					echo sprintf($infotxt, $uinfo["email"]);

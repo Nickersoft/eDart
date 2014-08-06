@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  * Page Name: Notify
  * Purpose: Send notifications and emails
  * Last Updated: 6/6/2014
@@ -17,35 +17,39 @@ include_once $_SERVER["DOC_ROOT"]."/scripts/php/core.php"; //Import core functio
 function sendNotify($userid, $msg, $link, $subject=null)
 {
 	$umail = "noreply@wewanttotrade.com";
-	$uname = "User";
+	$ufname = "eDart";
+	$ulname = "User";
 	$domail = 1;
-	
+
 	//PART I: Write to the database
 	$con = mysqli_connect(host(), username(), password(), mainDb());
 	$q = "INSERT INTO notify(`usr`,`date`,`message`,`link`) VALUES('" . mysqli_real_escape_string($con, $userid) . "','" . mysqli_real_escape_string($con, time()) . "','" . mysqli_real_escape_string($con, $msg) . "','" . mysqli_real_escape_string($con, $link) . "')"; //Insert a new row into the author's notifications
 	mysqli_query($con, $q); //Execute
-	
-	$query = mysqli_query($con, "SELECT * FROM usr WHERE id='".mysqli_real_escape_string($con, $userid)."'");
-	while($r = mysqli_fetch_array($query))
+
+	$user_call = new User(array("action"=>"get","id"=>$userid));
+	$user_info = $user_call->run(true);
+	if(count($user_info)!=0)
 	{
-		if(trim($r["eaddr"])!=""){$umail = $r["eaddr"];}
-		$ufname = ucwords($r["fname"]);
-		$ulname = ucwords($r["lname"]);
-		$domail = $r["domail"];
+		$user_info = $user_info[0];
+		$umail  = $user_info["email"];
+		$ufname = ucwords($user_info["fname"]);
+		$ulname = ucwords($user_info["lname"]);
+		$domail = $user_info["do_mail"];
 	}
-	mysqli_close($con);
-	
-	$greetings = array("Just wanted to let you know that:<br><br> %s. <br><br>That is all. Have a good rest of your day!", 
-		"In case you didn't know: <br><br>%s<br><br> Better go check it out.", 
-		"We hope you're having a good day! Just thought you might you want to know:<br><br> %s. <br><br>That is all. Carry on!", 
+
+	$greetings = array("Just wanted to let you know that:<br><br> %s. <br><br>That is all. Have a good rest of your day!",
+		"In case you didn't know: <br><br>%s<br><br> Better go check it out.",
+		"We hope you're having a good day! Just thought you might you want to know:<br><br> %s. <br><br>That is all. Carry on!",
 		"Don't mean to break your flow, but we just thought you might want to know that<br><br> %s. <br><br>If you get the chance, you can check it out back at eDart. For now, live long and prosper!",
 		"Hope your day is going splendidly! Just thought we'd let you know that:<br><br> %s. <br><br>When you have the time, check it out on eDart. Cool. For now, bye.");
-		
+
 	$fullmsg = sprintf($greetings[rand(0, (count($greetings)-1))], $msg);
+
 	if($subject==null)
 	{
 		$subject=$msg;
 	}
+
 	//PART II: Send them an email
 	if($domail==1){
 		sendMail($umail, $ufname, $ulname, $subject, $fullmsg, $link, "View on eDart");
@@ -53,14 +57,14 @@ function sendNotify($userid, $msg, $link, $subject=null)
 }
 
 function sendMail($to, $fname, $lname, $subject, $msg, $link, $btnTxt){
-	
+
 $from = 'eDart <no-reply@wewanttotrade.com>';
 $date = date("r");
 
 if(strpos($link, "http://")===false) {
 	$link = "http://wewanttotrade.com/" . $link;
 }
-$html  = "<html><head><title>$subject</title></head><body style=\"padding-bottom:10px;background:white;\"><style type=\"text/css\">* { margin:0px; padding:0px; } 
+$html  = "<html><head><title>$subject</title></head><body style=\"padding-bottom:10px;background:white;\"><style type=\"text/css\">* { margin:0px; padding:0px; }
 		</style>";
 $html .= "<div style=\"position:relative;overflow:hidden;max-height:60px;height:60px;border:0px;display:block;background:#2ECC71;border-bottom:1px solid #269F58;\">";
 $html .= "<table><tr><td style=\"padding:10px;\">";
@@ -111,7 +115,7 @@ curl_setopt($crl, CURLOPT_POSTFIELDS, $post_string);
 curl_setopt ($crl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($crl, CURLOPT_CONNECTTIMEOUT, $timeout);
 $ret = curl_exec($crl);
-echo $ret;
+
 curl_close($crl);
 
 /*
@@ -132,22 +136,20 @@ $mail->FromName = "eDart";
 $mail->addAddress($to, $fname . " " . $lname);  // Add a recipient
 $mail->SMTPDebug = 2;
 $mail->Subject = $subject;
-$mail->Body    = $html;  
+$mail->Body    = $html;
 $mail->AltBody = $msg;
 $mail->SmtpClose();
 
 $mail->XMailer = "";
-$mail->Encoding = "base64"; 
+$mail->Encoding = "base64";
 
 if(!$mail->send()) {
 	    $info = 'Failed to send the message!';
 	}
 	else{
 	    $info = 'Message has been forwarded to sendmail.';}
-	    echo $info;  
+	    echo $info;
 */
 }
-
 //sendMail("tjnickerson@live.com", "Tyler", 'Nickerson', "New eDart Notification", "Tyler Nickerson DJs like a mad cunt", "http://www.wewanttotrade.com/", "Click here");
-
 ?>
