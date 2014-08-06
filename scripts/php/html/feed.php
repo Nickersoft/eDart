@@ -92,7 +92,7 @@ foreach($items_info as $item)
 				<?php endif; ?>
 			</div>
 			<div id="ads" class="feed_child">
-				<h3>Temporary Ads (Coming Soon)</h3>
+				<h3>Temporary Ads</h3>
 				<p>We know you hate them, but just bare with us a little while, okay?</p>
 				<div class="center">
 					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
