@@ -188,6 +188,10 @@ function get_recent_activity()
 			//Make an API call and start the help
 			$.get("/api/", { "lib" : "feed" } , function(data)
 			{
+				if(data==parseInt(data))
+				{
+					data = "<p style='margin-top:0px;'>No content to display</p>";
+				}
 				document.getElementById("postCont").innerHTML = data;
 				adjust_feed();
 			});
