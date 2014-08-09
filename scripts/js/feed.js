@@ -276,13 +276,12 @@ try
 	});
 
 	//Allow static scrolling (so it sticks to top of page)
-	addEvent(window, "scroll", function(e)
-	{
-		$("#feed #left").stick_in_parent(
+	$("#feed #left").stick_in_parent(
 			{
 				offset_top : 70
 			});
-	});
+
+
 
 }
 catch(e){console.log(e);}
