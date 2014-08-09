@@ -276,9 +276,10 @@ try
 	});
 
 	//Allow static scrolling (so it sticks to top of page)
-	$("#feed #feed_left").stick_in_parent(
+	/*$("#feed #feed_left").stick_in_parent(
 			{
-			});
+				offset_top : 70
+			});*/
 
 
 }
