@@ -91,6 +91,43 @@ foreach($items_info as $item)
 					<p>There is no featured item today</p>
 				<?php endif; ?>
 			</div>
+			
+			<div id="requests" class="feed_child">
+				<h3>Nearby Item Requests</h3>
+				<section id="request_list">
+					<?php 
+						$item_req_obj = new Feed();
+						$item_arr = $item_req_obj->local_items();
+						if(count($item_arr)!=0):
+					?>
+					<p>Have an item? Why not post it?</p>
+					<ul id="request_container">
+					<?php
+						for($i = 0; $i < 5; $i++):
+							if(isset($item_arr[$i])):
+								$item = $item_arr[$i];
+					?>
+						<li><?php echo ucwords($item["name"]); ?>
+					<?php endif; 
+					endfor; ?>
+					</ul>
+					<?php endif; ?>
+					<p>
+					 Want to make a request? <br/> <a onclick="display_post_irequest();">Click here.</a>
+					</p>
+				</section>
+				
+				<section id="request_post">
+					<a onclick="display_list_irequest();" class="pull_right fa fa-times" style="color:gray;"></a>
+					<p>Type the name of your item below, then click 'Submit'</p>
+					<input id="item-request-name" type="text" class="small_text fill_x reset_margin" placeholder="Item Name" />
+					<button onclick="post_irequest();" class="small_text center bbtn" style="margin-top:10px;">Submit</button>
+				</section>
+				
+			
+					<p id="request_thanks">Thanks! Keep your eyes open for anyone who posts it!</p>
+			</div>
+			
 			<div id="ads" class="feed_child">
 				<h3>Temporary Ads</h3>
 				<p>We know you hate them, but just bare with us a little while, okay?</p>

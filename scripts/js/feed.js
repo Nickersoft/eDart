@@ -186,7 +186,7 @@ function get_recent_activity()
 			$("#all").addClass("active"); //Highlight the element
 
 			//Make an API call and start the help
-			$.get("/api/", { "lib" : "feed" } , function(data)
+			$.get("/api/", { "lib" : "feed", "action" : "get" } , function(data)
 			{
 				if(data==parseInt(data))
 				{
@@ -225,6 +225,48 @@ function push_title(title)
 		catch(e){alert(e);}
 }
 
+/*
+ *	    Name: display_post_irequest
+ *   Purpose: Displays panel for posting item requests
+ *   Returns: Void
+ */
+function display_post_irequest()
+{
+	$("#request_list").fadeOut(function() {
+		$("#request_post").fadeIn();
+	});
+}
+
+/*
+ *	    Name: display_list_irequest
+ *   Purpose: Displays panel for listing item requests
+ *   Returns: Void
+ */
+function display_list_irequest()
+{
+	$("#request_post").fadeOut(function() {
+		$("#request_list").fadeIn();
+	});
+}
+
+/*
+ *	    Name: post_irequest
+ *   Purpose: Post an item request
+ *   Returns: Void
+ */
+function post_irequest()
+{
+	$.get("/api/", { "lib" : "feed", "action" : "post-request", "name" : $("#item-request-name").val() }, function(data) {
+		$("#request_post").fadeOut(function() {
+			$("#request_thanks").fadeIn(function() {
+				$("#request_thanks").delay(2000).fadeOut(function() {
+					$("#request_list").fadeIn();
+				});
+			});
+		});
+	});
+}
+
 try
 {
 	//Get recent activity on load
@@ -234,13 +276,12 @@ try
 	});
 
 	//Allow static scrolling (so it sticks to top of page)
-	addEvent(window, "scroll", function(e)
-	{
-		$("#feed #left").stick_in_parent(
+	/*$("#feed #feed_left").stick_in_parent(
 			{
 				offset_top : 70
-			});
-	});
+			});*/
+
 
 }
 catch(e){console.log(e);}
+

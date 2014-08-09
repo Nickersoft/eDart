@@ -16,6 +16,37 @@ class Feed
 		$argv = $parameters;
 	} 
 
+	public function run($bypass = false)
+	{
+		global $con, $argv;
+		
+		$action = $argv["action"];
+		if(!isset($action))
+		{
+			return 401;
+		}
+		else
+		{
+			$return;
+
+			switch(strtolower(trim($action)))
+			{
+				case "get":
+					$return = $this->get();
+					break;
+				case "get-request":
+					$return = $this->local_items();
+					break;
+				case "post-request":
+					$return = $this->post_request($argv["name"]);
+					break;
+			}
+		
+			return $return;
+		}
+		mysqli_close($con);
+	}
+	
 	//Add a post to the feed
 	public function add($usr, $string, $date, $link)
 	{
@@ -31,6 +62,40 @@ class Feed
 		return 200;
 	}
 
+	public function post_request($item_name)
+	{
+		global $con;
+	
+		if(!$_SESSION["userid"])
+		{
+			return 403;
+		}
+		else if(!$item_name)
+		{
+			return 401;
+		}
+		else
+		{
+			$query = "INSERT INTO `request`(`usr`,`name`,`date`) VALUES ('".mysqli_real_escape_string($con, $_SESSION["userid"])."','".mysqli_real_escape_string($con, $item_name)."','".time()."')";
+			mysqli_query($con, $query);
+			return 200;
+		}
+	}
+	
+	public function local_items()
+	{
+		global $con;
+
+		if(!$_SESSION["userid"])
+		{
+			return 403;
+		}
+		else 
+		{
+			return sqlToArray($con, "SELECT * FROM request WHERE NOT(`usr`='".mysqli_real_escape_string($con, $_SESSION["userid"])."') ORDER BY `date` DESC");
+		}
+	}
+	
 	public function get($id)
 	{
 		global $con;

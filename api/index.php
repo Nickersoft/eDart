@@ -33,7 +33,7 @@ switch($lib)
 		break;
 	case "feed":
 		$library = new Feed($_GET);
-		$return  = $library->get();
+		$return  = $library->run();
 	break;
 	default:
 		$return = 405;

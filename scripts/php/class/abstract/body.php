@@ -38,6 +38,7 @@ abstract class Body
 				<script type="text/javascript" src="/lib/jquery-1.10.2/jquery-1.10.2.min.js"></script>
 				<script type="text/javascript" src="/lib/chosen/chosen.jquery.min.js"></script>
 				<script type="text/javascript" src="/lib/jquery-placeholder/jquery.placeholder.js"></script>
+				<script type="text/javascript" src="/lib/jquery-sticky/jquery.sticky-kit.min.js"></script>
 				<script type="text/javascript" src="/lib/purl/purl.js"></script>
 				<script type="text/javascript" src="/lib/toastr/toastr.min.js"></script>
 				<script type="text/javascript" src="/lib/min/?g=js"></script>

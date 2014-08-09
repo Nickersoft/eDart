@@ -26,8 +26,7 @@ if(trim($contents)=="")
 	//...use the default image
 	$contents = file_get_contents($_SERVER["DOC_ROOT"]."/img/user_icon_200.png");
 }
-else //If it is set...
-{
+
 	//If a size is specified...
 	if(isset($_GET["size"]))
 	{
@@ -39,7 +38,6 @@ else //If it is set...
 				break;
 		}	
 	}
-}
 
 echo $contents; //Print the image
 
