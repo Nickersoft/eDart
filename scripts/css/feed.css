@@ -73,3 +73,8 @@
 #feed #feed_right #descpnl 				{ cursor:default; margin-top:5px; margin-left:15px; }
 
 #feed #feed_right .img 					{ float:left; display:none; height:50px; margin-top:10px; margin-left:-1px; width:200px; position:relative; }
+
+#feed #feed_right #request_container	{ list-style:none; }
+#feed #feed_right #request_post			{ display:none; }
+#feed #feed_right #request_thanks		{ display:none; }
+
