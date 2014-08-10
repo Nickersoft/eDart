@@ -13,7 +13,7 @@ function push_error(code) {
 
 function init_alert()
 {
-	var $code = $.url(location.URL).param("alert");
+	var $code = $.url(document.URL).param("alert");
 	if($code)
 	{
 		push_alert($code);
@@ -22,7 +22,7 @@ function init_alert()
 
 function init_error()
 {
-	var $code = $.url(location.URL).param("error");
+	var $code = $.url(document.URL).param("error");
 	if($code)
 	{
 		push_error($code);
