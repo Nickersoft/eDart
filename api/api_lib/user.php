@@ -118,6 +118,7 @@ class User
 					$query = substr($query, 0, strlen($query)-1);
 
 					$query .= " WHERE `id`='".$esc_sesh."'"; //Finish the query string, updating where the user ID = the current user's
+					echo $query;
 					mysqli_query($con, $query); //Execute the query
 
 					return 200; //Return a string, showing completion
