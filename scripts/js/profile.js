@@ -11,7 +11,7 @@ function delete_item(id)
 		"action":"delete",
 		"id":id
 	}, function() {
-		window.location = document.URL + "&alert=602";
+		window.location = document.URL.split("&")[0]  + "&alert=602";
 	});
 }
 
@@ -142,7 +142,7 @@ function user_send_data()
 	};
 
 	$.get("/api/", { "lib" : "user", "action" : "update", "fields" : fields }, function(r){
-		window.location = document.URL + "&alert=603";
+		window.location = document.URL.split("&")[0] + "&alert=603";
 	});
 }
 
@@ -163,7 +163,7 @@ function privacy_send_data()
 	var json_string = "[" + array_contents + "]";
 
 	$.get("/api/", { "lib" : "user", "action" : "update", "fields" : {"privacy" : json_string} }, function(r){
-		window.location = document.URL + "&alert=604";
+		window.location = document.URL.split("&")[0] + "&alert=604";
 	});
 }
 
