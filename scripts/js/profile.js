@@ -136,13 +136,12 @@ function user_send_data()
 		"gender" 	: gender,
 		"bio"		: bio,
 		"dob"		: dob,
-		"domail"	: domail,
+		"do_mail"	: domail,
 		"fname"   	: fname,
 		"lname"		: lname
 	};
 
 	$.get("/api/", { "lib" : "user", "action" : "update", "fields" : fields }, function(r){
-		alert(r);
 		window.location = document.URL + "&alert=603";
 	});
 }
