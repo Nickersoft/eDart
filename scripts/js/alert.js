@@ -14,7 +14,7 @@ function push_error(code) {
 function init_alert()
 {
 	var $code = $.url(document.URL).param("alert");
-	if(($code)&&($code.length !== +$code.length))
+	if($code&&!isNaN($code))
 	{
 		push_alert($code);
 	}
@@ -23,7 +23,7 @@ function init_alert()
 function init_error()
 {
 	var $code = $.url(document.URL).param("error");
-	if(($code)&&($code.length !== +$code.length))
+	if($code&&!isNaN($code))
 	{
 		push_error($code);
 	}
