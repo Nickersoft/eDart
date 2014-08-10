@@ -14,7 +14,6 @@ function push_error(code) {
 function init_alert()
 {
 	var $code = $.url(document.URL).param("alert");
-	alert(!isNaN($code));
 	if($code&&!isNaN($code))
 	{
 		push_alert($code);
