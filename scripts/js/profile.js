@@ -142,6 +142,7 @@ function user_send_data()
 	};
 
 	$.get("/api/", { "lib" : "user", "action" : "update", "fields" : fields }, function(r){
+		alert(r);
 		window.location = document.URL + "&alert=603";
 	});
 }
