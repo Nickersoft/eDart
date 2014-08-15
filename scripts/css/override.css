@@ -1,0 +1,13 @@
+/* * * * * * * * * * * *
+ *	   BOOTSTRAP	   *
+ * * * * * * * * * * * */
+.modal-content				{ border-radius:4px; } 
+.modal-header				{ background:#F8F8F8; border-bottom:1px solid #eee;  }
+.modal-title				{ color:#8A8A8A; text-align:center; font-family:TitilliumLight, sans-serif; }
+
+/* * * * * * * * * * * *
+ *		UIKIT		   *
+ * * * * * * * * * * * */
+ 
+.uk-nav-side>li>a 			{ border-radius:4px; -webkit-border-radius:4px; behavior:url('/lib/pie/PIE.htc'); }
+.uk-nav-side>li.uk-active>a { background:#26C281;}

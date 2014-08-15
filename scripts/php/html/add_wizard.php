@@ -9,8 +9,8 @@
 					&times;
 				</button>
 
-				<h4 class="modal-title" id="wz_title">
-					Post an Item
+				<h4 class="modal-title" data-default="New Item" id="wz_title">
+					New Item
 				</h4>
 
 				</div>
@@ -182,11 +182,11 @@
   					<li class="bullet"></li>
   				</ul>
 
-    			<button type="button" id="add_back" class="bbtn" onclick="pull_slide();">
+    			<button type="button" id="add_back" class="button_primary blue" onclick="pull_slide();">
     				Back
     			</button>
 
-    			<button type="button" id="add_next" data-action="next" onclick="activate_next();" class="gbtn">
+    			<button type="button" id="add_next" data-action="next" onclick="activate_next();" class="button_primary green">
     				Next
     			</button>
 

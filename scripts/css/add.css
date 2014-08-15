@@ -10,7 +10,7 @@
 
 #add_wizard				 		{ white-space:nowrap; height:260px; display:block; width:100%; overflow:hidden; }
 
-#add_wizard h1 					{ font-family:VegurLight, Trebuchet MS, sans-serif; font-size:16px; text-align: center; margin:0px 0px 10px 0px; letter-spacing:4px; text-transform:uppercase; padding:0px; color:gray; }
+#add_wizard h1 					{ line-height:1em; font-family:VegurLight, Trebuchet MS, sans-serif; font-size:16px; text-align: center; margin:0px 0px 10px 0px; letter-spacing:4px; text-transform:uppercase; padding:0px; color:gray; }
 #add_wizard h2 					{ font-weight:normal; font-family:VegurRegular; text-align: center; font-size:16px; }
 #add_wizard p 					{ font-family:VegurLight; margin-bottom:20px; font-size:14px; color:#2b2b2b; text-align: center; }
 

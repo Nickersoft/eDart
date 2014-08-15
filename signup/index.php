@@ -4,7 +4,7 @@ include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php";
 HTML::begin();
 Head::begin("Sign Up");
 Body::add_action("pre_home()");
-Body::begin();
+Body::begin(true, true);
 ?>
 
 <div id="home_container">
