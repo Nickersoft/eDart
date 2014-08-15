@@ -142,7 +142,7 @@ Body::begin();
 							<h1 class="text_large">Contact Us</h1>
 							<p>Have some super cool suggestions that you think will improve the site? Just feel like sending us fan mail? Here's the best ways to get in contact with us here eDart:</p>
 							<dl>
-								<dd><i class="uk-icon-map-marker"></i> P.O. Box 100 Institute Rd, Worcester, MA 01609</dd>
+								<dd><i class="uk-icon-map-marker"></i> P.O. Box #3678, 100 Institute Rd, Worcester, MA 01609</dd>
 								<dd><i class="uk-icon-phone"></i> 508-207-6765</dd>
 								<dd><i class="uk-icon-envelope"></i> edart@wpi.edu</dd>
 							</dl>
