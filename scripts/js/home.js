@@ -1,7 +1,11 @@
 function show_panel(parent, id)
 {
-	$(parent + " .panel").hide();
-	$(parent + " " + id).show();
+	try {
+		$(parent + " .panel").hide();
+		$(parent + " " + id).show();
+	}catch(e){
+		console.log(e);
+	}
 }
 
 function display_menu(menu, icon)

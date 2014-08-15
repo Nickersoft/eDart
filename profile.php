@@ -284,7 +284,7 @@ Body::begin(true, true);
 								<input type="password" id="user_npw"   name="new_pw" class="small_text" placeholder="New Password"		  />
 								<input type="password" id="user_rpw"   name="ret_pw" class="small_text" placeholder="Retype New Password" />
 
-								<button class="bbtn" onclick="password_send_data();">Change Password</button>
+								<button class="button_primary blue" onclick="password_send_data();">Change Password</button>
 							</div>
 							<div id="delete_account" class="edit_section">
 								<h3>Delete Account</h3>
