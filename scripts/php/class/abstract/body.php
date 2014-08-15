@@ -13,7 +13,7 @@ abstract class Body
 		$onload = ($onload) ? ($onload . "try\{$javascript;\}catch(e){$debug_string}") : ($javascript . ";");
 	}
 
-	public static function begin($include_banner = true)
+	public static function begin($include_banner = true, $no_padding = false)
 	{
 		global $onload;
 
@@ -24,7 +24,14 @@ abstract class Body
 			include_once $_SERVER["DOC_ROOT"] . "/scripts/php/html/banner.php";
 		}
 
-		$body_tag .= "<main>";
+		$body_tag .= "<main";
+		
+		if($no_padding)
+		{
+			$body_tag .= " class = \"reset_padding\"";
+		}
+		
+		$body_tag .= ">";
 
 		$body_tag .= "<div id=\"loader\"></div>";
 
@@ -41,6 +48,7 @@ abstract class Body
 				<script type="text/javascript" src="/lib/jquery-sticky/jquery.sticky-kit.min.js"></script>
 				<script type="text/javascript" src="/lib/purl/purl.js"></script>
 				<script type="text/javascript" src="/lib/toastr/toastr.min.js"></script>
+				<script type="text/javascript" src="/lib/uikit/js/uikit.min.js"></script>
 				<script type="text/javascript" src="/lib/min/?g=js"></script>
 END;
 

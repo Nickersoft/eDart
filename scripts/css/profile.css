@@ -14,8 +14,8 @@
 #profile_container 														                            { height:100%; width:100%; display:block; position:relative; }
 
 /* MAIN PROFILE (100%) */
-#profile_container 	#profile											                            { min-height:999px; box-shadow:0px 2px 6px rgba(100,100,0,0.3); width:100%; margin:0 auto; display:block; background:#E6FFE1; }
-#profile_container  #profile .group                                                                 { z-index:-1; background:white; padding-left:10px; display:inline-block; vertical-align:top; box-shadow:0px 2px 6px rgba(100,100,0,0.3); border-radius:4px; }
+#profile_container 	#profile											                            { min-height:999px; box-shadow:0px 2px 6px rgba(100,100,0,0.3); width:100%; margin:0 auto; display:block; }
+#profile_container  #profile .group                                                                 { z-index:-1; padding-left:10px; display:inline-block; vertical-align:top; }
 #profile_container  #profile .profile_tab_content                                                   { display:none; }
 
 /* THE PRETTY IMAGE BANNER */
@@ -25,10 +25,10 @@
 /* THE USER'S NAME AND ACTIVE STRING */
 #profile_container 	#profile #header								                                { width:978px; margin:0 auto; height:70px; position:relative; }
 #profile_container  #profile #header #text                                                          { margin-left:200px; margin-top:-70px; font-family: VegurLight, sans-serif; font-size:16px; color:white; white-space:nowrap; }
-#profile_container 	#profile #header #text h1								                        { display:inline-block; font-size:48px; font-family:TitilliumBold, sans-serif; color:white; }
+#profile_container 	#profile #header #text h1								                        { line-height:70px; display:inline-block; font-size:48px; font-family:TitilliumBold, sans-serif; color:white; }
 
 /* THE PANEL TITLE */
-#profile_container  #profile #title 										                        { width:100%; text-align:center; border-top:1px solid lightgreen; font-size:24px; box-shadow:0px 1px 2px rgba(100,100,0,0.3); padding:10px 0px; font-family:TitilliumLight, sans-serif; color:#4BB478; margin-bottom:10px; background:#BEFFC8;}
+#profile_container  #profile #title 										                        { width:100%; text-align:center; font-size:24px; border-bottom:1px solid lightgray; padding:14px 0px 10px 0px; font-family:VegurRegular, sans-serif; color:#A8A8A8; margin-bottom:10px; background:#F0F0F0; }
 
 /* THE MAIN BODY */
 #profile_container  #profile #content 										                        {  width:978px; margin:0 auto; display:block; }
@@ -48,14 +48,14 @@
 #profile_container 	#profile #content #left #info button						                    { width:75%; font-size:14px; display:block; margin:0 auto; }
 
 /* THE MAIN PANELS (CENTER) */
-#profile_container  #profile #content #center 								    	                { display:inline-block; padding:10px; width:575px; margin-top:10px; vertical-align: top; text-align: center;  }
+#profile_container  #profile #content #center 								    	                { display:inline-block; padding:10px; width:575px; vertical-align: top; text-align: center;  }
 #profile_container  #profile #content #center h1									                { color:#2b2b2b; width:100%; border-bottom:2px solid #2b2b2b; padding-bottom:10px;}
 #profile_container  #profile #content #center h5                                                    { color:dimgray; margin:0px; padding:0px; }
 
 /* RECENT ACTIVITY */
 #profile_container  #profile #content #center #post_container #recent_activity                      { display:block; }
-#profile_container  #profile #content #center #post_container #recent_activity .post				{ border:1px solid lightgray; font-family:VegurRegular, sans-serif; color:#2b2b2b; min-height:50px; border-radius:4px; margin-bottom:10px; padding-bottom:10px; }
-#profile_container  #profile #content #center #post_container #recent_activity .post .date		    { font-size:14px; display:block; margin-bottom:10px; width:100%; background:#2ecc71; border-bottom:1px solid green; padding-top:5px; color:white; padding-bottom:5px; }
+#profile_container  #profile #content #center #post_container #recent_activity .post				{ background:white; border:1px solid lightgray; font-family:VegurRegular, sans-serif; color:#2b2b2b; min-height:50px; border-radius:4px; margin-bottom:10px; padding-bottom:10px; }
+#profile_container  #profile #content #center #post_container #recent_activity .post .date		    { font-size:14px; display:block; margin-bottom:10px; width:100%; background:#26C281; border-bottom:1px solid #3AA61C; padding-top:5px; color:white; padding-bottom:5px; }
 
 /* ITEM INVENTORY*/
 #profile_container  #profile #content #center #post_container #item_board .item		                    { min-height:100px; cursor:pointer; border:1px solid white; border-bottom:1px dotted #ddd; text-align:left; width:100%; position:relative; display:block;  padding:10px 0px 10px 0px; }

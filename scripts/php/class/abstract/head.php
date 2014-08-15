@@ -48,15 +48,6 @@ abstract class Head
 		global $title_string;
 		$title_string = ($use_prefix) ? ("eDart Beta | " . $title) : $title;
 
-		$mobile_css = "";
-
-		//If the device is mobile...
-		if(is_mobile())
-		{
-			//...use a mobile stylesheet
-			$mobile_css = "<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"/scripts/css/mob/mobile.css\">";
-		}
-
 		$head_tag = <<<HEAD
 				<head>
 					<title>$title_string</title>
@@ -81,14 +72,14 @@ abstract class Head
 					</noscript>
 
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit/css/uikit.almost-flat.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Titillium/stylesheet.css">
-					<link rel="stylesheet" type="text/css" media="screen" href="/lib/font-awesome/css/font-awesome.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/chosen/chosen.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/toastr/toastr.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
-
+							
 					<script>
-						document.cookie='';
+						/*document.cookie='';
 
 						(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 						(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -96,7 +87,7 @@ abstract class Head
 						})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 						ga('create', 'UA-44057002-1', 'wewanttotrade.com');
-						ga('send', 'pageview');
+						ga('send', 'pageview');*/
 					</script>
 
 

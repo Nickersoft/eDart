@@ -3,13 +3,13 @@
 	if(!isset($_SESSION["userid"])){ die; }
 ?>
 
-<div onclick="$('#postbox').modal();" class="icon fa fa-plus"></div>
+<div onclick="$('#postbox').modal();" class="icon uk-icon-plus"></div>
 
 <?php
 	$my_exchanges   = new Exchange(array("action"=>"find"));
 	$exchange_array = $my_exchanges->run();
 ?>
-<div onclick="display_menu('#exchange_menu', this);" id="exchange_icon" class="<?php if(count($exchange_array)!=0): ?> static_active <?php endif; ?> icon fa fa-exchange">
+<div onclick="display_menu('#exchange_menu', this);" id="exchange_icon" class="<?php if(count($exchange_array)!=0): ?> static_active <?php endif; ?> icon uk-icon-exchange">
 	<?php
 	 	  if(count($exchange_array)!=0): ?>
 			<div class="badge" onclick="display_menu('#exchange_menu', this);"><?php echo count($exchange_array); ?></div>
@@ -101,7 +101,7 @@
 		}
 	}
 ?>
-<div onclick="display_menu('#notification_menu', this);" id="notify_icon" class="<?php if($new_count!=0): ?> static_active <?php endif; ?> icon fa fa-globe">
+<div onclick="display_menu('#notification_menu', this);" id="notify_icon" class="<?php if($new_count!=0): ?> static_active <?php endif; ?> icon uk-icon-globe">
 	<?php
 		  if($new_count!=0):
 	?>

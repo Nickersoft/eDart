@@ -1,3 +1,9 @@
+function show_panel(parent, id)
+{
+	$(parent + " .panel").hide();
+	$(parent + " " + id).show();
+}
+
 function display_menu(menu, icon)
 {
 	$(".icon").css("border-bottom", "");
@@ -58,10 +64,25 @@ function facebook_login()
 	}
 }
 
-    (function(d){
+    /*(function(d){
 		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 		if (d.getElementById(id)) {return;}
 		js = d.createElement('script'); js.id = id; js.async = true;
 		js.src = "//connect.facebook.net/en_US/all.js";
 	  	ref.parentNode.insertBefore(js, ref);
-  }(document));
+  }(document));*/
+
+$(document).ready(function() {
+	$(".panel").hide();
+	$("ul[data-switcher-parent]").each(function() {
+		var $parent = $(this).attr("data-switcher-parent");
+		$(this).find("li a[data-switcher-id]").each(function() {
+			$(this).click(function() {
+				$(this).closest("ul").find("li").removeClass("uk-active");
+				$(this).closest("li").addClass("uk-active");
+				show_panel($parent, $(this).attr("data-switcher-id"));
+			});
+		});
+	});
+	$(".uk-nav li a").eq(0).click();
+});

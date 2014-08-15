@@ -19,4 +19,3 @@ function print_login_error()
 
 	document.getElementById('cntlgnm').innerHTML = greeting;
 }
-

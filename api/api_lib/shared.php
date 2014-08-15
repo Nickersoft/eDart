@@ -109,7 +109,7 @@
 		$query =  substr($query, 0, strlen($query)-1);
 
 		$query .= ")";
-echo $query;
+		
 		mysqli_query($connection, $query);
 	}
 

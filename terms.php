@@ -19,43 +19,45 @@ if(!isset($_SESSION["userid"]))
 	exit;
 }
 
+
+//Connect to MySQL
+$con   = mysqli_connect(host(), username(), password(), mainDb());
+
+//Get the user
+$query = mysqli_query($con, "SELECT * FROM usr WHERE id='".mysqli_real_escape_string($con, trim($_SESSION["userid"]))."'");
+
+//Look at their status
+while($r = mysqli_fetch_array($query))
+{
+	switch($r["status"])
+	{
+		//If they haven't validated their email yet (0)
+		case 0:
+			//Redirect
+			header("Location:/signup/email_sent.php");
+			exit;
+			break;
+
+			//If they are already validated
+		case 2:
+			//Redirect
+			header("Location:/me");
+			exit;
+			break;
+	}
+}
+
+//Close the connection
+mysqli_close($con);
+
 HTML::begin();
 Head::make("Terms and Conditions");
 Body::begin();
 
-			//Connect to MySQL
-			$con   = mysqli_connect(host(), username(), password(), mainDb());
-
-			//Get the user
-			$query = mysqli_query($con, "SELECT * FROM usr WHERE id='".mysqli_real_escape_string($con, trim($_SESSION["userid"]))."'");
-
-			//Look at their status
-			while($r = mysqli_fetch_array($query))
-			{
-				switch($r["status"])
-				{
-					//If they haven't validated their email yet (0)
-					case 0:
-						//Redirect
-						header("Location:/signup/email_sent.php");
-						exit;
-						break;
-
-					//If they are already validated
-					case 2:
-						//Redirect
-						header("Location:/me");
-						exit;
-						break;
-				}
-			}
-
-			//Close the connection
-			mysqli_close($con);
-
 			?>
 
 			<div id="trmcnt" style="margin-top:20px;margin-bottom:20px;">
+				<h1 class="uk-text-center" style="padding-bottom:1em;">Agreeing to the Terms of Service</h1>
 				<div id="trmbx" style="white-space:normal;">
 					<?php
 
@@ -65,10 +67,11 @@ Body::begin();
 					?>
 				</div>
 
-				<div style="text-align:center;color:darkgreen;font-size:18px;margin-top:10px;margin-bottom:10px;">You must agree to the above terms before you can create your account.</div>
-				<div align="center"><input type="button" onclick="window.location='/signup/validate.php';" class="gbtn" value="I Agree"><input style="font-size:20px;margin-left:10px;" onclick="logout();" type="button" class="bbtn" value="I Refuse"></div>
-
-			</div>
+				<div class="text_medium uk-text-center" style="padding-top:10px;padding-bottom:10px;">You must agree to the above terms before you can create your account.</div>
+				<div class="uk-text-center">
+					<a href="/signup/validate.php" class="button_primary green">I Agree</a>
+					<a class="button_primary red" href="javascript:void(0);" onclick="logout();">I Refuse</a>
+				</div>
 <?php
 Body::end();
 HTML::end();

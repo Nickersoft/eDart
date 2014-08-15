@@ -45,36 +45,15 @@ Body::begin();
 			$uinfo   = $uinfo[0];
 
 			//Send an email to the user
-			sendMail($uinfo["email"], $uinfo["fname"], $uinfo["lname"], "Validate Your Email", "Click the button below to validate your email.", "signup/continue.php?auth=".urlencode($ukey), "Validate Email");
+			//sendMail($uinfo["email"], $uinfo["fname"], $uinfo["lname"], "Validate Your Email", "Click the button below to validate your email.", "signup/continue.php?auth=".urlencode($ukey), "Validate Email");
 
 			?>
 
-			<div id="mc_cont" style="width:500px;margin-top:50px;margin-bottom:50px;">
-				<div  id="mc" style="width:500px;">
-
-					<?php
-
-					//Print out the header
-					$infotxt = <<<EOD
-					<h1 style="text-align:center;margin-bottom:10px;margin-top:10px;font-size:32px;">Validation Email Sent</h1>
-					<div style="font-size:14px;text-align:center;">to %s </div>
-EOD;
-					echo sprintf($infotxt, $uinfo["email"]);
-
-					//Print out the 'continue' button
-					echo "<table id=\"loginbx\" style=\"height:auto;width:500px;margin-top:30px;\">
-							<tr>
-								<td>
-							<input 	type=	\"button\"
-								style=	\"width:100px;font-size:14px;display:block;margin:0 auto;\"
-								class=	\"gbtn\"
-								onclick=\"location.reload(true);\"
-								value=	\"Resend\"
-							/>
-								</td>
-							</tr>
-						</table>";
-					?>
+			<div class="layout-978 uk-container-center">
+				<div class="uk-width-1-3 uk-align-center">
+					<h1>Validation Email Sent</h1>
+					<div class="text_small uk-text-center">to <?php echo $uinfo["email"]; ?><br/>
+					<input style="margin-top:1.5em;"	type="button" class="button_primary text_medium green uk-align-center" onclick="location.reload(true);" value="Resend" />
 				</div>
 			</div>
 		<?php

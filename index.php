@@ -6,7 +6,7 @@
 	 * Signature: Tyler Nickerson
 	 * Copyright 2014 eDart
 	 *
-	 * [Do not remove this header. One MUST be included at the start of every page/script]
+	 * [Do not remove this header. One MUST be included aut the start of every page/script]
 	 *
 	 */
 
@@ -21,14 +21,15 @@
 	{
 		//We run a collection of feed functions
 		Body::add_action("pre_feed()");
+		Body::begin();
 	}
 	else //If not...
 	{
 		//We run some home functions
 		Body::add_action("pre_home()");
+		Body::begin(true, true);
 	}
 
-	Body::begin();
 
 	//If we aren't logged in, print the home/splash page
 	if(!isset($_SESSION["userid"]))
