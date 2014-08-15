@@ -21,7 +21,7 @@
 	{
 		//We run a collection of feed functions
 		Body::add_action("pre_feed()");
-		Body::begin();
+		//Body::begin();
 	}
 	else //If not...
 	{
