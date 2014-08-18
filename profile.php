@@ -186,10 +186,10 @@ Body::begin(true, true);
 									<?php if(isset($_SESSION["userid"])&&($_SESSION["userid"]==$_GET["id"])): ?>
 										<div class="controls">
 											<?php	if($item["status"]==1): ?>
-														<button class="edit_button" title="Edit Item" data-id="<?php echo $item["id"]; ?>" ><span class="fa fa-pencil"></span></button>
-														<button class="delete_button" title="Delete Item" data-id="<?php echo $item["id"]; ?>"><span class="fa fa-times"></span></button>
+														<button class="edit_button" title="Edit Item" data-id="<?php echo $item["id"]; ?>" ><span class="uk-icon-pencil"></span></button>
+														<button class="delete_button" title="Delete Item" data-id="<?php echo $item["id"]; ?>"><span class="uk-icon-times"></span></button>
 											<?php   else: ?>
-														<button style="height:100%;" title="View Exchange" class="exchange_button"><span class="fa fa-eye"></span></button>
+														<button style="height:100%;" title="View Exchange" class="exchange_button"><span class="uk-icon-eye"></span></button>
 											<?php   endif; ?>
 										</div>
 									<?php endif; ?>
@@ -216,7 +216,7 @@ Body::begin(true, true);
 									<div class="info">
 										<div class="rating">
 											<?php for($i = 0; $i < 5; $i++): ?>
-												<span class="fa <?php echo ($i <= $total) ? 'fa-star' : 'fa-star-o' ?>"></span>
+												<span class="<?php echo ($i <= $total) ? 'uk-icon-star' : 'uk-icon-star-o' ?>"></span>
 											<?php endfor; ?>
 										</div>
 										<?php echo (trim($ranking["description"])!="") ? "&ldquo;{$ranking["description"]}&rdquo;" : ""; ?></p>
@@ -321,9 +321,9 @@ Body::begin(true, true);
 
 			<div id="right">
 				<ul>
-					<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="fa fa-bars"></span>Recent Activity</li>
-					<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="fa fa-cubes"></span>Item Inventory</li>
-					<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="fa fa-star"></span>User Reviews</li>
+					<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="uk-icon-bars"></span>Recent Activity</li>
+					<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="uk-icon-cubes"></span>Item Inventory</li>
+					<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="uk-icon-star"></span>User Reviews</li>
 				</ul>
 			</div>
 		</div>
