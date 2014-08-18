@@ -241,7 +241,7 @@ Body::begin();
 										<td>What makes our selectboxes look freaking killer.</td>
 									</tr>
 									<tr>
-										<td><a href="http://harvesthq.github.io/chosen/">UIKit</a></td>
+										<td><a href="http://getuikit.com/">UIKit</a></td>
 										<td>A faster, lighter, way-cooler alternative to Bootstrap that we're using to enforce mobile compatibility. It also makes the rest of the site look neater and way awesomer.</td>
 									</tr>
 	
