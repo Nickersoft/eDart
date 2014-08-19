@@ -30,19 +30,16 @@ main 			{ padding-top:2em; padding-bottom:2em; white-space:nowrap; width:100%; m
 .valign_bottom	td  { vertical-align:bottom; }
 
 /* Some alignment/sizing stuff */
-.text_small 	{ font-size:14px !important; line-height:1em; }
+.text_small 	{ font-size:1em !important; line-height:1em; }
 .text_medium  	{ font-size:1.2em !important; line-height:1.2em; }
 .text_large		{ font-size:4em !important; line-height:1em; }
-.fill_x			{ width:100%; }
-.fill_y			{ height:100%; }
-.fill			{ width:100%; height:100%; }
 .reset_padding	{ padding:0px !important; }
 .reset_margin	{ margin:0px !important; }
 
 /* The splash loader on every page */
 
-#loader { background:#26C281 url('/img/loader.gif') no-repeat center center; width:100%; top:0px; left:0px; height:100%; position: fixed; z-index:10000; }
-
+#loader 			{ background:#26C281; width:100%; top:0px; left:0px; height:100%; position: fixed; z-index:10000; }
+#loader span 		{ color:white; display:block; width:100%; text-align:center; font-size:2em; margin-top:25%; }
 /* Every textbox ever */
 .hidden_input 															{ outline:none; border:none; cursor:pointer; width:100%; }
 .hidden_input:focus														{ box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; -webkit-box-shadow:none; border:none; }

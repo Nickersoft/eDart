@@ -174,7 +174,7 @@ CREATE TABLE `usr` (
   `email` text NOT NULL,
   `password` text NOT NULL,
   `profile_pic` longblob NOT NULL,
-  `gender` int(11) NOT NULL,
+  `gender` int(11) NOT NULL DEFAULT '0',
   `join_date` bigint(20) NOT NULL,
   `last_location` text NOT NULL,
   `dob` bigint(20) NOT NULL,
