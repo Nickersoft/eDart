@@ -40,29 +40,26 @@ else //However, if there is...
 		if(trim($img_contents)=="")
 		{
 			//...use the default image
-			echo file_get_contents($_SERVER["DOC_ROOT"]."/img/default.png");
+			$img_contents = file_get_contents($_SERVER["DOC_ROOT"]."/img/default.png");
 		}
-		else
-		{
-			//If a size is specified in the GET request...
-			if(isset($_GET["size"]))
-			{
-				switch(strtolower(trim($_GET["size"])))
-				{
-					case "small": //If it's small...
-						//...resize the image accordingly
-						$img_contents = WideImage::load($img_contents)->resize(50)->asString('jpg');	
-						break;
-					case "thumbnail": //If it's small...
-						//...resize the image accordingly
-						$img_contents = WideImage::load($img_contents)->resize(200)->asString('jpg');	
-						break;
-				}
-			}
 
-			//Print out the image
-			echo $img_contents;
+			//If a size is specified in the GET request...
+		if(isset($_GET["size"]))
+		{
+			switch(strtolower(trim($_GET["size"])))
+			{
+				case "small": //If it's small...
+					//...resize the image accordingly
+					$img_contents = WideImage::load($img_contents)->resize(50)->asString('jpg');	
+					break;
+				case "thumbnail": //If it's small...
+					//...resize the image accordingly
+					$img_contents = WideImage::load($img_contents)->resize(200)->asString('jpg');	
+					break;
+			}
 		}
+		//Print out the image
+		echo $img_contents;		
 	}
 }
 ?>

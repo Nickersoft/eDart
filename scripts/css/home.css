@@ -1,10 +1,9 @@
-#home_container 											{ padding:2em 0 5em 0; overflow:hidden; white-space:normal; position: relative; background:black; background:transparent; background:rgba(0,0,0,0.4); width:100%; height:100%; display:block; }
-#home_container h1 									{ font-weight:bold; line-height:1.1em; color:white; font-family: TitilliumBold, Trebuchet MS, sans-serif; font-size:60px; margin-top:10px;  }
-#home_container ul						{ padding:0; padding-left:1em; color:white; list-style:none; font-size:1.4em; }
-#home_container ul li					{ line-height:2.5em; }
+#home_container 						{ padding:2em 0 5em 0; overflow:hidden; white-space:normal; position: relative; background:black; background:transparent; background:rgba(0,0,0,0.4); width:100%; height:100%; display:block; }
+#home_container h1 						{ font-weight:bold; line-height:1.1em; color:white; font-family: TitilliumBold, Trebuchet MS, sans-serif; font-size:3.5em; margin-top:10px;  }
+#home_container ul						{ padding:0; padding-bottom:1em; padding-left:1em; color:white; list-style:none; font-size:1.4em; }
+#home_container ul li					{ margin-top:1.2em; }
 #home_container ul li i					{ width:1.5em; font-size:1.5em; padding-top:0.3em; }
 #home_container ul li span				{ font-size:1.1em; font-weight:bold; }
-
 
 #home_container #signup input			{ font-size:20px; width:100%; }
 #home_container #signup span			{ font-size:11px; color:white; }
@@ -23,6 +22,10 @@
 #home_container #signup #signup_submit			{ margin:0 auto; width:100%; display:block; }
 
 #home_container #home_arrow  { color:gold; font-size:48px; text-align:center; display:none; }
+
+@media (max-width: 978px) {
+	#home_container h1 { text-align:center; } 
+}
 
 @media (max-width: 400px) {
     #home_container #inner,

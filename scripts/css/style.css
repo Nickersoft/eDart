@@ -20,7 +20,7 @@ h1, h2 			{ margin: 0px; padding: 0px; font-family:VegurRegular, sans-serif; }
 dd i 			{ width:1.5em; }
 main 			{ padding-top:2em; padding-bottom:2em; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
 
-.background					{ background:url("/img/bg.jpg") repeat center center; }
+.background					{ background:url("/img/bg.jpg") repeat center center; background-size:cover; }
 .blur 						{ filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=2); text-shadow:0px 0px 10px black; color:transparent; }
 .data_table 				{ display:block; margin:0 auto;  margin-top:20px; white-space:normal; }
 .data_table td 				{ padding:10px; }
@@ -44,7 +44,7 @@ main 			{ padding-top:2em; padding-bottom:2em; white-space:nowrap; width:100%; m
 .hidden_input 															{ outline:none; border:none; cursor:pointer; width:100%; }
 .hidden_input:focus														{ box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; -webkit-box-shadow:none; border:none; }
 
-input[type="text"], input[type="password"], textarea					{ box-sizing:border-box; font-size: 1.3em; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; outline:none; color: black; margin-top: 15px; text-align: center; font-family: VegurRegular, sans-serif !important; -webkit-border-radius:4px; -moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; border-radius:4px; border:1px solid lightgray; transition-property:border; -webkit-transition:0.4s; -moz-transition:0.4s; -ms-transition:0.4s; -o-transition:0.4s; transition:0.4s; behavior: url('/lib/pie/PIE.htc'); }
+input[type="text"], input[type="password"], textarea					{ box-sizing:border-box; font-size: 1em; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; outline:none; color: black; margin-top: 15px; text-align: center; font-family: VegurRegular, sans-serif !important; -webkit-border-radius:4px; -moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; border-radius:4px; border:1px solid lightgray; transition-property:border; -webkit-transition:0.4s; -moz-transition:0.4s; -ms-transition:0.4s; -o-transition:0.4s; transition:0.4s; behavior: url('/lib/pie/PIE.htc'); }
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-transition-property:border; -moz-transition-property:border; -ms-transition-property:border; -webkit-transition-property:border; transition-property:border; -moz-box-shadow:0px 0px 4px skyblue; -ms-box-shadow:0px 0px 4px skyblue; -o-box-shadow:0px 0px 4px skyblue; -webkit-box-shadow:0px 0px 4px skyblue; box-shadow:0px 0px 4px skyblue;box-shadow:0px 0px 4px skyblue; border:1px solid skyblue; transition:0.4s; -moz-transition:0.4s; -webkit-transition:0.4s; }
 
 .datebox input		  { margin:0px; font-size:14px; }
@@ -217,4 +217,11 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 
 	#mc
 	{ margin:0px; margin-top:10px; padding:0px; }
+}
+
+
+@media (max-width: 978px) {
+	.layout-978 {
+		width:100% !important;
+	}
 }

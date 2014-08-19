@@ -352,6 +352,7 @@ class Item
 
 				case 2:
 					$pronoun = "her";
+					break;
 			}
 
 			$feed = new Feed();
@@ -361,7 +362,7 @@ class Item
 		}
 	}
 
-	private function get($filter, $sort, $order, $forbidden)
+	private function get($filter, $sort = "adddate", $order = "ASC", $forbidden = array())
 	{
 		global $con;
 

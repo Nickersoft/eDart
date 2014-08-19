@@ -39,7 +39,6 @@
 		$masterArray = array();
 
 		$columnArray = array ();
-
 		while ( $fld = mysqli_fetch_field ( $sql_query ) ) 	// While there are fields in the table (there are)
 		{
 			$fieldname = $fld->name; // The field name of the current column
