@@ -212,7 +212,7 @@ Body::begin();
 								<div id="xchgapp">
 									<div id="chatpnl">
 										<div id="chtxt"
-											 style="font-size:48px;margin:10px;margin-top:70px;text-align:center;color:white;">
+											 style="font-size:48px;margin:20px;margin-top:90px;text-align:center;color:white;">
 											 	Chat With $other_fname
 										</div>
 
@@ -276,7 +276,7 @@ EOD;
 
 				echo "<input name=	\"msgtxt\"
 							 type=		\"text\"
-							 id=		\"msgtxt\"
+							 id=		\"msgtxt\" 
 							 class=		\"xchgbx\"
 							 data-default = \"$msgdstr\"
 							 data-set = \"1\"

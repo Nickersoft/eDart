@@ -12,28 +12,27 @@
 /* Master container */
 #xchgapp 								{ background:white; height:100%; display:block; width:100%; position:fixed; }
 #xchgapp .head 							{ margin-top:5px; font-family:VegurRegular, Trebuchet MS, sans-serif; color:#2b2b2b; font-size:18px; margin-bottom:10px; text-align:left; }
-#xchgapp .hdr 							{ font-family:VegurRegular, Trebuchet MS, sans-serif; }
-#xchgapp .xchgbx 						{ background:transparent; color:#A5FFA2; border:none; text-align:center; font-family:VegurRegular, Trebuchet MS, sans-serif; padding:10px; }
+#xchgapp .xchgbx 						{ background:transparent; color:#C8FFE9; border:none; text-align:center; font-family:VegurRegular, sans-serif; padding:10px; }
 /* The main chat panel */
-#xchgapp #chatpnl						{ width:35%; z-index:200; position:fixed; background:#2ecc71; right:0px; top:0px; overflow:hidden; float:right; border:1px solid #0961D3; border-left:0px solid black; height:100%; }
+#xchgapp #chatpnl						{ width:35%; z-index:200; position:fixed; background:#26C281; right:0px; top:0px; overflow:hidden; float:right; border:1px solid #0961D3; border-left:0px solid black; height:100%; }
 #xchgapp #chatpnl a 					{ color:white; }
 #xchgapp #chatpnl #chtxt 				{ font-family:VegurLight, Trebuchet MS, sans-serif; }
-#xchgapp #chatpnl .msg					{ min-height:75px; width:100%; overflow:hidden; position:relative; border-bottom:1px solid #2DB655; margin-top:10px; }
+#xchgapp #chatpnl .msg					{ min-height:75px; width:100%; overflow:hidden; position:relative; border-bottom:1px solid #3BA579; margin-top:10px; }
 #xchgapp #chatpnl .msg .inner			{ padding:10px; }
 #xchgapp #chatpnl .msg .pic				{ width:75px; height:75px; box-shadow:0px 1px 2px black; }
 #xchgapp #chatpnl .msg .holder			{ display:inline-block; cursor:default; position:absolute; width:100%; top:10px; }
 #xchgapp #chatpnl .msg .img_wrap 		{ cursor:pointer; height:75px; display:inline-block; margin-right:10px; }
 #xchgapp #chatpnl .msg .title			{ color:white; font-size:18px; margin:0px; margin-bottom:5px; }
 #xchgapp #chatpnl .msg .body			{ text-indent:15px; color:white; margin:0px; overflow:hidden; width:100%; font-size:12px; }
-#xchgapp #chatpnl .msg .date 			{ font-size:11px; position:absolute; bottom:0px; right:0px; margin:10px; color:#9BFF9E; }
+#xchgapp #chatpnl .msg .date 			{ font-size:11px; position:absolute; bottom:0px; right:0px; margin:10px; color:#B6FFE1; }
 
 /* The send message box */
-#xchgapp #msgtxt 						{ outline:none;border:none;font-size:16px;position:absolute;bottom:0px;width:100%; } 
-
+#xchgapp #msgtxt 						{ outline:none; border:none;font-size:16px;position:absolute;bottom:0px;width:100%; } 
+#xchgapp #msgtxt:hover 					{ box-shadow:none; -webkit-box-shadow:none; border:none; } 
 
 /* The container for all other widgets (below the map) */
 #xchgapp  #cont							{ margin-top:1px solid #808080; padding-left:10px; position:relative; width:63%; overflow:auto; height:100%; vertical-align:top; display:inline-block; }
-#xchgapp  #cont .hdr					{ color:#2b2b2b; font-family:Trebuchet MS; margin-top:10px; font-size:32px; }
+#xchgapp  #cont .hdr					{ color:#2b2b2b; font-family:Trebuchet MS; padding-top:10px; font-size:32px; }
 
 /* The date selector table */
 #xchgapp #cont td 						{ color:black; font-size:14px; text-align:right; padding:10px; }
@@ -70,8 +69,9 @@
 
 #xchgapp #cont #ratetable .ranktbl		{ border-spacing:0px; width:100%; height:20px; }
 #xchgapp #cont #ratetable .bar 			{ padding:1px; cursor:pointer; height:45px; width:25px; }
-#xchgapp #cont #ratetable .highlighted 	{ background:#BCF5A9; }
-#xchgapp #cont #ratetable .ltxt 		{ text-align:right; font-family:VegurRegular, sans-serif; font-size:20px;  margin-right:10px; color:dimgray; }
+#xchgapp #cont #ratetable .highlighted 	{ background:#65C79E; }
+#xchgapp #cont #ratetable .ltxt 		{ text-align:right; font-family:VegurRegular, sans-serif; font-size:20px;  padding-right:10px; color:dimgray; }
 
 /* Countdown to meetup/pickup */
 #xchgapp #cont #cntdwn					{ color:#2b2b2b; display:block; position:relative; margin:0 auto; text-align:center; font-size:100px; }
+
