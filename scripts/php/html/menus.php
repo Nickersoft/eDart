@@ -114,7 +114,7 @@
 		<div id="container">
 			<?php
 				if(count($notifications)==0): ?>
-				<h6>You have no current exchanges</h6>
+				<h6>You have no current notifications</h6>
 			<?php
 				else:
 					foreach($notifications as $notification):

@@ -58,7 +58,7 @@
 #profile_container  #profile #content #center #post_container #recent_activity .post .date		    { font-size:14px; display:block; margin-bottom:10px; width:100%; background:#26C281; border-bottom:1px solid #3AA61C; padding-top:5px; color:white; padding-bottom:5px; }
 
 /* ITEM INVENTORY*/
-#profile_container  #profile #content #center #post_container #item_board .item		                    { min-height:100px; cursor:pointer; border:1px solid white; border-bottom:1px dotted #ddd; text-align:left; width:100%; position:relative; display:block;  padding:10px 0px 10px 0px; }
+#profile_container  #profile #content #center #post_container #item_board .item		                    { min-height:100px; cursor:pointer; border:1px solid transparent; border-bottom:1px dotted #ddd; text-align:left; width:100%; position:relative; display:block;  padding:10px 0px 10px 0px; }
 #profile_container  #profile #content #center #post_container #item_board .item:hover	                { border:1px solid #ddd; border-radius:4px; overflow:hidden; background:#F0F0F0; }
 #profile_container  #profile #content #center #post_container #item_board .item:hover>.controls	        { display:block; }
 #profile_container  #profile #content #center #post_container #item_board .item p	                    { width:350px; font-size:14px; font-family:VegurRegular, sans-serif; font-style: italic; margin:0; margin-left:25px; margin-top:5px; padding:0; }

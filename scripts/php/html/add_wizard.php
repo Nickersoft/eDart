@@ -92,7 +92,7 @@
        					<p>In order to post an item, you must have an expiration date (not to be confused with a due date, which is next). This is how long the item will be available to accept offers. Once you've selected an expiration date, click 'Next'. </p>
 
 				            <div class="form-group">
-				                <div class='input-group date center datebox' id="wz_expiration">
+				                <div class='input-group date uk-align-center datebox' id="wz_expiration">
 				                    <input type='text' class="form-control" id="wz_expiration_str" readonly />
 				                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 				                    </span>
@@ -110,7 +110,7 @@
        					</div>
 
 			            <div id="duedate_container" class="form-group">
-			                <div class='input-group date center datebox' id='wz_duedate' >
+			                <div class='input-group date uk-align-center datebox' id='wz_duedate' >
 			                    <input type='text' class="form-control"  id='wz_duedate_str' readonly />
 			                    <span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
