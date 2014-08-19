@@ -32,7 +32,7 @@
 
 /* The container for all other widgets (below the map) */
 #xchgapp  #cont							{ margin-top:1px solid #808080; padding-left:10px; position:relative; width:63%; overflow:auto; height:100%; vertical-align:top; display:inline-block; }
-#xchgapp  #cont .hdr					{ color:#2b2b2b; font-family:Trebuchet MS; padding-top:10px; font-size:32px; }
+#xchgapp  #cont .hdr					{ color:#2b2b2b; font-family:Trebuchet MS; padding-top:20px; font-size:32px; }
 
 /* The date selector table */
 #xchgapp #cont td 						{ color:black; font-size:14px; text-align:right; padding:10px; }
