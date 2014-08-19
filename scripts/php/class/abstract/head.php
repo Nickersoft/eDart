@@ -79,7 +79,7 @@ abstract class Head
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
 							
 					<script>
-						/*document.cookie='';
+						document.cookie='';
 
 						(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 						(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -87,7 +87,7 @@ abstract class Head
 						})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 						ga('create', 'UA-44057002-1', 'wewanttotrade.com');
-						ga('send', 'pageview');*/
+						ga('send', 'pageview');
 					</script>
 
 
