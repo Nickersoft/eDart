@@ -15,7 +15,7 @@
 
 				if(array_key_exists($key, $array))
 				{
-					$return_array = array_merge($return_array, array($key=>$value));
+					$return_array[$key] = $value;
 				}
 				else
 				{

@@ -64,6 +64,7 @@ function initialize_cell_data()
 function push_date(timestamp)
 {
 	var ret = null;
+	var offerid = $.url(window.location).param("offerid");
 	$.ajax({
 		type: "GET",
 		url: "/api/", 
