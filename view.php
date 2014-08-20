@@ -120,23 +120,21 @@ $jdate 		= $userGet[0]["join_date"];
 $full_url = urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
 /* * * ACCEPTING AN ITEM * * */
+if(isset($_POST["accept"])&&trim($_POST["accept"])!="")
+{
+	//Create a new exchange
+	$acceptExchange = new Exchange(array("action"=>"create", "item1"=>$_GET["itemid"], "item2"=>$_POST["accept"]));
+	$acceptExchange->run();
 
-	if(isset($_POST["accept"])&&trim($_POST["accept"])!="")
-	{
-		//Create a new exchange
-		$acceptExchange = new Exchange(array("action"=>"create", "item1"=>$_GET["itemid"], "item2"=>$_POST["accept"]));
-		$acceptExchange->run();
-
-		//Redirect to the new exchange page
-		header("Location: /".$url);
-		exit;
-	}
+	//Redirect to the new exchange page
+	header("Location: /".$url);
+	exit;
+}
 
 /* * * WITHDRAWING AN ITEM * * */
-
+	
 	if(isset($_POST["withdraw"])&&trim($_POST["withdraw"])!="")
 	{
-
 		//Get info about the withdrawl item
 		$wdRequest = new Item(array("action"=>"get", "filter"=>array("id"=>$_POST["withdraw"])));
 		$wdInfo    = $wdRequest->run(true);
@@ -368,6 +366,7 @@ Body::begin();
 					<div id="righti">
 						<div id="offerbrd">
 							<h2>Make an Offer</h2>
+							<form id="itemform" action="/<?php echo $url; ?>" method="post">
 							<?php $disallow_offers = true; //Disables the ability to make offers ?>
 							<div class="notxt">
 								<?php if($expire < time()): ?>
@@ -385,8 +384,8 @@ Body::begin();
 										$disallow_offers = false;
 									  endif; ?>
 							</div>
+							
 							<?php if(!$disallow_offers): ?>
-									<form id="itemform" action="/<?php echo $url; ?>" method="post">
 										<select name= "offer" id= "offerbox" class= "chosen-select chosen-search" data-placeholder="Please select an item" onchange= "document.getElementById('itemform').submit();" autocomplete= "off">
 											<option></option>
 											<?php foreach($user_items as $item):
@@ -395,9 +394,9 @@ Body::begin();
 											<?php 	endif;
 												  endforeach; ?>
 										</select>
-										<input type="hidden" value="" name="withdraw"  id="withdrawitem" />
-									</form>
 							<?php endif; ?>
+								<input type="hidden" value="" name="withdraw"  id="withdrawitem" />
+							</form>
 
 							<?php if(count($offers) == 0): ?>
 								<div class="notxt">No offers yet!</div>

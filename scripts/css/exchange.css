@@ -28,7 +28,7 @@
 
 /* The send message box */
 #xchgapp #msgtxt 						{ outline:none; border:none;font-size:16px;position:absolute;bottom:0px;width:100%; } 
-#xchgapp #msgtxt:hover 					{ box-shadow:none; -webkit-box-shadow:none; border:none; } 
+#xchgapp #msgtxt:focus 					{ box-shadow:none; -webkit-box-shadow:none; border:none; } 
 
 /* The container for all other widgets (below the map) */
 #xchgapp  #cont							{ margin-top:1px solid #808080; padding-left:10px; position:relative; width:63%; overflow:auto; height:100%; vertical-align:top; display:inline-block; }
@@ -39,23 +39,23 @@
 #xchgapp #cont td span 					{ color:dimgray; display:inline-block; padding-left:4px; }
 
 #xchgapp #cont .odd  					{ color:#404040; }
-#xchgapp #cont .even 					{ background:#2ecc71; }
+#xchgapp #cont .even 					{ background:#26C281; }
 #xchgapp #cont .even td 				{ color:white; }
 #xchgapp #cont .time_hcell 				{ font-size:12px; }
 
-#xchgapp #cont .selected 				{ background:#F5DA81; }
-#xchgapp #cont .selected:hover 			{ background:#F5DA81 !important; }
+#xchgapp #cont .selected 				{ background:#2B7A5A; }
+#xchgapp #cont .selected:hover 			{ background:#2B7A5A !important; }
 
-#xchgapp #cont .bright 					{ background:#22864B; }
-#xchgapp #cont .bright:hover 			{ background:#22864B !important; }
+#xchgapp #cont .bright 					{ background:#34EB9F; }
+#xchgapp #cont .bright:hover 			{ background:#34EB9F !important; }
 
-#xchgapp #cont .faded 					{ background:#7ACE9D; }
+#xchgapp #cont .faded 					{ background:#7FDDB6; }
 
 #xchgapp #cont .timecell 				{ cursor:pointer; }
-#xchgapp #cont .timecell:hover 			{ background:#33E46D; }
+#xchgapp #cont .timecell:hover 			{ background:#34EB9F; }
 
 /* The Google map and its accompaning text */
-#xchgapp #map-overlay 					{ position:fixed; z-index:1; width:65%; height:40%; background:url('/img/transb.png'); display:none; color:white; font-size:48px; text-align:center; font-family:VegurLight, Trebuchet MS, sans-serif; }
+#xchgapp #map-overlay 					{ line-height:1em; position:fixed; z-index:1; width:65%; height:40%; background:url('/img/transb.png'); display:none; color:white; font-size:48px; text-align:center; font-family:VegurLight, Trebuchet MS, sans-serif; }
 #xchgapp #map-txt						{ position:absolute !important; height:25px; width:100%; text-align:center; display:block; top:auto; font-size:25px; color:white; z-index:1; bottom:10px; cursor:pointer; }
 
 /* The table allowing for users to be ranked */

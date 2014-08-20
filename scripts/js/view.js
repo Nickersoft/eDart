@@ -51,18 +51,6 @@ function acceptOffer(itemid)
 	document.getElementById("itemform").submit();
 }
 
-//Send an item report
-function sendReport()
-{
-	$.post("/scripts/php/writelog.php", { "url" : document.URL }, function() {
-		document.getElementById("repbtn").style.color = "white";
-		document.getElementById("repbtn").style.cursor="default";
-		document.getElementById("repbtn").onclick=function(){};
-		document.getElementById("repbtn").innerText="Report sent!";
-		document.getElementById("repbtn").innerHTML="Report sent!";
-	});
-}
-
 function showImg()
 {
 	document.getElementById("shadowbox").style.display="block";

@@ -103,7 +103,18 @@ function showSetDate(timestamp)
 
 function message_send(message)
 {
-	$.get("/api/", { "lib" : "exchange", "action":"send", "id" : offerid, "message" : message }, function(data) { document.getElementById("msgtxt").value=""; } );
+	$.get("/api/", 
+			{ 
+				"lib" : "exchange", 
+				"action":"send", 
+				"id" : offerid, 
+				"message" : message 
+			},
+			function(data) 
+			{ 
+				document.getElementById("msgtxt").value=""; 
+			} 
+		);
 }
 
 function message_listen()
@@ -131,6 +142,13 @@ function message_listen()
 			}
 		},
 	});
+}
+
+//Loads on page load
+function pre_exchange()
+{
+	message_listen();
+	$("main").addClass("reset_padding");
 }
 
 //Allows functionality in the rater

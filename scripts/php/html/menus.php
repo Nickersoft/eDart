@@ -62,7 +62,7 @@
 											Items are not due for return
 										<?php else: ?>
 											<?php
-												$duedate = ($item1_info["duedate"]<$item2["duedate"]) ? $item1_info["duedate"] : $item2_info["duedate"];
+												$duedate = ($item1_info["duedate"]<$item2_info["duedate"]) ? $item1_info["duedate"] : $item2_info["duedate"];
 												  if($duedate<time()): ?>
 													Items returned on
 											<?php else: ?>

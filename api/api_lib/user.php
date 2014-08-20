@@ -26,7 +26,7 @@ class User
 	}
 
 	//Public run function. Executes main functionality based on parameters.
-	public function run($systemByPass)
+	public function run($systemByPass = false)
 	{
 		global $con, $argv; //Import the two global variables
 

@@ -37,16 +37,13 @@
 #hold #cover #repbtn:hover										{ font-family:VegurRegular, sans-serif; }
 
  /* The hover label that displays the QR code */
-
 #hold #cover #qrbtn  											{ position:absolute; font-size:14px; color:dimgray; left:265px; bottom:10px; cursor:pointer; }
 #hold #cover #qrbtn:hover										{ font-family:VegurRegular, sans-serif; }  
 
 /* The lower half, below the cover */
-
 #hold #primary 													{ width:100%; height:auto; margin:10px auto; padding-bottom:15px; position:relative; display:inline-block; }
 
 /* THE RIGHT SIDE */
-
 #hold #primary #righti 											{ min-width:400px; min-height:100%; overflow:hidden; }
 
  /* The main offer board */
@@ -54,9 +51,10 @@
 #hold #primary #righti #offerbrd h2 							{ margin-top:15px; padding-left:10px; font-size: 32px; text-align:center; color: dimgray; margin-left: 10px; }
 #hold #primary #righti #offerbrd .notxt  						{ text-align:center; display:block; margin:10px; font-size:16px; color:dimgray; }
 #hold #primary #righti #offerbrd .chosen-select 				{ display:block; margin:0 auto; font-family:sans-serif !important;}
+
 /* An offer on an item */
 #hold #primary #righti #offerbrd .offer  						{ cursor:pointer; border-top:1px solid #eeeeee; padding-left:10px; padding-bottom:10px; overflow:hidden; display:block; padding-top:25px; padding-right:10px; position:relative;  }
-#hold #primary #righti #offerbrd .offer:hover  					{ background:#eeeeee; border-radius:10px;}
+#hold #primary #righti #offerbrd .offer:hover  					{ background:#fcfcfc; }
 #hold #primary #righti #offerbrd .offer .uofu 	 				{ color:#00BFFF; font-size:24px; }
 #hold #primary #righti #offerbrd .offer .uofu .uoft  			{ color:black; width:100px; display:inline-block; }
 #hold #primary #righti #offerbrd .offer .uofu .uofd  			{ color:dimgray; float:right; text-align:right; font-size:16px; position:absolute; top:10px; right:20px; }

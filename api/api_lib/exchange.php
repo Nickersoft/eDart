@@ -278,7 +278,6 @@ class Exchange
 						if(in_array($timestamp, $availability_array[$_SESSION["userid"]])) //Check to see if the given date has already been selected
 						{
 							//If it has, we're going to remove it
-
 							$date_array = array(); //Declare an empty date array
 							$user_availability = $availability_array[$_SESSION["userid"]]; //Get the user availability array
 

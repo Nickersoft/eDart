@@ -10,7 +10,7 @@ abstract class Body
 	{
 		global $onload;
 		$debug_string = ($debug) ? "alert(e);" : "";
-		$onload = ($onload) ? ($onload . "try\{$javascript;\}catch(e){$debug_string}") : ($javascript . ";");
+		$onload = ($onload) ? ($onload . "try{" . $javascript . ";}catch(e){".$debug_string."}") : ($javascript . ";");
 	}
 
 	public static function begin($include_banner = true, $no_padding = false)
