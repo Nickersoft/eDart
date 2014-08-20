@@ -64,7 +64,7 @@ $files = getFiles(); //Get all of the directories throughout the entire director
 //Loop through
 foreach($files as $f)
 {
-$total += countLines($f); //and add the line count
+	$total += countLines($f); //and add the line count
 }
 
 //We'll print this out all later.
@@ -80,7 +80,7 @@ Body::begin();
 		</style>
 			<div style="min-height:520px;" class="layout-978 uk-container-center">
 				<div class="uk-grid">
-					<div class="uk-width-1-5">
+					<div class="uk-width-medium-1-5">
 						<ul class="uk-nav uk-nav-side" data-switcher-parent="#panel_parent">
 						    <li><a data-switcher-id="#story">Story</a></li>
 						    <li><a data-switcher-id="#team">Team</a></li>
