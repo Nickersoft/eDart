@@ -15,9 +15,14 @@
 .button_primary 		{ text-align:center; position:relative; top:1px; display:inline-block; font-size:1em; font-weight:bold; outline:none; cursor:pointer; padding:6px 24px; text-decoration:none; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; transition:0.5s; -webkit-transition:0.5s; -moz-transition:0.5s; behavior: url('/lib/pie/PIE.htc');  }
 .button_primary:hover { color:white; transition:0.5s; -moz-transition:0.5s; -webkit-transition:0.5s; }
 
+/* Yellow round buttons */
+.button_primary.yellow			{ background: #F4D03F; color: #FFF; border: 1px solid #F7CA18; }
+.button_primary.yellow:hover	{ background:#F5D76E; }
+.button_primary.yellow:disabled { background: #E2D089; color: #AAAA6C; border: 1px solid #C5AF55; }
+
 /* Green round buttons */
 .button_primary.green 			{ color:white !important; background-color:#26C281; border:1px solid #14B696; }
-.button_primary.green:hover 		{ background-color:#3CE29D; }
+.button_primary.green:hover 	{ background-color:#3CE29D; }
 .button_primary.green:disabled 	{ background:#83C59F !important; }
 
 /* Blue round buttons */

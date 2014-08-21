@@ -6,3 +6,4 @@ php_value auto_prepend_file none
 php_value auto_append_file none
 
 SetEnv DOC_ROOT "/Users/tjnickerson/Documents/eDart/Active Source/edart"
+ 

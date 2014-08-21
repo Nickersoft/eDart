@@ -18,16 +18,17 @@ a 				{ text-decoration:none !important; color:black; cursor:pointer; }
 p				{ white-space:normal; }
 h1, h2 			{ margin: 0px; padding: 0px; font-family:VegurRegular, sans-serif; }
 dd i 			{ width:1.5em; }
-main 			{ padding-top:2em; padding-bottom:2em; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
+main 			{ white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
 
+.panel						{ white-space:normal; }
 .background					{ background:url("/img/bg.jpg") repeat center center; background-size:cover; }
 .blur 						{ filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=2); text-shadow:0px 0px 10px black; color:transparent; }
 .data_table 				{ display:block; margin:0 auto;  margin-top:20px; white-space:normal; }
 .data_table td 				{ padding:10px; }
 .data_table table td span 	{ color:dimgray; }
 .data_table td img 			{ border-radius:4px; -webkit-border-radius:4px; border:1px solid dimgray; }
-.valign_top	td		{ vertical-align:top; }
-.valign_bottom	td  { vertical-align:bottom; }
+.valign_top	td				{ vertical-align:top; }
+.valign_bottom	td  		{ vertical-align:bottom; }
 
 /* Some alignment/sizing stuff */
 .text_small 	{ font-size:1em !important; line-height:1em; }
@@ -175,7 +176,7 @@ footer a 			{ text-decoration:none; color:white !important; }
 footer section	{ color:white; position:relative; text-align:center; width:100%; height:auto; display:block; margin-bottom:10px; }
 
 /* The links in the footer */
-footer nav 		{ display:block; text-align:center; margin-bottom:10px; cursor:pointer; font-size:14px; margin-top:15px; text-transform:uppercase; letter-spacing:2px; color:white; }
+footer nav 		{ padding:1em; display:block; text-align:center; margin-bottom:10px; cursor:pointer; font-size:14px; margin-top:15px; text-transform:uppercase; letter-spacing:2px; color:white; }
 
 /* * * * * * * * * * * * * REPORT ITEM * * * * * * * * * * * * */
 
@@ -206,6 +207,10 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 /* * * * * * * * * * * * * MEDIA QUERIES * * * * * * * * * * * * */
 
 @media (max-width: 400px) {
+	body {
+		font-size:12px; 
+	}
+	
 	main
 	{ min-width:100%; }
 

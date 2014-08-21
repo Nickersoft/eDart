@@ -24,13 +24,13 @@ Body::begin(true, true);
 				<h1>Login to eDart</h1>
 					<form method="POST" onsubmit="clearIncomplete(this);" action="/signup/process.php" id="signup_form">
 						<div class="uk-width-medium-1-3 uk-container-center">
-							<input class="uk-width-1-1 text_medium"	name="leaddr" id="leaddr" autocomplete="off" type="text"     placeholder="Email Address" onkeydown="return_login(event, 'loginbtn');" />
-							<input class="uk-width-1-1 text_medium"	name="lpword" id="lpword" autocomplete="off" type="password" placeholder="Password" 	 onkeydown="return_login(event, 'loginbtn');" />
+							<input class="uk-width-1-1 text_medium"	name="leaddr" id="lpeaddr" autocomplete="off" type="text"     placeholder="Email Address" onkeydown="return_login(event, 'loginbtn');" />
+							<input class="uk-width-1-1 text_medium"	name="lpword" id="lppword" autocomplete="off" type="password" placeholder="Password" 	 onkeydown="return_login(event, 'loginbtn');" />
 										
 							<?php
 								$con = mysqli_connect(host(), username(), password(), mainDb());
 
-								$rdr = "me"; //The default place we'll redirect to
+								$rdr = ""; //The default place we'll redirect to
 
 								//If we're set to redirect
 								if(isset($_GET["redirect"])&&trim($_GET["redirect"]!=""))
@@ -39,7 +39,7 @@ Body::begin(true, true);
 								}
 							?>
 							
-							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('leaddr').value,document.getElementById('lpword').value, '<?php echo $rdr; ?>',function(){});" value="Let's Go!" />
+							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('lpeaddr').value,document.getElementById('lppword').value, '<?php echo $rdr; ?>',function(){});" value="Let's Go!" />
 					</form>
 			</div>
 		</div>

@@ -87,7 +87,7 @@ Body::begin();
 						    <li><a data-switcher-id="#backend">Backend</a></li>
 						    <li><a data-switcher-id="#contact">Contact</a></li>
 						    <hr/>
-						    <li class="uk-text-center" style="letter-spacing:1px;color:#B8B8B8;"><span><?php echo number_format($total); ?> Lines of Awesome</span></li>
+						    <li class="uk-text-center uk-hidden-small" style="letter-spacing:1px;color:#B8B8B8;"><span><?php echo number_format($total); ?> Lines of Awesome</span></li>
 						</ul>
 					</div>
 					<div id="panel_parent" class="uk-width-4-5">

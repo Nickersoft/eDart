@@ -35,8 +35,9 @@
 			</div>
 			<div class="uk-width-medium-1-2">
 				<ul class="uk-width-1-1 button_list uk-align-center">
-					<li><a id="signup_link" class="button_primary green important uk-width-1-1" href="/signup">Sign Up</a></li>
-					<li><a id="fb_link" href="http://facebook.com/edartofficial" class="button_primary blue important uk-width-1-1">Like Us On TheFacebook</a></li>
+					<li><a id="signup_link" href="/signup" class="button_primary green important uk-width-1-1">Sign Up</a></li>
+					<li><a id="login_link" href="/login.php" class="button_primary yellow important uk-width-1-1 uk-visible-small">Login</a></li>
+					<li><a id="fb_link" href="http://facebook.com/edartofficial" class="button_primary blue important uk-width-1-1">Like Us On Facebook</a></li>
 					<li><a id="yt_link" href="http://youtube.com/edartofficial" class="button_primary red important uk-width-1-1">Watch Us On YouTube</a></li>
 				</ul>
 			</div>
