@@ -63,9 +63,11 @@
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .text .sub   			{ margin-left:25px; margin-top:2px; font-size:14px; color:#808080; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .icon   					{ display:inline-block; float:left; font-size:28px; margin-right:10px; margin-top:20px; }
 
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content .glyphicon-ok			{ color:green; }
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content .glyphicon-refresh		{ color:orange; }
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content .glyphicon-dashboard 	{ color:red; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-check					{ color:green; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-refresh					{ color:orange; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-clock-o					{ color:royalblue; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-exclamation-circle		{ color:red; }
+
 
  /* * * THE NOTIFICATION DROPDOWN * * */
 

@@ -18,7 +18,7 @@ a 				{ text-decoration:none !important; color:black; cursor:pointer; }
 p				{ white-space:normal; }
 h1, h2 			{ margin: 0px; padding: 0px; font-family:VegurRegular, sans-serif; }
 dd i 			{ width:1.5em; }
-main 			{ padding-top:2em; padding-bottom:2em; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
+main 			{ padding-bottom:2em; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
 
 .background					{ background:url("/img/bg.jpg") repeat center center; background-size:cover; }
 .blur 						{ filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=2); text-shadow:0px 0px 10px black; color:transparent; }

@@ -14,21 +14,16 @@ include_once $_SERVER["DOC_ROOT"]."/scripts/php/core.php"; //Import core functio
 
 HTML::begin();
 Head::begin("Report Abuse");
+
 ?>
 <style>
 
-	.norm{
-	color:black;
-	text-align:center;
-	font-size:50px;
-	margin-top:20px;
-	}
 
 	p {
 	text-indent:20px;
 	color:black;
 	margin:0px;
-	margin-top:5px;
+	margin-top:15px;
 	margin-bottom:5px;
 	text-align:left;
 	padding:0px 50px 0px 50px;
@@ -47,11 +42,8 @@ Head::end();
 Body::add_action("showError()");
 Body::begin();
 ?>
-
-			<div id="mc_cont">
-				<div id="mc">
-					<div class="align">
-						<div class="norm" >Report Abuse</div>
+					<div class="layout-978 uk-container-center">
+						<h1 class="uk-text-center" style="font-size:3.5em;">Report Abuse</h1>
 
 						<?php
 							//The default welcome HTML if a form has yet to be submitted
@@ -72,14 +64,14 @@ Body::begin();
 									<li>Basically anything that isn't universally frowned upon by society</li>
 								</ul>
 								<p>If you have come across an item on the site you think may be dangerous to the lives of others or is something we might just not like in general (whilst still matching the above criteria), you can use the below form to report the item to us.</p>
-								<br><br><b>Please note you must click the checkbox below to submit this form.</b>
+								<p class="uk-text-center"><b>Please note you must click the checkbox below to submit this form.</b></p>
 
 								<form id="report_form" action="./" method="post" style="display:block; margin:20px auto; position:relative; width:500px;">
 									Item URL: <input type="text" name="iurl" id="iurl" /><br/>
 
-									Reason for abuse:
+									Reason for abuse: 
 
-									<select data-default="Item URL" name="acat" id="acat" />
+									<select data-default="Item URL" class="chosen-select" name="acat" id="acat" />
 										<option>Prostitution/Pornographic</option>
 										<option>Alcoholic</option>
 										<option>Involves prescription medication</option>
@@ -94,7 +86,7 @@ Body::begin();
 										<input type="checkbox" onchange="rang_submit(this, document.getElementById('abuse_submit'));" /> <div id="achktxt">I agree that the item in which I am reporting matches the above criteria</div>
 									</div>
 
-									<input type="submit" id="abuse_submit" class="bbtn" style="margin:20px auto 0px auto; display:block;" value="Submit" disabled />
+									<input type="submit" id="abuse_submit" class="button_primary blue" style="margin:20px auto 0px auto; display:block;" value="Submit" disabled />
 
 								</form>
 EOF;
@@ -136,7 +128,7 @@ EOL;
 								{
 									//...send the report to the webmaster and change the welcome text
 									sendMail("nickersoft@gmail.com", "Great and Powerful", "Man", "Item Reported for Abuse", "An item was reported for the following reason: " . $_POST["acat"], $_POST["iurl"], "Go to Item");
-									$inner = "Report sent! Thanks!</br><input type=\"button\" value=\"Go Home\" style=\"margin:20px auto;display:block;\" onclick=\"window.location='/'\" class=\"bbtn\" />";
+									$inner = "Report sent! Thanks!</br><input type=\"button\" value=\"Go Home\" style=\"margin:20px auto;display:block;\" onclick=\"window.location='/'\" class=\"button_primary blue\" />";
 								}
 
 							}
@@ -144,8 +136,6 @@ EOL;
 							echo $inner; //Print out the welcome text
 						?>
 					</div>
-				</div>
-			</div>
 		<?php
 			Body::end();
 			HTML::end();

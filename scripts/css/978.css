@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 */
 
-div.layout-978 { width: 978px; }
+div.layout-978 { width: 978px; padding:2em; }
 
 div.row { height: 1%; }
 div.row-end { clear: both; font: 1px/1px sans-serif; height: 1px; overflow: hidden; }
