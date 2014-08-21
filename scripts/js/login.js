@@ -38,7 +38,8 @@ function return_login(e, login_button_id)
 {
 	if(e.keyCode == 13)
 	{
-		document.getElementById(login_button_id).click();
+		//console.log(document.getElementById(login_button_id));
+		console.log(document.getElementById(login_button_id).click());
 	}
 }
 
