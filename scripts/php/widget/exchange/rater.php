@@ -65,7 +65,7 @@ EOF;
 							</td>
 							<td style="vertical-align:bottom;">
 								<input  type="button"
-										class="bbtn"
+										class="button_primary blue"
 										style="margin-left:10px;width:100%;"
 										onclick="show_rank_thanks();"
 										value="Send Rating"

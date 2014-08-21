@@ -26,50 +26,43 @@ $personInfo = $newPerson->run(true);
 $item_call   = new Item(array("action"=>"get", "filter"=>array("usr"=>$_GET["id"])));
 $user_items  = $item_call->run(true);
 
-//If the person can't be found, throw a not found page
-if($personInfo==404)
-{
-	header ( 'Location:/notfound.php' );
-	exit;
-}
-
-//We're using 'r' for compatibility purposes
-//Get the first user's info
-$r = $personInfo[0];
-
-$fname 				= $r ["fname"];					 //First Name
-$lname 				= $r ["lname"];					 //Last Name
-$profile_pic 		= $r ["profile_pic"];			 //Join Date
-$join_date 			= $r ["join_date"];				 //Join Date
-$dob 				= $r ["dob"];					 //Date of Birth
-$domail				= $r ["do_mail"];
-$gender_index 		= $r ["gender"];				 //Gender
-$bio 				= $r ["bio"];					 //Biography
-$gender 			= Lookup::Gender($gender_index);	 //Gender string
-$pronoun 			= Lookup::Pronoun($gender_index); //Pronoun to describe user's gender
-$lastlogin 			= $r["last_login"];  			 //Last time they were logged in
-$lastseen 			= json_decode($r["last_location"], true); 	//Last location they logged in
-
-$privacy = json_decode($r["privacy"], true);	//The privacy array
-$privacy = (!$privacy) ? array() : $privacy;
-
-$rank = json_decode($r["rank"], true);		//The user's rankings
-
-//If a load parameter is specified and this is 'image'
-if(isset($_GET["load"]) && $_GET["load"]=="image")
-{
-	//We're just going to print the user's image
-
-	header("Content-type: image/jpg"); //Set JPG image header
-
-	//If they don't have a profile picture
-	if(trim($profile_pic)=="")
+try {
+	//We're using 'r' for compatibility purposes
+	//Get the first user's info
+	$r = $personInfo[0];
+	
+	$fname 				= $r ["fname"];					 //First Name
+	$lname 				= $r ["lname"];					 //Last Name
+	$profile_pic 		= $r ["profile_pic"];			 //Join Date
+	$join_date 			= $r ["join_date"];				 //Join Date
+	$dob 				= $r ["dob"];					 //Date of Birth
+	$domail				= $r ["do_mail"];
+	$gender_index 		= $r ["gender"];				 //Gender
+	$bio 				= $r ["bio"];					 //Biography
+	$gender 			= Lookup::Gender($gender_index);	 //Gender string
+	$pronoun 			= Lookup::Pronoun($gender_index); //Pronoun to describe user's gender
+	$lastlogin 			= $r["last_login"];  			 //Last time they were logged in
+	$lastseen 			= json_decode($r["last_location"], true); 	//Last location they logged in
+	
+	$privacy = json_decode($r["privacy"], true);	//The privacy array
+	$privacy = (!$privacy) ? array() : $privacy;
+	
+	$rank = json_decode($r["rank"], true);		//The user's rankings
+	
+	//If a load parameter is specified and this is 'image'
+	if(isset($_GET["load"]) && $_GET["load"]=="image")
 	{
-		//Use the default one
-		$profile_pic = file_get_contents($_SERVER["DOC_ROOT"]."/img/user_icon_200.png");
-	}
-	else //If a profile picture is set...
-	{
+		//We're just going to print the user's image
+	
+		header("Content-type: image/jpg"); //Set JPG image header
+	
+		//If they don't have a profile picture
+		if((trim($profile_pic)=="")||(count($personInfo)==0))
+		{
+			//Use the default one
+			$profile_pic = file_get_contents($_SERVER["DOC_ROOT"]."/img/user_icon_200.png");
+		}
+		
 		//If a size is specified...
 		if(isset($_GET["size"]))
 		{
@@ -81,18 +74,25 @@ if(isset($_GET["load"]) && $_GET["load"]=="image")
 				break;
 			}
 		}
+	
+	
+		echo $profile_pic; 	//Print the image contents
+		exit; 			//Exit
 	}
-
-	echo $profile_pic; 	//Print the image contents
-	exit; 			//Exit
+	
+	//Change the profile picture to use the URL instead
+	$profile_pic = "/profile.php?id=".$_GET["id"]."&load=image";
+} catch(Exception $e) {
+	//If the person can't be found, throw a not found page
+	if($personInfo==404)
+	{
+		header ( 'Location:/notfound.php' );
+		exit;
+	}
 }
-
-//Change the profile picture to use the URL instead
-$profile_pic = "/profile.php?id=".$_GET["id"]."&load=image";
-
 HTML::begin();
 Head::make("$fname $lname", true);
-Body::begin();
+Body::begin(true, true);
 ?>
 <style type="text/css">
 .prefix{ display:inline-block; margin-left:25px; vertical-align:top;margin-right:10px; display:inline-block; font-size:18px; }
@@ -117,17 +117,20 @@ Body::begin();
 				</div>
 				<div id="info">
 					<ul>
-						<li><span class='fa fa-bolt'></span>eDart user #<?php echo $_GET["id"]; ?></li>
-						<li><span class='fa fa-calendar'></span>Joined on <?php echo date("m/d/Y", $join_date); ?></li>
-						<?php echo (!in_array("last_location", $privacy)&&(count($lastseen)!=0)) ? "<li><span class='fa fa-location-arrow'></span>Last seen near {$lastseen["properties"]["city"]}</li>" : ""; ?>
-						<?php echo (!in_array("gender", $privacy)&&$gender_index!=0) ? "<li><span class='fa fa-user'></span>$gender</li>" : ""; ?>
-						<?php echo (!in_array("dob", $privacy)&&$dob!=0) ? "<li><span class='fa fa-child'></span>" . getRelativeDT(time(), $dob) . " old</li>" : ""; ?>
-						<li><span class='fa fa-institution'></span>Attends WPI</li>
+						<li><span class='uk-icon-bolt'></span>eDart user #<?php echo $_GET["id"]; ?></li>
+						<li><span class='uk-icon-calendar'></span>Joined on <?php echo date("m/d/Y", $join_date); ?></li>
+						<?php echo (!in_array("last_location", $privacy)&&(count($lastseen)!=0)) ? "<li><span class='uk-icon-location-arrow'></span>Last seen near {$lastseen["properties"]["city"]}</li>" : ""; ?>
+						<?php echo (!in_array("gender", $privacy)&&$gender_index!=0) ? "<li><span class='uk-icon-user'></span>$gender</li>" : ""; ?>
+						<?php echo (!in_array("dob", $privacy)&&$dob!=0) ? "<li><span class='uk-icon-child'></span>" . getRelativeDT(time(), $dob) . " old</li>" : ""; ?>
+						<li><span class='uk-icon-institution'></span>Attends WPI</li>
 					</ul>
 
 					<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?>
-						<input type="button" id="edit_button" value="Edit Profile" data-link="edit_profile" class="small_text center gbtn" value="Edit" />
-
+					
+						<div class="uk-text-center">
+							<input type="button" id="edit_button" value="Edit Profile" data-link="edit_profile" class="small_text button_primary green" value="Edit" />
+						</div>
+						
 						<div class="hidden">
 							<form id="user_image_upload_form" method="post" action="/scripts/php/widget/me/crop.php" enctype="multipart/form-data">
 								<input style="z-index:-200" accept="image/*" onchange="document.getElementById('user_image_upload_form').submit();" type="file" name="pp_upload" id="user_image_upload" />
@@ -183,10 +186,10 @@ Body::begin();
 									<?php if(isset($_SESSION["userid"])&&($_SESSION["userid"]==$_GET["id"])): ?>
 										<div class="controls">
 											<?php	if($item["status"]==1): ?>
-														<button class="edit_button" title="Edit Item" data-id="<?php echo $item["id"]; ?>" ><span class="fa fa-pencil"></span></button>
-														<button class="delete_button" title="Delete Item" data-id="<?php echo $item["id"]; ?>"><span class="fa fa-times"></span></button>
+														<button class="edit_button" title="Edit Item" data-id="<?php echo $item["id"]; ?>" ><span class="uk-icon-pencil"></span></button>
+														<button class="delete_button" title="Delete Item" data-id="<?php echo $item["id"]; ?>"><span class="uk-icon-times"></span></button>
 											<?php   else: ?>
-														<button style="height:100%;" title="View Exchange" class="exchange_button"><span class="fa fa-eye"></span></button>
+														<button style="height:100%;" title="View Exchange" class="exchange_button"><span class="uk-icon-eye"></span></button>
 											<?php   endif; ?>
 										</div>
 									<?php endif; ?>
@@ -213,7 +216,7 @@ Body::begin();
 									<div class="info">
 										<div class="rating">
 											<?php for($i = 0; $i < 5; $i++): ?>
-												<span class="fa <?php echo ($i <= $total) ? 'fa-star' : 'fa-star-o' ?>"></span>
+												<span class="<?php echo ($i <= $total) ? 'uk-icon-star' : 'uk-icon-star-o' ?>"></span>
 											<?php endfor; ?>
 										</div>
 										<?php echo (trim($ranking["description"])!="") ? "&ldquo;{$ranking["description"]}&rdquo;" : ""; ?></p>
@@ -255,7 +258,7 @@ Body::begin();
 									<input type="checkbox" id="user_domail" name="domail" <?php echo ($domail == "1") ? "checked" : ""; ?> />Receive emails from eDart
 								</div>
 
-								<button class="bbtn" onclick="user_send_data();">Save Info</button>
+								<button class="button_primary blue" onclick="user_send_data();">Save Info</button>
 							</div>
 							<div id="change_privacy" class="edit_section">
 								<h3>Privacy</h3>
@@ -273,7 +276,7 @@ Body::begin();
 										<input type="checkbox" name="last_location" id="privacy_location"  <?php echo (!in_array("last_location", $privacy)) ? "checked" : ""; ?> /> Last Location (Approximate)
 									</li>
 								</ul>
-								<input type="button" class="bbtn" onclick="privacy_send_data();" value="Change Privacy" />
+								<input type="button" class="button_primary blue" onclick="privacy_send_data();" value="Change Privacy" />
 							</div>
 							<div id="change_password" class="edit_section">
 								<h3>Password</h3>
@@ -281,7 +284,7 @@ Body::begin();
 								<input type="password" id="user_npw"   name="new_pw" class="small_text" placeholder="New Password"		  />
 								<input type="password" id="user_rpw"   name="ret_pw" class="small_text" placeholder="Retype New Password" />
 
-								<button class="bbtn" onclick="password_send_data();">Change Password</button>
+								<button class="button_primary blue" onclick="password_send_data();">Change Password</button>
 							</div>
 							<div id="delete_account" class="edit_section">
 								<h3>Delete Account</h3>
@@ -306,7 +309,7 @@ Body::begin();
 								?>
 								<form id="delete_account_form" method="post" action="/scripts/php/form/me/close_account.php">
 									<input type="hidden" name="confirm" value="del" />
-									<input type="submit" class="bbtn" value="Close Account" <?php echo $disabled_str; ?>/>
+									<input type="submit" class="button_primary blue" value="Close Account" <?php echo $disabled_str; ?>/>
 								</form>
 							</div>
 
@@ -318,9 +321,9 @@ Body::begin();
 
 			<div id="right">
 				<ul>
-					<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="fa fa-bars"></span>Recent Activity</li>
-					<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="fa fa-cubes"></span>Item Inventory</li>
-					<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="fa fa-star"></span>User Reviews</li>
+					<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="uk-icon-bars"></span>Recent Activity</li>
+					<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="uk-icon-cubes"></span>Item Inventory</li>
+					<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="uk-icon-star"></span>User Reviews</li>
 				</ul>
 			</div>
 		</div>

@@ -1,100 +1,53 @@
-<?php
+<?php 
 /*
  * Page Name: Generic Login Page
- * Purpose: Let the user log in a possibly redirect to a target landing page
- * Last Updated: 6/5/2014
- * Signature: Tyler Nickerson
- * Copyright 2014 eDart
- *
- * [Do not remove this header. One MUST be included at the start of every page/script]
- *
- */
+* Purpose: Let the user log in a possibly redirect to a target landing page
+* Last Updated: 8/20/2014
+* Signature: Tyler Nickerson
+* Copyright 2014 eDart
+*
+* [Do not remove this header. One MUST be included at the start of every page/script]
+*
+*/
 
-	include_once $_SERVER["DOC_ROOT"]."/scripts/php/core.php"; //Include core functionality
+include_once $_SERVER["DOC_ROOT"]."/scripts/php/core.php"; //Include core functionality
 
-	HTML::begin();
-	Head::make("Login");
-	Body::begin();
+HTML::begin();
+Head::make("Login");
+Body::add_action("pre_home()");
+Body::begin(true, true);
 ?>
 
-			<div id="login_cont" style="min-height:400px;">
-				<div  id="login_pnl"><h1>You need to log in to do that.</h1>
+<div id="home_container">
+	<div class="layout-978 uk-container uk-container-center">
+			<div id="signup_panel" class="uk-width-1-1 uk-border-rounded uk-container-center uk-text-center">
+				<h1>Login to eDart</h1>
+					<form method="POST" onsubmit="clearIncomplete(this);" action="/signup/process.php" id="signup_form">
+						<div class="uk-width-medium-1-3 uk-container-center">
+							<input class="uk-width-1-1 text_medium"	name="leaddr" id="leaddr" autocomplete="off" type="text"     placeholder="Email Address" onkeydown="return_login(event, 'loginbtn');" />
+							<input class="uk-width-1-1 text_medium"	name="lpword" id="lpword" autocomplete="off" type="password" placeholder="Password" 	 onkeydown="return_login(event, 'loginbtn');" />
+										
+							<?php
+								$con = mysqli_connect(host(), username(), password(), mainDb());
 
-					<script type="text/javascript">
-						var lerr = false;
-						function lenter(e)
-						{
-							if(e.keyCode == 13)
-							{
-								$('#loginbtn').click();
-							}
-						}
-					</script>
+								$rdr = "me"; //The default place we'll redirect to
 
-					<table id="loginbx" style="height:auto;width:400px;margin-top:40px;">
-						<tr>
-							<td>
-								<input 	name=		"leaddr"
-									type=		"text"
-									id=		"leaddr"
-									class=		"inpt"
-									style=		"font-size:18px;float:left;width:400px;margin-top:0px;"
-									autocomplete=	"off"
-									placeholder=		"Email Address"
-									onkeydown=	"lenter(event);"
-								/>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<input 	style="color:black;
-											width:400px;
-											font-size:18px;
-											margin-top:0px;"
-									class=		"inpt"
-									name=		"lpword"
-									id=		"lpword"
-									placeholder="Password"
-									autocomplete=	"off"
-									type=		"password"
-									onkeydown=	"lenter(event);"
-								/>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<?php
-									$con = mysqli_connect(host(), username(), password(), mainDb());
-
-									$rdr = "me"; //The default place we'll redirect to
-
-									//If we're set to redirect
-									if(isset($_GET["redirect"])&&trim($_GET["redirect"]!=""))
-									{
-										$rdr = $_GET["redirect"]; //Change the redirect location
-									}
-
-									//Construct the button with the redirect location
-									$button_html = <<<TJN
-										<input 	type=	"button"
-												style=	"width:100px;font-size:14px;height:30px;padding-top:4px;display:block;margin:0 auto;margin-top:10px;"
-												class=	"gbtn"
-												id="loginbtn"
-												onclick="login(document.getElementById('leaddr').value,document.getElementById('lpword').value, '$rdr',function(){});"
-												value=	"Go"
-										/>
-TJN;
-
-									echo $button_html; //and print it
-								?>
-							</td>
-						</tr>
-					</table>
-				</div>
+								//If we're set to redirect
+								if(isset($_GET["redirect"])&&trim($_GET["redirect"]!=""))
+								{
+									$rdr = $_GET["redirect"]; //Change the redirect location
+								}
+							?>
+							
+							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('leaddr').value,document.getElementById('lpword').value, '<?php echo $rdr; ?>',function(){});" value="Let's Go!" />
+					</form>
 			</div>
-		<?php
-		Body::end();
-		HTML::end();
-		?>
+		</div>
+	</div>
+</div>
+
+<?php 
+Body::end();
+HTML::end();
+?>
+

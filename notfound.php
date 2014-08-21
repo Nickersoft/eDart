@@ -11,7 +11,7 @@
 		<!--Import CSS-->
 		<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Titillium/stylesheet.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
-		<link rel="stylesheet" type="text/css" media="screen" href="/lib/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit/css/uikit.almost-flat.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
 
 	</head>
@@ -29,7 +29,7 @@
 			<p>
 				Well, just move your way on over to that back button little fella, because even if you have 404 problems, don't have a broken link be one.
 			</p>
-			<span class="fa fa-hand-o-left"></span>
+			<span class="uk-icon-hand-o-left"></span>
 		</div>
 
 	</body>

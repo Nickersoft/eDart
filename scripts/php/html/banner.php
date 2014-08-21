@@ -43,7 +43,6 @@
 	}
 
 	mysqli_close($mysqli_obj);
-
 ?>
 <div id="fb-root"></div>
 <div id="banner_placeholder">
@@ -51,9 +50,9 @@
 		<div id="inner">
 
 			<?php if(getcwd()!==$_SERVER["DOC_ROOT"]): ?>
-				<div onclick="window.location='/';" class="backbtn">
+				<a onclick="window.location='/';" class="button_back">
 					<?php echo (isset($_SESSION["userid"])) ? "Return to Feed" : "Return Home"; ?>
-				</div>
+				</a>
 			<?php else:  ?>
 					<div id="logo">
 						<a href="/">
@@ -98,7 +97,7 @@
 					</div>
 				</div>
 			<?php else: ?>
-				<button onclick="window.location='/validate/'" class="hbtn small_text">Validate Account</button>
+				<a onclick="window.location='/validate/'" class="button_validate small_text">Validate Account</a>
 			<?php endif;
 				else: //<div id="subtxt">Now with echo $user_count; members worldwide.</div> ?>
 					<table id="loginbx">
@@ -106,11 +105,11 @@
 							<td id="cntlgnm"></td>
 
 							<td>
-								<input name="leaddr" type="text" id="leaddr" class="inpt medium_text" placeholder="Email Address" autocomplete="off" onkeydown="return_login(event);" />
+								<input name="leaddr" type="text" id="leaddr" class="inpt text_medium" placeholder="Email Address" autocomplete="off" onkeydown="return_login(event, 'loginarrow');" />
 							</td>
 
 							<td>
-								<input class="inpt medium_text" name="lpword" id="lpword" placeholder="Password" data-dummy="dlpword" autocomplete="off" type="password" onkeydown="return_login(event);" />
+								<input class="inpt text_medium" name="lpword" id="lpword" placeholder="Password" data-dummy="dlpword" autocomplete="off" type="password" onkeydown="return_login(event, 'loginarrow');" />
 							</td>
 
 							<td>

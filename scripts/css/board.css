@@ -9,7 +9,7 @@
  */
 
 /* The parent container */
-#boardc										{ overflow:hidden; color:#696969; font-family:VegurRegular, Trebuchet MS, Helvetica, sans-serif; text-align:center; background:white; width:100%; height:100%; padding-top:20px;}
+#boardc										{ overflow:hidden; color:#696969; font-family:VegurRegular, Trebuchet MS, Helvetica, sans-serif; text-align:center; width:100%; height:100%; padding-top:20px;}
 #boardc .btit								{ font-size:75px; color:white; margin:10px; }
 #boardc #shadow								{ width:100%; position:absolute; bottom:0px; height:10px; display:none; }
 

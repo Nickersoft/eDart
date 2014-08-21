@@ -268,6 +268,7 @@ class Exchange
 
 			if(is_array($exchangeInfo)&&count($exchangeInfo)>0) //If this exchange exists...
 			{
+				echo "exchange found";
 				$thisExchange = $exchangeInfo[0]; //Get the first exchange which is returned
 				$availability_array = json_decode($thisExchange["availability"], true); //Decode the user availability array in the 'availability' column
 
@@ -278,7 +279,6 @@ class Exchange
 						if(in_array($timestamp, $availability_array[$_SESSION["userid"]])) //Check to see if the given date has already been selected
 						{
 							//If it has, we're going to remove it
-
 							$date_array = array(); //Declare an empty date array
 							$user_availability = $availability_array[$_SESSION["userid"]]; //Get the user availability array
 

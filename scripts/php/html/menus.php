@@ -3,13 +3,13 @@
 	if(!isset($_SESSION["userid"])){ die; }
 ?>
 
-<div onclick="$('#postbox').modal();" class="icon fa fa-plus"></div>
+<div onclick="$('#postbox').modal();" class="icon uk-icon-plus"></div>
 
 <?php
 	$my_exchanges   = new Exchange(array("action"=>"find"));
 	$exchange_array = $my_exchanges->run();
 ?>
-<div onclick="display_menu('#exchange_menu', this);" id="exchange_icon" class="<?php if(count($exchange_array)!=0): ?> static_active <?php endif; ?> icon fa fa-exchange">
+<div onclick="display_menu('#exchange_menu', this);" id="exchange_icon" class="<?php if(count($exchange_array)!=0): ?> static_active <?php endif; ?> icon uk-icon-exchange">
 	<?php
 	 	  if(count($exchange_array)!=0): ?>
 			<div class="badge" onclick="display_menu('#exchange_menu', this);"><?php echo count($exchange_array); ?></div>
@@ -40,36 +40,40 @@
 						}
 
 						$exchange_status = "Waiting for you to review your partner";
-
-						$exchange_status_icon = "glyphicon glyphicon-ok";
+						$exchange_status_icon = "uk-icon-check";
 				?>
 					<div onclick="window.location='/exchange.php?offerid=<?php echo $exchange["id"]; ?>'" class="exchange">
 						<div class="content">
 							<div class="text">
 								<div class="title"><?php echo "<span class='primary'>{$item1_info["name"]}</span> <span class='small_text glyphicon glyphicon-play'></span> {$item2_info["name"]}"; ?></div>
 								<div class="sub">
-									<?php if($exchange["date"]!=0):
-											if($exchange["date"]<time()): ?>
-												Met on <?php echo date("F jS, Y", $exchange["date"]); ?>
-									<?php   else: ?>
-												Meeting on <?php echo date("F jS, Y", $exchange["date"]); ?>
+									<?php if($exchange["date"]!=0): //If there is in fact a meetup date
+											if($exchange["date"]<time()): //And the meetup has already happened ?>
+												Met on <?php echo date("F jS, Y", $exchange["date"]); //Say it did ?>
+									<?php   else: //If the meetup is yet to happen ?>
+												Meeting on <?php echo date("F jS, Y", $exchange["date"]); //Say when it will ?>
 									<?php   $exchange_status 	  = "Waiting to meet up";
-											$exchange_status_icon = "glyphicon glyphicon-refresh";
+											$exchange_status_icon = "uk-icon-refresh";
 										    endif;
-									      endif; ?>
+										  else: ?>
+										  	No meetup date currently selected.
+									<?php 
+											$exchange_status = "<b>This exchange requires your attention.</b>";
+											$exchange_status_icon = "uk-icon-exclamation-circle";
+										  endif; ?>
 									<br/>
 										<?php if(($item1_info["duedate"]==0)&&($item2_info["duedate"]==0)): ?>
 											Items are not due for return
 										<?php else: ?>
 											<?php
-												$duedate = ($item1_info["duedate"]<$item2["duedate"]) ? $item1_info["duedate"] : $item2_info["duedate"];
+												$duedate = ($item1_info["duedate"]<$item2_info["duedate"]) ? $item1_info["duedate"] : $item2_info["duedate"];
 												  if($duedate<time()): ?>
 													Items returned on
 											<?php else: ?>
 													Items due for return on
 											<?php endif;
-												  $exchange_status 		= "Waiting for return items";
-												  $exchange_status_icon = "glyphicon glyphicon-dashboard";
+												  $exchange_status 		= "Waiting to return items";
+												  $exchange_status_icon = "uk-icon-clock-o";
 												  echo date("F jS, Y", $duedate); ?>
 										<?php endif; ?>
 									<br/>
@@ -101,7 +105,7 @@
 		}
 	}
 ?>
-<div onclick="display_menu('#notification_menu', this);" id="notify_icon" class="<?php if($new_count!=0): ?> static_active <?php endif; ?> icon fa fa-globe">
+<div onclick="display_menu('#notification_menu', this);" id="notify_icon" class="<?php if($new_count!=0): ?> static_active <?php endif; ?> icon uk-icon-globe">
 	<?php
 		  if($new_count!=0):
 	?>
@@ -114,12 +118,12 @@
 		<div id="container">
 			<?php
 				if(count($notifications)==0): ?>
-				<h6>You have no current exchanges</h6>
+				<h6>You have no current notifications</h6>
 			<?php
 				else:
 					foreach($notifications as $notification):
 			?>
-				<div onclick="window.location='<?php echo "./{$notification['link']}&ref=n{$notification['id']}"; ?>'" class="notification">
+				<div onclick="window.location='<?php echo "/{$notification['link']}&ref=n{$notification['id']}"; ?>'" class="notification">
 					<div class="content">
 						<div class="text">
 							<div class="title"><?php echo $notification["message"]; ?></div>
@@ -127,7 +131,7 @@
 								<?php echo getRelativeDT(time(), $notification["date"]); ?> ago
 							</div>
 						</div>
-						<div class="icon fa <?php echo ($notification["read"]==1) ? "fa-circle-o" : "fa-circle"; ?>" ></div>
+						<div class="icon fa <?php echo ($notification["read"]==1) ? "uk-icon-circle-o" : "uk-icon-circle"; ?>" ></div>
 					</div>
 				</div>
 			<?php endforeach;

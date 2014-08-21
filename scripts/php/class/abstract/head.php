@@ -5,57 +5,10 @@ $title_string = "";
 
 abstract class Head
 {
-	/*
-	 *	  Name: in_string
-	 * Purpose: Supporting function to tell whether a string is within a string
-	 * Returns: Boolean
-	 */
-	private function in_string($haystack, $needle)
-	{
-		//Return whether the string's start index can be found
-		return (strpos($haystack, $needle)!==false);
-	}
-
-	/*
-	 *	  Name: is_mobile
-	 * Purpose: Determines whether the user is using a mobile phone
-	 * Returns: Boolean
-	 */
-	private function is_mobile()
-	{
-		//Get the current user agent
-		$ua = $_SERVER["HTTP_USER_AGENT"];
-
-		//If it contains any of the following browsers...
-		if (
-		in_string($ua, "Windows CE") ||
-		in_string($ua, "AvantGo") ||
-		in_string($ua,"Mazingo") ||
-		in_string($ua, "Mobile") ||
-		in_string($ua, "T68") ||
-		in_string($ua,"Syncalot") ||
-		in_string($ua, "Blazer") )
-		{
-			$DEVICE_TYPE="MOBILE"; //Set the device type to 'mobile'
-		}
-
-		//Return whether the device type is mobile
-		return (isset($DEVICE_TYPE) && $DEVICE_TYPE=="MOBILE");
-	}
-
 	public static function begin($title, $use_prefix = true)
 	{
 		global $title_string;
 		$title_string = ($use_prefix) ? ("eDart Beta | " . $title) : $title;
-
-		$mobile_css = "";
-
-		//If the device is mobile...
-		if(is_mobile())
-		{
-			//...use a mobile stylesheet
-			$mobile_css = "<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"/scripts/css/mob/mobile.css\">";
-		}
 
 		$head_tag = <<<HEAD
 				<head>
@@ -81,12 +34,13 @@ abstract class Head
 					</noscript>
 
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.9.0/css/uikit.almost-flat.min.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.9.0/css/addons/uikit.addons.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Titillium/stylesheet.css">
-					<link rel="stylesheet" type="text/css" media="screen" href="/lib/font-awesome/css/font-awesome.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/chosen/chosen.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/toastr/toastr.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
-
+							
 					<script>
 						document.cookie='';
 

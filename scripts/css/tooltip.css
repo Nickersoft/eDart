@@ -15,7 +15,7 @@
 	height: 0;
 	border-left: 13px solid transparent;
 	border-right: 13px solid transparent;
-	border-bottom: 17px solid white;
+	border-bottom: 17px solid #F8F8F8;
 	margin-top:5px;
 	margin-left:2px;
 	display:block;
@@ -25,11 +25,13 @@
 	z-index: 2000;
 }
 
-#banner_placeholder #banner #infobox h6 { color:gray; margin:10px; font-size:12px; text-align:center; font-family:VegurLight, sans-serif; }
+#banner_placeholder #banner #infobox h6 																	{ color:gray; margin:10px; font-size:0.6em; text-align:center; font-family:VegurLight, sans-serif; }
 #banner_placeholder #banner #infobox .menu 																	{ display:none; background:white;  z-index:999; box-shadow:0px 0px 4px dimgray; behavior: url('/lib/pie/PIE.htc'); }
+
 /* The main container */
 #banner_placeholder #banner #infobox #options_menu 															{ display:none; width:150px; height:auto; position:absolute; right:0px; top:30px; }
 #banner_placeholder #banner #infobox #options_menu:hover													{ display:block; }
+
 /* Its list elements */
 #banner_placeholder #banner #infobox #options_menu ul 														{ list-style:none; background:white; margin:0px; padding:10px;  }
 #banner_placeholder #banner #infobox #options_menu ul li 													{ cursor:pointer; text-align:right; font-size:12px; color:#2b2b2b; padding:2px; font-family:Trebuchet MS, Arial, sans-serif; }
@@ -45,7 +47,7 @@
 #banner_placeholder #banner #infobox #exchange_menu 											{ text-align:left; margin-top:18px; right:-6px; width:500px; position:absolute;  }
 #banner_placeholder #banner #infobox #exchange_menu:hover										{ display:block; }
 
-#banner_placeholder #banner #infobox #exchange_menu h1 											{ text-align: right; font-size:16px; margin-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
+#banner_placeholder #banner #infobox #exchange_menu h1 											{ line-height:1em; background:#F8F8F8; text-align: right; font-size:0.65em; padding-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
 
 #banner_placeholder #banner #infobox #exchange_menu #container 									{ max-height:300px; overflow:auto; display:block; width:100%; height:100%; }
 
@@ -61,9 +63,11 @@
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .text .sub   			{ margin-left:25px; margin-top:2px; font-size:14px; color:#808080; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .icon   					{ display:inline-block; float:left; font-size:28px; margin-right:10px; margin-top:20px; }
 
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content .glyphicon-ok			{ color:green; }
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content .glyphicon-refresh		{ color:orange; }
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content .glyphicon-dashboard 	{ color:red; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-check					{ color:green; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-refresh					{ color:orange; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-clock-o					{ color:royalblue; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-exclamation-circle		{ color:red; }
+
 
  /* * * THE NOTIFICATION DROPDOWN * * */
 
@@ -71,7 +75,7 @@
 #banner_placeholder #banner #infobox #notification_menu 											{ text-align:left; margin-top:18px; right:-6px; position:absolute; width:500px; }
 #banner_placeholder #banner #infobox #notification_menu:hover										{ display:block; }
 
-#banner_placeholder #banner #infobox #notification_menu h1 											{ text-align: right; font-size:16px; margin-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
+#banner_placeholder #banner #infobox #notification_menu h1 											{ line-height:1em; background:#F8F8F8; line-height:1em; text-align: right; font-size:16px; padding-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
 
 /* Its list elements */
 #banner_placeholder #banner #infobox #notification_menu ul 											{ list-style:none; border:1px solid white; margin:0px; padding:10px; }

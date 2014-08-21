@@ -75,8 +75,20 @@ class Item
 		{
 			return 401;
 		}
+		else if(!isset($_SESSION))
+		{
+			return 403;
+		}
 		else
 		{
+			$offer_info  = $this->get(array("id"=>$offer));
+			
+			if(trim($offer_info[0]["usr"])!=$_SESSION["userid"])
+			{
+				return 406;
+				exit;
+			}
+			
 			$item_info = $this->get(array("id"=>$id));
 			$offer_array = json_decode($item_info[0]["offers"], true);
 
@@ -352,6 +364,7 @@ class Item
 
 				case 2:
 					$pronoun = "her";
+					break;
 			}
 
 			$feed = new Feed();
@@ -361,7 +374,7 @@ class Item
 		}
 	}
 
-	private function get($filter, $sort, $order, $forbidden)
+	private function get($filter, $sort = "adddate", $order = "ASC", $forbidden = array())
 	{
 		global $con;
 

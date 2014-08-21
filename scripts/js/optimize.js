@@ -247,8 +247,7 @@ function init_chosen()
 		try
 		{
 			//Try to animate the background image
-			var main 		= document.getElementsByTagName('main')[0];
-			main.className += "background";
+			$("main").addClass("background");
 		}
 		catch(e){alert(e);}
 

@@ -64,6 +64,7 @@ function initialize_cell_data()
 function push_date(timestamp)
 {
 	var ret = null;
+	var offerid = $.url(window.location).param("offerid");
 	$.ajax({
 		type: "GET",
 		url: "/api/", 
@@ -103,7 +104,18 @@ function showSetDate(timestamp)
 
 function message_send(message)
 {
-	$.get("/api/", { "lib" : "exchange", "action":"send", "id" : offerid, "message" : message }, function(data) { document.getElementById("msgtxt").value=""; } );
+	$.get("/api/", 
+			{ 
+				"lib" : "exchange", 
+				"action":"send", 
+				"id" : offerid, 
+				"message" : message 
+			},
+			function(data) 
+			{ 
+				document.getElementById("msgtxt").value=""; 
+			} 
+		);
 }
 
 function message_listen()
@@ -131,6 +143,13 @@ function message_listen()
 			}
 		},
 	});
+}
+
+//Loads on page load
+function pre_exchange()
+{
+	message_listen();
+	$("main").addClass("reset_padding");
 }
 
 //Allows functionality in the rater

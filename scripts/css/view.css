@@ -15,12 +15,12 @@
 #alertbox #alertinfo 											{ padding-top:25px; padding-bottom:25px; }
 
  /* The parent container */
-#hold  															{ box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); background:#FFFFFF; width:978px; display:block;  margin:20px auto; margin-bottom:20px; position:relative; overflow:hidden;  font-family:VegurLight, sans-serif; }
+#hold  															{ box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); background:#FFFFFF; width:978px; display:block;  margin:10px auto; margin-bottom:20px; position:relative; overflow:hidden;  font-family:VegurLight, sans-serif; }
 #hold img 														{ border-radius:5px; -o-border-radius:5px; -ms-border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; behavior: url('/lib/pie/PIE.htc'); }
 
  /* The "cover", containing item name and info */
 #hold #cover  													{ font-family:VegurRegular, sans-serif; border-bottom:1px solid #dddddd; overflow:hidden; white-space:nowrap; margin:0 auto; position:relative; width:100%; }
-#hold #cover h1 												{ display:inline-block; text-align:left; padding:0px 10px 0px 10px; color:#2b2b2b; font-family:Arial, Helvetica, sans-serif; font-size:25px; margin:0px; margin-left:10px; margin-bottom:5px; }
+#hold #cover h1 												{ display:inline-block; text-align:left; padding:0px 10px 0px 10px; color:#2b2b2b; font-size:2.5em; margin:0px; padding-right:2px; margin-left:10px; margin-bottom:5px; }
 #hold #cover span 												{ display:inline-block; font-size:20px; font-family:VegurLight, sans-serif; font-weight:lighter; color:#696969; }
 
 /* The main title container that holds item info */
@@ -37,16 +37,13 @@
 #hold #cover #repbtn:hover										{ font-family:VegurRegular, sans-serif; }
 
  /* The hover label that displays the QR code */
-
 #hold #cover #qrbtn  											{ position:absolute; font-size:14px; color:dimgray; left:265px; bottom:10px; cursor:pointer; }
 #hold #cover #qrbtn:hover										{ font-family:VegurRegular, sans-serif; }  
 
 /* The lower half, below the cover */
-
 #hold #primary 													{ width:100%; height:auto; margin:10px auto; padding-bottom:15px; position:relative; display:inline-block; }
 
 /* THE RIGHT SIDE */
-
 #hold #primary #righti 											{ min-width:400px; min-height:100%; overflow:hidden; }
 
  /* The main offer board */
@@ -54,9 +51,10 @@
 #hold #primary #righti #offerbrd h2 							{ margin-top:15px; padding-left:10px; font-size: 32px; text-align:center; color: dimgray; margin-left: 10px; }
 #hold #primary #righti #offerbrd .notxt  						{ text-align:center; display:block; margin:10px; font-size:16px; color:dimgray; }
 #hold #primary #righti #offerbrd .chosen-select 				{ display:block; margin:0 auto; font-family:sans-serif !important;}
+
 /* An offer on an item */
 #hold #primary #righti #offerbrd .offer  						{ cursor:pointer; border-top:1px solid #eeeeee; padding-left:10px; padding-bottom:10px; overflow:hidden; display:block; padding-top:25px; padding-right:10px; position:relative;  }
-#hold #primary #righti #offerbrd .offer:hover  					{ background:#eeeeee; border-radius:10px;}
+#hold #primary #righti #offerbrd .offer:hover  					{ background:#fcfcfc; }
 #hold #primary #righti #offerbrd .offer .uofu 	 				{ color:#00BFFF; font-size:24px; }
 #hold #primary #righti #offerbrd .offer .uofu .uoft  			{ color:black; width:100px; display:inline-block; }
 #hold #primary #righti #offerbrd .offer .uofu .uofd  			{ color:dimgray; float:right; text-align:right; font-size:16px; position:absolute; top:10px; right:20px; }
@@ -71,7 +69,7 @@
 
 /* THE LEFT SIDE */
 
-#hold #lefti 													{ border-right:1px solid #dddddd; float:left; width:425px; }
+#hold #lefti 													{ border-right:1px solid #dddddd; float:left; width:425px; padding-top:15px; }
 
  /* Class for any boxes appearing on the left-hand side */
 #hold #primary #lefti .sidebox 									{ overflow:hidden; font-family:VegurLight, sans-serif; float:left; behavior: url('/lib/pie/PIE.htc'); }

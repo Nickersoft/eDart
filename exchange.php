@@ -177,7 +177,7 @@ if(in_array($_SESSION["userid"], $who_ranked))
 
 HTML::begin();
 Head::make("Exchange with $other_fname $other_lname | $i1name  for $i2name", false);
-Body::add_action("message_listen()");
+Body::add_action("pre_exchange()");
 Body::add_action("codeAddress('$address')");
 Body::begin();
 
@@ -212,7 +212,7 @@ Body::begin();
 								<div id="xchgapp">
 									<div id="chatpnl">
 										<div id="chtxt"
-											 style="font-size:48px;margin:10px;margin-top:70px;text-align:center;color:white;">
+											 style="font-size:48px;margin:20px;margin-top:90px;text-align:center;color:white;">
 											 	Chat With $other_fname
 										</div>
 
@@ -276,7 +276,7 @@ EOD;
 
 				echo "<input name=	\"msgtxt\"
 							 type=		\"text\"
-							 id=		\"msgtxt\"
+							 id=		\"msgtxt\" 
 							 class=		\"xchgbx\"
 							 data-default = \"$msgdstr\"
 							 data-set = \"1\"
@@ -337,6 +337,7 @@ ASS;
 			//Format the due date
 			$dd = date('l, F jS, Y \a\t g A',strtotime($duedate));
 
+				
 			//All cases
 			$case1 = (($meetdt!=0) 		 && //If the meeting date is determined
 					 ($duedate < time()) && //If the it has passed the due date
@@ -344,11 +345,11 @@ ASS;
 
 			$case2 = (($meetdt!=0)	   && //If the meeting date is determined
 					 ($meetdt < time())&& //If it's passed the meeting date
-					 ($duedate==0)); //If the exchange is permanent
+					 ($duedate==0)); 	  //If the exchange is permanent
 
 			$case3 = (($meetdt!=0)	   && //If the meeting date is determined
 					 ($meetdt < time())&& //And it's passed the meeting date
-					 ($duedate!=0)); //And the item is due for exchange
+					 ($duedate!=0)); 	  //And the item is due for exchange
 
 			//If the exchange is over (case1 or case2)
 			if($case1||$case2)

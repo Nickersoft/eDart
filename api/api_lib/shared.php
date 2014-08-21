@@ -15,7 +15,7 @@
 
 				if(array_key_exists($key, $array))
 				{
-					$return_array = array_merge($return_array, array($key=>$value));
+					$return_array[$key] = $value;
 				}
 				else
 				{
@@ -39,7 +39,6 @@
 		$masterArray = array();
 
 		$columnArray = array ();
-
 		while ( $fld = mysqli_fetch_field ( $sql_query ) ) 	// While there are fields in the table (there are)
 		{
 			$fieldname = $fld->name; // The field name of the current column
@@ -109,7 +108,7 @@
 		$query =  substr($query, 0, strlen($query)-1);
 
 		$query .= ")";
-echo $query;
+		
 		mysqli_query($connection, $query);
 	}
 
