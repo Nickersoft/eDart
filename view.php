@@ -207,7 +207,7 @@ Body::begin();
 
 			<div id="dimit" onclick="hydeImg();"></div>
 			<div id="shadowbox">
-				<img style="margin:0 auto;display:block;" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>">
+				<img style="margin:0 auto;display:block;" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=medium">
 				<div style="position:absolute;right:10px;top:5px;font-size:18px;color:dimgray;cursor:pointer;" onclick="hydeImg();"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button></div>
 			</div>
 
@@ -255,7 +255,7 @@ Body::begin();
 						<img src="./img/out.png" style="float:right;margin-top:-1px;display:inline-block;margin-right:-1px;">
 					<?php endif; ?>
 					<div class="pic">
-						<img id="itempic" onclick="showImg();" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>">
+						<img id="itempic" onclick="showImg();" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=medium">
 					</div>
 					<div id='titcont'>
 						<div id="title">

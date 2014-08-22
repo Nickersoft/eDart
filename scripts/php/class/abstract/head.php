@@ -41,6 +41,14 @@ abstract class Head
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/toastr/toastr.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
 							
+					<!--[if gte IE 9]>
+					  <style type="text/css">
+					    .gradient {
+					       filter: none;
+					    }
+					  </style>
+					<![endif]-->
+							
 					<script>
 						document.cookie='';
 

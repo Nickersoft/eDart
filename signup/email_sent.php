@@ -45,7 +45,7 @@ Body::begin();
 			$uinfo   = $uinfo[0];
 
 			//Send an email to the user
-			//sendMail($uinfo["email"], $uinfo["fname"], $uinfo["lname"], "Validate Your Email", "Click the button below to validate your email.", "signup/continue.php?auth=".urlencode($ukey), "Validate Email");
+			sendMail($uinfo["email"], $uinfo["fname"], $uinfo["lname"], "Validate Your Email", "Click the button below to validate your email.", "signup/continue.php?auth=".urlencode($ukey), "Validate Email");
 
 			?>
 

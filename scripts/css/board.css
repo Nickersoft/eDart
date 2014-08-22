@@ -8,22 +8,24 @@
  *
  */
 
-/* The parent container */
-#boardc										{ overflow:hidden; color:#696969; font-family:VegurRegular, Trebuchet MS, Helvetica, sans-serif; text-align:center; width:100%; height:100%; padding-top:20px;}
-#boardc .btit								{ font-size:75px; color:white; margin:10px; }
-#boardc #shadow								{ width:100%; position:absolute; bottom:0px; height:10px; display:none; }
+/* The parent container 
+#boardc 							{ overflow:hidden; color:#696969; font-family:VegurRegular, Trebuchet MS, Helvetica, sans-serif; text-align:center; width:100%; height:100%; padding-top:20px;}
+.btit								{ font-size:75px; color:white; margin:10px; }
+*/
 
 /* The search result container */
-#board										{ width:978px; white-space:normal; display:block; height:500px; margin:0 auto; }
-#board .item								{ cursor:pointer; width:190px; display:inline-block; float:left; margin:10px;  position:relative; }
-#board .item .img							{ position:absolute; width:200px; height:200px; }
-#board .item #cap          					{ height:50px; width:100%; text-align:center; color:#696969; padding-top:10px; display:block; position:relative; }
+/*
+#board								{ width:978px; white-space:normal; display:block; height:500px; margin:0 auto; }
+.item								{ cursor:pointer; width:190px; display:inline-block; float:left; margin:10px;  position:relative; }
+.item .img							{ position:absolute; width:200px; height:200px; }
+.item .cap          				{ height:50px; width:100%; text-align:center; color:#696969; padding-top:10px; display:block; position:relative; }
 
-#board .item #inner        					{ position:relative; overflow:hidden; width:190px; height:190px; box-shadow:0px 2px 4px rgba(0,0,0,0.3); -webkit-box-shadow:0px 2px 4px rgba(0,0,0,0.3);  -o-box-shadow:0px 2px 4px rgba(0,0,0,0.3);  -moz-box-shadow:0px 2px 4px rgba(0,0,0,0.3); -ms-box-shadow:0px 2px 4px rgba(0,0,0,0.3); border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -ms-border-radius:10px; -o-border-radius:10px; behavior: url('/lib/pie/PIE.htc'); }
-#board .item #inner #overlay .itxt			{ cursor:pointer; text-align:center; vertical-align:middle; color:white; }
-#board .item #inner #overlay				{ cursor:pointer; width:100%; background:url('/img/dim.png'); height:200px; display:none; position:absolute; }
-#board .item #inner:hover > #overlay 		{ cursor:pointer; display:block; }
-#board .item #inner:hover + #cap     		{ color:black; }
+.item .inner        				{ position:relative; overflow:hidden; width:190px; height:190px; box-shadow:0px 2px 4px rgba(0,0,0,0.3); -webkit-box-shadow:0px 2px 4px rgba(0,0,0,0.3);  -o-box-shadow:0px 2px 4px rgba(0,0,0,0.3);  -moz-box-shadow:0px 2px 4px rgba(0,0,0,0.3); -ms-box-shadow:0px 2px 4px rgba(0,0,0,0.3); border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -ms-border-radius:10px; -o-border-radius:10px; behavior: url('/lib/pie/PIE.htc'); }
+.item .inner #overlay .itxt			{ cursor:pointer; text-align:center; vertical-align:middle; color:white; }
+.item .inner #overlay				{ cursor:pointer; width:100%; background:url('/img/dim.png'); height:200px; display:none; position:absolute; }
+.item .inner:hover > #overlay 		{ cursor:pointer; display:block; }
+.item .inner:hover + #cap     		{ color:black; }
 
-#board .item #inner #overlay .itxt .itit 	{ cursor:pointer; font-size:22px; margin-top:10px; }
-#board .item #inner #overlay .itxt .spec	{ cursor:pointer; float:left; font-size:15px; text-align:left; margin-left:10px; margin-top:10px; }
+.item .inner #overlay .itxt .itit 	{ cursor:pointer; font-size:22px; margin-top:10px; }
+.item .inner #overlay .itxt .spec	{ cursor:pointer; float:left; font-size:15px; text-align:left; margin-left:10px; margin-top:10px; }
+*/

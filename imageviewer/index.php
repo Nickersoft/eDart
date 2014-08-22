@@ -52,9 +52,13 @@ else //However, if there is...
 					//...resize the image accordingly
 					$img_contents = WideImage::load($img_contents)->resize(50)->asString('jpg');	
 					break;
-				case "thumbnail": //If it's small...
+				case "thumbnail": //If it's a thumbnail...
 					//...resize the image accordingly
 					$img_contents = WideImage::load($img_contents)->resize(200)->asString('jpg');	
+					break;
+				case "medium": //If it's medium...
+					//...resize the image accordingly
+					$img_contents = WideImage::load($img_contents)->resize(500)->asString('jpg');
 					break;
 			}
 		}

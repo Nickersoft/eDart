@@ -44,6 +44,32 @@ function display_menu(menu, icon)
 	});
 }
 
+function init_home()
+{
+	var speed = 40;
+	var $home_cover = $("#home_cover[data-height]");
+	var $motio = new Motio($home_cover[0],
+			{
+				speedY : (speed*-1), 
+				fps : 30 
+			});
+	
+	$motio.on("frame", function() { 
+		var $bg_pos   = $home_cover.css("background-position");
+		var $bg_pos_y = $bg_pos.split(" ")[1];
+		$bg_pos_y 	  = parseInt($bg_pos_y.replace("px",""));
+		
+		if(($bg_pos_y*-1)==(parseInt($home_cover.attr("data-height")) - $home_cover.height()))
+		{
+			$motio.set("speedY",speed);
+		}
+		else if($bg_pos_y==0)
+		{
+			$motio.set("speedY",speed*-1);
+		}
+	});
+}
+
 window.fbAsyncInit = function() {
 	FB.init({
 	appId      : '1410963979147478',
@@ -90,3 +116,5 @@ $(document).ready(function() {
 	});
 	$(".uk-nav li a").eq(0).click();
 });
+
+addEvent(window, "load", function() { init_home(); });

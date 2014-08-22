@@ -36,7 +36,7 @@
 				        	$img_size = getimagesize($_FILES["item_upload"]["tmp_name"]);
 
 				        	//Use WideImage to resize it to 500x500
-							$img_contents = WideImage::load("item_upload")->resize(500)->asString('jpg');
+							$img_contents = WideImage::load("item_upload")->resize(1000)->asString('jpg');
 
 							//Get its base 64 code
 							$base64 = base64_encode($img_contents);

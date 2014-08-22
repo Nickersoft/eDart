@@ -244,6 +244,10 @@ Body::begin();
 										<td><a href="http://getuikit.com/">UIKit</a></td>
 										<td>A faster, lighter, way-cooler alternative to Bootstrap that we're using to enforce mobile compatibility. It also makes the rest of the site look neater and way awesomer.</td>
 									</tr>
+									<tr>
+										<td><a href="http://darsa.in/motio/">Motio</a></td>
+										<td>A nifty little script for doing Ken Burns-styled pans on images.</td>
+									</tr>
 	
 								</table>
 	

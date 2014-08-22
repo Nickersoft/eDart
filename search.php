@@ -50,11 +50,9 @@ HSRCH;
 
 			?>
 
-			<div id="boardc">
-				<div id="board">
-
-					<div style="padding:0px 50px;">
-
+			<div class="layout-978 uk-container-center">
+				<div class="uk-grid">
+				
 						<?php
 							$cnt = 0; //Count of the items found
 
@@ -312,11 +310,11 @@ HSRCH;
 
 								//Construct the HTML
 								$item_html 		= <<<ITEM1
+												<div class="uk-width-1-5">
 													<div class="item">
-														<div id="inner" style="background:url('$item_img_url' ) center center no-repeat;">
-									 						<div id="overlay" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner';">
-									 							<div class="itxt">
-									 								<div class="spec">
+														<div class="thumbnail" style="background:url('$item_img_url' ) center center no-repeat;">
+									 						<div class="overlay" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner';">
+									 							<p>
 ITEM1;
 
 								if(trim($item_price)!="")
@@ -334,13 +332,13 @@ ITEM1;
 													<br/>
 													Posted On: $item_adddate <br/>
 													Posted By: $owner_name <br/>
-												</div>
+												</p>
 											</div>
 										</div>
+
+										<div class="subtitle">$item_name</div>
+
 									</div>
-
-									<div id="cap">$item_name</div>
-
 								</div>
 ITEM2;
 								//Print the HTML
@@ -348,7 +346,6 @@ ITEM2;
 							}
 						?>
 					</div>
-				</div>
 			</div>
 		<?php
 		Body::end();

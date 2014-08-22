@@ -11,4 +11,6 @@
  
 .uk-nav-side>li>a 			{ border-radius:4px; -webkit-border-radius:4px; behavior:url('/lib/pie/PIE.htc'); }
 .uk-nav-side>li.uk-active>a { background:#26C281;}
-.uk-grid					{ padding:2em; }
+.uk-grid					{ padding:0 2em 0 2em; }
+.uk-panel-box				{ background:#FFFFFF; }
+.uk-panel-teaser			{ border-bottom:1px solid #ddd; }

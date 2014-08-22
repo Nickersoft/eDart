@@ -2,48 +2,6 @@
 
 include_once $_SERVER ["DOC_ROOT"] . "/scripts/php/core.php"; //Core functionality
 
-//Get info about the most recent item
-$items = new Item(array("action"=>"get", "sort"=>"adddate", "order"=>"desc"));
-$get_items = $items->run();
-
-if(count($get_items)!=0)
-{
-	$recent_item = $get_items[0];
-	
-	$recent_id			= $recent_item["id"];			//Item ID
-	$recent_name 		= $recent_item["name"];			//Item name
-	$recent_price 		= $recent_item["emv"];			//Item EMV
-	$recent_status		= $recent_item["status"];		//Item status
-	$recent_duedate		= $recent_item["duedate"];		//Item due date
-	$recent_expires		= $recent_item["expiration"];	//Item expiration timestamp
-	$recent_owner_id	= $recent_item["usr"];			//Item owner
-	
-	//Number of offers on the item
-	$recent_offercnt  = count(json_decode($recent_item["offers"], true));
-	
-	//Expiration in relative form
-	$relative_exp	= getRelativeDT(time(), $recent_expires);
-	
-	//Let's get the owner's name, shall we?
-	$owner 			= new User(array("action"=>"get", "id"=>$recent_owner_id));
-	$owner_info		= $owner->run(true);
-	$owner_name		= $owner_info[0]["fname"] . " " . $owner_info[0]["lname"];
-	
-	//Depending on the status code (0, 1, or 2), change the status to a string
-	switch($recent_status)
-	{
-		case 0:
-			$recent_status = "Out";
-			break;
-		case 1:
-			$recent_status = "In";
-			break;
-		case 2:
-			$recent_status = "Offered";
-			break;
-	}
-}
-
 //Get all items in the database
 $all_items 	= new Item(array("action"=>"get"));
 $items_info = $all_items->run(true);
@@ -61,6 +19,104 @@ foreach($items_info as $item)
 
 ?>
 
+<div class="layout-978 uk-container-center">
+	<div class="uk-grid" id="home">
+		<?php 
+		
+			//Finds the latest item that has an image
+			$item_obj 	= new Item(array("action"=>"get"));
+			$item_array = $item_obj->run(true);
+			$data_url   = "";
+			$count = 0;
+			while (trim($item_array[$count]["image"])=="") {
+				if($count > count($item_array))
+				{
+					break;
+				}
+				else 
+				{
+					$count++;
+				}
+			}
+			
+			if(trim($item_array[$count]["image"])!=""):
+				$feat_item				= $item_array[$count];
+				$feat_data_binary 		= $item_array[$count]["image"];
+				$feat_data_binary_blur	= WideImage::loadFromString($feat_data_binary)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+				$feat_data_url  		= "data:image/jpg;base64," . base64_encode($feat_data_binary_blur->asString('jpg'));
+				$feat_img_height		= $feat_data_binary_blur->getHeight();
+		?>
+		<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-width-1-1 uk-cover-background  uk-position-relative">
+		    <div class="uk-position-cover uk-flex uk-flex-left uk-flex-middle">
+	    		<div class="gradient">
+					<h6>featured</h6>
+	    		    <h1><?php echo ucwords(trim($feat_item["name"])); ?></h1>
+	    		    <ul>
+	    		    	<?php if(trim($feat_item["emv"])!=""): ?>
+	    		    		<li><strong>Worth roughly</strong>: $<?php echo $feat_item["emv"]; ?></li>
+	    		    	<?php endif; ?>
+	    		    	
+	    		    	<li><strong>Offers:</strong> <?php echo count(json_decode($feat_item["offers"])); ?></li>
+	    		    	<li><strong>Status:</strong> <?php echo ($feat_item["status"]==1) ? "In" : "Out"; ?><li>
+	    		    	<li><strong>Trade Type:</strong> <?php echo ($feat_item["duedate"]==0) ? "Permanent" : "Temporary"; ?>
+	    		    </ul>
+	    		    <a href="/view.php?itemid=<?php echo $feat_item["id"]; ?>&userid=<?php echo $feat_item["usr"]; ?>" id="view_button" class="button_primary dark text_medium">View Item</a>
+	    		    <a href="/profile.php?id=<?php echo $feat_item["usr"]; ?>"><img class="user_picture uk-border-circle" src="/profile.php?id=<?php echo $feat_item["usr"]; ?>&load=image&size=small" /></a>
+	    		</div>
+            </div>
+		</div>
+		<?php endif; ?>
+		
+		<div class="uk-width-1-4 child">
+			<div class="title">Categories</div>
+    		<ul class="uk-nav uk-nav-side">
+    			<li><a  class="active">Recent <span style="margin-top:3px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success"><?php echo count($items_info); ?></span></a></li>
+    			<li><a>Popular</a></li>
+				<?php if(count($category_array)!=0):  
+						foreach($category_array as $category): ?>
+							<li onclick="get_items('<?php echo $category; ?>', '<?php echo Lookup::Category($category); ?>', this);"><a>
+								<?php echo Lookup::Category($category); ?></a></li>
+				<?php   endforeach;
+					  else: ?>
+					  <p style="text-transform:none;">No categories to display</p>
+				<?php endif; ?>
+			</ul>
+		</div>
+		
+		<div class="uk-width-3-4">
+			<div class="uk-grid">
+			<?php 
+				foreach($items_info as $item):
+					$user_obj  = new User(array("action"=>"get","id"=>$item["usr"]));
+					$user_info = $user_obj->run(true);
+					$user_info = $user_info[0];
+			?> 
+			<div class="uk-width-1-3">
+			
+			
+				<div class="item">
+					<div class="thumbnail" style="background:url('/imageviewer/?id=<?php echo $item["id"]; ?>' ) center center no-repeat;">
+ 						<div class="overlay" onclick="window.location='/view.php?itemid=<?php echo $item["id"]; ?>&userid=<?php echo $item["usr"]; ?>';">
+ 							<p>
+								<?php echo (trim($item["emv"])) ? "Worth: $" . $item["emv"] . ".00<br/>" : ""; ?>
+								<?php echo (trim($item["duedate"])!=0) ? "Due: " . date("F jS, Y", trim($item["duedate"])) . "<br/>" : ""; ?>
+								Expires: <?php echo date("m/d/Y", trim($item["expiration"])); ?><br/>
+								<br/>
+								Posted On: <?php echo date("m/d/Y", trim($item["adddate"])); ?> <br/>
+								Posted By: <?php echo ucwords($user_info["fname"]) . " " . ucwords($user_info["lname"]); ?> <br/>
+							</p>
+						</div>
+					</div>
+
+					<div class="subtitle"><?php echo ucwords($item["name"]); ?></div>
+
+				</div>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</div>
+<?php /*
 <div id="feed_cont">
 	<div id="feed">
 		<div id="feed_right">
@@ -201,4 +257,5 @@ foreach($items_info as $item)
 
 		</div>
 	</div>
-</div>
+</div>*/
+?>

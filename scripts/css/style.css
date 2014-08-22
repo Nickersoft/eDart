@@ -18,7 +18,7 @@ a 				{ text-decoration:none !important; color:black; cursor:pointer; }
 p				{ white-space:normal; }
 h1, h2 			{ margin: 0px; padding: 0px; font-family:VegurRegular, sans-serif; }
 dd i 			{ width:1.5em; }
-main 			{ white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
+main 			{ padding:2em 0 2em 0; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
 
 .panel						{ white-space:normal; }
 .background					{ background:url("/img/bg.jpg") repeat center center; background-size:cover; }
@@ -176,7 +176,7 @@ footer a 			{ text-decoration:none; color:white !important; }
 footer section	{ color:white; position:relative; text-align:center; width:100%; height:auto; display:block; margin-bottom:10px; }
 
 /* The links in the footer */
-footer nav 		{ padding:1em; display:block; text-align:center; margin-bottom:10px; cursor:pointer; font-size:14px; margin-top:15px; text-transform:uppercase; letter-spacing:2px; color:white; }
+footer nav 		{ padding:0 1em 0 1em; display:block; text-align:center; margin-bottom:10px; cursor:pointer; font-size:14px; margin-top:15px; text-transform:uppercase; letter-spacing:2px; color:white; }
 
 /* * * * * * * * * * * * * REPORT ITEM * * * * * * * * * * * * */
 
