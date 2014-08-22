@@ -24,7 +24,7 @@ foreach($items_info as $item)
 		<?php 
 		
 			//Finds the latest item that has an image
-			$item_obj 	= new Item(array("action"=>"get"));
+			$item_obj 	= new Item(array("action"=>"get","sort"=>"adddate","order"=>"ASC"));
 			$item_array = $item_obj->run(true);
 			$data_url   = "";
 			$count = 0;
