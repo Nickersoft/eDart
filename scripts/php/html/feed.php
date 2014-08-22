@@ -67,20 +67,38 @@ foreach($items_info as $item)
 		</div>
 		<?php endif; ?>
 		
-		<div class="uk-width-1-4 child">
-			<div class="title">Categories</div>
-    		<ul class="uk-nav uk-nav-side">
-    			<li><a  class="active">Recent <span style="margin-top:3px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success"><?php echo count($items_info); ?></span></a></li>
-    			<li><a>Popular</a></li>
-				<?php if(count($category_array)!=0):  
-						foreach($category_array as $category): ?>
-							<li onclick="get_items('<?php echo $category; ?>', '<?php echo Lookup::Category($category); ?>', this);"><a>
-								<?php echo Lookup::Category($category); ?></a></li>
-				<?php   endforeach;
-					  else: ?>
-					  <p style="text-transform:none;">No categories to display</p>
-				<?php endif; ?>
-			</ul>
+		<div class="uk-width-1-4">
+		
+			<div class="child">
+				<div class="title">Categories</div>
+	    		<ul class="uk-nav uk-nav-side">
+	    			<li><a  class="active">Recent <span style="margin-top:3px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success"><?php echo count($items_info); ?></span></a></li>
+	    			<li><a>Popular</a></li>
+					<?php if(count($category_array)!=0):  
+							foreach($category_array as $category): ?>
+								<li onclick="get_items('<?php echo $category; ?>', '<?php echo Lookup::Category($category); ?>', this);"><a>
+									<?php echo Lookup::Category($category); ?></a></li>
+					<?php   endforeach;
+						  else: ?>
+						  <p style="text-transform:none;">No categories to display</p>
+					<?php endif; ?>
+				</ul>
+			</div>
+			
+			<div class="child">
+				<div class="title">Newest Members</div>
+				<div class="uk-grid uk-grid-small" style="padding-left:10px;">
+					<?php
+					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 10");
+						while ($user = mysqli_fetch_array($user_query)): ?>
+							<div class="uk-width-1-4">
+								<a title="<?php echo $user["fname"] . " " . $user["lname"]; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
+									<img class="uk-border-circle" src="/profile.php?id=<?php echo $user["id"]; ?>&load=image&size=small">
+								</a>
+							</div>
+					<?php endwhile; ?>
+				</div>
+			</div>
 		</div>
 		
 		<div class="uk-width-3-4">
