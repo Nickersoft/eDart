@@ -26,16 +26,6 @@ foreach (glob($_SERVER["DOC_ROOT"]."/scripts/css/*.css") as $filename) {
   array_push($css_arr, $filename);
 }
 
-array_push($css_arr, $_SERVER["DOC_ROOT"] . "/lib/glyphicon/icon.css");
-array_push($css_arr, $_SERVER["DOC_ROOT"] . "/lib/datetimepicker/css/bootstrap-datetimepicker.css");
-array_push($css_arr, $_SERVER["DOC_ROOT"] . "/lib/jquery-ui/css/south-street/jquery-ui-1.10.4.custom.min.css");
-
-array_push($js_arr, $_SERVER["DOC_ROOT"] . "/lib/moment/moment.min.js");
-array_push($js_arr, $_SERVER["DOC_ROOT"] . "/lib/jquery-ui/js/jquery-ui-1.10.4.custom.min.js");
-array_push($js_arr, $_SERVER["DOC_ROOT"] . "/lib/datetimepicker/js/bootstrap-datetimepicker.js");
-array_push($js_arr, $_SERVER["DOC_ROOT"] . "/lib/jcrop/js/jquery.Jcrop.js");
-array_push($js_arr, $_SERVER["DOC_ROOT"] . "/lib/jquery-sticky/jquery.sticky-kit.min.js");
-
 return array(
     'js'  => $js_arr,
     'css' => $css_arr

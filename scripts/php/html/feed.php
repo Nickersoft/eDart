@@ -3,7 +3,7 @@
 include_once $_SERVER ["DOC_ROOT"] . "/scripts/php/core.php"; //Core functionality
 
 //Get all items in the database
-$all_items 	= new Item(array("action"=>"get"));
+$all_items 	= new Item(array("action"=>"get", "sort"=>"adddate", "order"=>"desc"));
 $items_info = $all_items->run(true);
 
 $category_array = array(); //Will hold all categories
@@ -20,7 +20,7 @@ foreach($items_info as $item)
 ?>
 
 <div class="layout-978 uk-container-center">
-	<div class="uk-grid" id="home">
+	<div class="uk-grid uk-grid-preserve" id="home">
 		<?php 
 		
 			//Finds the latest item that has an image
@@ -47,9 +47,9 @@ foreach($items_info as $item)
 				$feat_img_height		= $feat_data_binary_blur->getHeight();
 		?>
 		<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-width-1-1 uk-cover-background  uk-position-relative">
-		    <div class="uk-position-cover uk-flex uk-flex-left uk-flex-middle">
+		    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
 	    		<div class="gradient">
-					<h6>featured</h6>
+					<h6><span>featured</span> in <?php echo Lookup::Category($feat_item["category"]); ?></h6>
 	    		    <h1><?php echo ucwords(trim($feat_item["name"])); ?></h1>
 	    		    <ul>
 	    		    	<?php if(trim($feat_item["emv"])!=""): ?>
@@ -72,11 +72,11 @@ foreach($items_info as $item)
 			<div class="child">
 				<div class="title">Categories</div>
 	    		<ul class="uk-nav uk-nav-side">
-	    			<li><a  class="active">Recent <span style="margin-top:3px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success"><?php echo count($items_info); ?></span></a></li>
+	    			<li><a  class="active">Recent <span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success"><?php echo count($items_info); ?></span></a></li>
 	    			<li><a>Popular</a></li>
-					<?php if(count($category_array)!=0):  
+	    			<?php if(count($category_array)!=0):  
 							foreach($category_array as $category): ?>
-								<li onclick="get_items('<?php echo $category; ?>', '<?php echo Lookup::Category($category); ?>', this);"><a>
+								<li onclick="select_category('<?php echo $category; ?>', '<?php echo Lookup::Category($category); ?>', this);"><a>
 									<?php echo Lookup::Category($category); ?></a></li>
 					<?php   endforeach;
 						  else: ?>
@@ -89,7 +89,7 @@ foreach($items_info as $item)
 				<div class="title">Newest Members</div>
 				<div class="uk-grid uk-grid-small" style="padding-left:10px;">
 					<?php
-					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 10");
+					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 12");
 						while ($user = mysqli_fetch_array($user_query)): ?>
 							<div class="uk-width-1-4">
 								<a title="<?php echo $user["fname"] . " " . $user["lname"]; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
@@ -102,12 +102,9 @@ foreach($items_info as $item)
 		</div>
 		
 		<div class="uk-width-3-4">
-			<div class="uk-grid">
+			<div class="uk-grid" id="main_board">
 			<?php 
 				foreach($items_info as $item):
-					$user_obj  = new User(array("action"=>"get","id"=>$item["usr"]));
-					$user_info = $user_obj->run(true);
-					$user_info = $user_info[0];
 			?> 
 			<div class="uk-width-1-3">
 			
@@ -116,12 +113,10 @@ foreach($items_info as $item)
 					<div class="thumbnail" style="background:url('/imageviewer/?id=<?php echo $item["id"]; ?>' ) center center no-repeat;">
  						<div class="overlay" onclick="window.location='/view.php?itemid=<?php echo $item["id"]; ?>&userid=<?php echo $item["usr"]; ?>';">
  							<p>
-								<?php echo (trim($item["emv"])) ? "Worth: $" . $item["emv"] . ".00<br/>" : ""; ?>
+								<?php echo (trim($item["emv"])!="") ? "Worth: $" . $item["emv"] . ".00<br/>" : ""; ?>
 								<?php echo (trim($item["duedate"])!=0) ? "Due: " . date("F jS, Y", trim($item["duedate"])) . "<br/>" : ""; ?>
 								Expires: <?php echo date("m/d/Y", trim($item["expiration"])); ?><br/>
-								<br/>
 								Posted On: <?php echo date("m/d/Y", trim($item["adddate"])); ?> <br/>
-								Posted By: <?php echo ucwords($user_info["fname"]) . " " . ucwords($user_info["lname"]); ?> <br/>
 							</p>
 						</div>
 					</div>

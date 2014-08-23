@@ -27,7 +27,7 @@
   left:10px;
   
   font-size:1.5em; 
-  font-family:TitilliumrRegular, sans-serif; 
+  font-family:VegurLight, sans-serif;
   color:white;   
   
   /* IE 8 */
@@ -44,6 +44,10 @@
 
   /* Good browsers */
   opacity: 0.75;
+}
+
+#home #home_cover h6 span {
+	font-family:TitilliumrRegular, sans-serif; 
 }
 
 #home #home_cover h1 		{ margin-left:0.5em; margin-top:0.5em; font-size:3.5em; font-family:VegurRegular, sans-serif; color:white; line-height:1em; }

@@ -1,3 +1,90 @@
+/*
+ *	    Name: get_items
+ *   Purpose: Gets a list of items based on category name
+ * Arguments:
+ *		- 	  category: The category name
+ *		- highlight_el: The object to highlight in the navigation
+ *   Returns: Void
+ */
+
+var curcat = "";
+
+function select_category(category_id, category_name, menu_item)
+{
+	try
+	{
+		//If the category is not currently selected...
+		if(curcat!=category_id)
+		{
+			//...display the loader
+			//display_load();
+
+			//Make a call to the API to get a list of items matching the category
+			$.get("/api/index.php",
+				  { "lib" 		: "item",
+				    "action" 	: "get",
+				    "filter"	: { "category" : category_id },
+				    "sort"		: "adddate", "order":"desc"} ,
+				    function(data)
+				    {
+				    	//Get the data and convert it to a JSON array
+						var a = eval("(" + data + ")");
+
+						//The new board HTML
+						var new_board = "";
+
+						//Loop through the returned items
+						for(var i = 0; i <= a.length - 1; i++)
+						{
+							//Set the description to a variable
+							var description = a[i]["description"];
+
+							//Unless it's empty
+							if(description == "")
+							{
+								//Then create a default
+								description ="No description available.";
+							}
+
+							var item_content = "";
+							item_content += ((a[i]["emv"])!="") ? "Worth: $" + a[i]["emv"] + ".00<br/>" : "";
+							item_content += ((a[i]["duedate"])!=0) ? "Due Date: " + moment(parseInt(a[i]["duedate"])).format("MMMM Do, YYYY") + "<br/>" : "";
+							item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
+							item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
+						    
+						    new_board += "<div class=\"uk-width-1-3\">" + 
+											"<div class=\"item\">" +
+												"<div class=\"thumbnail\" style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "' ) center center no-repeat;\">" + 
+							 						"<div class=\"overlay\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
+							 							"<p>" + 
+							 								item_content +
+							 							"</p>" + 
+													"</div>" +
+												"</div>" + 
+												"<div class=\"subtitle\">" + a[i]["name"] + "</div>" +
+											"</div>" +
+										"</div>";
+						}
+
+						//Set the HTML
+						document.getElementById("main_board").innerHTML = new_board;
+
+						//adjust_feed();
+
+				});
+
+				//Highlight the element
+				highlight_element(highlight_el);
+
+				//Set the current category
+				curcat = category_id;
+
+				//push_title(category_name);
+		}
+	}
+	catch(e) {}
+}
+
 function show_panel(parent, id)
 {
 	try {
