@@ -18,7 +18,7 @@ function select_category(category_id, category_name, menu_item)
 		{
 			//...display the loader
 			//display_load();
-			$("#main_board").fadeOut(300, function() {
+			$("#main_board").fadeOut(function() {
 				//Make a call to the API to get a list of items matching the category
 				$.get("/api/index.php",
 					  { "lib" 		: "item",
@@ -80,7 +80,7 @@ function select_category(category_id, category_name, menu_item)
 					//Set the current category
 					curcat = category_id;
 
-					$("#main_board").fadeIn(300);
+					$("#main_board").fadeIn();
 					//push_title(category_name);
 			});
 		}
