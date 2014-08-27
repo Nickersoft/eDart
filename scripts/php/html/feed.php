@@ -94,7 +94,7 @@ foreach($items_info as $item)
 					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 12");
 						while ($user = mysqli_fetch_array($user_query)): ?>
 							<div class="uk-width-1-4">
-								<a data-uk-tooltip="{pos:'top'}" title="<?php echo $user["fname"] . " " . $user["lname"]; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
+								<a data-uk-tooltip="{pos:'top'}" title="<?php echo ucwords($user["fname"] . " " . $user["lname"]); ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
 									<img class="uk-border-circle" src="/profile.php?id=<?php echo $user["id"]; ?>&load=image&size=small">
 								</a>
 							</div>
