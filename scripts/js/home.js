@@ -52,9 +52,9 @@ function select_category(category_id, category_name, menu_item)
 							item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
 							item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
 						    
-						    new_board += "<div class=\"uk-width-1-3\">" + 
+						    new_board += "<div class=\"uk-width-1-5\">" + 
 											"<div class=\"item\">" +
-												"<div class=\"thumbnail\" style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "' ) center center no-repeat;\">" + 
+												"<div class=\"thumbnail\" style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail' ) center center no-repeat;\">" + 
 							 						"<div class=\"overlay\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
 							 							"<p>" + 
 							 								item_content +
@@ -74,7 +74,8 @@ function select_category(category_id, category_name, menu_item)
 				});
 
 				//Highlight the element
-				highlight_element(highlight_el);
+				$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
+				$(menu_item).closest("li").addClass("uk-active");
 
 				//Set the current category
 				curcat = category_id;

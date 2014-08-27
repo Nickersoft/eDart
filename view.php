@@ -303,8 +303,8 @@ Body::begin();
 
 									<div id="uinfo">
 										Member since <?php echo date("F j, Y", $jdate); ?> <br/>
-										<?php echo (!in_array("gender", $privacy)) ? $agender . "<br/>" : ""; ?>
-										<?php echo ((trim($adob)!=0)&&(!in_array("dob", $privacy))) ?  getRelativeDT(time(), $adob) . " old<br/>" : ""; ?>
+										<?php echo (!is_array($agender)&&!in_array("gender", $privacy)) ? $agender . "<br/>" : ""; ?>
+										<?php echo (!is_array($adob)&&(trim($adob)!=0)&&(!in_array("dob", $privacy))) ?  getRelativeDT(time(), $adob) . " old<br/>" : ""; ?>
 									</div>
 								</div>
 						  	</div>

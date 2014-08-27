@@ -14,3 +14,7 @@
 .uk-grid					{ padding:0 2em 0 2em; }
 .uk-panel-box				{ background:#FFFFFF; }
 .uk-panel-teaser			{ border-bottom:1px solid #ddd; }
+
+.uk-nav-side>li.uk-active>a>.uk-badge {
+	display:none;
+}
