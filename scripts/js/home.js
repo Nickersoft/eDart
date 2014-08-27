@@ -18,69 +18,71 @@ function select_category(category_id, category_name, menu_item)
 		{
 			//...display the loader
 			//display_load();
+			$("#main_board").fadeOut(300, function() {
+				//Make a call to the API to get a list of items matching the category
+				$.get("/api/index.php",
+					  { "lib" 		: "item",
+					    "action" 	: "get",
+					    "filter"	: { "category" : category_id },
+					    "sort"		: "adddate", "order":"desc"} ,
+					    function(data)
+					    {
+					    	//Get the data and convert it to a JSON array
+							var a = eval("(" + data + ")");
 
-			//Make a call to the API to get a list of items matching the category
-			$.get("/api/index.php",
-				  { "lib" 		: "item",
-				    "action" 	: "get",
-				    "filter"	: { "category" : category_id },
-				    "sort"		: "adddate", "order":"desc"} ,
-				    function(data)
-				    {
-				    	//Get the data and convert it to a JSON array
-						var a = eval("(" + data + ")");
+							//The new board HTML
+							var new_board = "";
 
-						//The new board HTML
-						var new_board = "";
-
-						//Loop through the returned items
-						for(var i = 0; i <= a.length - 1; i++)
-						{
-							//Set the description to a variable
-							var description = a[i]["description"];
-
-							//Unless it's empty
-							if(description == "")
+							//Loop through the returned items
+							for(var i = 0; i <= a.length - 1; i++)
 							{
-								//Then create a default
-								description ="No description available.";
+								//Set the description to a variable
+								var description = a[i]["description"];
+
+								//Unless it's empty
+								if(description == "")
+								{
+									//Then create a default
+									description ="No description available.";
+								}
+
+								var item_content = "";
+								item_content += ((a[i]["emv"])!="") ? "Worth: $" + a[i]["emv"] + ".00<br/>" : "";
+								item_content += ((a[i]["duedate"])!=0) ? "Due Date: " + moment(parseInt(a[i]["duedate"])).format("MMMM Do, YYYY") + "<br/>" : "";
+								item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
+								item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
+							    
+							    new_board += "<div class=\"uk-width-1-5\">" + 
+												"<div class=\"item\">" +
+													"<div class=\"thumbnail\" style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail' ) center center no-repeat;\">" + 
+								 						"<div class=\"overlay\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
+								 							"<p>" + 
+								 								item_content +
+								 							"</p>" + 
+														"</div>" +
+													"</div>" + 
+													"<div class=\"subtitle\">" + a[i]["name"] + "</div>" +
+												"</div>" +
+											"</div>";
 							}
 
-							var item_content = "";
-							item_content += ((a[i]["emv"])!="") ? "Worth: $" + a[i]["emv"] + ".00<br/>" : "";
-							item_content += ((a[i]["duedate"])!=0) ? "Due Date: " + moment(parseInt(a[i]["duedate"])).format("MMMM Do, YYYY") + "<br/>" : "";
-							item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
-							item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
-						    
-						    new_board += "<div class=\"uk-width-1-5\">" + 
-											"<div class=\"item\">" +
-												"<div class=\"thumbnail\" style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail' ) center center no-repeat;\">" + 
-							 						"<div class=\"overlay\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
-							 							"<p>" + 
-							 								item_content +
-							 							"</p>" + 
-													"</div>" +
-												"</div>" + 
-												"<div class=\"subtitle\">" + a[i]["name"] + "</div>" +
-											"</div>" +
-										"</div>";
-						}
+							//Set the HTML
+							document.getElementById("main_board").innerHTML = new_board;
 
-						//Set the HTML
-						document.getElementById("main_board").innerHTML = new_board;
+							//adjust_feed();
 
-						//adjust_feed();
+					});
 
-				});
+					//Highlight the element
+					$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
+					$(menu_item).closest("li").addClass("uk-active");
 
-				//Highlight the element
-				$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
-				$(menu_item).closest("li").addClass("uk-active");
+					//Set the current category
+					curcat = category_id;
 
-				//Set the current category
-				curcat = category_id;
-
-				//push_title(category_name);
+					$("#main_board").fadeIn(300);
+					//push_title(category_name);
+			});
 		}
 	}
 	catch(e) {}

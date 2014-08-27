@@ -73,7 +73,6 @@ foreach($items_info as $item)
 		?>
 		
 		<div class="uk-width-1-4">
-		
 			<div class="child">
 				<div class="title">Categories</div>
 	    		<ul class="uk-nav uk-nav-side">
@@ -95,7 +94,7 @@ foreach($items_info as $item)
 					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 12");
 						while ($user = mysqli_fetch_array($user_query)): ?>
 							<div class="uk-width-1-4">
-								<a title="<?php echo $user["fname"] . " " . $user["lname"]; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
+								<a data-uk-tooltip="{pos:'top'}" title="<?php echo $user["fname"] . " " . $user["lname"]; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
 									<img class="uk-border-circle" src="/profile.php?id=<?php echo $user["id"]; ?>&load=image&size=small">
 								</a>
 							</div>
@@ -109,21 +108,21 @@ foreach($items_info as $item)
 			<?php 
 				foreach($items_info as $item):
 			?> 
-			<div class="uk-width-1-5">
-				<div class="item">
-					<div class="thumbnail" style="background:url('/imageviewer/?id=<?php echo $item["id"]; ?>&size=thumbnail' ) center center no-repeat;">
- 						<div class="overlay" onclick="window.location='/view.php?itemid=<?php echo $item["id"]; ?>&userid=<?php echo $item["usr"]; ?>';">
- 							<p>
-								<?php echo (trim($item["emv"])!="") ? "Worth: $" . $item["emv"] . ".00<br/>" : ""; ?>
-								<?php echo (trim($item["duedate"])!=0) ? "Due: " . date("F jS, Y", trim($item["duedate"])) . "<br/>" : ""; ?>
-								Expires: <?php echo date("m/d/Y", trim($item["expiration"])); ?><br/>
-								Posted On: <?php echo date("m/d/Y", trim($item["adddate"])); ?> <br/>
-							</p>
+				<div class="uk-width-1-5">
+					<div class="item">
+						<div class="thumbnail" style="background:url('/imageviewer/?id=<?php echo $item["id"]; ?>&size=thumbnail' ) center center no-repeat;">
+	 						<div class="overlay" onclick="window.location='/view.php?itemid=<?php echo $item["id"]; ?>&userid=<?php echo $item["usr"]; ?>';">
+	 							<p>
+									<?php echo (trim($item["emv"])!="") ? "Worth: $" . $item["emv"] . ".00<br/>" : ""; ?>
+									<?php echo (trim($item["duedate"])!=0) ? "Due: " . date("F jS, Y", trim($item["duedate"])) . "<br/>" : ""; ?>
+									Expires: <?php echo date("m/d/Y", trim($item["expiration"])); ?><br/>
+									Posted On: <?php echo date("m/d/Y", trim($item["adddate"])); ?> <br/>
+								</p>
+							</div>
 						</div>
+						<div class="subtitle"><?php echo ucwords($item["name"]); ?></div>
 					</div>
-					<div class="subtitle"><?php echo ucwords($item["name"]); ?></div>
 				</div>
-			</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
