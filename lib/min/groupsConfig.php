@@ -27,10 +27,6 @@ foreach (glob($_SERVER["DOC_ROOT"]."/lib/bootstrap/js/*.js") as $filename) {
   array_push($js_arr, $filename);
 }
 
-//Vex
-foreach (glob($_SERVER["DOC_ROOT"]."/lib/vex/js/*.js") as $filename) {
-	array_push($js_arr, $filename);
-}
 
 /* * * * * * * * * * * * * * *
  *    ADD CSS TO THE MIX     *

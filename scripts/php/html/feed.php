@@ -107,28 +107,9 @@ foreach($items_info as $item)
 		
 		<div class="uk-width-3-4">
 			<div class="uk-grid" id="main_board">
-			<?php 
-				foreach($items_info as $item):
-			?> 
-				<div class="uk-width-1-5">
-					<div class="item">
-						<div class="thumbnail" style="background:url('/imageviewer/?id=<?php echo $item["id"]; ?>&size=thumbnail' ) center center no-repeat;">
-	 						<div class="overlay" onclick="window.location='/view.php?itemid=<?php echo $item["id"]; ?>&userid=<?php echo $item["usr"]; ?>';">
-	 							<p>
-									<?php echo (trim($item["emv"])!="") ? "Worth: $" . $item["emv"] . ".00<br/>" : ""; ?>
-									<?php echo (trim($item["duedate"])!=0) ? "Due: " . date("F jS, Y", trim($item["duedate"])) . "<br/>" : ""; ?>
-									Expires: <?php echo date("m/d/Y", trim($item["expiration"])); ?><br/>
-									Posted On: <?php echo date("m/d/Y", trim($item["adddate"])); ?> <br/>
-								</p>
-							</div>
-						</div>
-						<div class="subtitle"><?php echo ucwords($item["name"]); ?></div>
-					</div>
-				</div>
-			<?php endforeach; ?>
+			</div> 
 		</div>
 	</div>
-</div>
 <?php /*
 <div id="feed_cont">
 	<div id="feed">

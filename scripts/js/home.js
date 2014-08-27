@@ -54,7 +54,8 @@ function select_category(category_id, category_name, menu_item)
 							    
 							    new_board += "<div class=\"uk-width-1-5\">" + 
 												"<div class=\"item\">" +
-													"<div class=\"thumbnail\" style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail' ) center center no-repeat;\">" + 
+													"<div class=\"thumbnail\">" +
+														"<img src=\"/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail\" />" +
 								 						"<div class=\"overlay\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
 								 							"<p>" + 
 								 								item_content +
