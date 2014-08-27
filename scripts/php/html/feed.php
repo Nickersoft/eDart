@@ -20,7 +20,7 @@ foreach($items_info as $item)
 ?>
 
 <div class="layout-978 uk-container-center">
-	<div class="uk-grid uk-grid-preserve" id="home">
+	<div class="uk-grid uk-grid-preserve reset_padding" id="home">
 		<?php 
 		
 			//Finds the latest item that has an image
@@ -49,24 +49,26 @@ foreach($items_info as $item)
 					$feat_data_url  		= "data:image/jpg;base64," . base64_encode($feat_data_binary_blur->asString('jpg'));
 					$feat_img_height		= $feat_data_binary_blur->getHeight();
 		?>
-			<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-width-1-1 uk-cover-background  uk-position-relative">
-			    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
-		    		<div class="gradient">
-						<h6><span>featured</span> in <?php echo Lookup::Category($feat_item["category"]); ?></h6>
-		    		    <h1><?php echo ucwords(trim($feat_item["name"])); ?></h1>
-		    		    <ul>
-		    		    	<?php if(trim($feat_item["emv"])!=""): ?>
-		    		    		<li><strong>Worth roughly</strong>: $<?php echo $feat_item["emv"]; ?></li>
-		    		    	<?php endif; ?>
-		    		    	
-		    		    	<li><strong>Offers:</strong> <?php echo count(json_decode($feat_item["offers"])); ?></li>
-		    		    	<li><strong>Status:</strong> <?php echo ($feat_item["status"]==1) ? "In" : "Out"; ?><li>
-		    		    	<li><strong>Trade Type:</strong> <?php echo ($feat_item["duedate"]==0) ? "Permanent" : "Temporary"; ?>
-		    		    </ul>
-		    		    <a href="/view.php?itemid=<?php echo $feat_item["id"]; ?>&userid=<?php echo $feat_item["usr"]; ?>" id="view_button" class="button_primary dark text_medium">View Item</a>
-		    		    <a href="/profile.php?id=<?php echo $feat_item["usr"]; ?>"><img class="user_picture uk-border-circle" src="/profile.php?id=<?php echo $feat_item["usr"]; ?>&load=image&size=small" /></a>
-		    		</div>
-	            </div>
+			<div class="uk-width-1-1">
+				<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-cover-background  uk-position-relative">
+				    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
+			    		<div class="gradient">
+							<h6><span>featured</span> in <?php echo Lookup::Category($feat_item["category"]); ?></h6>
+			    		    <h1><?php echo ucwords(trim($feat_item["name"])); ?></h1>
+			    		    <ul>
+			    		    	<?php if(trim($feat_item["emv"])!=""): ?>
+			    		    		<li><strong>Worth roughly</strong>: $<?php echo $feat_item["emv"]; ?></li>
+			    		    	<?php endif; ?>
+			    		    	
+			    		    	<li><strong>Offers:</strong> <?php echo count(json_decode($feat_item["offers"])); ?></li>
+			    		    	<li><strong>Status:</strong> <?php echo ($feat_item["status"]==1) ? "In" : "Out"; ?><li>
+			    		    	<li><strong>Trade Type:</strong> <?php echo ($feat_item["duedate"]==0) ? "Permanent" : "Temporary"; ?>
+			    		    </ul>
+			    		    <a href="/view.php?itemid=<?php echo $feat_item["id"]; ?>&userid=<?php echo $feat_item["usr"]; ?>" id="view_button" class="button_primary dark text_medium">View Item</a>
+			    		    <a href="/profile.php?id=<?php echo $feat_item["usr"]; ?>"><img class="user_picture uk-border-circle" src="/profile.php?id=<?php echo $feat_item["usr"]; ?>&load=image&size=small" /></a>
+			    		</div>
+		            </div>
+				</div>
 			</div>
 			<?php endif; 
 			endif; 
