@@ -78,11 +78,21 @@ foreach($items_info as $item)
 			<div class="child">
 				<div class="title">Categories</div>
 	    		<ul class="uk-nav uk-nav-side">
-	    			<li class="uk-active"><a>Recent <span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success"><?php echo count($items_info); ?></span></a></li>
-	    			<li><a>Popular</a></li>
+	    			<li>
+	    				<a href="javascript:void(0);" onclick="select_recent(this);" >Recent 
+	    					<?php if(count($items_info)!=0): ?>
+	    					<span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success">
+		    					<?php 
+		    						echo count($items_info); 
+		    					?>
+	    					</span> 
+	    					<?php endif; ?>
+	    				</a>
+	    			</li>
+	    			<li><a href="javascript:void(0);" onclick="select_popular(this);">Popular</a></li>
 	    			<?php if(count($category_array)!=0):  
 							foreach($category_array as $category): ?>
-								<li><a href="javascript:void(0);" onclick="select_category('<?php echo $category; ?>', '<?php echo Lookup::Category($category); ?>', this);">
+								<li><a href="javascript:void(0);" onclick="select_category('<?php echo $category; ?>', this);">
 									<?php echo Lookup::Category($category); ?></a></li>
 					<?php   endforeach;
 					 endif; ?>

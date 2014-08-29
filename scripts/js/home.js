@@ -9,84 +9,97 @@
 
 var curcat = "";
 
-function select_category(category_id, category_name, menu_item)
+function populate_home(filter, menu_item, sort_title)
+{
+	
+	//Highlight the element
+	$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
+	$(menu_item).closest("li").addClass("uk-active");
+
+	$("#main_board").fadeOut(300, function() {
+		//Make a call to the API to get a list of items matching the category
+		$.get("/api/index.php",
+			  { "lib" 		: "item",
+			    "action" 	: "get",
+			    "filter"	: filter,
+			    "sort"		: sort_title, "order":"desc"} ,
+			    function(data)
+			    {
+			    	//Get the data and convert it to a JSON array
+					var a = eval("(" + data + ")");
+
+					//The new board HTML
+					var new_board = "";
+
+					//Loop through the returned items
+					for(var i = 0; i <= a.length - 1; i++)
+					{
+						//Set the description to a variable
+						var description = a[i]["description"];
+
+						//Unless it's empty
+						if(description == "")
+						{
+							//Then create a default
+							description ="No description available.";
+						}
+
+						var item_content = "";
+						item_content += ((a[i]["emv"])!="") ? "Worth: $" + a[i]["emv"] + ".00<br/>" : "";
+						item_content += ((a[i]["duedate"])!=0) ? "Due Date: " + moment(parseInt(a[i]["duedate"])).format("MMMM Do, YYYY") + "<br/>" : "";
+						item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
+						item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
+					    
+					    new_board += "<div class=\"uk-width-1-5\">" + 
+										"<div class=\"item\">" +
+											"<div class=\"thumbnail\">" +
+												"<a href=\"/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "\">" + 
+													"<img src=\"/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail\" />" +
+												"</a>" +
+											"</div>" + 
+											"<div class=\"subtitle\">" + a[i]["name"] + "</div>" +
+										"</div>" +
+									"</div>";
+					}
+
+					//Set the HTML
+					document.getElementById("main_board").innerHTML = new_board;
+
+
+					$("#main_board").fadeIn(300);
+
+			});
+	});
+}
+
+function select_recent(menu_item)
+{
+	try
+	{
+		populate_home({}, menu_item, "adddate");
+	}
+	catch(e) {}
+}
+
+function select_category(category_id, menu_item)
 {
 	try
 	{
 		//If the category is not currently selected...
 		if(curcat!=category_id)
 		{
-			//...display the loader
-			//display_load();
-			$("#main_board").fadeOut(300, function() {
-				//Make a call to the API to get a list of items matching the category
-				$.get("/api/index.php",
-					  { "lib" 		: "item",
-					    "action" 	: "get",
-					    "filter"	: { "category" : category_id },
-					    "sort"		: "adddate", "order":"desc"} ,
-					    function(data)
-					    {
-					    	//Get the data and convert it to a JSON array
-							var a = eval("(" + data + ")");
-
-							//The new board HTML
-							var new_board = "";
-
-							//Loop through the returned items
-							for(var i = 0; i <= a.length - 1; i++)
-							{
-								//Set the description to a variable
-								var description = a[i]["description"];
-
-								//Unless it's empty
-								if(description == "")
-								{
-									//Then create a default
-									description ="No description available.";
-								}
-
-								var item_content = "";
-								item_content += ((a[i]["emv"])!="") ? "Worth: $" + a[i]["emv"] + ".00<br/>" : "";
-								item_content += ((a[i]["duedate"])!=0) ? "Due Date: " + moment(parseInt(a[i]["duedate"])).format("MMMM Do, YYYY") + "<br/>" : "";
-								item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
-								item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
-							    
-							    new_board += "<div class=\"uk-width-1-5\">" + 
-												"<div class=\"item\">" +
-													"<div class=\"thumbnail\">" +
-														"<img src=\"/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail\" />" +
-								 						"<div class=\"overlay\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
-								 							"<p>" + 
-								 								item_content +
-								 							"</p>" + 
-														"</div>" +
-													"</div>" + 
-													"<div class=\"subtitle\">" + a[i]["name"] + "</div>" +
-												"</div>" +
-											"</div>";
-							}
-
-							//Set the HTML
-							document.getElementById("main_board").innerHTML = new_board;
-
-
-							$("#main_board").fadeIn(300);
-							
-							//adjust_feed();
-
-					});
-
-					//Highlight the element
-					$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
-					$(menu_item).closest("li").addClass("uk-active");
-
-					//Set the current category
-					curcat = category_id;
-
-					//push_title(category_name);
-			});
+			populate_home({"category" : category_id}, menu_item, "adddate");
+			curcat = category_id;
 		}
+	}
+	catch(e) {}
+}
+
+function select_popular(menu_item)
+{
+	try
+	{
+		populate_home({}, menu_item, "views");
 	}
 	catch(e) {}
 }
@@ -139,12 +152,12 @@ function display_menu(menu, icon)
 
 function init_home()
 {
-	var speed = 40;
+	var speed = 10;
 	var $home_cover = $("#home_cover[data-height]");
 	var $motio = new Motio($home_cover[0],
 			{
 				speedY : (speed*-1), 
-				fps : 30 
+				fps : 60 
 			});
 	
 	$motio.on("frame", function() { 
@@ -161,6 +174,8 @@ function init_home()
 			$motio.set("speedY",speed*-1);
 		}
 	});
+	
+	//$motio.play();
 }
 
 window.fbAsyncInit = function() {
@@ -207,7 +222,9 @@ $(document).ready(function() {
 			});
 		});
 	});
+	
 	$(".uk-nav li a").eq(0).click();
+	
 });
 
 addEvent(window, "load", function() { init_home(); });

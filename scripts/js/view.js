@@ -12,40 +12,34 @@ function showReportItem()
 }
 
 //Show the accept alert box
-function acceptConfirm(itemid, name)
+function confirm_accept(itemid, name)
 {
-	var abx = document.getElementById("alertbox");
-	var ay  = document.getElementById("ayes");
-	var an  = document.getElementById("ano");
-	var atx = document.getElementById("alertinfo");
-	abx.style.display="block";
-	atx.innerHTML="Are you sure you wish to accept the offer: " + name + "?";
-	ay.onclick=function(){abx.style.display="none";acceptOffer(itemid);return false};
-	an.onclick=function(){abx.style.display="none";};
+	push_confirm("Are you sure you wish to accept the offer: " + name + "?",
+			function()
+			{
+				offer_accept(itemid);
+			});
 }
 
 //Show the withdraw alert box
-function withdrawConfirm(itemid)
+function confirm_withdraw(itemid)
 {
-	var abx = document.getElementById("alertbox");
-	var ay  = document.getElementById("ayes");
-	var an  = document.getElementById("ano");
-	var atx = document.getElementById("alertinfo");
-	abx.style.display="block";
-	atx.innerHTML="Are you sure you wish to withdraw your offer?";
-	ay.onclick=function(){abx.style.display="none";withdrawOffer(itemid);return false};
-	an.onclick=function(){abx.style.display="none";};
+	push_confirm("Are you sure you wish to withdraw your offer?",
+			function()
+			{
+				offer_withdraw(itemid);
+			});
 }
 
 //Submit the withdrawl form
-function withdrawOffer(itemid)
+function offer_withdraw(itemid)
 {
 	document.getElementById("withdrawitem").value = itemid;
 	document.getElementById("itemform").submit();
 }
 
 //Submit the acceptance form
-function acceptOffer(itemid)
+function offer_accept(itemid)
 {
 	document.getElementById("acceptitem").value = itemid;
 	document.getElementById("itemform").submit();

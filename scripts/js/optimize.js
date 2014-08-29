@@ -32,7 +32,6 @@ function hideNotify(obj)
 	document.cookie = "notify = off;"
 }
 
-
 function addEvent(target, eventName, handler) //Adds event listening based on browser
 {
 	try{
@@ -276,13 +275,6 @@ function init_chosen()
 	function fade_loader()
 	{
 		$("#loader").fadeTo(150, 0, function() { $("#loader").css("display","none"); });
-	    vex.defaultOptions.className = 'vex-theme-default';
-		vex.dialog.confirm({
-			  message: 'Are you absolutely sure you want to destroy the alien planet?',
-			  callback: function(value) {
-			    return console.log(value);
-			  }
-			});
 	}
 
 	addEvent(window, "load", function() { $('input, textarea').placeholder(); });

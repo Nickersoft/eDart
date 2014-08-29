@@ -201,18 +201,14 @@ Head::make($name, true);
 Body::begin();
 
 			?>
-			<style>
-				#dimit { background: url('/img/transb.png'); }
-			</style>
-
-			<div id="dimit" onclick="hydeImg();"></div>
-			<div id="shadowbox">
-				<img style="margin:0 auto;display:block;" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=medium">
-				<div style="position:absolute;right:10px;top:5px;font-size:18px;color:dimgray;cursor:pointer;" onclick="hydeImg();"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button></div>
+			
+			<div id="lightbox" class="uk-modal">
+			    <div class="uk-modal-dialog uk-modal-dialog-frameless">
+			        <a href="" class="uk-modal-close uk-close uk-close-alt"></a>
+			        <img style="width:100%;" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>" alt="<?php echo $name; ?>">
+			    </div>
 			</div>
-
-			<?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; ?>
-
+			
 			<div id="embed_box" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -255,7 +251,7 @@ Body::begin();
 						<img src="./img/out.png" style="float:right;margin-top:-1px;display:inline-block;margin-right:-1px;">
 					<?php endif; ?>
 					<div class="pic">
-						<img id="itempic" onclick="showImg();" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=medium">
+						<a href="#lightbox" data-uk-modal><img id="itempic" src="/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=medium"></a>
 					</div>
 					<div id='titcont'>
 						<div id="title">
@@ -430,9 +426,9 @@ Body::begin();
 												<?php if($status==0): //If this item is out... ?>
 													<div class="acc" style="cursor:pointer;">This offer has been accepted</div>
 												<?php elseif($_SESSION["userid"]==$owner_info["id"]): //If the current user owns this offer... ?>
-													<div class="del" style="cursor:pointer;" onclick="withdrawConfirm('<?php echo $offer["id"]; ?>')">Withdraw Offer</div>
+													<div class="del" style="cursor:pointer;" onclick="confirm_withdraw('<?php echo $offer["id"]; ?>')">Withdraw Offer</div>
 												<?php elseif($_SESSION["userid"]==$_GET["userid"]): //If the current user owns the current item... ?>
-													<div class="acc" style="cursor:pointer;" onclick="acceptConfirm('<?php echo $offer["id"]; ?>','<?php echo $item_info["name"]; ?>')">Accept Offer</div>
+													<div class="acc" style="cursor:pointer;" onclick="confirm_accept('<?php echo $offer["id"]; ?>','<?php echo $item_info["name"]; ?>')">Accept Offer</div>
 												<?php endif; ?>
 											</div>
 							<?php 		endforeach;
@@ -441,16 +437,6 @@ Body::begin();
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div id="alertbox">
-				<p id="alertinfo">Just Another Alert Box</p>
-				<table style="margin-right: auto; margin-left: auto;">
-					<tr>
-						<td><input id="ayes" type="button" value="Yes"></td>
-						<td><input id="ano" type="button" value="No"></td>
-					</tr>
-				</table>
 			</div>
 
 		<?php
