@@ -248,7 +248,10 @@ Body::begin();
 										<td><a href="http://darsa.in/motio/">Motio</a></td>
 										<td>A nifty little script for doing Ken Burns-styled pans on images.</td>
 									</tr>
-	
+									<tr>
+										<td><a href="http://github.hubspot.com/vex/docs/welcome/">Vex</a></td>
+										<td>Slick as silk dialog boxes for the site.</td>
+									</tr>
 								</table>
 	
 							</br>

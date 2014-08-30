@@ -293,7 +293,7 @@ Body::begin();
 
 						<div class="tab-content">
 						  	<div class="tab-pane active" id="owner_info">
-								<img class="profpic" src="/profile.php?id=<?php echo $aid; ?>&load=image" onclick="window.location='profile.php?id=$aid';" ?>
+								<img class="profpic" src="/profile.php?id=<?php echo $aid; ?>&load=image" onclick="window.location='profile.php?id=<?php echo $aid; ?>';" ?>
 								<div class="infotxt">
 									<div onclick="window.location='profile.php?id=<?php echo $aid; ?>';"><?php echo "$afname $alname"; ?></div>
 
