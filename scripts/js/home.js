@@ -54,7 +54,7 @@ function populate_home(filter, menu_item, sort_title)
 										"<div class=\"item\">" +
 											"<div class=\"uk-grid uk-grid-preserve reset_padding\">" +
 												"<div class=\" uk-width-1-6\">" +
-													"<a style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat 0 center;\" class=\"thumbnail\" href=\"/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "\">" + 
+													"<a style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat center center;\" class=\"thumbnail\" href=\"/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "\">" + 
 														"<div class=\"gradient\"></div>" +
 													"</a>" +
 												"</div>" +

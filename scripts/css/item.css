@@ -16,4 +16,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 .item:hover > .subtitle  				{ color:black; transition:color 1s; -moz-transition:color 1s; -ms-transition:color 1s; -o-transition:color 1s; -webkit-transition:color 1s; }
 .item .header							{ margin-top:10px; font-size:1.5em; color:#696969; width:100%; padding:10px; padding-bottom:5px; }
-.item .description						{ font-size:1em; color:#696969; width:100%; padding-left:30px; }
+.item .description						{ white-space:normal; font-size:1em; color:#696969; width:75%; padding-left:30px; }
