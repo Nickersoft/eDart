@@ -65,7 +65,7 @@ function populate_home(filter, menu_item, sort_title)
 					//Set the HTML
 					document.getElementById("main_board").innerHTML = new_board;
 
-
+					align_items();
 					$("#main_board").fadeIn(300);
 
 			});
@@ -176,6 +176,17 @@ function init_home()
 	});
 	
 	//$motio.play();
+}
+
+function align_items()
+{
+	$(".thumbnail img").each(function() {
+		if($(this).height() < $(this).closest("thumbnail").height())
+		{
+			$(this).css("height","100%");
+			$(this).css("width", "auto");
+		}
+	});
 }
 
 window.fbAsyncInit = function() {
