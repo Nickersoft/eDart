@@ -65,8 +65,7 @@ function populate_home(filter, menu_item, sort_title)
 					//Set the HTML
 					document.getElementById("main_board").innerHTML = new_board;
 
-					align_items();
-					$("#main_board").fadeIn(300);
+					$("#main_board").fadeIn(300, function() {align_items();});
 
 			});
 	});
@@ -181,6 +180,7 @@ function init_home()
 function align_items()
 {
 	$(".thumbnail img").each(function() {
+		console.log($(this).height());
 		if($(this).height() < $(this).closest("thumbnail").height())
 		{
 			$(this).css("height","100%");
