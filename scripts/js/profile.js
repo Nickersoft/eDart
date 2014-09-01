@@ -60,7 +60,8 @@ function open_item_edit(id)
 			//Forcibly enable "Next button"
 			$("#add_next").prop("disabled", false);
 
-			$("#postbox").modal();
+			var modal = $.UIkit.modal("#postbox");
+			modal.show();
 		});
 }
 
