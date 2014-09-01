@@ -8,7 +8,7 @@ abstract class Head
 	public static function begin($title, $use_prefix = true)
 	{
 		global $title_string;
-		$title_string = ($use_prefix) ? ("eDart Beta | " . $title) : $title;
+		$title_string = ($use_prefix) ? ($title . " | eDart") : $title;
 
 		$head_tag = <<<HEAD
 				<head>

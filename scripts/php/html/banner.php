@@ -69,7 +69,7 @@
 			?>
 
 				<form method="GET" id="hfrm" action="/search.php">
-					<input name="keyword" type="search" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search" />
+					<input name="keyword" type="search" maxlength="40" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search" />
 				</form>
 
 				<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>">

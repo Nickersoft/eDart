@@ -7,6 +7,7 @@
  * [Do not remove this header. One MUST be included at the start of every page/script]
  *
  */
+#postbox h4						{ background:#F8F8F8; border-bottom:1px solid #eee; width:100%; color:#8A8A8A; text-align:center; font-family:TitilliumLight, sans-serif; }
 
 #add_wizard				 		{ white-space:nowrap; display:block; width:100%; overflow:hidden; }
 #add_wizard p					{ margin-top:0px; }
