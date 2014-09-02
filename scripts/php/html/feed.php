@@ -37,7 +37,6 @@ foreach($items_info as $item)
 					}
 					else 
 					{
-						echo "yes";
 						$count++;
 					}
 				}
