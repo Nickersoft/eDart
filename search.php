@@ -262,6 +262,8 @@ HSRCH;
 								//Load them into variables
 								$item_img_url 	= "/imageviewer/?id=".$itemid;
 								$item_name 		= $item_info[0]["name"];
+								$item_desc		= $item_info[0]["description"];
+								
 								$item_price		= $item_info[0]["emv"];
 								$item_adddate	= $item_info[0]["adddate"];
 								$item_duedate	= $item_info[0]["duedate"];
@@ -308,39 +310,23 @@ HSRCH;
 
 								$owner_name		= $owner_info[0]["fname"] . " " . $owner_info[0]["lname"];
 
-								//Construct the HTML
-								$item_html 		= <<<ITEM1
-												<div class="uk-width-1-5">
-													<div class="item">
-														<div class="thumbnail" style="background:url('$item_img_url' ) center center no-repeat;">
-									 						<div class="overlay" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner';">
-									 							<p>
-ITEM1;
-
-								if(trim($item_price)!="")
-								{
-									$item_html .= "Worth: \$$item_price.00 <br/>";
-								}
-
-								if(trim($item_dodue))
-								{
-									$item_html .= "Due: $item_duedate <br/>";
-								}
-
-								$item_html .= <<<ITEM2
-													Expires: $item_expires <br/>
-													<br/>
-													Posted On: $item_adddate <br/>
-													Posted By: $owner_name <br/>
-												</p>
+								$item_html = <<<ITEM1
+							   		<div class="uk-width-1-1 uk-align-center"> 
+										<div class="item" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner + "';">
+											<div class="uk-grid uk-grid-preserve reset_padding">
+												<div class="uk-width-4-6">
+													<div class="header">$item_name </div>
+														<div class="description">$item_desc</div>
+												</div>
+												<div class="uk-width-2-6">
+													<div style="background:url('/imageviewer/?id=$itemid&size=medium') no-repeat center center;" class="thumbnail"> 
+														<div class="gradient"></div>
+													</a>
+												</div>
 											</div>
 										</div>
-
-										<div class="subtitle">$item_name</div>
-
-									</div>
-								</div>
-ITEM2;
+									</div>					
+ITEM1;
 								//Print the HTML
 								echo $item_html;
 							}

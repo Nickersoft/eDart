@@ -50,39 +50,23 @@ function populate_home(filter, menu_item, sort_title)
 						item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
 						item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
 					    
-						if(a[i]["image"]!="")
-						{
-						    new_board += "<div class=\"uk-width-1-1\">" + 
-							"<div class=\"item\">" +
-								"<div class=\"uk-grid uk-grid-preserve reset_padding\">" +
-									"<div class=\"uk-width-4-6\">" +
-										"<div class=\"header\">" + a[i]["name"] + "</div>" +
-											"<div class=\"description\">" + a[i]["description"] + "</div>" +
-									"</div>" +
-									"<div class=\" uk-width-2-6\">" +
-										"<a style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat center center;\" class=\"thumbnail\" href=\"/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "\">" + 
-											"<div class=\"gradient\"></div>" +
-										"</a>" +
-									"</div>" +
-								"</div>" +
-							"</div>" +
-						"</div>";
-						}
-						else
-						{
-						    new_board += "<div class=\"uk-width-1-1\">" + 
-							"<div class=\"item\">" +
-								"<div class=\"uk-grid uk-grid-preserve reset_padding\">" +
-									"<div class=\"uk-width-1-1\">" +
-										"<div class=\"header\">" + a[i]["name"] + "</div>" +
+					    new_board += "<div class=\"uk-width-1-1\">" + 
+						"<div class=\"item\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
+							"<div class=\"uk-grid uk-grid-preserve reset_padding\">" +
+								"<div class=\"uk-width-4-6\">" +
+									"<div class=\"header\">" + a[i]["name"] + "</div>" +
 										"<div class=\"description\">" + a[i]["description"] + "</div>" +
-									"</div>" +
+								"</div>" +
+								"<div class=\" uk-width-2-6\">" +
+									"<div style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat center center;\" class=\"thumbnail\">" + 
+										"<div class=\"gradient\"></div>" +
+									"</a>" +
 								"</div>" +
 							"</div>" +
-						"</div>";
-						}
-					}
-
+						"</div>" +
+					"</div>";
+				}
+						    
 					//Set the HTML
 					document.getElementById("main_board").innerHTML = new_board;
 
