@@ -314,7 +314,7 @@ HSRCH;
 							   		<div class="uk-width-1-1 uk-align-center"> 
 										<div class="item" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner + "';">
 											<div class="uk-grid uk-grid-preserve reset_padding">
-												<div class="uk-width-4-6">
+												<div class="uk-width-4-6 info">
 													<div class="header">$item_name </div>
 														<div class="description">$item_desc</div>
 												</div>

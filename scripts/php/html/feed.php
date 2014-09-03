@@ -20,7 +20,7 @@ foreach($items_info as $item)
 ?>
 
 <div class="layout-978 uk-container-center">
-	<div class="uk-grid uk-grid-preserve reset_padding" id="home">
+	<div class="uk-grid uk-grid-preserve" id="home">
 		<?php 
 		
 			//Finds the latest item that has an image
@@ -73,7 +73,7 @@ foreach($items_info as $item)
 			endif; 
 		?>
 		
-		<div class="uk-width-1-4">
+		<div class="uk-width-small-1-4">
 			<div class="child">
 				<div class="title">Categories</div>
 	    		<ul class="uk-nav uk-nav-side">
@@ -114,8 +114,8 @@ foreach($items_info as $item)
 			</div>
 		</div>
 		
-		<div class="uk-width-3-4">
-			<div class="uk-grid" id="main_board">
+		<div class="uk-width-small-3-4">
+			<div class="uk-grid reset_padding" id="main_board">
 			</div> 
 		</div>
 	</div>

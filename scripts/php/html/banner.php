@@ -69,7 +69,7 @@
 			?>
 
 				<form method="GET" id="hfrm" action="/search.php">
-					<input name="keyword" type="search" maxlength="40" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search" />
+					<input class="uk-hidden-small" name="keyword" type="search" maxlength="40" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search" />
 				</form>
 
 				<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>">
@@ -81,8 +81,8 @@
 					<div id="tooltips">
 						<?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/html/menus.php"; ?>
 					</div>
-					<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>"><?php echo "{$user_info["fname"]} {$user_info["lname"]}"; ?></a><br/>
-					<div id="user_options" class="menu_link" onclick="display_menu('#options_menu', this);">
+					<a class="uk-hidden-small" href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>"><?php echo "{$user_info["fname"]} {$user_info["lname"]}"; ?></a><br/>
+					<div class="uk-hidden-small" id="user_options" class="menu_link" onclick="display_menu('#options_menu', this);">
 						Options
 						<div id="options_menu" class="menu">
 							<div class="tip"></div>

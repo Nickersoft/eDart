@@ -87,7 +87,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #banner_placeholder #banner #inner 								{ width:978px; margin:0 auto; height:100%; max-height:60px; display:block; }
 
 /* The eDart logo */
-#banner_placeholder #banner #inner #logo						{ text-decoration:none; font-family:inherit; cursor:pointer; float:left; margin:13px 0px 0px 25px; color:yellow; font-size:32px; max-width:100%; width:115px; height:auto; }
+#banner_placeholder #banner #inner #logo						{ text-decoration:none; font-family:inherit; cursor:pointer; float:left; margin-top:0.45em; color:yellow; font-size:32px; max-width:100%; width:3.2em; height:auto; }
 #banner_placeholder #banner #inner #logo img 					{ width:100%; height:auto; display:block; }
 
 /* The "So many users worldwide" text next to the logo */
@@ -213,15 +213,10 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 	
 	main
 	{ min-width:100%; }
-
-	#banner_placeholder #banner #inner #logo
-	{ width:125px; margin:15px 0px 0px 10px; }
-
-	#mc_cont
-	{ width:90%;  }
-
-	#mc
-	{ margin:0px; margin-top:10px; padding:0px; }
+	
+	#banner_placeholder #banner #inner {
+		width:100%;
+	}
 }
 
 

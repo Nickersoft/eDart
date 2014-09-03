@@ -1,4 +1,4 @@
-#home #home_cover 		  { -moz-background-size:cover !important; -webkit-background-size:cover !important;  background-size:cover !important; background-repeat:no-repeat !important; margin-bottom:2em; border:1px solid lightgray; box-shadow:inset 0px 0px 25px rgba(0,0,0,0.3); height:300px; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; -o-border-radius:4px; -ms-border-radius:4px; behavior('/lib/pie/pie.htc'); } 
+#home #home_cover 		  { -moz-background-size:cover !important; -webkit-background-size:cover !important;  background-size:cover !important; background-repeat:no-repeat !important; margin-bottom:2em; border:1px solid lightgray; box-shadow:inset 0px 0px 25px rgba(0,0,0,0.3); height:20em; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; -o-border-radius:4px; -ms-border-radius:4px; behavior('/lib/pie/pie.htc'); } 
 
 /* MOVE BACK GUYS! Let's give this gradient some space! */
 #home #home_cover .gradient { 
@@ -50,7 +50,7 @@
 	font-family:TitilliumrRegular, sans-serif; 
 }
 
-#home #home_cover h1 		{ margin-left:0.5em; margin-top:0.5em; font-size:3.5em; font-family:VegurRegular, sans-serif; color:white; line-height:1em; }
+#home #home_cover h1 		{ overflow:hidden; text-overflow:ellipsis; margin-left:0.5em; margin-top:0.5em; font-size:3.5em; font-family:VegurRegular, sans-serif; color:white; line-height:1em; }
 #home #home_cover ul 		{ list-style:none; padding-left:3em; margin:0px; color:white; font-family:VegurLight, sans-serif; font-size:1.3em; }
 #home #home_cover ul li 	{ line-height:1.4em; }
 
@@ -93,8 +93,8 @@
 	  opacity: 1.0;
 }
 
-#home #home_cover #view_button { margin-left:5em; margin-top:0.5em; } 
+#home #home_cover #view_button 	{ margin-left:5em; margin-top:0.5em; } 
 
-#home .child 				{ width:100%; padding:10px; margin-bottom:10px; border-radius:2px; -moz-border-radius:2px; -ms-border-radius:2px; -webkit-border-radius:2px; background:white; box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -o-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -ms-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -webkit-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -moz-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); behavior: url('/lib/pie/PIE.htc'); }
-#home .child				{ filter: none; }
-#home .child .title			{ color: #696969; font-family: VegurLight,sans-serif; font-size: 16px; border-bottom: 1px solid #EEE; padding-bottom: 5px; text-align: left; margin-top: 5px; margin-left: 5px; margin-bottom:10px; }
+#home .child 					{ padding:10px; margin-bottom:10px; border-radius:2px; -moz-border-radius:2px; -ms-border-radius:2px; -webkit-border-radius:2px; background:white; box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -o-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -ms-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -webkit-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); -moz-box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); behavior: url('/lib/pie/PIE.htc'); }
+#home .child					{ filter: none; }
+#home .child .title				{ color: #696969; font-family: VegurLight,sans-serif; font-size: 16px; border-bottom: 1px solid #EEE; padding-bottom: 5px; text-align: left; margin-top: 5px; margin-left: 5px; margin-bottom:10px; }
