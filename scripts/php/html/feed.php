@@ -48,7 +48,7 @@ foreach($items_info as $item)
 					$feat_data_url  		= "data:image/jpg;base64," . base64_encode($feat_data_binary_blur->asString('jpg'));
 					$feat_img_height		= $feat_data_binary_blur->getHeight();
 		?>
-			<div class="uk-width-1-1">
+			<div class="uk-width-1-1 uk-hidden-small">
 				<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-cover-background  uk-position-relative">
 				    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
 			    		<div class="gradient">
@@ -74,7 +74,7 @@ foreach($items_info as $item)
 		?>
 		
 		<div class="uk-width-small-1-4">
-			<div class="child">
+			<div class="child uk-hidden-small">
 				<div class="title">Categories</div>
 	    		<ul class="uk-nav uk-nav-side">
 	    			<li>
@@ -98,7 +98,28 @@ foreach($items_info as $item)
 				</ul>
 			</div>
 			
-			<div class="child">
+			<div class="uk-visible-small">
+				<select id="category_select" class="uk-width-1-1">
+					<option>
+						Recent
+						<?php if(count($items_info)!=0): ?>
+	    				(
+	    					<?php 
+		    					echo count($items_info); 
+		    				?>
+		    			) 
+	    				<?php endif; ?>
+					</option>
+					<option>Popular</option>
+					<?php if(count($category_array)!=0):  
+							foreach($category_array as $category): ?>
+								<option value="<?php echo $category; ?>"><?php echo Lookup::Category($category); ?></option>
+					<?php   endforeach;
+					 endif; ?>
+				</select>
+			</div>
+			
+			<div class="child uk-hidden-small">
 				<div class="title">Newest Members</div>
 				<div class="uk-grid uk-grid-small" style="padding-left:10px;">
 					<?php

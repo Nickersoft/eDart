@@ -56,7 +56,9 @@ function populate_home(filter, menu_item, sort_title)
 												"<div class=\"uk-width-4-6 info\">" +
 													"<div class=\"header\">" + a[i]["name"] + "</div>" +
 														"<div class=\"description\">" + a[i]["description"] + "</div>" +
-														"<span class=\"uk-icon-birthday-cake\"></span>" +
+														"<div class=\"uk-grid\">" +
+															"<div "
+														"</div>" +
 												"</div>" +
 												"<div class=\" uk-width-2-6\">" +
 													"<div style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat center center;\" class=\"thumbnail\">" + 
@@ -181,6 +183,28 @@ function init_home()
 	});
 	
 	//$motio.play();
+	
+	try
+	{
+		$("#category_select").change(function() {
+			switch(this.selectedIndex)
+			{
+				case 0:
+					select_recent(this);
+					break;
+					
+				case 1:
+					select_popular(this);
+					break;
+					
+				default: 
+					select_category(this.options[this.selectedIndex].value, this);
+					break;
+			} 
+				
+		});
+	}
+	catch(e){}
 }
 
 function align_items()

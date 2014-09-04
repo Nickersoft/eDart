@@ -36,11 +36,13 @@ main 			{ padding:2em 0 2em 0; white-space:nowrap; width:100%; min-width:978px; 
 .text_large		{ font-size:4em !important; line-height:1em; }
 .reset_padding	{ padding:0px !important; }
 .reset_margin	{ margin:0px !important; }
+.padding_small	{ padding:0px 10px 0px 10px; }
 
 /* The splash loader on every page */
 
 #loader 			{ background:#26C281; width:100%; top:0px; left:0px; height:100%; position: fixed; z-index:10000; }
 #loader span 		{ color:white; display:block; width:100%; text-align:center; font-size:2em; margin-top:25%; }
+
 /* Every textbox ever */
 .hidden_input 															{ outline:none; border:none; cursor:pointer; width:100%; }
 .hidden_input:focus														{ box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; -webkit-box-shadow:none; border:none; }
@@ -87,7 +89,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #banner_placeholder #banner #inner 								{ width:978px; margin:0 auto; height:100%; max-height:60px; display:block; }
 
 /* The eDart logo */
-#banner_placeholder #banner #inner #logo						{ text-decoration:none; font-family:inherit; cursor:pointer; float:left; margin-top:0.45em; color:yellow; font-size:32px; max-width:100%; width:3.2em; height:auto; }
+#banner_placeholder #banner #inner #logo						{ text-decoration:none; font-family:inherit; cursor:pointer; float:left; margin-top:0.48em; color:yellow; font-size:32px; max-width:100%; width:3.2em; height:auto; }
 #banner_placeholder #banner #inner #logo img 					{ width:100%; height:auto; display:block; }
 
 /* The "So many users worldwide" text next to the logo */
@@ -213,6 +215,7 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 	
 	main
 	{ min-width:100%; }
+	
 	
 	#banner_placeholder #banner #inner {
 		width:100%;
