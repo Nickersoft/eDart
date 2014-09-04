@@ -57,7 +57,6 @@ function populate_home(filter, menu_item, sort_title)
 													"<div class=\"header\">" + a[i]["name"] + "</div>" +
 														"<div class=\"description\">" + a[i]["description"] + "</div>" +
 														"<div class=\"uk-grid\">" +
-															"<div "
 														"</div>" +
 												"</div>" +
 												"<div class=\" uk-width-2-6\">" +
