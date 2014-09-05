@@ -36,7 +36,13 @@ function populate_home(filter, menu_item, sort_title)
 					{
 						//Set the description to a variable
 						var description = a[i]["description"];
-
+						var offer_array = new Array();
+						
+						try
+						{
+							offer_array = eval("(" + a[i]["offers"] + ")");
+						}catch(e){}
+						
 						//Unless it's empty
 						if(description == "")
 						{
@@ -56,7 +62,16 @@ function populate_home(filter, menu_item, sort_title)
 												"<div class=\"uk-width-4-6 info\">" +
 													"<div class=\"header\">" + a[i]["name"] + "</div>" +
 														"<div class=\"description\">" + a[i]["description"] + "</div>" +
-														"<div class=\"uk-grid\">" +
+														"<div class=\"overview uk-grid\">" +
+															"<div class=\"uk-width-1-3\" title=\"Number of Offers\">" +
+																"<span class=\"uk-icon-cube\"></span> " + offer_array.length +
+															"</div>" +
+															"<div class=\"uk-width-1-3\" title=\"View Count\">" +
+																"<span class=\"uk-icon-eye\"></span> " + a[i]["views"] +
+															"</div>" +
+															"<div class=\"uk-width-1-3\" title=\"Estimated Market Value (EMV)\">" +
+																"<span class=\"uk-icon-usd\"></span> " + ((a[i]["emv"].length == 0) ? "0" : a[i]["emv"]) +
+															"</div>" +
 														"</div>" +
 												"</div>" +
 												"<div class=\" uk-width-2-6\">" +
@@ -135,7 +150,7 @@ function display_menu(menu, icon)
 	else
 	{
 		$(".menu").hide();
-		$(menu).show();
+		console.log($(menu).show());
 		$(icon).find(".badge").hide();
 		$(icon).addClass("active");
 	}

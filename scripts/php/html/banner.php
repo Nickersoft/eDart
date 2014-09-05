@@ -81,19 +81,21 @@
 						<div id="tooltips">
 							<?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/html/menus.php"; ?>
 						</div>
-						<a class="uk-hidden-small" href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>"><?php echo "{$user_info["fname"]} {$user_info["lname"]}"; ?></a><br/>
-						<div class="uk-hidden-small" id="user_options" class="menu_link" onclick="display_menu('#options_menu', this);">
-							Options
-							<div id="options_menu" class="menu">
-								<div class="tip"></div>
-								<ul>
-									<li onclick="facebook_login();">Invite Friends</li>
-									<li><a href="/changes" target="_blank">View Changelog</a></li>
-									<li><a style="color:tomato" href="/bugs">Report a Bug</a></li>
-									<div class="divide"></div>
-									<li onclick='logout();'>Logout</li>
-								</ul>
-							</div>
+						<div class="uk-hidden-small" >
+							<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>"><?php echo "{$user_info["fname"]} {$user_info["lname"]}"; ?></a><br/>
+							<div id="user_options" class="menu_link" onclick="console.log(display_menu('#options_menu', this));">
+								Options
+								<div id="options_menu" class="menu">
+									<div class="tip"></div>
+									<ul>
+										<li onclick="facebook_login();">Invite Friends</li>
+										<li><a href="/changes" target="_blank">View Changelog</a></li>
+										<li><a style="color:tomato" href="/bugs">Report a Bug</a></li>
+										<div class="divide"></div>
+										<li onclick='logout();'>Logout</li>
+									</ul>
+								</div>
+							</div>						
 						</div>
 					</div>
 				<?php else: ?>
