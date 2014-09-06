@@ -71,16 +71,30 @@
 					<form method="GET" id="hfrm" action="/search.php">
 						<input class="uk-hidden-small" name="keyword" type="search" maxlength="40" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search" />
 					</form>
-	
-					<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>">
-						<div id="minippic" style="background:url('/me/picture/?size=small') center center;">
-						</div>
-					</a>
+
 	
 					<div id='infobox'>
 						<div id="tooltips">
 							<?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/html/menus.php"; ?>
 						</div>
+						
+						<div id="minippic" class="menu_link" onclick="display_menu('#control_panel', this);" style="background:url('/me/picture/?size=small') center center;">
+							<div id="control_panel" class="fade_load menu">
+								<div class="tip"></div>
+								<h1>Welcome back, <?php echo $user_info["fname"]; ?></h1>
+								<h2>What would you like to do?</h2>
+								<ul class="uk-nav uk-nav-side uk-text-center">
+									<li><a href="/profile.php?id=<?php echo $user_id; ?>">View Profile</a></li>
+									<li><a href="javascript:void(0);" onclick="facebook_login();">Invite Friends</a></li>
+									<li><a href="/changes" target="_blank">View Changelog</a></li>
+									<li><a href="/bugs">Report a Bug</a></li>
+									<li class="uk-nav-divider"></li>
+									<li><a onclick='logout();'>Logout</a></li>
+								</ul>
+							</div>
+						</div>
+						
+						<!-- 
 						<div class="uk-hidden-small" >
 							<a href="/profile.php?id=<?php echo $_SESSION["userid"]; ?>"><?php echo "{$user_info["fname"]} {$user_info["lname"]}"; ?></a><br/>
 							<div id="user_options" class="menu_link" onclick="console.log(display_menu('#options_menu', this));">
@@ -96,7 +110,8 @@
 									</ul>
 								</div>
 							</div>						
-						</div>
+						</div> -->
+						
 					</div>
 				<?php else: ?>
 					<a onclick="window.location='/validate/'" class="button_validate small_text">Validate Account</a>

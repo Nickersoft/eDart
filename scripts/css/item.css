@@ -18,4 +18,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .item .info								{ padding-left:35px; }
 .item .info	.header						{ text-overflow:ellipsis; overflow:hidden; margin-top:10px; font-size:1.5em; color:#696969; width:100%; padding:10px; padding-top:10px; padding-bottom:5px; }
 .item .info .description				{ white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; font-size:1em; color:#696969; width:75%; padding-left:30px; }
-.item .info .overview					{ width:25%; font-size:0.8em; position:absolute; left:-5px; bottom:5px; color:#999; }
+.item .info .overview					{ width:18%; font-size:0.8em; position:absolute; left:-5px; bottom:5px; color:#999; }

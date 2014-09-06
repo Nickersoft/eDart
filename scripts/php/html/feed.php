@@ -74,13 +74,16 @@ foreach($items_info as $item)
 		?>
 		
 		<div class="uk-width-small-1-4">
+		
+			<button style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button">Request</button>
+			
 			<div class="child uk-hidden-small">
 				<div class="title">Categories</div>
-	    		<ul class="uk-nav uk-nav-side">
+	    		<ul id="category_list" class="uk-nav uk-nav-side">
 	    			<li>
 	    				<a href="javascript:void(0);" onclick="select_recent(this);" >Recent 
 	    					<?php if(count($items_info)!=0): ?>
-	    					<span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge uk-badge-success">
+	    					<span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge">
 		    					<?php 
 		    						echo count($items_info); 
 		    					?>
@@ -131,6 +134,20 @@ foreach($items_info as $item)
 								</a>
 							</div>
 					<?php endwhile; ?>
+				</div>
+			</div>
+			
+			<div class="child uk-hidden-small">
+				<div class="title">Similar Stuff</div>
+				<div class="uk-align-center" style="padding-left:10px;">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<ins class="adsbygoogle"
+						     style="display:inline-block;width:120px;height:240px"
+						     data-ad-client="ca-pub-5519668009926053"
+						     data-ad-slot="9417230623"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>	
 				</div>
 			</div>
 		</div>

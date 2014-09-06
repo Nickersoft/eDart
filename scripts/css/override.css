@@ -16,9 +16,13 @@
 .uk-panel-teaser			{ border-bottom:1px solid #ddd; }
 
 .uk-nav-side>li.uk-active>a>.uk-badge {
-	display:none;
+	background:white;
+	border:1px solid transparent;
+	color:gray;
 }
 
 .uk-modal-footer 								{ padding: 19px 20px 20px; margin-top: 15px; text-align: right; border-top: 1px solid #E5E5E5; }
 .uk-modal-footer:before, .uk-modal-footer:after { display: table; content: " "; }
 .uk-modal-footer:after 							{ clear: both; }
+.uk-badge										{ background: #26C281; border-color: #43A37C; }
+.uk-modal-dialog								{ border-radius:0px; }

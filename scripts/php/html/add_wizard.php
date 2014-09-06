@@ -1,6 +1,5 @@
 <?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; ?>
 <div id="postbox" class="uk-modal">
-
 	<div class="uk-modal-dialog">
 		<a class="uk-modal-close uk-close"></a>
 		<h4 data-default="New Item" id="wz_title">New Item</h4>

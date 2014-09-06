@@ -68,7 +68,6 @@
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-clock-o					{ color:royalblue; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-exclamation-circle		{ color:red; }
 
-
  /* * * THE NOTIFICATION DROPDOWN * * */
 
 /* The main container */
@@ -96,3 +95,19 @@
 #banner_placeholder #banner #infobox #notification_menu .notification .content .text .title 		{ font-size:16px; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .text .date   		{ margin-left:25px; margin-top:2px; font-size:12px; color:#696969; text-align:right; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .icon   				{ display:inline-block; float:left; color:green; font-size:12px; margin-right:10px; margin-left:10px; margin-top:10px; }
+
+ /* * * THE CONTROL PANEL * * */
+
+/* The main container */
+#banner_placeholder #banner #infobox #control_panel 															{ display:none; min-width:15em; height:auto; position:absolute; padding:10px; right:0px; top:56px; }
+#banner_placeholder #banner #infobox #control_panel:hover														{ display:block; }
+#banner_placeholder #banner #infobox #control_panel .tip														{ border-bottom: 5px solid white; border-left-width:15px; border-right-width:15px; margin-top:15px; }
+
+/* Its list elements */
+#banner_placeholder #banner #infobox #control_panel h1 															{ font-size:1.5em; text-align:center; color:#696969; }
+#banner_placeholder #banner #infobox #control_panel h2 															{ font-size:1em; text-align:center; color:gray; }
+
+#banner_placeholder #banner #infobox #control_panel ul li 														{ cursor:pointer; text-align:center; font-size:0.9em; color:#2b2b2b; padding:2px; }
+
+/* The divider in the menu */
+#banner_placeholder #banner #infobox #control_panel .divide 													{ height:1px; width:90%; margin:0 auto; display:block; background:lightgray; margin:10px; }
