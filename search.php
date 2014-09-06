@@ -312,7 +312,7 @@ HSRCH;
 
 								$item_html = <<<ITEM1
 							   		<div class="uk-width-1-1 uk-align-center"> 
-										<div class="item" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner + "';">
+										<div class="item" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner';">
 											<div class="uk-grid uk-grid-preserve reset_padding">
 												<div class="uk-width-4-6 info">
 													<div class="header">$item_name </div>
@@ -321,7 +321,7 @@ HSRCH;
 												<div class="uk-width-2-6">
 													<div style="background:url('/imageviewer/?id=$itemid&size=medium') no-repeat center center;" class="thumbnail"> 
 														<div class="gradient"></div>
-													</a>
+													</div>
 												</div>
 											</div>
 										</div>

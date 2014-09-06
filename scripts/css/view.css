@@ -15,7 +15,7 @@
 #alertbox #alertinfo 											{ padding-top:25px; padding-bottom:25px; }
 
  /* The parent container */
-#hold  															{ box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); background:#FFFFFF; width:978px; display:block;  margin:10px auto; margin-bottom:20px; position:relative; overflow:hidden;  font-family:VegurLight, sans-serif; }
+#hold  															{ width:100%; display:block;  margin:10px auto; margin-bottom:20px; position:relative; overflow:hidden;  font-family:VegurLight, sans-serif; }
 #hold img 														{ border-radius:5px; -o-border-radius:5px; -ms-border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; behavior: url('/lib/pie/PIE.htc'); }
 
  /* The "cover", containing item name and info */
@@ -30,7 +30,7 @@
 
 /* The item's profile picture */
 #hold #cover .pic 												{ border-right:1px solid #ddd; float:left; width:250px; height:auto; overflow: hidden;  font-size:18px;  behavior:url('/lib/pie/PIE.htc'); }
-#hold #cover .pic #itempic 										{ border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; -ms-border-radius:0px; -o-border-radius:0px; cursor:pointer; width:100%; overflow:hidden; display:block; height:auto;}
+#hold #cover .pic #itempic 										{ cursor:pointer; width:100%; overflow:hidden; display:block; height:auto;}
 
  /* The label that allows users to report an item */
 #hold #cover #repbtn  											{ position:absolute; font-size:14px; color:dimgray; right:10px; bottom:10px; cursor:pointer; }
