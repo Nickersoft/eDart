@@ -208,7 +208,7 @@ function reset_add_wizard()
 	$("#wz_title[data-default]").html($("wz_title[data-default]").attr("data-default"));
 	$("#wz_dodue").prop("checked", true);
 	$("#wz_picture").css("background","");
-	$("#add_wizard .modal-footer").css("display","block");
+	$("#add_wizard .uk-modal-footer").css("display","block");
 
 	var inputs_and_textareas = $("#add_wizard").find("input, textarea");
 	for(var i = 0; i < inputs_and_textareas.length; i++)
@@ -258,7 +258,7 @@ function pre_add()
 	init_overview_listener();
 	reset_add_wizard();
 
-	$('#postbox').on('hide.bs.modal', function (e) {
+	$('#postbox').on('uk.modal.show', function (e) {
     	reset_add_wizard();
 	});
 }

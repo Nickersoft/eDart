@@ -114,10 +114,10 @@
 						
 					</div>
 				<?php else: ?>
-					<a onclick="window.location='/validate/'" class="button_validate small_text">Validate Account</a>
+					<a href="/validate/" class="button_validate small_text">Validate Account</a>
 				<?php endif;
 					else: //<div id="subtxt">Now with echo $user_count; members worldwide.</div> ?>
-						<table id="loginbx">
+						<table class="uk-hidden-small" id="loginbx">
 							<tr>
 								<td id="cntlgnm"></td>
 	
@@ -138,6 +138,7 @@
 								</td>
 							</tr>
 						</table>
+						<a href="/login.php" class="uk-visible-small button_validate small_text">Login</a>
 				<?php endif; ?>
 			</div>
 		</div>

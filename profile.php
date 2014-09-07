@@ -95,16 +95,21 @@ Body::begin(true, true);
 <div id="profile_container">
 	<div id="profile">
 	
-		<div id="cover"><img src="/img/bg.jpg"></div>
-		
-		<div id="header">
+		<div id="cover" style="background-image:url('/img/bg.jpg');">
 			<div class="layout-978 uk-container-center">
-				<div id="text">
-					<h1><?php echo "$fname $lname"; ?></h1>
-					<?php echo (trim($lastlogin!="")) ? "Active " . getRelativeDT(time(), $lastlogin) . " ago" : ""; ?>
+				<div class="uk-grid">
+					<div class="uk-width-1-4"><div class="uk-placeholder uk-invisible"></div></div>
+					<div class="uk-width-3-4" style="position:relative">
+						<div id="header">
+							<h1><?php echo "$fname $lname"; ?></h1>
+							<?php echo (trim($lastlogin!="")) ? "Active " . getRelativeDT(time(), $lastlogin) . " ago" : ""; ?>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		
+
 		
 		<h1 id="title">Recent Activity</h1>
 		
@@ -112,9 +117,9 @@ Body::begin(true, true);
 			<div class="uk-grid">
 				
 				<!-- USER INFO -->
-				<div id="left" class="uk-width-1-4">
+				<div id="left" class="uk-width-1-4 uk-hidden-small">
 					<div id="picture">
-						<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?><div onclick="pp_change_begin();" class="overlay">Click to Change</div><?php endif; ?>
+						<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?><div onclick="pp_change_begin();" class="uk-width-1-1 uk-height-1-1 overlay">Click to Change</div><?php endif; ?>
 						<img src="/profile.php?id=<?php echo $_GET['id']; ?>&load=image">
 					</div>
 					<div id="info">
@@ -130,7 +135,7 @@ Body::begin(true, true);
 						<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?>
 						
 							<div class="uk-text-center">
-								<input type="button" id="edit_button" value="Edit Profile" data-link="edit_profile" class="small_text button_primary green" value="Edit" />
+								<input type="button" id="edit_button" value="Edit Profile" data-link="edit_profile" class="uk-align-center small_text button_primary green" value="Edit" />
 							</div>
 							
 							<div class="hidden">
@@ -145,27 +150,31 @@ Body::begin(true, true);
 					</div>
 				</div>
 	
-				<!-- MAIN CONTENT -->
-				<div class="uk-width-2-4">
-					<div id="post_container">
-
-					<?php
-						include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/recent_activity.php";
-						include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/item.php";
-						include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/review.php";
-						include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/edit.php";
-					?>
+				<div class="uk-width-medium-3-4 uk-width-small-1-1">
+					<div class="uk-grid uk-grid-preserve">
+						<!-- MAIN CONTENT -->
+						<div class="uk-width-medium-7-10 uk-width-small-1-1">
+							<div id="post_container">
+		
+							<?php
+								include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/recent_activity.php";
+								include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/item.php";
+								include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/review.php";
+								include_once $_SERVER["DOC_ROOT"] . "/scripts/php/widget/profile/edit.php";
+							?>
+							
+							</div>
+						</div>
 					
-					</div>
-				</div>
 			
-	
-				<div id="right" class="uk-width-1-4">
-					<ul>
-						<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="uk-icon-bars"></span>Recent Activity</li>
-						<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="uk-icon-cubes"></span>Item Inventory</li>
-						<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="uk-icon-star"></span>User Reviews</li>
-					</ul>
+						<div id="right" class="uk-width-3-10 uk-hidden-small">
+							<ul>
+								<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="uk-icon-bars"></span>Recent Activity</li>
+								<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="uk-icon-cubes"></span>Item Inventory</li>
+								<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="uk-icon-star"></span>User Reviews</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 				
 			</div>

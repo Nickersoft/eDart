@@ -29,26 +29,28 @@ try {
 	<div class="edit_parent">
 		<div id="change_info" class="edit_section">
 			<h3>Basics</h3>
-			<input type="text" id="user_fname" name="fname" class="small_text" 			placeholder="First Name"	value="<?php echo $fname; ?>"/>
-			<input type="text" id="user_lname" name="lname" class="small_text" 			placeholder="Last Name"		value="<?php echo $lname; ?>"/>
-			<input type="text" id="user_dob"   name="dob"   class="datebox small_text" 	placeholder="Date of Birth"	value="<?php echo date("m/d/Y", $dob); ?> "/>
+			<input type="text" id="user_fname" name="fname" class="small_text uk-width-2-3" 			placeholder="First Name"	value="<?php echo $fname; ?>"/>
+			<input type="text" id="user_lname" name="lname" class="small_text uk-width-2-3" 			placeholder="Last Name"		value="<?php echo $lname; ?>"/>
+			<input type="text" id="user_dob"   name="dob"   class="datebox small_text uk-width-2-3" 	placeholder="Date of Birth"	value="<?php echo date("m/d/Y", $dob); ?> "/>
 
-			<textarea id="user_bio" class="small_text" name="bio" placeholder="Enter a short bio here."><?php echo $bio; ?></textarea>
+			<textarea id="user_bio" class="small_text uk-width-2-3" name="bio" placeholder="Enter a short bio here."><?php echo $bio; ?></textarea>
 
-			<select id="user_gender" name="gender" class="chosen-select select small_text" data-placeholder="Gender"/>
-				<option></option>
-				<?php
-					$gender_options = Lookup::Gender();
-					foreach($gender_options as $gender_option): ?>
-						<option <?php echo ($gender_option["code"]==$gender_index) ? "selected" : ""; ?> ><?php echo $gender_option["text"]; ?></option>
-				<?php endforeach; ?>
-			</select>
-
-			<div class="check">
+			<div class="uk-width-2-3 uk-align-center">
+				<select id="user_gender" name="gender" class="chosen-select select small_text" data-placeholder="Gender"/>
+					<option></option>
+					<?php
+						$gender_options = Lookup::Gender();
+						foreach($gender_options as $gender_option): ?>
+							<option <?php echo ($gender_option["code"]==$gender_index) ? "selected" : ""; ?> ><?php echo $gender_option["text"]; ?></option>
+					<?php endforeach; ?>
+				</select>		
+			</div>
+			
+			<div class="check uk-text-center">
 				<input type="checkbox" id="user_domail" name="domail" <?php echo ($domail == "1") ? "checked" : ""; ?> />Receive emails from eDart
 			</div>
 
-			<button class="button_primary blue" onclick="user_send_data();">Save Info</button>
+			<button class="uk-align-center button_primary blue" onclick="user_send_data();">Save Info</button>
 		</div>
 		<div id="change_privacy" class="edit_section">
 			<h3>Privacy</h3>
@@ -66,15 +68,15 @@ try {
 					<input type="checkbox" name="last_location" id="privacy_location"  <?php echo (!in_array("last_location", $privacy)) ? "checked" : ""; ?> /> Last Location (Approximate)
 				</li>
 			</ul>
-			<input type="button" class="button_primary blue" onclick="privacy_send_data();" value="Change Privacy" />
+			<input type="button" class="uk-align-center button_primary blue" onclick="privacy_send_data();" value="Change Privacy" />
 		</div>
 		<div id="change_password" class="edit_section">
 			<h3>Password</h3>
-			<input type="password" id="user_pw"    name="cur_pw" class="small_text" placeholder="Current Password"	  />
-			<input type="password" id="user_npw"   name="new_pw" class="small_text" placeholder="New Password"		  />
-			<input type="password" id="user_rpw"   name="ret_pw" class="small_text" placeholder="Retype New Password" />
+			<input type="password" id="user_pw"    name="cur_pw" class="uk-width-2-3 small_text" placeholder="Current Password"	  />
+			<input type="password" id="user_npw"   name="new_pw" class="uk-width-2-3 small_text" placeholder="New Password"		  />
+			<input type="password" id="user_rpw"   name="ret_pw" class="uk-width-2-3 small_text" placeholder="Retype New Password" />
 
-			<button class="button_primary blue" onclick="password_send_data();">Change Password</button>
+			<button class="uk-align-center button_primary blue" onclick="password_send_data();">Change Password</button>
 		</div>
 		<div id="delete_account" class="edit_section">
 			<h3>Delete Account</h3>
@@ -99,7 +101,7 @@ try {
 			?>
 			<form id="delete_account_form" method="post" action="/scripts/php/form/me/close_account.php">
 				<input type="hidden" name="confirm" value="del" />
-				<input type="submit" class="button_primary blue" value="Close Account" <?php echo $disabled_str; ?>/>
+				<input type="submit" class="uk-align-center button_primary blue" value="Close Account" <?php echo $disabled_str; ?>/>
 			</form>
 		</div>
 	</div>
