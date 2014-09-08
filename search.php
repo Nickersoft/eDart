@@ -310,6 +310,9 @@ HSRCH;
 
 								$owner_name		= $owner_info[0]["fname"] . " " . $owner_info[0]["lname"];
 
+								$item_offer_count 	= (is_array(json_encode($item_info[0]["offers"], true))) ? count(json_encode($item_info[0]["offers"])) : 0;
+								$item_emv 			= (strlen($item_info[0]["emv"])!=0) ? $item_info[0]["emv"] : 0;
+								
 								$item_html = <<<ITEM1
 							   		<div class="uk-width-1-1 uk-align-center"> 
 										<div class="item" onclick="window.location='/view.php?itemid=$itemid&userid=$item_owner';">
@@ -317,6 +320,17 @@ HSRCH;
 												<div class="uk-width-4-6 info">
 													<div class="header">$item_name </div>
 														<div class="description">$item_desc</div>
+														<div class="overview uk-grid">
+															<div class="uk-width-1-3" title="Number of Offers">
+																<span class="uk-icon-cube"></span> $item_offer_count 
+															</div>
+															<div class="uk-width-1-3" title="View Count">
+																<span class="uk-icon-eye"></span> {$item_info[0]["views"] }
+															</div>
+															<div class="uk-width-1-3" title="Estimated Market Value (EMV)">
+																<span class="uk-icon-usd"></span> $item_emv
+															</div>
+														</div>
 												</div>
 												<div class="uk-width-2-6">
 													<div style="background:url('/imageviewer/?id=$itemid&size=medium') no-repeat center center;" class="thumbnail"> 

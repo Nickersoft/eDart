@@ -19,6 +19,24 @@ foreach($items_info as $item)
 
 ?>
 
+<div id="request_win" class="uk-modal">
+	<div class="uk-modal-dialog">
+		<a class="uk-modal-close uk-close"></a>
+		<div class="uk-modal-header">Request a New Item</div>
+		<p>Looking for an item no one's posted yet? File an (anonymous) item request, and we'll suggest that nearby people post it!</br>
+		<input type="text" placeholder="Item Name" class="uk-width-1-2 uk-align-center"/>
+		When you're done, click "Request" below to send your item request.
+		</p>
+		<div class="uk-modal-footer">
+			<div class="uk-align-right">
+				<button class="button_primary blue">Cancel</button>
+				<button class="button_primary green">Request</button>
+			</div>			
+		</div>
+	</div>
+</div>
+
+
 <div class="layout-978 uk-container-center">
 	<div class="uk-grid uk-grid-preserve" id="home">
 		<?php 
@@ -75,7 +93,7 @@ foreach($items_info as $item)
 		
 		<div class="uk-width-small-1-4">
 		
-			<button style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button">Request</button>
+			<a href="#request_win" style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button" data-uk-modal>Request</a>
 			
 			<div class="child uk-hidden-small">
 				<div class="title">Categories</div>

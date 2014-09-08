@@ -24,3 +24,4 @@
 .uk-modal-footer:after 							{ clear: both; }
 .uk-badge										{ background: #26C281; border-color: #43A37C; }
 .uk-modal-dialog								{ border-radius:0px; }
+.uk-modal-header								{ font-size:16px; width:100%; color:lightgray; text-align:left; font-family:TitilliumLight, sans-serif; }
