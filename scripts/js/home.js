@@ -9,6 +9,36 @@
 
 var curcat = "";
 
+/*
+ *	    Name: post_item_request
+ *   Purpose: Post an item request
+ *   Returns: Void
+ */
+function post_item_request()
+{
+	$("#request_win .uk-modal-footer").fadeOut();
+	$("#request_win .uk-modal-dialog").animate(
+			{  
+				height :  ($("#request_win .uk-modal-dialog").height() - $("#request_win .uk-modal-footer").height())
+			}, function() {
+				$("#request_win .uk-modal-content").html("<img class=\"posting uk-align-center\" src=\"/img/add_loader.gif\">");
+	
+				$.get("/api/", { "lib" : "feed", "action" : "post-request", "name" : $("#item-request-name").val() }, function(data) {
+				});
+				
+				setTimeout(function() {
+					$("#request_win .uk-modal-title").html("Item requested!");
+					$("#request_win .uk-modal-content").html("<h1 class=\"uk-text-center\" style=\"margin-top:60px;\">Thanks!</h1>");
+				}, 1000);
+				
+				setTimeout(function() {
+					var modal = $.UIkit.modal("#request_win");
+					modal.hide();
+				}, 2000);
+	
+			});
+}
+
 function populate_home(filter, menu_item, sort_title)
 {
 	

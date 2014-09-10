@@ -21,16 +21,20 @@ foreach($items_info as $item)
 
 <div id="request_win" class="uk-modal">
 	<div class="uk-modal-dialog">
-		<a class="uk-modal-close uk-close"></a>
-		<div class="uk-modal-header">Request a New Item</div>
-		<p>Looking for an item no one's posted yet? File an (anonymous) item request, and we'll suggest that nearby people post it!</br>
-		<input type="text" placeholder="Item Name" class="uk-width-1-2 uk-align-center"/>
-		When you're done, click "Request" below to send your item request.
-		</p>
+		<div class="uk-modal-header">
+			<a class="uk-modal-close uk-close"></a>
+			<div class="uk-modal-title">Request a New Item</div>	
+		</div>
+		<div class="uk-modal-content">
+			<p>Looking for an item no one's posted yet? File an (anonymous) item request, and we'll suggest that nearby people post it!</br>
+			<input type="text" id="item-request-name" placeholder="Item Name" class="uk-width-1-2 uk-align-center"/>
+			When you're done, click "Request" below to send your item request.
+			</p>
+		</div>
 		<div class="uk-modal-footer">
 			<div class="uk-align-right">
-				<button class="button_primary blue">Cancel</button>
-				<button class="button_primary green">Request</button>
+				<button class="button_primary blue uk-modal-close">Cancel</button>
+				<button class="button_primary green" onclick="post_item_request();">Request</button>
 			</div>			
 		</div>
 	</div>

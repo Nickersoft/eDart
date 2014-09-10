@@ -1,8 +1,11 @@
 <?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; ?>
 <div id="postbox" class="uk-modal">
 	<div class="uk-modal-dialog">
-		<a class="uk-modal-close uk-close"></a>
-		<h4 data-default="New Item" id="wz_title">New Item</h4>
+		<div class="uk-modal-header">
+			<a class="uk-modal-close uk-close"></a>
+			<div data-default="New Item" id="wz_title">New Item</div>
+		</div>
+		<div class="uk-modal-content">
   				<div id="add_wizard">
   					<div class="add_slide" id="basics">
 
@@ -155,7 +158,8 @@
        					</form>
 
 				</div>
-
+		</div>
+		
 			<div class="uk-modal-footer">
   				<ul id="pacer">
   					<li class="bullet"></li>

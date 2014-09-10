@@ -70,7 +70,7 @@ function activate_next()
 function show_add_loader()
 {
 	$("#wz_title").html("Posting your item...");
-	$("#postbox .modal-footer").css("display","none");
+	$("#postbox .uk-modal-footer").css("display","none");
 	$("#done").html("<img class=\"posting\" src=\"/img/add_loader.gif\">");
 }
 
