@@ -81,7 +81,7 @@ Body::begin();
 			<div style="min-height:520px;" class="layout-978 uk-container-center">
 				<div class="uk-grid">
 					<div class="uk-width-medium-1-5">
-						<ul class="uk-nav uk-nav-side" data-switcher-parent="#panel_parent">
+						<ul id="about_nav" class="uk-nav uk-nav-side" data-switcher-parent="#panel_parent">
 						    <li><a data-switcher-id="#story">Story</a></li>
 						    <li><a data-switcher-id="#team">Team</a></li>
 						    <li><a data-switcher-id="#backend">Backend</a></li>
