@@ -23,11 +23,15 @@ abstract class Head
 					<meta name="robots" content="index, follow" />
 					<meta name="Headline" content="Welcome to eDart!">
 					<meta name="CPS_SITE_NAME" content="Welcome to eDart!">
-					<meta property="og:title" content="eDart is a first-of-its-kind, completely web-based, universal trading application for WPI students.">
-					<meta property="og:type" content="website">
-					<meta property="og:description" content="eDart is a first-of-its-kind, completely web-based, universal trading application for WPI students.">
-					<meta property="og:site_name" content="eDart">
 					<meta charset="UTF-8">
+							
+					<meta property="og:title"content="eDart" />
+					<meta property="og:site_name" content="eDart"/>
+					<meta property="og:url"content="https://wewanttotrade.com/" />
+					<meta property="og:description" content="eDart is a first-of-its-kind, completely web-based, universal trading application for WPI students." />
+					<meta property="og:image" content="/img/logo/logo1024.png" />
+					
+					<meta property="fb:app_id" content="1410963979147478" />
 
 					<noscript>
 						<meta http-equiv="refresh" content="0;URL=/noscript.php">

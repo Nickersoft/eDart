@@ -370,7 +370,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("#category_list li a").eq(0).click();
+	$(".uk-nav-side li a").eq(0).click();
 	
 });
 
