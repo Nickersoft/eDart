@@ -28,3 +28,8 @@
 .uk-modal-dialog											{ padding:0px; }
 .uk-modal-content											{ padding: 20px; }
 .uk-modal-dialog>.uk-modal-header>.uk-close:first-child 	{ opacity:0.2; color:#000; position:absolute; right:15px; float: right; }
+.uk-tab>li>a												{ color:gray; }
+.uk-tab>li>a:hover											{ color:dimgray; }
+.uk-subnav-pill>li.uk-active>a								{ background:#26C281 !important; }
+.uk-subnav>li>a												{ color:gray; }
+.uk-subnav-pill>li>a:hover, .uk-subnav-pill>li>a:focus		{ background:#eee; }

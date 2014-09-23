@@ -12,7 +12,7 @@
 /* * * * * * * * * * * * * SYSTEM WIDE * * * * * * * * * * * * */
 
 /* General stuffs */
-html 			{ margin:0px; padding:0px; height:100%; width:100%; font-family: sans-serif; }
+html 			{ margin:0px; padding:0px; height:100%; width:100%; font-family: sans-serif; background:#26C281; }
 body 			{ overflow:auto; margin:0px; padding:0px; font-size:14px; width:100%; height:100%; font-family:VegurRegular, sans-serif; background:#26C281; }
 a 				{ text-decoration:none !important; color:black; cursor:pointer; }
 p				{ white-space:normal; }
@@ -34,6 +34,7 @@ main 			{ padding:2em 0 2em 0; white-space:nowrap; width:100%; min-width:978px; 
 .text_small 	{ font-size:1em !important; line-height:1em; }
 .text_medium  	{ font-size:1.2em !important; line-height:1.2em; }
 .text_large		{ font-size:4em !important; line-height:1em; }
+.text_error		{ color:#E74C3C; }
 .reset_padding	{ padding:0px !important; }
 .reset_margin	{ margin:0px !important; }
 .padding_small	{ padding:0px 10px 0px 10px; }

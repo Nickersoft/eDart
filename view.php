@@ -246,6 +246,212 @@ Body::begin();
 			</div>
 
 			<div class="layout-978 uk-container-center">
+				<div class="uk-grid uk-grid-preserve">
+					<div class="uk-width-1-1">
+						<div class="uk-grid uk-grid preserve">
+							<div class="uk-width-2-5">
+								<div class="image_body" style="background-image:url('/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=thumbnail');"></div>
+							</div>
+							
+							<div class="uk-width-3-5" id="item_info">
+								<h1><?php echo $name; ?></h1>
+								<div class="uk-width-1-1 item_description">
+									<?php echo $desc; ?>
+								</div>
+								<div class="uk-width-1-1 uk-text-right">
+									<span class="uk-icon-qrcode uk-badge"></span>
+									<span class="uk-badge uk-badge-danger">Expired</span>
+								</div>
+								<hr/>
+								<div id="specs">
+									<ul>
+										<?php if($dodue): ?>
+											<li><b>Due:</b> <?php echo ((date("Y-m-d", $dd)==date("Y-m-d")) ? "Today" : $relative_dd . " from now"); ?></li>
+										<?php endif; ?>
+										
+										<?php if($emv!=""): ?>
+											<li><b>Worth:</b> <a href="/emv.php">$<?php echo $emv; ?>.00</a></li>
+										<?php endif; ?>
+										
+										<?php if($expire>time()): ?>
+											<li><b>Expires:</b> <?php echo (date("Y")!=date("Y",$expire)) ? date("F jS, Y", $expire) : date("F jS", $expire);; ?> at <?php echo date("g:i A", $expire) ?>  (<?php echo $relative_ex; ?> from now)</li>
+										<?php endif; ?>
+									</ul>
+									
+									<?php if($expire<time()): ?>
+											<div class="uk-width-1-1 uk-text-center uk-alert uk-alert-danger">This item has expired</div>
+									<?php endif; ?>
+								</div>
+										
+						</div>
+						</div>
+					</div>
+					
+					
+						
+										
+					<div class="uk-width-1-1">
+						<div class="uk-grid uk-grid-preserve">
+							<div class="uk-width-2-5">
+								<ul class="uk-subnav uk-subnav-pill uk-text-center" data-uk-tab="{connect:'#info_container'}" id="item_tabs">
+								   <li class="uk-active"><a>About Owner</a></li>
+								  <li><a>More from Owner</a></li>
+								  <li><a>Similar Items</a></li>
+								</ul>
+	
+								<div id="info_box">
+									<div class="uk-switcher uk-margin " id="info_container">
+									
+									
+										<div class="owner">
+											<div class="uk-grid uk-grid-preserve">
+												<div class="uk-width-2-6">
+													<img src="/profile.php?id=<?php echo $aid; ?>&load=image" class="uk-border-circle owner_picture" onclick="window.location='profile.php?id=<?php echo $aid; ?>';" ?>								
+												</div>
+												
+												<div class="uk-width-4-6" style="margin-top:8px;">
+													<div class="infotxt">
+														<h1><a href="/profile.php?id=<?php echo $aid; ?>"><?php echo "$afname $alname"; ?></a></h1>
+					
+														<div id="uinfo">
+															Member since <?php echo date("F j, Y", $jdate); ?> <br/>
+															<?php echo (!is_array($agender)&&!in_array("gender", $privacy)) ? $agender . "" : ""; ?>
+															<?php echo (!is_array($adob)&&(trim($adob)!=0)&&(!in_array("dob", $privacy))) ?   ", " . getRelativeDT(time(), $adob) . " old<br/>" : ""; ?>
+														</div>
+														
+													</div>
+												</div>
+											</div>						
+										</div>
+										
+										<div class="other">
+											<?php if(count($other_items)<=1): ?>
+													<br><div style="font-size:14px;margin-left:25px;margin-bottom:20px;color:dimgray;">Nothing to show here!</div>
+											<?php else:
+													for($i = 0; $i < 3; $i++):
+														if((isset($other_items[$i]))&&($other_items[$i]["id"]!=$_GET["itemid"])):
+											?>															
+															<div class="item" onclick="window.location='/view.php?itemid=<?php echo $other_items[$i]["id"]; ?>d&userid=<?php echo $other_items[$i]["usr"]; ?>';">
+																<div class="uk-grid uk-grid-preserve reset_padding">
+																	<div class="uk-width-4-6 info">
+																		<div class="header"><?php echo $other_items[$i]["name"]; ?></div>
+																		<div class="description"><?php echo $other_items[$i]["description"]; ?></div>
+																		<div class="overview uk-grid">
+																			<div class="uk-width-1-3" title="Number of Offers">
+																				<span class="uk-icon-cube"></span> <?php echo count(Json_decode($other_items[$i]["offers"], true)); ?>
+																			</div>
+																			<div class="uk-width-1-3" title="View Count">
+																				<span class="uk-icon-eye"></span> <?php echo $other_items[$i]["views"]; ?>
+																			</div>
+																			<div class="uk-width-1-3" title="Estimated Market Value (EMV)">
+																				<span class="uk-icon-usd"></span> <?php echo $other_items[$i]["emv"]; ?>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="uk-width-2-6">
+																		<div style="background:url('/imageviewer/?id=<?php echo $other_items[$i]["id"]; ?>&size=medium') no-repeat center center;" class="thumbnail"> 
+																			<div class="gradient"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+											<?php 		endif;
+												  	endfor; ?>
+													<div class="item_viewmore" onclick="window.location='/search.php?keyword=<?php echo urlencode("User:$aid"); ?>';">
+														<div class="inner">View More</div>
+													</div>
+											<?php endif; ?>
+										
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="uk-width-3-5" id="offer_board">
+								<h2>Current Offers</h2>
+								<form id="po_form" action="/<?php echo $url; ?>" method="post">
+									<?php $disallow_offers = true; //Disables the ability to make offers ?>
+									<h6>
+										<?php if($expire < time()): ?>
+											This item has expired. No offers can be made or accepted during this time.<br/> <a target="_blank" href="/expire.php">How come?</a>
+										<?php elseif($status==0): ?>
+											This item is currently out.
+										<?php elseif(!isset($_SESSION["userid"])): ?>
+											You must be logged in to make an offer.
+										<?php elseif($_SESSION["userid"]==$_GET["userid"]): ?>
+											Please select an offered item below.
+											<input type="hidden" value="" name="accept" id="acceptitem"/>
+										<?php elseif(count($user_items)==0): ?>
+											You currently have no items you may offer. Why not <a href="./me/?load=additem" target="_blank">add</a> one?
+										<?php else:
+												$disallow_offers = false;
+											  endif; ?>
+									</h6>
+								
+									<?php if(!$disallow_offers): ?>
+										<select name= "offer" id= "offerbox" class= "chosen-select chosen-search" data-placeholder="Please select an item" onchange= "document.getElementById('itemform').submit();" autocomplete= "off">
+											<option></option>
+											<?php foreach($user_items as $item):
+													if(($item["duedate"]!=0)==$dodue): ?>
+														<option value="<?php echo $item["id"]; ?>"><?php echo $item["name"]; ?></option>
+											<?php 	endif;
+												  endforeach; ?>
+										</select>
+									<?php endif; ?>
+										<input type="hidden" value="" name="withdraw"  id="withdrawitem" />
+							</form>
+	
+							<?php if(count($offers) == 0): ?>
+									<div class="notxt">No offers yet!</div>
+							<?php else:
+									if(is_array($offers)):
+										foreach($offers as $offer):
+											$item_call = new Item(array("action"=>"get", "filter"=>array("id"=>$offer["id"])));
+											$item_info = $item_call->run(true);
+											$item_info = $item_info[0];
+	
+											$owner_call = new User(array("action"=>"get", "id"=>$item_info["usr"]));
+											$owner_info = $owner_call->run(true);
+											$owner_info = $owner_info[0];
+							?>
+											<div class="offer" >
+												<div class="uofu">
+														<img onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>'" class="offer_pic" src="/imageviewer/?id=<?php echo $offer["id"]; ?>&size=small" />
+														<div class="uofd">
+															Offered on <?php echo (date("Y", $offer["timestamp"])!=date("Y")) ? date("F jS", $offer["timestamp"]) : date("F jS", $offer["timestamp"]); ?><br/>
+															<?php if($item_info["duedate"]!=0): ?>
+																Due: <?php echo date("m/d/Y", $item_info["duedate"]); ?>
+															<?php endif; ?>
+														</div>
+														<div onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>'" class="oftxt">
+															<?php echo $item_info["name"]; ?>
+															<div class="ofdesc">
+																<?php echo $item_info["description"]; ?>
+															</div>
+													</div>
+												</div>
+												<?php if($status==0): //If this item is out... ?>
+													<div class="acc" style="cursor:pointer;">This offer has been accepted</div>
+												<?php elseif($_SESSION["userid"]==$owner_info["id"]): //If the current user owns this offer... ?>
+													<div class="del" style="cursor:pointer;" onclick="confirm_withdraw('<?php echo $offer["id"]; ?>')">Withdraw Offer</div>
+												<?php elseif($_SESSION["userid"]==$_GET["userid"]): //If the current user owns the current item... ?>
+													<div class="acc" style="cursor:pointer;" onclick="confirm_accept('<?php echo $offer["id"]; ?>','<?php echo $item_info["name"]; ?>')">Accept Offer</div>
+												<?php endif; ?>
+											</div>
+							<?php 		endforeach;
+									endif;
+								  endif; ?>
+							</div>
+						</div>
+					</div>
+			</div>			
+			
+
+			
+			<?php /*
+			
+			
+			<div class="layout-978 uk-container-center">
 				<div id="hold">
 					<div id="cover">
 						<?php if($status==0): ?>
@@ -438,6 +644,9 @@ Body::begin();
 					</div>
 				</div>
 			</div>
+			
+		*/
+												  	?>
 		<?php
 			mysqli_close($con);	//Close the MySQL connection
 			Body::end();

@@ -18,30 +18,30 @@ function post_item_request()
 {
 	$("#request_win .uk-modal-footer").fadeOut();
 	$("#request_win .uk-modal-dialog").animate(
-			{  
+			{
 				height :  ($("#request_win .uk-modal-dialog").height() - $("#request_win .uk-modal-footer").height())
 			}, function() {
 				$("#request_win .uk-modal-content").html("<img class=\"posting uk-align-center\" src=\"/img/add_loader.gif\">");
-	
+
 				$.get("/api/", { "lib" : "feed", "action" : "post-request", "name" : $("#item-request-name").val() }, function(data) {
 				});
-				
+
 				setTimeout(function() {
 					$("#request_win .uk-modal-title").html("Item requested!");
 					$("#request_win .uk-modal-content").html("<h1 class=\"uk-text-center\" style=\"margin-top:60px;\">Thanks!</h1>");
 				}, 1000);
-				
+
 				setTimeout(function() {
 					var modal = $.UIkit.modal("#request_win");
 					modal.hide();
 				}, 2000);
-	
+
 			});
 }
 
 function populate_home(filter, menu_item, sort_title)
 {
-	
+
 	//Highlight the element
 	$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
 	$(menu_item).closest("li").addClass("uk-active");
@@ -67,12 +67,12 @@ function populate_home(filter, menu_item, sort_title)
 						//Set the description to a variable
 						var description = a[i]["description"];
 						var offer_array = new Array();
-						
+
 						try
 						{
 							offer_array = eval("(" + a[i]["offers"] + ")");
 						}catch(e){}
-						
+
 						//Unless it's empty
 						if(description == "")
 						{
@@ -85,8 +85,8 @@ function populate_home(filter, menu_item, sort_title)
 						item_content += ((a[i]["duedate"])!=0) ? "Due Date: " + moment(parseInt(a[i]["duedate"])).format("MMMM Do, YYYY") + "<br/>" : "";
 						item_content += "Expires: " + moment(parseInt(a[i]["expiration"])).format("MMMM Do, YYYY") + "<br/><br/>";
 						item_content += "Posted On: " + moment(parseInt(a[i]["adddate"])).format("MMMM Do, YYYY");
-					    
-					    new_board += "<div class=\"uk-width-1-1\">" + 
+
+					    new_board += "<div class=\"uk-width-1-1\">" +
 										"<div class=\"item\" onclick=\"window.location='/view.php?itemid=" + a[i]["id"] + "&userid=" + a[i]["usr"] + "';\">" +
 											"<div class=\"uk-grid uk-grid-preserve reset_padding\">" +
 												"<div class=\"uk-width-4-6 info\">" +
@@ -105,7 +105,7 @@ function populate_home(filter, menu_item, sort_title)
 														"</div>" +
 												"</div>" +
 												"<div class=\" uk-width-2-6\">" +
-													"<div style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat center center;\" class=\"thumbnail\">" + 
+													"<div style=\"background:url('/imageviewer/?id=" + a[i]["id"] + "&size=thumbnail') no-repeat center center;\" class=\"thumbnail\">" +
 														"<div class=\"gradient\"></div>" +
 													"</a>" +
 												"</div>" +
@@ -113,7 +113,7 @@ function populate_home(filter, menu_item, sort_title)
 										"</div>" +
 									"</div>";
 				}
-						    
+
 					//Set the HTML
 					document.getElementById("main_board").innerHTML = new_board;
 
@@ -170,7 +170,7 @@ jQuery.fn.extend({
 	    return this.each(function() {
 	    	$(this).show();
 	    	var set_top = parseInt($(this).css("top").replace("px",""));
-	    	
+
 	    	$(this).css("opacity", "0");
 	    	$(this).css("top", set_top - 10 + "px");
 	    	$(this).animate({ top : set_top, opacity : 1 });
@@ -181,13 +181,13 @@ jQuery.fn.extend({
 		    	if($(this).is(":visible"))
 		    	{
 		    		var set_top = parseInt($(this).css("top").replace("px",""));
-			    	
+
 			    	$(this).css("top", set_top + "px");
 			    	$(this).animate({ top : (set_top - 10), opacity : 0 }, function() {
 				    	$(this).css("top", set_top);
 				    	$(this).hide();
 			    	});
-		    	}		    	
+		    	}
 		    });
 	  }
 	});
@@ -204,7 +204,7 @@ function display_menu(menu, icon)
 		if($(menu).hasClass("fade_load"))
 		{
 			$(menu).hide_menu();
-		} 
+		}
 		else
 		{
 			$(menu).hide();
@@ -220,10 +220,10 @@ function display_menu(menu, icon)
 			}
 			else
 			{
-				$(this).hide();	
+				$(this).hide();
 			}
 		});
-		
+
 		if($(menu).hasClass("fade_load"))
 		{
 			$(menu).show_menu();
@@ -247,7 +247,7 @@ function display_menu(menu, icon)
    				}
    				else
    				{
-   					$(this).hide();	
+   					$(this).hide();
    				}
    			});
        		$(".icon .badge").show();
@@ -267,15 +267,15 @@ function init_home()
 	var $home_cover = $("#home_cover[data-height]");
 	var $motio = new Motio($home_cover[0],
 			{
-				speedY : (speed*-1), 
-				fps : 60 
+				speedY : (speed*-1),
+				fps : 60
 			});
-	
-	$motio.on("frame", function() { 
+
+	$motio.on("frame", function() {
 		var $bg_pos   = $home_cover.css("background-position");
 		var $bg_pos_y = $bg_pos.split(" ")[1];
 		$bg_pos_y 	  = parseInt($bg_pos_y.replace("px",""));
-		
+
 		if(($bg_pos_y*-1)==(parseInt($home_cover.attr("data-height")) - $home_cover.height()))
 		{
 			$motio.set("speedY",speed);
@@ -285,9 +285,9 @@ function init_home()
 			$motio.set("speedY",speed*-1);
 		}
 	});
-	
+
 	//$motio.play();
-	
+
 	try
 	{
 		$("#category_select").change(function() {
@@ -296,16 +296,16 @@ function init_home()
 				case 0:
 					select_recent(this);
 					break;
-					
+
 				case 1:
 					select_popular(this);
 					break;
-					
-				default: 
+
+				default:
 					select_category(this.options[this.selectedIndex].value, this);
 					break;
-			} 
-				
+			}
+
 		});
 	}
 	catch(e){}
@@ -348,7 +348,7 @@ function facebook_login()
 	{
 		FB.ui({
 				method: 'send',
-				link: 'http://wewanttotrade.com/',
+				link: 'http://wewanttotrade.com/'
 		});
 	}
 	catch(e)
@@ -369,10 +369,10 @@ $(document).ready(function() {
 			});
 		});
 	});
-	
+
 	$("#category_list li a").eq(0).click();
 	$("#about_nav li a").eq(0).click();
-	
+
 });
 
 addEvent(window, "load", function() { init_home(); });

@@ -19,3 +19,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .item .info	.header						{ text-overflow:ellipsis; overflow:hidden; margin-top:10px; font-size:1.5em; color:#696969; width:100%; padding:10px; padding-top:10px; padding-bottom:5px; }
 .item .info .description				{ white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; font-size:1em; color:#696969; width:75%; padding-left:30px; }
 .item .info .overview					{ font-size:0.8em; position:absolute; left:-5px; bottom:5px; color:#999; }
+
+/*
+.item.small 							{ width:100px; }
+.item.small .overview					{ display:none; }
+.item.small .header						{ font-size:1.2em; color:white; background:black; margin:0; padding:0; padding-top:40%; background:rgba(0,0,0,0.3); position:absolute; top:0px; left:0px; width:100%; height:100%; text-align:center; }
+.item.small .description				{ display:none; }
+.item.small .thumbnail					{ position:absolute; width:100%; height:100%; top:0px; left:0px; z-index:-1; }
+
+*/
