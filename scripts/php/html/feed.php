@@ -179,7 +179,7 @@ foreach($items_info as $item)
 
 				 		<div class="member">
 				 			<div class="txtcnt">
-				 				<div class="name" style="cursor:pointer;"><a href="/profile.php?id=<?php echo $user["id"]; ?>"><?php echo ucwords("{$user["fname"]} {$user["lname"]}"); ?></a></div>
+				 				<div class="name" style="cursor:pointer;"><a href="/profile.php?id=<?php echo $user["id"]; ?>"><?php echo htmlentities(ucwords("{$user["fname"]} {$user["lname"]}")); ?></a></div>
 								<div class="sub"> Joined <?php echo date("F jS", $user["join_date"]); ?></div>
 							</div>
 						</div>
