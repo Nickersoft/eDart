@@ -148,7 +148,7 @@ foreach($items_info as $item)
 				<div class="title">Newest Members</div>
 				<div class="uk-grid uk-grid-small" style="padding-left:10px;">
 					<?php
-					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 4");
+					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 12");
 						while ($user = mysqli_fetch_array($user_query)): 
 							$display_name = htmlentities(htmlentities(ucwords($user["fname"] . " " . $user["lname"])));
 						?>
