@@ -11,7 +11,7 @@
 		<!--Import CSS-->
 		<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Titillium/stylesheet.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
-		<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit/css/uikit.almost-flat.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.10.0/css/uikit.almost-flat.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
 
 	</head>

@@ -140,6 +140,8 @@ class Item
 				$vowels = array('a','e','i','o','u') ;
 				$a_str 	= in_array($item_info[0]["name"][0], $vowels) ? "an" : "a";
 
+				$pronoun = Lookup::Pronoun($authInfo[0]["gender"]);
+				
 				$feed = new Feed();
 				$feed->add($_SESSION["userid"], "offered $pronoun {$offeredInfo[0]["name"]} for $a_str {$item_info[0]["name"]}", time(), $link);
 			}

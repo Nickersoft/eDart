@@ -34,15 +34,15 @@ function confirm_withdraw(itemid)
 //Submit the withdrawl form
 function offer_withdraw(itemid)
 {
-	document.getElementById("withdrawitem").value = itemid;
-	document.getElementById("itemform").submit();
+	$("#withdraw_item").val(itemid);
+	$("#po_form").submit();
 }
 
 //Submit the acceptance form
 function offer_accept(itemid)
 {
-	document.getElementById("acceptitem").value = itemid;
-	document.getElementById("itemform").submit();
+	$("#accept_item").val(itemid);
+	$("#po_form").submit();
 }
 
 function showImg()
@@ -60,3 +60,9 @@ function hydeImg()
 	document.getElementById("shadowbox").style.display="none";
 	document.getElementById("dimit").style.display="none";
 }
+
+$(document).ready(function() {
+	$("#offerbox.chosen-select").change(function() {
+		$("#po_form").submit();
+	});
+});

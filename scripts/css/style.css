@@ -85,7 +85,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #banner_placeholder #banner #inner #loginbx .loginbtn    		{ color:white; font-size:35px; cursor:pointer; line-height:10px; margin-top:0px; margin-left:5px; float:right; }
 #banner_placeholder #banner #inner #loginbx .loginbtn:hover 	{ color:yellow; }
 
-#banner_placeholder #banner #inner #loginbx #cntlgnm 			{ width:250px; color:#39745B; padding-right:10px; font-size:12px; text-align:right; }
+#banner_placeholder #banner #inner #loginbx #cntlgnm 			{ width:350px; color:#39745B; padding-right:10px; font-size:12px; text-align:right; }
 
 /* The profile info box in the banner (right hand corner) */
 #banner_placeholder #banner #inner #infobox						{ float:right; font-weight:bold; margin-top:10px; margin-right:5px; color:white; }

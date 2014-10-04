@@ -99,7 +99,7 @@ Body::begin(true, true);
 			<div class="layout-978 uk-container-center">
 				<div class="uk-grid">
 					<div class="uk-width-1-4"><div class="uk-placeholder uk-invisible"></div></div>
-					<div class="uk-width-3-4" style="position:relative">
+					<div class="uk-width-3-4" style="position:relative;height:15em;">
 						<div id="header">
 							<h1><?php echo "$fname $lname"; ?></h1>
 							<?php echo (trim($lastlogin!="")) ? "Active " . getRelativeDT(time(), $lastlogin) . " ago" : ""; ?>
@@ -128,7 +128,7 @@ Body::begin(true, true);
 							<li><span class='uk-icon-calendar'></span>Joined on <?php echo date("m/d/Y", $join_date); ?></li>
 							<?php echo (!in_array("last_location", $privacy)&&(count($lastseen)!=0)) ? "<li><span class='uk-icon-location-arrow'></span>Last seen near {$lastseen["properties"]["city"]}</li>" : ""; ?>
 							<?php echo (!in_array("gender", $privacy)&&$gender_index!=0) ? "<li><span class='uk-icon-user'></span>$gender</li>" : ""; ?>
-							<?php echo (!in_array("dob", $privacy)&&$dob!=0) ? "<li><span class='uk-icon-child'></span>" . getRelativeDT(time(), $dob) . " old</li>" : ""; ?>
+							<?php echo (!in_array("dob", $privacy)&&$dob!=0) ? "<li><span class='uk-icon-birthday-cake'></span>" . getRelativeDT(time(), $dob) . " old</li>" : ""; ?>
 							<li><span class='uk-icon-institution'></span>Attends WPI</li>
 						</ul>
 	

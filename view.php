@@ -250,17 +250,30 @@ Body::begin();
 					<div class="uk-width-1-1">
 						<div class="uk-grid uk-grid preserve">
 							<div class="uk-width-2-5">
-								<div class="image_body" style="background-image:url('/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=thumbnail');"></div>
+								<a href="#lightbox" data-uk-modal>
+									<div class="image_body" style="background-image:url('/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=thumbnail');"></div>
+								</a>
+								<div class="image_toolbox">
+									<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Get HTML" class="uk-icon-code"></span></a>
+									<a href="#qr_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Scan QR Code" class="uk-icon-qrcode" ></span></a>
+									<?php if(isset($_SESSION["userid"])&&$userGet[0]["id"]==$_SESSION["userid"]): ?>
+										
+										<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="View Transaction"  class="uk-icon-eye"></span></a>
+										<a href="#qr_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Edit Item" class="uk-icon-edit" ></span></a>
+										<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Delete Item" class="uk-icon-times"></span></a>
+										
+									<?php endif; ?>
+								</div>
+
 							</div>
 							
 							<div class="uk-width-3-5" id="item_info">
 								<h1><?php echo $name; ?></h1>
 								<div class="uk-width-1-1 item_description">
 									<?php echo $desc; ?>
-								</div>
-								<div class="uk-width-1-1 uk-text-right">
-									<span class="uk-icon-qrcode uk-badge"></span>
-									<span class="uk-badge uk-badge-danger">Expired</span>
+									<div class="uk-align-right">
+										<div class="uk-badge"><?php echo Lookup::Category($category); ?></div>
+									</div>
 								</div>
 								<hr/>
 								<div id="specs">
@@ -286,13 +299,12 @@ Body::begin();
 						</div>
 						</div>
 					</div>
-					
-					
-						
 										
 					<div class="uk-width-1-1">
+					
 						<div class="uk-grid uk-grid-preserve">
-							<div class="uk-width-2-5">
+							<div class="uk-width-2-5" style="padding-top:15px;">
+
 								<ul class="uk-subnav uk-subnav-pill uk-text-center" data-uk-tab="{connect:'#info_container'}" id="item_tabs">
 								   <li class="uk-active"><a>About Owner</a></li>
 								  <li><a>More from Owner</a></li>
@@ -315,8 +327,8 @@ Body::begin();
 					
 														<div id="uinfo">
 															Member since <?php echo date("F j, Y", $jdate); ?> <br/>
-															<?php echo (!is_array($agender)&&!in_array("gender", $privacy)) ? $agender . "" : ""; ?>
-															<?php echo (!is_array($adob)&&(trim($adob)!=0)&&(!in_array("dob", $privacy))) ?   ", " . getRelativeDT(time(), $adob) . " old<br/>" : ""; ?>
+															<?php echo (!is_array($agender)&&!in_array("gender", $privacy)) ? trim($agender) : ""; ?>
+															<?php echo (!is_array($adob)&&(trim($adob)!=0)&&(!in_array("dob", $privacy))) ?   ", " . trim(getRelativeDT(time(), $adob)) . " old<br/>" : ""; ?>
 														</div>
 														
 													</div>
@@ -358,29 +370,65 @@ Body::begin();
 											<?php 		endif;
 												  	endfor; ?>
 													<div class="item_viewmore" onclick="window.location='/search.php?keyword=<?php echo urlencode("User:$aid"); ?>';">
-														<div class="inner">View More</div>
+														<div class="uk-hidden-small uk-width-1-1 uk-button" style="padding:5px;">View More</div>
 													</div>
-											<?php endif; ?>
+											<?php endif; ?>										
+										</div>			
 										
-										</div>
-										
+										<div class="similar">
+											<?php if(count($sim_items)<=1): ?>
+													<br><div style="font-size:14px;margin-left:25px;margin-bottom:20px;color:dimgray;">Nothing to show here!</div>
+											<?php else:
+													for($i = 0; $i < 3; $i++):
+														if((isset($sim_items[$i]))&&($sim_items[$i]["id"]!=$_GET["itemid"])):
+											?>															
+															<div class="item" onclick="window.location='/view.php?itemid=<?php echo $sim_items[$i]["id"]; ?>d&userid=<?php echo $sim_items[$i]["usr"]; ?>';">
+																<div class="uk-grid uk-grid-preserve reset_padding">
+																	<div class="uk-width-4-6 info">
+																		<div class="header"><?php echo $sim_items[$i]["name"]; ?></div>
+																		<div class="description"><?php echo $sim_items[$i]["description"]; ?></div>
+																		<div class="overview uk-grid">
+																			<div class="uk-width-1-3" title="Number of Offers">
+																				<span class="uk-icon-cube"></span> <?php echo count(Json_decode($sim_items[$i]["offers"], true)); ?>
+																			</div>
+																			<div class="uk-width-1-3" title="View Count">
+																				<span class="uk-icon-eye"></span> <?php echo $sim_items[$i]["views"]; ?>
+																			</div>
+																			<div class="uk-width-1-3" title="Estimated Market Value (EMV)">
+																				<span class="uk-icon-usd"></span> <?php echo $sim_items[$i]["emv"]; ?>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="uk-width-2-6">
+																		<div style="background:url('/imageviewer/?id=<?php echo $sim_items[$i]["id"]; ?>&size=medium') no-repeat center center;" class="thumbnail"> 
+																			<div class="gradient"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+											<?php 		endif;
+												  	endfor; ?>
+													<div class="item_viewmore" onclick="window.location='/search.php?keyword=<?php echo urlencode("User:$aid"); ?>';">
+														<div class="uk-hidden-small uk-width-1-1 uk-button" style="padding:5px;">View More</div>
+													</div>
+											<?php endif; ?>										
+										</div>							
 									</div>
 								</div>
 							</div>
 							<div class="uk-width-3-5" id="offer_board">
 								<h2>Current Offers</h2>
 								<form id="po_form" action="/<?php echo $url; ?>" method="post">
-									<?php $disallow_offers = true; //Disables the ability to make offers ?>
+									<?php $disallow_offers = false; //Disables the ability to make offers ?>
 									<h6>
 										<?php if($expire < time()): ?>
-											This item has expired. No offers can be made or accepted during this time.<br/> <a target="_blank" href="/expire.php">How come?</a>
 										<?php elseif($status==0): ?>
 											This item is currently out.
 										<?php elseif(!isset($_SESSION["userid"])): ?>
 											You must be logged in to make an offer.
 										<?php elseif($_SESSION["userid"]==$_GET["userid"]): ?>
 											Please select an offered item below.
-											<input type="hidden" value="" name="accept" id="acceptitem"/>
+											<input type="hidden" value="" name="accept" id="accept_item"/>
 										<?php elseif(count($user_items)==0): ?>
 											You currently have no items you may offer. Why not <a href="./me/?load=additem" target="_blank">add</a> one?
 										<?php else:
@@ -389,7 +437,7 @@ Body::begin();
 									</h6>
 								
 									<?php if(!$disallow_offers): ?>
-										<select name= "offer" id= "offerbox" class= "chosen-select chosen-search" data-placeholder="Please select an item" onchange= "document.getElementById('itemform').submit();" autocomplete= "off">
+										<select name= "offer" id= "offerbox" class= "chosen-select chosen-search" data-placeholder="Please select an item" autocomplete= "off">
 											<option></option>
 											<?php foreach($user_items as $item):
 													if(($item["duedate"]!=0)==$dodue): ?>
@@ -398,11 +446,11 @@ Body::begin();
 												  endforeach; ?>
 										</select>
 									<?php endif; ?>
-										<input type="hidden" value="" name="withdraw"  id="withdrawitem" />
+										<input type="hidden" value="" name="withdraw"  id="withdraw_item" />
 							</form>
 	
 							<?php if(count($offers) == 0): ?>
-									<div class="notxt">No offers yet!</div>
+									<h6>No offers yet!</h6>
 							<?php else:
 									if(is_array($offers)):
 										foreach($offers as $offer):
@@ -415,21 +463,28 @@ Body::begin();
 											$owner_info = $owner_info[0];
 							?>
 											<div class="offer" >
-												<div class="uofu">
-														<img onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>'" class="offer_pic" src="/imageviewer/?id=<?php echo $offer["id"]; ?>&size=small" />
-														<div class="uofd">
-															Offered on <?php echo (date("Y", $offer["timestamp"])!=date("Y")) ? date("F jS", $offer["timestamp"]) : date("F jS", $offer["timestamp"]); ?><br/>
-															<?php if($item_info["duedate"]!=0): ?>
-																Due: <?php echo date("m/d/Y", $item_info["duedate"]); ?>
-															<?php endif; ?>
+												<div class="uk-grid">
+													<div class="uk-width-2-10">
+														<a href="./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>">
+															<img class="uk-border-rounded offer_pic" src="/imageviewer/?id=<?php echo $offer["id"]; ?>&size=thumbnail" />
+														</a>
+													</div>		
+													<div class="uk-width-8-10">
+															<div onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>'">
+																<?php echo $item_info["name"]; ?>
+																<div class="description">
+																	<?php echo $item_info["description"]; ?>
+																</div>
 														</div>
-														<div onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>'" class="oftxt">
-															<?php echo $item_info["name"]; ?>
-															<div class="ofdesc">
-																<?php echo $item_info["description"]; ?>
-															</div>
 													</div>
 												</div>
+												<div class="post_date">
+													Offered on <?php echo (date("Y", $offer["timestamp"])!=date("Y")) ? date("F jS", $offer["timestamp"]) : date("F jS", $offer["timestamp"]); ?> |
+													<?php if($item_info["duedate"]!=0): ?>
+														Due: <?php echo date("m/d/Y", $item_info["duedate"]); ?>
+													<?php endif; ?>
+												</div>
+												
 												<?php if($status==0): //If this item is out... ?>
 													<div class="acc" style="cursor:pointer;">This offer has been accepted</div>
 												<?php elseif($_SESSION["userid"]==$owner_info["id"]): //If the current user owns this offer... ?>

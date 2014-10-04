@@ -16,9 +16,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .item:hover > .subtitle  				{ color:black; transition:color 1s; -moz-transition:color 1s; -ms-transition:color 1s; -o-transition:color 1s; -webkit-transition:color 1s; }
 .item .info								{ padding-left:35px; }
-.item .info	.header						{ text-overflow:ellipsis; overflow:hidden; margin-top:10px; font-size:1.5em; color:#696969; width:100%; padding:10px; padding-top:10px; padding-bottom:5px; }
+.item .info	.header						{ white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-top:10px; font-size:1.5em; color:#696969; width:100%; padding:10px; padding-top:10px; padding-bottom:5px; }
 .item .info .description				{ white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; font-size:1em; color:#696969; width:75%; padding-left:30px; }
-.item .info .overview					{ font-size:0.8em; position:absolute; left:-5px; bottom:5px; color:#999; }
+.item .info .overview					{ width:200px; font-size:0.8em; position:absolute; left:-5px; bottom:5px; color:#999; }
+
+
+.offer  						{ cursor:pointer; border-top:1px solid #eeeeee; padding-left:10px; padding-bottom:10px; overflow:hidden; display:block; padding-top:25px; padding-right:10px; position:relative;  }
+.offer .offer_pic				{ width:100%; }
+.offer:hover  					{ background:#fcfcfc; }
+.offer .uofu 	 				{ color:#00BFFF; font-size:24px; }
+.offer .uofu .uoft  			{ color:black; width:100px; display:inline-block; }
+.offer .uofu .uofd  			{ color:dimgray; float:right; text-align:right; font-size:16px; position:absolute; top:10px; right:20px; }
+.offer .offer_pic				{ display:inline-block; }
+.offer .uofu .oftxt  			{ font-family:VegurRegular, sans-serif; color:black; display:inline-block; width:400px; vertical-align: top; font-size:16px; white-space:normal; }
+.offer .uofu .oftxt .ofdesc 	{ font-family:VegurLight, sans-serif; margin-left: 15px; font-size:16px;}
+.offer .del  					{ font-size:16px; position:relative; float:right; color:red; cursor:pointer; }
+.offer .acc 		 			{ font-size:16px; float:right; color:green; cursor:pointer; }
 
 /*
 .item.small 							{ width:100px; }

@@ -20,8 +20,8 @@
 
 /* THE PRETTY IMAGE BANNER */
 #profile_container 	#profile #cover										                            { background-position:center 30%; background-size:cover; display:block; position:relative; height:15em; font-family: VegurLight, sans-serif; font-size:16px; color:white; white-space:nowrap;  }
-#profile_container 	#profile #cover #header							                      		    { margin-top:11em; }
-#profile_container 	#profile #cover #header h1						                      		    { line-height:70px; display:inline-block; font-size:48px; font-family:TitilliumBold, sans-serif; color:white; }
+#profile_container 	#profile #cover #header							                      		    { position:absolute; bottom:0px; overflow:hidden; }
+#profile_container 	#profile #cover #header h1						                      		    { white-space:normal; width:70%; line-height:70px; display:inline-block; font-size:48px; font-family:TitilliumBold, sans-serif; color:white; }
 
 /* THE PANEL TITLE */
 #profile_container  #profile #title 										                        { text-align:center; font-size:24px; border-bottom:1px solid lightgray; padding:14px 0px 10px 0px; font-family:VegurRegular, sans-serif; color:#A8A8A8; margin-bottom:10px; background:#F0F0F0; }
