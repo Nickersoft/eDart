@@ -19,7 +19,7 @@
 #profile_container  #profile .profile_tab_content                                           { display:none; }
 
 /* THE PRETTY IMAGE BANNER */
-#profile_container 	#profile #cover										                    { padding:0 3.5em 0 3.5em; background-position:center 30%; background-size:cover; display:block; position:relative; min-height:15em; font-family: VegurLight, sans-serif; color:white; white-space:nowrap;  }
+#profile_container 	#profile #cover										                    { padding:1em 3.5em 0 3.5em; background-position:center 30%; background-size:cover; display:block; position:relative; min-height:15em; font-family: VegurLight, sans-serif; color:white; white-space:nowrap;  }
 #profile_container 	#profile #cover #header							                      	{ text-align:center; padding-top:1em; white-space:normal; padding-bottom:1em; }
 #profile_container 	#profile #cover #header h1						                      	{ white-space:normal; max-width:100%; display:inline-block; font-size:3em; text-align:center; font-family:TitilliumBold, sans-serif; color:white; }
 

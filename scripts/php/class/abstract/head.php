@@ -40,8 +40,6 @@ abstract class Head
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.10.0/css/uikit.almost-flat.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.10.0/css/addons/uikit.almost-flat.addons.min.css">
-					<link rel="stylesheet" type="text/css" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/uikit.almost-flat.min.css">
-					<link rel="stylesheet" type="text/css" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/addons/uikit.almost-flat.addons.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Titillium/stylesheet.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/chosen/chosen.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/toastr/toastr.min.css">

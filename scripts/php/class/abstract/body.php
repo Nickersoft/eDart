@@ -56,7 +56,7 @@ abstract class Body
 				<script type="text/javascript" src="/lib/vex-2.2.1/js/vex.combined.min.js"></script>
 				<script type="text/javascript" src="/lib/jquery-sticky/jquery.sticky-kit.min.js"></script>
 				<script type="text/javascript" src="/lib/uikit-2.10.0/js/uikit.min.js"></script>
-				<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/js/uikit.min.js"></script>
+				<script type="text/javascript" src="/lib/uikit-2.10.0/js/addons/autocomplete.min.js"></script>
 				<script type="text/javascript" src="/lib/min/?g=js"></script>
 END;
 
