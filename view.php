@@ -209,65 +209,68 @@ Body::begin();
 			    </div>
 			</div>
 			
-			<div id="embed_box" class="modal fade">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" id="wz_title">Embed this Item</h4>
-						</div>
-			  			<div class="modal-body">
-			  				<p>Copy and paste this code into your website to display a link to this page.</p>
-			  				<textarea onclick="this.select();" class="hidden_input"><link rel="stylesheet" type="text/css" media="screen" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?>/scripts/css/embed.css"><iframe class="edart_iframe" src="https://<?php echo $_SERVER["HTTP_HOST"]; ?>/embed/?item=<?php echo $_GET['itemid']; ?>&user=<?php echo $_GET['userid'];?>" width="320" height="150" frameBorder="0"></iframe></textarea>
-			      		</div>
-			  			<div class="modal-footer">
-			    			<button type="button" id="close" data-dismiss="modal" aria-hidden="true" class="button_primary green">Close</button>
-			  			</div>
+			<div id="embed_box" class="uk-modal">
+				<div class="uk-modal-dialog">
+					<div class="uk-modal-header">
+						<a class="uk-modal-close uk-close"></a>
+						Embed this Item
+					</div>
+		  			<div class="uk-modal-content">
+		  				<p>Copy and paste this code into your website to display a link to this page.</p>
+		  				<textarea onclick="this.select();" class="hidden_input"><link rel="stylesheet" type="text/css" media="screen" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?>/scripts/css/embed.css"><iframe class="edart_iframe" src="https://<?php echo $_SERVER["HTTP_HOST"]; ?>/embed/?item=<?php echo $_GET['itemid']; ?>&user=<?php echo $_GET['userid'];?>" width="320" height="150" frameBorder="0"></iframe></textarea>
+		      		</div>
+		  			<div class="uk-modal-footer">
+		    			<button type="button" id="close" data-dismiss="modal" aria-hidden="true" class="button_primary green">Close</button>
+		  			</div>
+				</div>
+			</div>
+
+			<div id="qr_box" class="uk-modal">
+				<div class="uk-modal-dialog">
+					<div class="uk-modal-header">
+						<a class="uk-modal-close uk-close"></a>
+						Scan this Item
+					</div>
+					<div class="uk-modal-content">
+						<p>Scan or print this QR code to obtain a direct link to this page.</p>
+						<div id="qrdisp" style="background: url('https://api.qrserver.com/v1/create-qr-code/?size=200x200&ecc=L&data=<?php echo $full_url; ?>') no-repeat 0 0;"></div>
+					</div>
+					<div class="uk-modal-footer">
+						<button type="button" id="close" data-dismiss="modal" aria-hidden="true" class="button_primary green">Close</button>
 					</div>
 				</div>
 			</div>
 
-			<div id="qr_box" class="modal fade">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" id="wz_title">Scan this Item</h4>
-						</div>
-						<div class="modal-body">
-							<p>Scan or print this QR code to obtain a direct link to this page.</p>
-							<div id="qrdisp" style="background: url('https://api.qrserver.com/v1/create-qr-code/?size=200x200&ecc=L&data=<?php echo $full_url; ?>') no-repeat 0 0;"></div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" id="close" data-dismiss="modal" aria-hidden="true" class="button_primary green">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="layout-978 uk-container-center">
+			<div class="layout uk-container-center">
 				<div class="uk-grid uk-grid-preserve">
 					<div class="uk-width-1-1">
 						<div class="uk-grid uk-grid preserve">
-							<div class="uk-width-2-5">
+							<div class="uk-width-small-3-10">
 								<a href="#lightbox" data-uk-modal>
 									<div class="image_body" style="background-image:url('/imageviewer/?id=<?php echo $_GET["itemid"]; ?>&size=thumbnail');"></div>
 								</a>
 								<div class="image_toolbox">
 									<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Get HTML" class="uk-icon-code"></span></a>
 									<a href="#qr_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Scan QR Code" class="uk-icon-qrcode" ></span></a>
-									<?php if(isset($_SESSION["userid"])&&$userGet[0]["id"]==$_SESSION["userid"]): ?>
+									<?php if(isset($_SESSION["userid"])&&$userGet[0]["id"]==$_SESSION["userid"]):
+											$myInfo = new User(array("action"=>"get", "id"=>$_SESSION["userid"]));
+											$me = $myInfo->run(true);
+											$me = $me[0];
+									?>
 										
-										<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="View Transaction"  class="uk-icon-eye"></span></a>
-										<a href="#qr_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Edit Item" class="uk-icon-edit" ></span></a>
-										<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="Delete Item" class="uk-icon-times"></span></a>
-										
+										<?php if(($status!=0)&&($me["status"]==2)): ?>
+											<span onclick="open_editor('<?php echo trim($_GET["itemid"]); ?>');" data-uk-tooltip="{pos:'bottom'}" title="Edit Item" class="uk-icon-edit" ></span>
+											<span onclick="confirm_delete('<?php echo trim($_GET["itemid"]); ?>');" data-uk-tooltip="{pos:'bottom'}" title="Delete Item" class="uk-icon-times"></span>
+										<?php else: ?>
+											<a href="#embed_box" data-uk-modal><span data-uk-tooltip="{pos:'bottom'}" title="View Transaction"  class="uk-icon-eye"></span></a>
+										<?php endif; ?>
+									
 									<?php endif; ?>
 								</div>
 
 							</div>
 							
-							<div class="uk-width-3-5" id="item_info">
+							<div class="uk-width-small-7-10" id="item_info">
 								<h1><?php echo $name; ?></h1>
 								<div class="uk-width-1-1 item_description">
 									<?php echo $desc; ?>
@@ -303,7 +306,7 @@ Body::begin();
 					<div class="uk-width-1-1">
 					
 						<div class="uk-grid uk-grid-preserve">
-							<div class="uk-width-2-5" style="padding-top:15px;">
+							<div class="uk-width-small-3-10" style="padding-top:15px;">
 
 								<ul class="uk-subnav uk-subnav-pill uk-text-center" data-uk-tab="{connect:'#info_container'}" id="item_tabs">
 								   <li class="uk-active"><a>About Owner</a></li>
@@ -313,8 +316,6 @@ Body::begin();
 	
 								<div id="info_box">
 									<div class="uk-switcher uk-margin " id="info_container">
-									
-									
 										<div class="owner">
 											<div class="uk-grid uk-grid-preserve">
 												<div class="uk-width-2-6">
@@ -416,10 +417,10 @@ Body::begin();
 									</div>
 								</div>
 							</div>
-							<div class="uk-width-3-5" id="offer_board">
+							<div class="uk-width-small-7-10" id="offer_board">
 								<h2>Current Offers</h2>
 								<form id="po_form" action="/<?php echo $url; ?>" method="post">
-									<?php $disallow_offers = false; //Disables the ability to make offers ?>
+									<?php $disallow_offers = true; //Disables the ability to make offers ?>
 									<h6>
 										<?php if($expire < time()): ?>
 										<?php elseif($status==0): ?>
@@ -463,13 +464,13 @@ Body::begin();
 											$owner_info = $owner_info[0];
 							?>
 											<div class="offer" >
-												<div class="uk-grid">
-													<div class="uk-width-2-10">
-														<a href="./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>">
-															<img class="uk-border-rounded offer_pic" src="/imageviewer/?id=<?php echo $offer["id"]; ?>&size=thumbnail" />
-														</a>
+												<div class="uk-grid uk_grid_preserve reset_padding">
+													<div onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>';" 
+													     class="uk-width-2-10 picture" 
+													     style="background-image:url('/imageviewer/?id=<?php echo $offer["id"]; ?>&size=thumbnail');">
 													</div>		
-													<div class="uk-width-8-10">
+													
+													<div class="uk-width-6-10 info">
 															<div onclick="window.location='./view.php?itemid=<?php echo $offer["id"]; ?>&userid=<?php echo $item_info["usr"]; ?>'">
 																<?php echo $item_info["name"]; ?>
 																<div class="description">
@@ -477,21 +478,26 @@ Body::begin();
 																</div>
 														</div>
 													</div>
-												</div>
-												<div class="post_date">
-													Offered on <?php echo (date("Y", $offer["timestamp"])!=date("Y")) ? date("F jS", $offer["timestamp"]) : date("F jS", $offer["timestamp"]); ?> |
-													<?php if($item_info["duedate"]!=0): ?>
-														Due: <?php echo date("m/d/Y", $item_info["duedate"]); ?>
+													
+													<div class="uk-width-2-10 post_date">
+														Offered on <?php echo (date("Y", $offer["timestamp"])!=date("Y")) ? date("F jS", $offer["timestamp"]) : date("F jS", $offer["timestamp"]); ?> <br/>
+														<?php if($item_info["duedate"]!=0): ?>
+															Due: <?php echo date("m/d/Y", $item_info["duedate"]); ?>
+														<?php endif; ?>
+													</div>
+													
+													
+													<?php if(isset($_SESSION["userid"])): ?>												
+														<?php if($status==0): //If this item is out... ?>
+															<div class="acc" style="cursor:pointer;">This offer has been accepted</div>
+														<?php elseif($_SESSION["userid"]==$owner_info["id"]): //If the current user owns this offer... ?>
+															<div class="del" style="cursor:pointer;" onclick="confirm_withdraw('<?php echo $offer["id"]; ?>')">Withdraw Offer</div>
+														<?php elseif($_SESSION["userid"]==$_GET["userid"]): //If the current user owns the current item... ?>
+															<div class="acc" style="cursor:pointer;" onclick="confirm_accept('<?php echo $offer["id"]; ?>','<?php echo $item_info["name"]; ?>')">Accept Offer</div>
+														<?php endif; ?>
 													<?php endif; ?>
 												</div>
-												
-												<?php if($status==0): //If this item is out... ?>
-													<div class="acc" style="cursor:pointer;">This offer has been accepted</div>
-												<?php elseif($_SESSION["userid"]==$owner_info["id"]): //If the current user owns this offer... ?>
-													<div class="del" style="cursor:pointer;" onclick="confirm_withdraw('<?php echo $offer["id"]; ?>')">Withdraw Offer</div>
-												<?php elseif($_SESSION["userid"]==$_GET["userid"]): //If the current user owns the current item... ?>
-													<div class="acc" style="cursor:pointer;" onclick="confirm_accept('<?php echo $offer["id"]; ?>','<?php echo $item_info["name"]; ?>')">Accept Offer</div>
-												<?php endif; ?>
+
 											</div>
 							<?php 		endforeach;
 									endif;
@@ -506,7 +512,7 @@ Body::begin();
 			<?php /*
 			
 			
-			<div class="layout-978 uk-container-center">
+			<div class="layout uk-container-center">
 				<div id="hold">
 					<div id="cover">
 						<?php if($status==0): ?>

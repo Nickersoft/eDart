@@ -195,7 +195,7 @@ class Item
 		$curUser = new User(array("action"=>"get", "id"=>$_SESSION["userid"]));
 		$userInfo = $curUser->run(true);
 
-		return (($itemInfo[0]["status"]=="1")&&($userInfo[0]["status"]=="2"));
+		return (($itemInfo[0]["status"]!="0")&&($userInfo[0]["status"]=="2"));
 	}
 
 	private function calculateEMV($name)

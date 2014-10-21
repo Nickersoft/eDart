@@ -265,7 +265,6 @@ function pre_add()
 
 function submit_item()
 {
-	console.log($("#itemupload_id").val());
 	clear_incomplete(document.getElementById("add_wizard"));
 	document.getElementById("submit_item_form").submit();
 }

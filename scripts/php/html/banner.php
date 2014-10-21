@@ -103,11 +103,11 @@
 								<td id="cntlgnm"></td>
 	
 								<td>
-									<input name="leaddr" type="text" id="leaddr" class="inpt text_medium" placeholder="Email Address" autocomplete="off" onkeydown="return_login(event, 'loginarrow');" />
+									<input name="leaddr" type="text" id="leaddr" class="inpt text_small" placeholder="Email Address" autocomplete="off" onkeydown="return_login(event, 'loginarrow');" />
 								</td>
 	
 								<td>
-									<input class="inpt text_medium" name="lpword" id="lpword" placeholder="Password" data-dummy="dlpword" autocomplete="off" type="password" onkeydown="return_login(event, 'loginarrow');" />
+									<input class="inpt text_small" name="lpword" id="lpword" placeholder="Password" data-dummy="dlpword" autocomplete="off" type="password" onkeydown="return_login(event, 'loginarrow');" />
 								</td>
 	
 								<td>

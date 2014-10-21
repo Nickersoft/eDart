@@ -40,7 +40,7 @@
 .button_primary.red:disabled 	{ background:#7697AC !important; border:1px solid #4183D7; }
 
 /* The "Return to Feed/Home" button */
-.button_back 																	 { background: #3FE29E; border:1px solid #2FBD81; border-width: 1px 1px 1px 0; -moz-border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; display: inline-block; line-height: 28px; margin-left: 30px; margin-right: 2px; margin-top:14px; padding: 0 7px 0 3px; position: relative; text-decoration: none; color:white; text-align: center; font-size:14px; text-decoration:none; font-family:inherit; cursor:pointer; float:left; max-width:100%; behavior: url('/lib/pie/PIE.htc'); }
+.button_back 																	 { background: #3FE29E; border:1px solid #2FBD81; border-width: 1px 1px 1px 0; -moz-border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; display: inline-block; line-height: 28px; margin-left: 30px; margin-right: 2px; margin-top:9px; padding: 0 7px 0 3px; position: relative; text-decoration: none; color:white; text-align: center; font-size:14px; text-decoration:none; font-family:inherit; cursor:pointer; float:left; max-width:100%; behavior: url('/lib/pie/PIE.htc'); }
 .button_back:before 															 { background: #3FE29E; border:1px solid #2FBD81; border-width: 0 0 1px 1px; border-radius: 2px 0 0px 0px; content: ''; display: block; height: 21px; left: -11px; position: absolute; top: 3px; -moz-transform: rotate(45deg); -webkit-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); width: 21px; z-index:-1; color:white; behavior: url('/lib/pie/PIE.htc'); }
 .button_back:hover:before,
 .button_back:focus:before,
@@ -49,7 +49,7 @@
 
 .important { font-size:1.2em !important; line-height:2em; }
 
-.button_validate 															       		 { color:white; background: #3FE29E; border:1px solid #2FBD81; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; display: inline-block; line-height: 28px; margin-left: 30px; margin-right: 2px; margin-top:14px; padding: 0 7px 0 7px; position: relative; text-decoration: none; color:white; text-align: center; font-size:14px; text-decoration:none; font-family:inherit; cursor:pointer; float:right; max-width:100%; behavior: url('/lib/pie/PIE.htc'); }
+.button_validate 															       		 { color:white; background: #3FE29E; border:1px solid #2FBD81; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; display: inline-block; line-height: 28px; margin-left: 30px; margin-right: 2px; margin-top:10px; padding: 0 7px 0 7px; position: relative; text-decoration: none; color:white; text-align: center; font-size:14px; text-decoration:none; font-family:inherit; cursor:pointer; float:right; max-width:100%; behavior: url('/lib/pie/PIE.htc'); }
 .button_validate:hover, .button_validate:focus                                           { color:white; background: #269C6A; behavior: url('/lib/pie/PIE.htc'); }
 .button_validate:visited														       	 { color:white; }
 .button_validate:link   														       	 { color:white; }

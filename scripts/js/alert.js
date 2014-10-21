@@ -29,19 +29,6 @@ function init_error()
 	}
 }
 
-function push_confirm(message, yes_callback)
-{
-    vex.defaultOptions.className = 'vex-theme-default';
-    vex.dialog.buttons.YES.text = "Yes";
-    vex.dialog.buttons.NO.text = "No";
-	vex.dialog.confirm({
-		  message: message,
-		  callback: function(value) {
-				  yes_callback(); 
-			  }
-		});	
-}
-
 function push_confirm(message, yes_callback, no_callback)
 {
     vex.defaultOptions.className = 'vex-theme-default';
@@ -56,7 +43,10 @@ function push_confirm(message, yes_callback, no_callback)
 			  }
 			  else
 			  {
-				  no_callback();
+				  if(no_callback)
+					 {
+					  	no_callback();
+					 }
 			  }
 		  }
 		});	

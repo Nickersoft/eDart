@@ -27,16 +27,29 @@
 #info_box h3					{ text-align:center; color:#ddd; margin:0; margin-bottom:10px; font-family:VegurLight, sans-serif;  }
 #info_box b						{ font-family:VegurRegular, sans-serif; }
 
+#specs							{ white-space:normal; }
+
 #info_box .owner .infotxt h1			{ line-height:1em; font-family:VegurRegular, sans-serif; font-size:1.5em; }
 #info_box .owner #uinfo					{ color:#696969; font-size:0.9em; }
 #info_box .owner .owner_picture			{ border:2px solid lightgray; }
 
 #offer_board					{ min-height:300px; }
-#offer_board h6					{ font-size:1em; text-align:center; color:#aaa; }
+#offer_board h6					{ font-size:1em; margin-top:20px; text-align:center; color:#aaa; }
 
-.offer .post_date				{ float:left; font-size:0.6em; padding-top:20px; color:lightgray; }
-.offer .description				{ margin-left:10px; font-size:0.6em; }
-.offer 							{ font-size:1.5em; }
+.offer .post_date				{ position:relative; text-align:right; font-size:0.6em; color:lightgray; padding-top:0.5em; }
+.offer .description				{ white-space:normal; margin-left:10px; font-size:0.6em; }
+.offer .info					{ padding-top:1em; padding-bottom:1em; }
+
+.offer  						{ padding-right:1em; border-radius:4px; -webkit-border-radius:4px; border:1px solid transparent; font-size:1.5em; cursor:pointer; border-bottom:1px solid #eeeeee; overflow:hidden; display:block; position:relative;  }
+.offer .picture					{ height:5em; background-position:center center; }
+.offer:hover  					{ border:1px solid lightgray; background:#f6f6f6; }
+.offer .uofu 	 				{ color:#00BFFF; font-size:24px; }
+.offer .uofu .uoft  			{ color:black; width:100px; display:inline-block; }
+.offer .uofu .uofd  			{ color:dimgray; float:right; text-align:right; font-size:16px; position:absolute; top:10px; right:20px; }
+.offer .uofu .oftxt  			{ font-family:VegurRegular, sans-serif; color:black; display:inline-block; width:400px; vertical-align: top; font-size:16px; white-space:normal; }
+.offer .uofu .oftxt .ofdesc 	{ font-family:VegurLight, sans-serif; margin-left: 15px; font-size:16px;}
+.offer .del  					{ font-size:16px; position:absolute; right:1em; bottom:0.5em; color:red; cursor:pointer; }
+.offer .acc 		 			{ position:absolute; bottom:0; font-size:16px; float:right; color:green; cursor:pointer; }
 
 /* A CSS query */
 @media screen and (max-width: 1040px) {

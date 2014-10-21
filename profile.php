@@ -57,20 +57,45 @@ try {
 		}
 		
 		//If a size is specified...
+		if(isset($_GET["filter"]))
+		{
+			//Resize it accordingly
+			switch(strtolower(trim($_GET["filter"])))
+			{
+				case "blur": //Blur the image
+					$feat_data_binary_blur	= WideImage::loadFromString($profile_pic)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+					for($i = 0; $i < 50; $i++)
+					{
+					$get_cur_blur 			= $feat_data_binary_blur->asString('jpg');
+							$feat_data_binary_blur	= WideImage::loadFromString($get_cur_blur)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+					}
+						
+					$profile_pic = $feat_data_binary_blur->asString('jpg');
+					break;
+			}
+		}
+			
+		//If a size is specified...
 		if(isset($_GET["size"]))
 		{
 			//Resize it accordingly
 			switch(strtolower(trim($_GET["size"])))
 			{
 				case "small": //(60x60)
-				$profile_pic = WideImage::load($profile_pic)->resize(60)->asString('jpg');
-				break;
+					$profile_pic = WideImage::load($profile_pic)->resize(50)->asString('jpg');
+					break;
+				
+				case "huge": //(60x60)
+					$profile_pic = WideImage::load($profile_pic)->resize(1000)->asString('jpg');
+					break;
 			}
 		}
+		
+
 	
 	
 		echo $profile_pic; 	//Print the image contents
-		exit; 			//Exit
+		exit; 				//Exit
 	}
 	
 	//Change the profile picture to use the URL instead
@@ -95,13 +120,18 @@ Body::begin(true, true);
 <div id="profile_container">
 	<div id="profile">
 	
-		<div id="cover" style="background-image:url('/img/bg.jpg');">
-			<div class="layout-978 uk-container-center">
+		<div id="cover" style="background-image:url('/profile.php?id=<?php echo $_GET["id"]; ?>&load=image&filter=blur&size=huge')">
+			<div class="layout uk-container-center">
 				<div class="uk-grid">
-					<div class="uk-width-1-4"><div class="uk-placeholder uk-invisible"></div></div>
-					<div class="uk-width-3-4" style="position:relative;height:15em;">
+					<div class="uk-width-1-1 reset_padding">
+						<div id="picture">
+							<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?><div onclick="pp_change_begin();" class="uk-width-1-1 uk-height-1-1 overlay">Click to Change</div><?php endif; ?>
+							<img src="/profile.php?id=<?php echo $_GET['id']; ?>&load=image">
+						</div>
+					</div>
+					<div class="uk-width-1-1 reset_padding">
 						<div id="header">
-							<h1><?php echo "$fname $lname"; ?></h1>
+							<h1><?php echo "$fname $lname"; ?></h1><br/>
 							<?php echo (trim($lastlogin!="")) ? "Active " . getRelativeDT(time(), $lastlogin) . " ago" : ""; ?>
 						</div>
 					</div>
@@ -109,19 +139,13 @@ Body::begin(true, true);
 			</div>
 		</div>
 		
-
-		
 		<h1 id="title">Recent Activity</h1>
 		
-		<div class="layout-978 uk-container-center">
+		<div class="layout uk-container-center">
 			<div class="uk-grid">
 				
 				<!-- USER INFO -->
 				<div id="left" class="uk-width-1-4 uk-hidden-small">
-					<div id="picture">
-						<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?><div onclick="pp_change_begin();" class="uk-width-1-1 uk-height-1-1 overlay">Click to Change</div><?php endif; ?>
-						<img src="/profile.php?id=<?php echo $_GET['id']; ?>&load=image">
-					</div>
 					<div id="info">
 						<ul>
 							<li><span class='uk-icon-bolt'></span>eDart user #<?php echo $_GET["id"]; ?></li>

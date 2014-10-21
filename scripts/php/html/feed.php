@@ -41,61 +41,9 @@ foreach($items_info as $item)
 </div>
 
 
-<div class="layout-978 uk-container-center">
+<div class="layout uk-container-center">
 	<div class="uk-grid uk-grid-preserve" id="home">
-		<?php 
-		
-			//Finds the latest item that has an image
-			$item_obj 	= new Item(array("action"=>"get","sort"=>"adddate","order"=>"DESC"));
-			$item_array = $item_obj->run(true);
-			
-			if(count($item_array)!=0):
-				$data_url   = "";
-				$count = 0;
-				while (trim($item_array[$count]["image"])=="") {
-					if(($count + 1) > (count($item_array)-1))
-					{
-						break;
-					}
-					else 
-					{
-						$count++;
-					}
-				}
-				
-				if(trim($item_array[$count]["image"])!=""):
-					$feat_item				= $item_array[$count];
-					$feat_data_binary 		= $item_array[$count]["image"];
-					$feat_data_binary_blur	= WideImage::loadFromString($feat_data_binary)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
-					$feat_data_url  		= "data:image/jpg;base64," . base64_encode($feat_data_binary_blur->asString('jpg'));
-					$feat_img_height		= $feat_data_binary_blur->getHeight();
-		?>
-			<div class="uk-width-1-1 uk-hidden-small">
-				<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-cover-background  uk-position-relative">
-				    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
-			    		<div class="gradient">
-							<h6><span>featured</span> in <?php echo Lookup::Category($feat_item["category"]); ?></h6>
-			    		    <h1><?php echo ucwords(trim($feat_item["name"])); ?></h1>
-			    		    <ul>
-			    		    	<?php if(trim($feat_item["emv"])!=""): ?>
-			    		    		<li><strong>Worth roughly</strong>: $<?php echo $feat_item["emv"]; ?></li>
-			    		    	<?php endif; ?>
-			    		    	
-			    		    	<li><strong>Offers:</strong> <?php echo count(json_decode($feat_item["offers"])); ?></li>
-			    		    	<li><strong>Status:</strong> <?php echo ($feat_item["status"]==1) ? "In" : "Out"; ?><li>
-			    		    	<li><strong>Trade Type:</strong> <?php echo ($feat_item["duedate"]==0) ? "Permanent" : "Temporary"; ?>
-			    		    </ul>
-			    		    <a href="/view.php?itemid=<?php echo $feat_item["id"]; ?>&userid=<?php echo $feat_item["usr"]; ?>" id="view_button" class="button_primary dark text_medium">View Item</a>
-			    		    <a href="/profile.php?id=<?php echo $feat_item["usr"]; ?>"><img class="user_picture uk-border-circle" src="/profile.php?id=<?php echo $feat_item["usr"]; ?>&load=image&size=small" /></a>
-			    		</div>
-		            </div>
-				</div>
-			</div>
-			<?php endif; 
-			endif; 
-		?>
-		
-		<div class="uk-width-small-1-4">
+			<div class="uk-width-small-1-5">
 		
 			<a href="#request_win" style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button" data-uk-modal>Request</a>
 			
@@ -161,26 +109,89 @@ foreach($items_info as $item)
 					<?php endwhile; ?>
 				</div>
 			</div>
+		</div>
+	
+		<div class="uk-width-small-4-5">
+		<?php 
+		
+			//Finds the latest item that has an image
+			$item_obj 	= new Item(array("action"=>"get","sort"=>"adddate","order"=>"DESC"));
+			$item_array = $item_obj->run(true);
 			
-			<div class="child uk-hidden-small">
-				<div class="title">Similar Stuff</div>
-				<div class="uk-align-center" style="padding-left:10px;">
-					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						<ins class="adsbygoogle"
-						     style="display:inline-block;width:120px;height:240px"
-						     data-ad-client="ca-pub-5519668009926053"
-						     data-ad-slot="9417230623"></ins>
-						<script>
-						(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>	
+			if(count($item_array)!=0):
+				$data_url   = "";
+				$count = 0;
+				while (trim($item_array[$count]["image"])=="") {
+					if(($count + 1) > (count($item_array)-1))
+					{
+						break;
+					}
+					else 
+					{
+						$count++;
+					}
+				}
+				
+				if(trim($item_array[$count]["image"])!=""):
+					$feat_item				= $item_array[$count];
+					$feat_data_binary 		= $item_array[$count]["image"];
+					$feat_data_binary_blur	= WideImage::loadFromString($feat_data_binary)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+					$feat_data_url  		= "data:image/jpg;base64," . base64_encode($feat_data_binary_blur->asString('jpg'));
+					$feat_img_height		= $feat_data_binary_blur->getHeight();
+		?>
+			<div class="uk-width-1-1 uk-hidden-small">
+				<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-cover-background  uk-position-relative">
+				    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
+			    		<div class="gradient">
+							<h6><span>featured</span> in <?php echo Lookup::Category($feat_item["category"]); ?></h6>
+			    		    <h1><?php echo ucwords(trim($feat_item["name"])); ?></h1>
+			    		    <ul>
+			    		    	<?php if(trim($feat_item["emv"])!=""): ?>
+			    		    		<li><strong>Worth roughly</strong>: $<?php echo $feat_item["emv"]; ?></li>
+			    		    	<?php endif; ?>
+			    		    	
+			    		    	<li><strong>Offers:</strong> <?php echo count(json_decode($feat_item["offers"])); ?></li>
+			    		    	<li><strong>Status:</strong> <?php echo ($feat_item["status"]==1) ? "In" : "Out"; ?><li>
+			    		    	<li><strong>Trade Type:</strong> <?php echo ($feat_item["duedate"]==0) ? "Permanent" : "Temporary"; ?>
+			    		    </ul>
+			    		    <a href="/view.php?itemid=<?php echo $feat_item["id"]; ?>&userid=<?php echo $feat_item["usr"]; ?>" id="view_button" class="button_primary dark text_medium">View Item</a>
+			    		    <a href="/profile.php?id=<?php echo $feat_item["usr"]; ?>"><img class="user_picture uk-border-circle" src="/profile.php?id=<?php echo $feat_item["usr"]; ?>&load=image&size=small" /></a>
+			    		</div>
+		            </div>
 				</div>
 			</div>
-		</div>
+			<?php endif; 
+			endif; 
+		?>
 		
-		<div class="uk-width-small-3-4">
-			<div class="uk-grid reset_padding" id="main_board">
-			</div> 
+			<div class="uk-width-1-1">
+				<div class="uk-grid uk-grid-preserve reset_padding">
+					<div class="uk-width-medium-4-5 uk-width-small-1-1">
+						<div class="uk-grid reset_padding" id="main_board">
+						</div> 
+					</div>
+			
+					<div class="uk-width-1-5 uk-hidden-medium">
+						<div class="child uk-hidden-small">
+							<div class="title">Similar Stuff</div>
+							<div class="uk-align-center" style="padding-left:10px;">
+								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<ins class="adsbygoogle"
+									     style="display:inline-block;width:120px;height:240px"
+									     data-ad-client="ca-pub-5519668009926053"
+									     data-ad-slot="9417230623"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+								</script>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
+
+
 	</div>
 <?php /*
 <div id="feed_cont">

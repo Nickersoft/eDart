@@ -33,3 +33,7 @@
 .uk-subnav-pill>li.uk-active>a								{ background:#26C281 !important; }
 .uk-subnav>li>a												{ color:gray; }
 .uk-subnav-pill>li>a:hover, .uk-subnav-pill>li>a:focus		{ background:#eee; }
+
+.uk-subnav>li												{ font-size:0.9rem; }
+
+.uk-modal-dialog-frameless									{ overflow:visible; }

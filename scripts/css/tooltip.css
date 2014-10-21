@@ -44,7 +44,7 @@
  /* * * THE TRANSACTION DROPDOWN * * */
 
 /* The main container */
-#banner_placeholder #banner #infobox #exchange_menu 											{ text-align:left; margin-top:18px; right:-6px; width:500px; position:absolute;  }
+#banner_placeholder #banner #infobox #exchange_menu 											{ text-align:left; margin-top:13px; right:-6px; width:500px; position:absolute;  }
 #banner_placeholder #banner #infobox #exchange_menu:hover										{ display:block; }
 
 #banner_placeholder #banner #infobox #exchange_menu h1 											{ line-height:1em; background:#F8F8F8; text-align: right; font-size:0.65em; padding-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
@@ -71,7 +71,7 @@
  /* * * THE NOTIFICATION DROPDOWN * * */
 
 /* The main container */
-#banner_placeholder #banner #infobox #notification_menu 											{ text-align:left; margin-top:18px; right:-6px; position:absolute; width:500px; }
+#banner_placeholder #banner #infobox #notification_menu 											{ text-align:left; margin-top:13px; right:-6px; position:absolute; width:500px; }
 #banner_placeholder #banner #infobox #notification_menu:hover										{ display:block; }
 
 #banner_placeholder #banner #infobox #notification_menu h1 											{ line-height:1em; background:#F8F8F8; line-height:1em; text-align: right; font-size:16px; padding-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
@@ -99,7 +99,7 @@
  /* * * THE CONTROL PANEL * * */
 
 /* The main container */
-#banner_placeholder #banner #infobox #control_panel 															{ display:none; min-width:15em; height:auto; position:absolute; padding:10px; right:0px; top:56px; }
+#banner_placeholder #banner #infobox #control_panel 															{ display:none; min-width:15em; height:auto; position:absolute; padding:10px; right:0px; top:47px; }
 #banner_placeholder #banner #infobox #control_panel:hover														{ display:block; }
 #banner_placeholder #banner #infobox #control_panel .tip														{ border-bottom: 5px solid white; border-left-width:15px; border-right-width:15px; margin-top:15px; }
 

@@ -19,7 +19,7 @@ Body::begin(true, true);
 ?>
 
 <div id="home_container">
-	<div class="layout-978 uk-container uk-container-center">
+	<div class="layout uk-container uk-container-center">
 			<div id="signup_panel" class="uk-width-1-1 uk-border-rounded uk-container-center uk-text-center">
 				<h1>Login to eDart</h1>
 					<form method="POST" onsubmit="clearIncomplete(this);" action="/signup/process.php" id="signup_form">

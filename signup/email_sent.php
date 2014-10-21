@@ -49,7 +49,7 @@ Body::begin();
 
 			?>
 
-			<div class="layout-978 uk-container-center">
+			<div class="layout uk-container-center">
 				<div class="uk-width-1-3 uk-align-center">
 					<h1>Validation Email Sent</h1>
 					<div class="text_small uk-text-center">to <?php echo $uinfo["email"]; ?><br/>
