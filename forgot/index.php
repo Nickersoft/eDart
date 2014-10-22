@@ -18,7 +18,7 @@ $complete = false; //Boolean denoting whether the form has been submitted
 if(isset($_POST["forgotbox"]))
 {
 		$to   = trim($_POST["forgotbox"]);  //Get the email address to send it to
-		$rand = random_key(8);				//Get a random password to reset to
+		$rand = random_key(64);				//Get a random password to reset to
 
 		$fname = "eDart";	//Default user first name
 		$lname = "User";	//Default user last name
@@ -37,6 +37,7 @@ if(isset($_POST["forgotbox"]))
 
 			$fname = $row["fname"]; //...set the first name
 			$lname = $row["lname"];	//...set the last name
+			$uid   = $row["id"];	//...set the user ID
 			$found = true;			//...set the boolean to true
 		}
 
@@ -45,7 +46,7 @@ if(isset($_POST["forgotbox"]))
 		if($found)
 		{
 			//Reset their password to the random key
-			mysqli_query($con, "UPDATE `usr` SET `password`='".mysqli_real_escape_string($con, hash_password($rand))."' WHERE `email`='".mysqli_real_escape_string($con, $to)."'");
+			mysqli_query($con, "INSERT INTO `pass_reset`(`usr`, `key`) VALUES('".mysqli_real_escape_string($con, $uid)."', '".mysqli_real_escape_string($con, $rand)."');");
 		}
 		else //If we didn't...
 		{
@@ -56,9 +57,9 @@ if(isset($_POST["forgotbox"]))
 
 		//Send an email to them with their new password
 		$subject 	= "Password Reset";
-		$msg 		= "Your eDart password was recently reset to the following password:<br/><br/>$rand<br/><br/>You can use this to log in, then change your password by going to 'Options / Manage Account'.";
-		$link		= "http://wewanttotrade.com/login.php";
-		$btnTxt		= "Log In";
+		$msg 		= "A request was made recently to reset your eDart password. If this sounds right to you, you can click the button below to specify a new password.";
+		$link		= "http://wewanttotrade.com/reset-password/?auth=" . urlencode($rand);
+		$btnTxt		= "Reset My Password";
 
 		sendMail($to, $fname, $lname, $subject, $msg, $link, $btnTxt);
 
@@ -155,11 +156,11 @@ EOL;
 						//If the form was submitted, show a different body than usual
 						if($complete)
 						{
-							echo "We've reset your password. Check your email (spam inbox included!).";
+							echo "We've send you an email. Make sure to look for it (spam inbox included!).";
 						}
 						else
 						{
-							echo "Don't worry. It happens to the best of us. Just enter your email below and we'll send you a temporary one to log in with. Then, once you log in, go up to \"Options / Manage Account\" to change your password.";
+							echo "Don't worry. It happens to the best of us. Just enter your email below and we'll send you instructions to reset your password.";
 
 							//Print out the form
 							$input = <<<EOF
