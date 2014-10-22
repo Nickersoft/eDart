@@ -372,7 +372,6 @@ $(document).ready(function() {
 
 	$("#category_list li a").eq(0).click();
 	$("#about_nav li a").eq(0).click();
-
 });
 
 addEvent(window, "load", function() { init_home(); });

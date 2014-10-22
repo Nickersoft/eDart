@@ -19,11 +19,12 @@
 #profile_container  #profile .profile_tab_content                                           { display:none; }
 
 /* THE PRETTY IMAGE BANNER */
-#profile_container 	#profile #cover										                    { padding:1em 3.5em 0 3.5em; background-position:center 30%; background-size:cover; display:block; position:relative; min-height:15em; font-family: VegurLight, sans-serif; color:white; white-space:nowrap;  }
+#profile_container 	#profile #cover										                    { padding:1em 3.5em 0 3.5em; background-position:30% center; background-size:cover; display:block; position:relative; min-height:15em; font-family: VegurLight, sans-serif; color:white; white-space:nowrap;  }
 #profile_container 	#profile #cover #header							                      	{ text-align:center; padding-top:1em; white-space:normal; padding-bottom:1em; }
 #profile_container 	#profile #cover #header h1						                      	{ white-space:normal; max-width:100%; display:inline-block; font-size:3em; text-align:center; font-family:TitilliumBold, sans-serif; color:white; }
 
-#profile_container 	#profile  #cover #picture 								               	{ padding:0px; background:red; overflow:hidden; width:12em; margin:1.5em auto 0 auto; position:relative; z-index:10; border-radius:100px; -webkit-border-radius:100px; border:10px solid white;  }
+#profile_container 	#profile  #cover #picture 								               	{ padding:0px; background:red; overflow:hidden; width:12em; margin:0 auto 0 auto; position:relative; z-index:10; border-radius:100px; -webkit-border-radius:100px; border:10px solid white;  }
+#profile_container 	#profile  #cover #picture i								               	{ font-size:3em; }
 #profile_container 	#profile  #cover #picture img							                { width:100%; display:block; }
 #profile_container 	#profile  #cover #picture .overlay						                { background:url('/img/transb.png'); text-align:center; color:white; padding-top:65px; position:absolute; cursor:pointer; display:none; top:0px; left:0px; }
 #profile_container 	#profile  #cover #picture:hover > .overlay                              { display:block; }
@@ -84,8 +85,8 @@
 /* THE PANEL TABS */
 #profile_container  #profile  #right									            	    { display:inline-block; color:#2b2b2b; margin-top:5px;  vertical-align: top; text-align: left; }
 #profile_container  #profile  #right ul									                    { position:relative; list-style: none; padding-left:10px; }
-#profile_container  #profile  #right ul .active 				 			                { position:relative; background-color:#3498DB !important; border:1px solid #4183D7 !important; color:white !important; }
-#profile_container  #profile  #right ul li							    	                { border-radius:4px; －webkit-border-radius:4px;  z-index:0; cursor:pointer; border:1px solid transparent; border-right:none; padding:10px; font-size:14px; margin-bottom:20px; line-height:16px;  vertical-align: top; }
-#profile_container  #profile  #right ul li:hover							                { background:#eee; border:1px solid lightgray; color:#2b2b2b;}
-#profile_container  #profile  #right ul li span								                { width:25px; }
+#profile_container  #profile  #right ul .active 				 			                { position:relative; color:#3498DB !important; }
+#profile_container  #profile  #right ul li							    	                { text-align:center; color:#aaa; border-radius:4px; －webkit-border-radius:4px;  z-index:0; cursor:pointer; border:1px solid transparent; border-right:none; padding:10px; font-size:14px; margin-bottom:20px; line-height:16px;  vertical-align: top; }
+#profile_container  #profile  #right ul li:hover							                { color:#2b2b2b;}
+#profile_container  #profile  #right ul li span								                {  width:50px; font-size:2em; }
 

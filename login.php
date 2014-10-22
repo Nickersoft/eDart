@@ -39,7 +39,7 @@ Body::begin(true, true);
 								}
 							?>
 							
-							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('lpeaddr').value,document.getElementById('lppword').value, '<?php echo $rdr; ?>',function(){});" value="Let's Go!" />
+							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('lpeaddr').value,document.getElementById('lppword').value, '<?php echo $rdr; ?>',function(){ display_login_error(); });" value="Let's Go!" />
 					</form>
 			</div>
 		</div>

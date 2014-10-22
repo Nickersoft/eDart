@@ -125,7 +125,7 @@ Body::begin(true, true);
 				<div class="uk-grid">
 					<div class="uk-width-1-1 reset_padding">
 						<div id="picture">
-							<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?><div onclick="pp_change_begin();" class="uk-width-1-1 uk-height-1-1 overlay">Click to Change</div><?php endif; ?>
+							<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?><div onclick="pp_change_begin();" class="uk-width-1-1 uk-height-1-1 overlay"><i class="uk-icon-upload"></i></div><?php endif; ?>
 							<img src="/profile.php?id=<?php echo $_GET['id']; ?>&load=image">
 						</div>
 					</div>
@@ -146,20 +146,24 @@ Body::begin(true, true);
 				
 				<!-- USER INFO -->
 				<div id="left" class="uk-width-1-4 uk-hidden-small">
-					<div id="info">
-						<ul>
-							<li><span class='uk-icon-bolt'></span>eDart user #<?php echo $_GET["id"]; ?></li>
-							<li><span class='uk-icon-calendar'></span>Joined on <?php echo date("m/d/Y", $join_date); ?></li>
-							<?php echo (!in_array("last_location", $privacy)&&(count($lastseen)!=0)) ? "<li><span class='uk-icon-location-arrow'></span>Last seen near {$lastseen["properties"]["city"]}</li>" : ""; ?>
-							<?php echo (!in_array("gender", $privacy)&&$gender_index!=0) ? "<li><span class='uk-icon-user'></span>$gender</li>" : ""; ?>
-							<?php echo (!in_array("dob", $privacy)&&$dob!=0) ? "<li><span class='uk-icon-birthday-cake'></span>" . getRelativeDT(time(), $dob) . " old</li>" : ""; ?>
-							<li><span class='uk-icon-institution'></span>Attends WPI</li>
-						</ul>
-	
+						<div class="child">
+							<div class="title uk-text-center">About <?php echo $fname; ?></div>
+							<div id="info">
+								<ul>
+									<li><span class='uk-icon-bolt'></span>eDart user #<?php echo $_GET["id"]; ?></li>
+									<li><span class='uk-icon-calendar'></span>Joined on <?php echo date("m/d/Y", $join_date); ?></li>
+									<?php echo (!in_array("last_location", $privacy)&&(count($lastseen)!=0)) ? "<li><span class='uk-icon-location-arrow'></span>Last seen near {$lastseen["properties"]["city"]}</li>" : ""; ?>
+									<?php echo (!in_array("gender", $privacy)&&$gender_index!=0) ? "<li><span class='uk-icon-user'></span>$gender</li>" : ""; ?>
+									<?php echo (!in_array("dob", $privacy)&&$dob!=0) ? "<li><span class='uk-icon-birthday-cake'></span>" . getRelativeDT(time(), $dob) . " old</li>" : ""; ?>
+									<li><span class='uk-icon-institution'></span>Attends WPI</li>
+								</ul>
+							</div>
+						</div>
+		
 						<?php if(isset($_SESSION["userid"])&&$_SESSION["userid"]==$_GET["id"]): ?>
 						
 							<div class="uk-text-center">
-								<input type="button" id="edit_button" value="Edit Profile" data-link="edit_profile" class="uk-align-center small_text button_primary green" value="Edit" />
+								<input type="button" id="edit_button" value="Edit Profile" data-link="edit_profile" class="uk-align-center small_text uk-button uk-width-1-1" value="Edit" />
 							</div>
 							
 							<div class="hidden">
@@ -169,15 +173,13 @@ Body::begin(true, true);
 							</div>
 	
 						<?php endif; ?>
-	
-	
-					</div>
+
 				</div>
 	
 				<div class="uk-width-medium-3-4 uk-width-small-1-1">
-					<div class="uk-grid uk-grid-preserve">
+					<div class="uk-grid uk-grid-preserve reset_padding">
 						<!-- MAIN CONTENT -->
-						<div class="uk-width-medium-7-10 uk-width-small-1-1">
+						<div class="uk-width-medium-9-10 uk-width-small-1-1">
 							<div id="post_container">
 		
 							<?php
@@ -191,11 +193,11 @@ Body::begin(true, true);
 						</div>
 					
 			
-						<div id="right" class="uk-width-3-10 uk-hidden-small">
+						<div id="right" class="uk-width-1-10 uk-hidden-small">
 							<ul>
-								<li class="profile_tab active" value="Recent Activity" data-link="recent_activity"><span class="uk-icon-bars"></span>Recent Activity</li>
-								<li class="profile_tab" value="Item Inventory" data-link="item_board"><span class="uk-icon-cubes"></span>Item Inventory</li>
-								<li class="profile_tab" value="User Reviews" data-link="user_reviews" ><span class="uk-icon-star"></span>User Reviews</li>
+								<li class="profile_tab active" value="Recent Activity" title="Recent Activity" data-link="recent_activity"><span class="uk-icon-bars"></span></li>
+								<li class="profile_tab" value="Item Inventory" title="Recent Activity" data-link="item_board"><span class="uk-icon-cube"></span></li>
+								<li class="profile_tab" value="User Reviews" title="User Reviews" data-link="user_reviews" ><span class="uk-icon-star"></span></li>
 							</ul>
 						</div>
 					</div>

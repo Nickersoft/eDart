@@ -49,7 +49,8 @@
 	<div id="banner">
 		<div id="inner">
 			<div class="padding_small">
-				<?php if(getcwd()!==$_SERVER["DOC_ROOT"]): ?>
+			
+				<?php if(("/index.php"!=$_SERVER["REQUEST_URI"])&&("/"!=$_SERVER["REQUEST_URI"])): ?>
 					<a onclick="window.location='/';" class="button_back">
 						<?php echo (isset($_SESSION["userid"])) ? "Return to Feed" : "Return Home"; ?>
 					</a>

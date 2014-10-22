@@ -52,5 +52,10 @@ function push_confirm(message, yes_callback, no_callback)
 		});	
 }
 
+function push_notify(message)
+{
+	$.UIkit.notify(message, {status:"warning"});
+}
+
 addEvent(window, "load", function() { init_alert(); });
 addEvent(window, "load", function() { init_error(); });
