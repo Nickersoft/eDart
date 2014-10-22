@@ -57,9 +57,9 @@ if(isset($_POST["forgotbox"]))
 
 		//Send an email to them with their new password
 		$subject 	= "Password Reset";
-		$msg 		= "A request was made recently to reset your eDart password. If this sounds right to you, you can click the button below to specify a new password.";
+		$msg 		= "A request was made recently to reset your eDart password. If this sounds right to you, you can click the reset button below to specify a new password.";
 		$link		= "http://wewanttotrade.com/reset-password/?auth=" . urlencode($rand);
-		$btnTxt		= "Reset My Password";
+		$btnTxt		= "Reset";
 
 		sendMail($to, $fname, $lname, $subject, $msg, $link, $btnTxt);
 
