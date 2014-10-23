@@ -15,58 +15,35 @@ include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; //Include core func
 $complete = false; //Boolean denoting whether the form has been submitted
 
 //If the form has been submitted...
-if(isset($_POST["forgotbox"]))
+if(isset($_GET["auth"]))
 {
-		$to   = trim($_POST["forgotbox"]);  //Get the email address to send it to
-		$rand = random_key(8);				//Get a random password to reset to
-
-		$fname = "eDart";	//Default user first name
-		$lname = "User";	//Default user last name
-		$found = false;		//Boolean as to whether this user exists
-
-		//Connect to MySQL
-		$con = mysqli_connect(host(), username(), password(), mainDb());
-
-		//Try to find the user by email (not possible via the API)
-		$que = mysqli_query($con, "SELECT * FROM `usr` WHERE `email`='".mysqli_real_escape_string($con, $to)."'");
-
-		//Loop through the results
-		while($row = mysqli_fetch_array($que))
-		{
-			//If we found them...
-
-			$fname = $row["fname"]; //...set the first name
-			$lname = $row["lname"];	//...set the last name
-			$found = true;			//...set the boolean to true
-		}
-
-
-		//If they were found...
-		if($found)
-		{
-			//Reset their password to the random key
-			mysqli_query($con, "UPDATE `usr` SET `password`='".mysqli_real_escape_string($con, hash_password($rand))."' WHERE `email`='".mysqli_real_escape_string($con, $to)."'");
-		}
-		else //If we didn't...
-		{
-			//Throw an error
-			header("Location:./?error=401");
-			exit; //Exit
-		}
-
-		//Send an email to them with their new password
-		$subject 	= "Password Reset";
-		$msg 		= "Your eDart password was recently reset to the following password:<br/><br/>$rand<br/><br/>You can use this to log in, then change your password by going to 'Options / Manage Account'.";
-		$link		= "http://wewanttotrade.com/login.php";
-		$btnTxt		= "Log In";
-
-		sendMail($to, $fname, $lname, $subject, $msg, $link, $btnTxt);
-
-		$complete = true; //Change the boolean
+	//Connect to MySQL
+	$con = mysqli_connect(host(), username(), password(), mainDb());
+	
+	$query = mysqli_query($con, "SELECT `usr` FROM `pass_reset` WHERE `key`='".mysqli_real_escape_string($con, $_GET["auth"]) . "'");
+	$uid   = mysqli_fetch_array($query);
+	$uid   = $uid[0];
+	
+	$name  = "User";
+	if($uid){
+		 $user_info  = new User(array("action"=>"get", "id"=>$uid));
+		 $user_array = $user_info->run(true);
+		 $user_array = $user_array[0];
+		 $name		 = $user_array["fname"];
+		  
+		// mysqli_query($con, "DELETE FROM `pass_reset` WHERE `key`='".mysqli_real_escape_string($con, $_GET["auth"]) . "'");
+	}
+	else 
+	{
+		header("Location:/");
+	}
+}
+else {
+	header("Location:/");
 }
 
 		HTML::begin();
-		Head::begin("Forgot Password");
+		Head::begin("Reset Password");
 ?>
 		<style>
 
@@ -136,41 +113,24 @@ EOL;
 			<div id="mc">
 				<div class="align">
 					<div class="norm" >
-						<?php
-							//If the form was submitted, show a different header than usual
-							if($complete)
-							{
-								echo "Password reset!";
-							}
-							else
-							{
-								echo "Forgot your password?";
-							}
-						?>
+						Hey there, <?php echo $name; ?>
 					</div>
 
 					<p>
 
-					<?php
-						//If the form was submitted, show a different body than usual
-						if($complete)
-						{
-							echo "We've reset your password. Check your email (spam inbox included!).";
-						}
-						else
-						{
-							echo "Don't worry. It happens to the best of us. Just enter your email below and we'll send you a temporary one to log in with. Then, once you log in, go up to \"Options / Manage Account\" to change your password.";
+					<?php if($complete): ?>
+						We've reset your password. Check your email (spam inbox included!).
+					<?php else: ?>
+						Don't worry. It happens to the best of us. Just enter your email below and we'll send you a temporary one to log in with. Then, once you log in, go up to "Options / Manage Account" to change your password.
 
-							//Print out the form
-							$input = <<<EOF
-								<form name="forgot_form" method="POST" action="./">
-									<input type="text" class="inpt" placeholder="Email Address" id="forgotbox" name="forgotbox" />
-									<input type="submit" class="button_primary blue" value="Reset Password" id="forgotbtn" />
-								</form>
-EOF;
-							echo $input;
-						}
-					?>
+						<form name="reset_form" method="POST" action="./">
+							<input type="password" class="uk-align-center uk-width-1-3" placeholder="New Password" id="npwd" name="npwd" />
+							<input type="password" class="uk-align-center uk-width-1-3" placeholder="Retype Password" id="nrpwd" name="rnpwd" />
+							<input type="submit" class="button_primary blue" value="Reset Password" id="forgotbtn" />
+						</form>
+						
+					<?php endif; ?>
+					
 					</p>
 				</div>
 			</div>

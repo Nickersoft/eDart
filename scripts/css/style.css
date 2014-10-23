@@ -21,6 +21,7 @@ dd i 			{ width:1.5em; }
 main 			{ padding:2em 0 2em 0; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
 
 div.layout 		{ width:1200px; }
+div.layout-978			{ width:978px; }
 
 .panel						{ white-space:normal; }
 .background					{ background:url("/img/bg.jpg") repeat center center; background-size:cover; }
@@ -205,6 +206,10 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 
 @media (max-width: 978px) {
 	.layout {
+		width:100% !important;
+	}
+	
+		.layout {
 		width:100% !important;
 	}
 }

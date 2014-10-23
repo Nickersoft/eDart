@@ -141,7 +141,7 @@ EOL;
 							//If the form was submitted, show a different header than usual
 							if($complete)
 							{
-								echo "Password reset!";
+								echo "Email sent!";
 							}
 							else
 							{
@@ -156,7 +156,7 @@ EOL;
 						//If the form was submitted, show a different body than usual
 						if($complete)
 						{
-							echo "We've send you an email. Make sure to look for it (spam inbox included!).";
+							echo "We've sent you an email. Make sure to look for it (spam inbox included!).";
 						}
 						else
 						{
@@ -166,7 +166,7 @@ EOL;
 							$input = <<<EOF
 								<form name="forgot_form" method="POST" action="./">
 									<input type="text" class="inpt" placeholder="Email Address" id="forgotbox" name="forgotbox" />
-									<input type="submit" class="button_primary blue" value="Reset Password" id="forgotbtn" />
+									<input type="submit" class="button_primary blue" value="Send Email" id="forgotbtn" />
 								</form>
 EOF;
 							echo $input;
