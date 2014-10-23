@@ -121,7 +121,7 @@ Body::begin(true, true);
 	<div id="profile">
 	
 		<div id="cover" style="background-image:url('/profile.php?id=<?php echo $_GET["id"]; ?>&load=image&filter=blur&size=huge')">
-			<div class="layout uk-container-center">
+			<div class="layout-1200 uk-container-center">
 				<div class="uk-grid">
 					<div class="uk-width-1-1 reset_padding">
 						<div id="picture">
@@ -141,7 +141,7 @@ Body::begin(true, true);
 		
 		<h1 id="title">Recent Activity</h1>
 		
-		<div class="layout uk-container-center">
+		<div class="layout-978 uk-container-center">
 			<div class="uk-grid">
 				
 				<!-- USER INFO -->

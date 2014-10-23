@@ -20,7 +20,7 @@ h1, h2 			{ margin: 0px; padding: 0px; font-family:VegurRegular, sans-serif; }
 dd i 			{ width:1.5em; }
 main 			{ padding:2em 0 2em 0; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
 
-div.layout 		{ width:1200px; }
+div.layout-1200 		{ width:1200px; }
 div.layout-978			{ width:978px; }
 
 .panel						{ white-space:normal; }
@@ -205,11 +205,11 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 }
 
 @media (max-width: 978px) {
-	.layout {
+	.layout-1200 {
 		width:100% !important;
 	}
 	
-		.layout {
+		.layout-978 {
 		width:100% !important;
 	}
 }

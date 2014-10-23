@@ -41,7 +41,7 @@ foreach($items_info as $item)
 </div>
 
 
-<div class="layout uk-container-center">
+<div class="layout-1200 uk-container-center">
 	<div class="uk-grid uk-grid-preserve" id="home">
 			<div class="uk-width-small-1-5">
 		

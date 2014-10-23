@@ -241,7 +241,7 @@ Body::begin();
 				</div>
 			</div>
 
-			<div class="layout uk-container-center">
+			<div class="layout-1200 uk-container-center">
 				<div class="uk-grid uk-grid-preserve">
 					<div class="uk-width-1-1">
 						<div class="uk-grid uk-grid preserve">
@@ -512,7 +512,7 @@ Body::begin();
 			<?php /*
 			
 			
-			<div class="layout uk-container-center">
+			<div class="layout-1200 uk-container-center">
 				<div id="hold">
 					<div id="cover">
 						<?php if($status==0): ?>

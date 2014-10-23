@@ -1,6 +1,6 @@
 <?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; ?>
 <div id="home_container">
-	<div class="layout uk-container-center">
+	<div class="layout-1200 uk-container-center">
 		<div class="uk-grid">
 			<div class="uk-width-medium-1-1">
 				<h1>Trade Anything.</h1>

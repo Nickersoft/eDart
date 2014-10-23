@@ -78,7 +78,7 @@ Body::begin();
 		#code_count { border-top:1px solid green; font-family:TitilliumrRegular,Trebuchet MS, sans-serif;font-size:45px;color:green; padding:25px !important; text-align:center;}
 
 		</style>
-			<div style="min-height:520px;" class="layout uk-container-center">
+			<div style="min-height:520px;" class="layout-1200 uk-container-center">
 				<div class="uk-grid">
 					<div class="uk-width-medium-1-5">
 						<ul id="about_nav" class="uk-nav uk-nav-side" data-switcher-parent="#panel_parent">
