@@ -61,7 +61,19 @@ CREATE TABLE `feed` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+# Dump of table pass_reset
+# ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `pass_reset`;
+
+CREATE TABLE `pass_reset` (
+  `index` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `usr` int(11) DEFAULT NULL,
+  `key` longtext,
+  PRIMARY KEY (`index`),
+  KEY `user` (`usr`),
+  CONSTRAINT `user` FOREIGN KEY (`usr`) REFERENCES `usr` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 # Dump of table item
 # ------------------------------------------------------------
