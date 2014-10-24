@@ -205,7 +205,7 @@ function reset_add_wizard()
 {
 	$("#add_wizard").scrollLeft(0);
 
-	$("#wz_title[data-default]").html($("wz_title[data-default]").attr("data-default"));
+	$("#wz_title[data-default]").html($("#wz_title[data-default]").attr("data-default"));
 	$("#wz_dodue").prop("checked", true);
 	$("#wz_picture").css("background","");
 	$("#add_wizard .uk-modal-footer").css("display","block");

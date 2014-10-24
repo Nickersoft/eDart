@@ -39,3 +39,5 @@
 .uk-modal-dialog-frameless									{ overflow:visible; }
 .uk-dropdown												{ width:100%; margin-top:10px; left:50px; border-radius:0px; border:1px solid lightgray; border-top:none; }
 .uk-nav-autocomplete>li.uk-active>a							{ background:#26C281; }
+
+ins															{ background:transparent; }

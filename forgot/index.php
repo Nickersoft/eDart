@@ -104,35 +104,6 @@ if(isset($_POST["forgotbox"]))
 		Body::add_action("$('#error_display').modal()");
 		Body::begin();
 ?>
-
-		<?php
-
-		//If there is an error call in the URL and it's 401, print out the error box
-		if(isset($_GET["error"])&&$_GET["error"]=="401")
-		{
-			$error_box = <<<EOL
-			<div id="error_display" class="modal fade">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			        <h4 class="modal-title">Could Not Reset Password</h4>
-			      </div>
-			      <div id="error_body" class="modal-body">
-			      		No user is registered with this email address.
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" data-dismiss="modal" class="bbtn">Okay</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-EOL;
-
-			echo $error_box;
-		}
-
-		?>
 		<div id="mc_cont">
 			<div id="mc">
 				<div class="align">

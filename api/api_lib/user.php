@@ -76,7 +76,7 @@ class User
 		}
 
 		$info = $this->get($_SESSION["userid"], true);
-		if($info[0]["status"]!="2")
+		if(($info[0]["status"]!="2")&&!$sb)
 		{
 			return 403;
 		}
