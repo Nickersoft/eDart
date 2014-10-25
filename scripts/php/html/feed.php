@@ -44,11 +44,9 @@ foreach($items_info as $item)
 <div class="layout-1200 uk-container-center">
 	<div class="uk-grid uk-grid-preserve" id="home">
 			<div class="uk-width-small-1-5">
-			<div data-uk-sticky>
-				<div>
-					<a href="#request_win" style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button" data-uk-modal>Request</a>
-				</div>
-				
+			<div data-uk-sticky="{top:25}">
+				<a href="#request_win" style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button" data-uk-modal>Request</a>
+			
 				<div class="child uk-hidden-small">
 					<div class="title">Categories</div>
 		    		<ul id="category_list" class="uk-nav uk-nav-side">
