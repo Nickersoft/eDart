@@ -43,70 +43,71 @@ foreach($items_info as $item)
 
 <div class="layout-1200 uk-container-center">
 	<div class="uk-grid uk-grid-preserve" id="home">
-			<div class="uk-width-small-1-5" data-uk-sticky>
-		
-			<a href="#request_win" style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button" data-uk-modal>Request</a>
-			
-			<div class="child uk-hidden-small">
-				<div class="title">Categories</div>
-	    		<ul id="category_list" class="uk-nav uk-nav-side">
-	    			<li>
-	    				<a href="javascript:void(0);" onclick="select_recent(this);" >Recent 
-	    					<?php if(count($items_info)!=0): ?>
-	    					<span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge">
+			<div class="uk-width-small-1-5">
+			<div data-uk-sticky>
+				<a href="#request_win" style="margin-bottom:10px;" class="uk-hidden-small uk-width-1-1 uk-button" type="button" data-uk-modal>Request</a>
+				
+				<div class="child uk-hidden-small">
+					<div class="title">Categories</div>
+		    		<ul id="category_list" class="uk-nav uk-nav-side">
+		    			<li>
+		    				<a href="javascript:void(0);" onclick="select_recent(this);" >Recent 
+		    					<?php if(count($items_info)!=0): ?>
+		    					<span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge">
+			    					<?php 
+			    						echo count($items_info); 
+			    					?>
+		    					</span> 
+		    					<?php endif; ?>
+		    				</a>
+		    			</li>
+		    			<li><a href="javascript:void(0);" onclick="select_popular(this);">Popular</a></li>
+		    			<?php if(count($category_array)!=0):  
+								foreach($category_array as $category): ?>
+									<li><a href="javascript:void(0);" onclick="select_category('<?php echo $category; ?>', this);">
+										<?php echo Lookup::Category($category); ?></a></li>
+						<?php   endforeach;
+						 endif; ?>
+					</ul>
+				</div>
+				
+				<div class="uk-visible-small">
+					<select id="category_select" class="uk-width-1-1">
+						<option>
+							Recent
+							<?php if(count($items_info)!=0): ?>
+		    				(
 		    					<?php 
-		    						echo count($items_info); 
-		    					?>
-	    					</span> 
-	    					<?php endif; ?>
-	    				</a>
-	    			</li>
-	    			<li><a href="javascript:void(0);" onclick="select_popular(this);">Popular</a></li>
-	    			<?php if(count($category_array)!=0):  
-							foreach($category_array as $category): ?>
-								<li><a href="javascript:void(0);" onclick="select_category('<?php echo $category; ?>', this);">
-									<?php echo Lookup::Category($category); ?></a></li>
-					<?php   endforeach;
-					 endif; ?>
-				</ul>
-			</div>
-			
-			<div class="uk-visible-small">
-				<select id="category_select" class="uk-width-1-1">
-					<option>
-						Recent
-						<?php if(count($items_info)!=0): ?>
-	    				(
-	    					<?php 
-		    					echo count($items_info); 
-		    				?>
-		    			) 
-	    				<?php endif; ?>
-					</option>
-					<option>Popular</option>
-					<?php if(count($category_array)!=0):  
-							foreach($category_array as $category): ?>
-								<option value="<?php echo $category; ?>"><?php echo Lookup::Category($category); ?></option>
-					<?php   endforeach;
-					 endif; ?>
-				</select>
-			</div>
-			
-			<div class="child uk-hidden-small">
-				<div class="title">Newest Members</div>
-				<div class="uk-grid uk-grid-small" style="padding-left:10px;">
-					<?php
-					    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 12");
-						while ($user = mysqli_fetch_array($user_query)): 
-							$display_name = htmlentities(htmlentities(ucwords($user["fname"] . " " . $user["lname"])));
-						?>
-						
-							<div class="uk-width-1-4">
-								<a data-uk-tooltip="{pos:'top'}" title="<?php echo $display_name; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
-									<img class="uk-border-circle" src="/profile.php?id=<?php echo $user["id"]; ?>&load=image&size=small">
-								</a>
-							</div>
-					<?php endwhile; ?>
+			    					echo count($items_info); 
+			    				?>
+			    			) 
+		    				<?php endif; ?>
+						</option>
+						<option>Popular</option>
+						<?php if(count($category_array)!=0):  
+								foreach($category_array as $category): ?>
+									<option value="<?php echo $category; ?>"><?php echo Lookup::Category($category); ?></option>
+						<?php   endforeach;
+						 endif; ?>
+					</select>
+				</div>
+				
+				<div class="child uk-hidden-small">
+					<div class="title">Newest Members</div>
+					<div class="uk-grid uk-grid-small" style="padding-left:10px;">
+						<?php
+						    $user_query = mysqli_query($con, "SELECT * FROM usr ORDER BY join_date DESC LIMIT 12");
+							while ($user = mysqli_fetch_array($user_query)): 
+								$display_name = htmlentities(htmlentities(ucwords($user["fname"] . " " . $user["lname"])));
+							?>
+							
+								<div class="uk-width-1-4">
+									<a data-uk-tooltip="{pos:'top'}" title="<?php echo $display_name; ?>" href="/profile.php?id=<?php echo $user["id"]; ?>">
+										<img class="uk-border-circle" src="/profile.php?id=<?php echo $user["id"]; ?>&load=image&size=small">
+									</a>
+								</div>
+						<?php endwhile; ?>
+					</div>
 				</div>
 			</div>
 		</div>
