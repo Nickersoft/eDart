@@ -41,3 +41,5 @@
 .uk-nav-autocomplete>li.uk-active>a							{ background:#26C281; }
 
 ins															{ background:transparent; }
+
+.uk-placeholder												{ border:none; background:transparent; }

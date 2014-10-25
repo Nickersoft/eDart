@@ -45,8 +45,9 @@ function populate_home(filter, menu_item, sort_title)
 	//Highlight the element
 	$(menu_item).closest(".uk-nav").find("li").removeClass("uk-active");
 	$(menu_item).closest("li").addClass("uk-active");
-
 	$("#main_board").fadeOut(300, function() {
+		$("#main_board").parent().addClass("uk-placeholder");
+		
 		//Make a call to the API to get a list of items matching the category
 		$.get("/api/index.php",
 			  { "lib" 		: "item",
@@ -116,7 +117,8 @@ function populate_home(filter, menu_item, sort_title)
 
 					//Set the HTML
 					document.getElementById("main_board").innerHTML = new_board;
-
+					$("#main_board").parent().removeClass("uk-placeholder");
+					
 					$("#main_board").fadeIn(300, function() {align_items();});
 
 			});
