@@ -386,7 +386,7 @@ Body::begin();
 					<div class="uk-width-5-10">
 					
 						<!-- START PRODUCT INFO -->
-						<div style="display:block;min-height:23em;">
+						<div style="display:block;min-height:23em;" id="item_info">
 							<h1><?php echo $name; ?></h1>
 							<div class="uk-width-1-1 item_description">
 								<?php echo $desc; ?>
