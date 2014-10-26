@@ -1,4 +1,5 @@
 try {
+var placeholder = document.getElementById('headsearch').getAttribute("placeholder");
 var auto = completely(document.getElementById('headsearch'));
 
 $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
@@ -9,11 +10,12 @@ $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
 	{
 		item_array.push(json[i]["name"]);
 	}
-	
+
 	auto.onChange = function (text) {
 		if (text.length == 0) {
 			auto.options = [];
 			auto.repaint();
+			auto.hint.value = placeholder;
 			return; 
 		}
 		else {
@@ -25,4 +27,4 @@ $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
 		
 	auto.options.sort();
 });
-}catch(e){}
+}catch(e){alert(e);}
