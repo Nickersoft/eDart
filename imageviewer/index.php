@@ -43,6 +43,26 @@ else //However, if there is...
 			$img_contents = file_get_contents($_SERVER["DOC_ROOT"]."/img/default.png");
 		}
 
+		//If a filter is specified...
+		if(isset($_GET["filter"]))
+		{
+			//Apply it accordingly
+			switch(strtolower(trim($_GET["filter"])))
+			{
+				case "blur": //Blur the image
+					$img_contents = WideImage::load($img_contents)->resize(200)->asString('jpg');
+					$feat_data_binary_blur	= WideImage::loadFromString($img_contents)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+					for($i = 0; $i < 10; $i++)
+					{
+						$get_cur_blur 			= $feat_data_binary_blur->asString('jpg');
+						$feat_data_binary_blur	= WideImage::loadFromString($get_cur_blur)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+					}
+		
+					$img_contents = $feat_data_binary_blur->asString('jpg');
+					break;
+			}
+		}
+		
 			//If a size is specified in the GET request...
 		if(isset($_GET["size"]))
 		{
@@ -62,6 +82,7 @@ else //However, if there is...
 					break;
 			}
 		}
+		
 		//Print out the image
 		echo $img_contents;		
 	}

@@ -135,13 +135,9 @@ foreach($items_info as $item)
 				
 				if(trim($item_array[$count]["image"])!=""):
 					$feat_item				= $item_array[$count];
-					$feat_data_binary 		= $item_array[$count]["image"];
-					$feat_data_binary_blur	= WideImage::loadFromString($feat_data_binary)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
-					$feat_data_url  		= "data:image/jpg;base64," . base64_encode($feat_data_binary_blur->asString('jpg'));
-					$feat_img_height		= $feat_data_binary_blur->getHeight();
 		?>
 			<div class="uk-width-1-1 uk-hidden-small">
-				<div data-height="<?php echo $feat_img_height; ?>" style="background:url('<?php echo $feat_data_url; ?>');" id="home_cover" class="uk-cover-background  uk-position-relative">
+				<div style="background:url('/imageviewer/?id=<?php echo $feat_item["id"]; ?>&filter=blur');" id="home_cover" class="uk-cover-background  uk-position-relative">
 				    <div class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
 			    		<div class="gradient">
 							<h6><span>featured</span> in <?php echo Lookup::Category($feat_item["category"]); ?></h6>

@@ -62,18 +62,18 @@ try {
 			$profile_pic = file_get_contents($_SERVER["DOC_ROOT"]."/img/user_icon_200.png");
 		}
 		
-		//If a size is specified...
+		//If a filter is specified...
 		if(isset($_GET["filter"]))
 		{
-			//Resize it accordingly
+			//Apply it accordingly
 			switch(strtolower(trim($_GET["filter"])))
 			{
 				case "blur": //Blur the image
 					$feat_data_binary_blur	= WideImage::loadFromString($profile_pic)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
 					for($i = 0; $i < 50; $i++)
 					{
-					$get_cur_blur 			= $feat_data_binary_blur->asString('jpg');
-							$feat_data_binary_blur	= WideImage::loadFromString($get_cur_blur)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
+						$get_cur_blur 			= $feat_data_binary_blur->asString('jpg');
+						$feat_data_binary_blur	= WideImage::loadFromString($get_cur_blur)->applyFilter(IMG_FILTER_GAUSSIAN_BLUR);
 					}
 						
 					$profile_pic = $feat_data_binary_blur->asString('jpg');
