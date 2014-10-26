@@ -1,5 +1,6 @@
 try {
 var auto = completely(document.getElementById('headsearch'));
+
 $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
 	var json = eval("(" + data + ")");
 	var item_array = [];
@@ -8,6 +9,20 @@ $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
 	{
 		item_array.push(json[i]["name"]);
 	}
-	auto.options = item_array;
+	
+	auto.onChange = function (text) {
+		if (text.length == 0) {
+			auto.options = [];
+			auto.repaint();
+			return; 
+		}
+		else {
+			auto.options = item_array;
+			auto.repaint();
+			return;
+		}
+	};
+		
+	auto.options.sort();
 });
 }catch(e){}
