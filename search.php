@@ -50,7 +50,7 @@ HSRCH;
 
 			?>
 
-			<div class="layout-1200 uk-container-center">
+			<div class="layout-978 uk-container-center">
 				<div class="uk-grid">
 				
 						<?php

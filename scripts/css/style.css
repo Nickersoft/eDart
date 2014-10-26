@@ -53,6 +53,7 @@ div.layout-978			{ width:978px; }
 
 input[type="text"], input[type="password"], textarea					{ box-sizing:border-box; font-size: 1em; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; outline:none; color: black; margin-top: 15px; text-align: center; font-family: VegurRegular, sans-serif !important; -webkit-border-radius:4px; -moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; border-radius:4px; border:1px solid lightgray; transition-property:border; -webkit-transition:0.4s; -moz-transition:0.4s; -ms-transition:0.4s; -o-transition:0.4s; transition:0.4s; behavior: url('/lib/pie/PIE.htc'); }
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-transition-property:border; -moz-transition-property:border; -ms-transition-property:border; -webkit-transition-property:border; transition-property:border; -moz-box-shadow:0px 0px 4px skyblue; -ms-box-shadow:0px 0px 4px skyblue; -o-box-shadow:0px 0px 4px skyblue; -webkit-box-shadow:0px 0px 4px skyblue; box-shadow:0px 0px 4px skyblue;box-shadow:0px 0px 4px skyblue; border:1px solid skyblue; transition:0.4s; -moz-transition:0.4s; -webkit-transition:0.4s; }
+input[type="search"]::-webkit-search-cancel-button 						{ -webkit-appearance: none; }
 
 .datebox input		  { margin:0px; font-size:14px; }
 .modal-dialog		  { white-space: normal; }
@@ -105,10 +106,14 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #banner_placeholder #banner #inner .static_active				{ color:white !important; }
 
 /* The main search form */
-#banner_placeholder #banner #inner #hfrm 						{ margin:0px; padding:0px; }
+#banner_placeholder #banner #inner #hfrm 						{ margin:0px; padding:0px; text-align:left; }
 
 /* The main search box */
-#banner_placeholder #banner #inner #hfrm #headsearch 									{ font-size:18px; font-family:VegurLight, sans-serif; font-weight:lighter; vertical-align:middle; color:white; outline:none; width:400px; margin-left:50px; margin-top:12px; display:inline-block; background:none; float:left; border:none; text-align:left; white-space:nowrap; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; }
+#banner_placeholder #banner #inner #hfrm #headsearch 									{ background:transparent; font-family:VegurLight, sans-serif; font-size:18px; font-weight:lighter; vertical-align:middle; color:white; outline:none; width:400px; margin-left:50px; margin-top:12px; display:inline-block; background:transparent !important; float:left; border:none; text-align:left; white-space:nowrap; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; }
+#banner_placeholder #banner #inner #hfrm #headsearch input:focus						{ border:0; outline:0; box-shadow:none; -webkit-box-shadow:none; -o-box-shadow:none; -ms-box-shadow:none;  }
+#banner_placeholder #banner #inner #hfrm #headsearch .dropdown							{ margin-top:15px !important; border-top:0 !important; min-width:100%; font-family:VegurLight, sans-serif !important; color:dimgray; }
+#banner_placeholder #banner #inner #hfrm #headsearch .dropdown div						{ padding:10px; }
+
 #banner_placeholder #banner #inner #hfrm #headsearch .placeholder						{ font-family:VegurLight, sans-serif; color: #1E885C; }
 #banner_placeholder #banner #inner #hfrm #headsearch::-webkit-input-placeholder			{ font-family:VegurLight, sans-serif; color: #1E885C; }
 #banner_placeholder #banner #inner #hfrm #headsearch:-ms-input-placeholder 				{ font-family:VegurLight, sans-serif; color: #1E885C; }

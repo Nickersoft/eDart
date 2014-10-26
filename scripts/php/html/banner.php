@@ -69,8 +69,9 @@
 						
 						if($user_info["status"]==2):
 				?>
-							<form method="GET" id="hfrm" action="/search.php" class="uk-autocomplete uk-form uk-hidden-small"  data-uk-autocomplete="{source:'/autocomplete.php'}">
-								<input name="keyword" type="search" maxlength="40" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search" />
+								
+							<form method="GET" id="hfrm" action="/search.php" class="uk-hidden-small">
+								<div name="keyword" type="search" maxlength="40" onkeyup= "if(event.keyCode==13){document.getElementById('hfrm').submit();}" id="headsearch" autocomplete="off" placeholder="Click here to start your search"></div>
 							</form>
 		
 							<div id='infobox'>

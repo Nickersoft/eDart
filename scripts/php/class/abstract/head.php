@@ -46,6 +46,7 @@ abstract class Head
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/datetimepicker/css/bootstrap-datetimepicker.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/jquery-ui/css/south-street/jquery-ui-1.10.4.custom.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/glyphicon/icon.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/complete.me-1.0.0/css/complete.me.css">		
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
 							
 					<!--[if gte IE 9]>

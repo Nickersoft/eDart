@@ -16,8 +16,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .item:hover > .subtitle  				{ color:black; transition:color 1s; -moz-transition:color 1s; -ms-transition:color 1s; -o-transition:color 1s; -webkit-transition:color 1s; }
 .item .info								{ padding-left:35px; }
-.item .info	.header						{ white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-top:10px; font-size:1.5em; color:#696969; width:100%; padding:10px; padding-top:10px; padding-bottom:5px; }
-.item .info .description				{ white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; font-size:1em; color:#696969; width:75%; padding-left:30px; }
+.item .info	.header						{ white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-top:10px; font-size:1.5em; color:#696969; width:75%; padding:10px; padding-top:10px; padding-bottom:5px; }
+.item .info .description				{ white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden; font-size:1em; color:#696969; width:75%; padding-left:30px; }
 .item .info .overview					{ width:200px; font-size:0.8em; position:absolute; left:-5px; bottom:5px; color:#999; }
 
 /*

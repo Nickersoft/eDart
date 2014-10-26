@@ -164,7 +164,7 @@ Body::begin();
 										<td>Description</td>
 									</tr>
 									<tr>
-										<td><a href="http://jquery.com/">jQuery</td>
+										<td><a href="http://jquery.com/">jQuery</a></td>
 										<td>The crazy-popular JavaScript library for doing everything from UI design to insane animation. Us? We just use it to make AJAX calls (and some UI stuff, too).</td>
 									</tr>
 									<tr>
@@ -252,9 +252,13 @@ Body::begin();
 										<td><a href="http://github.hubspot.com/vex/docs/welcome/">Vex</a></td>
 										<td>Slick as silk dialog boxes for the site.</td>
 									</tr>
+									<tr>
+										<td><a href="http://complete-ly.appspot.com/">complete.ly</a></td>
+										<td>Our minimalistic autocomplete search engine.</td>
+									</tr>
 								</table>
 	
-							</br>
+							<br/>
 	
 							Don't try to hack us. We like our jobs.
 	
@@ -266,7 +270,7 @@ Body::begin();
 				</div>
 				
 			</div>
-			</div>
+		
 			<?php
 				Body::end();
 				HTML::end();

@@ -23,6 +23,12 @@ if (empty($_GET['id']))
 $newPerson  = new User(array("action"=>"get", "id"=>$_GET["id"]));
 $personInfo = $newPerson->run(true);
 
+if (count($personInfo[0])==0)
+{
+	header ( 'Location:/notfound.php' );
+	exit;
+}
+
 try {
 	//We're using 'r' for compatibility purposes
 	//Get the first user's info
