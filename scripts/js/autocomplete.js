@@ -8,7 +8,19 @@ $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
 	
 	for(var i = 0; i < json.length; i++)
 	{
-		item_array.push(json[i]["name"]);
+		var already_added = false
+		for(var x = 0; x < item_array.length; x++)
+		{
+			if(item_array[x].toLowerCase() == json[i]["name"].toLowerCase())
+			{
+				already_added = true;
+			}
+		}
+		
+		if(!already_added)
+		{
+			item_array.push(json[i]["name"]);
+		}
 	}
 
 	auto.onChange = function (text) {
