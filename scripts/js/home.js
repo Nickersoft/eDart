@@ -153,7 +153,7 @@ function select_popular(menu_item)
 {
 	try
 	{
-		populate_home({}, menu_item, "views");
+		populate_home({}, menu_item, "views", 10);
 	}
 	catch(e) {}
 }
