@@ -39,7 +39,7 @@ function post_item_request()
 			});
 }
 
-function populate_home(filter, menu_item, sort_title)
+function populate_home(filter, menu_item, sort_title, limit)
 {
 
 	//Highlight the element
@@ -53,6 +53,7 @@ function populate_home(filter, menu_item, sort_title)
 			  { "lib" 		: "item",
 			    "action" 	: "get",
 			    "filter"	: filter,
+			    "limit"		: limit,
 			    "sort"		: sort_title, "order":"desc"} ,
 			    function(data)
 			    {
@@ -129,7 +130,7 @@ function select_recent(menu_item)
 {
 	try
 	{
-		populate_home({}, menu_item, "adddate");
+		populate_home({}, menu_item, "adddate", 10);
 	}
 	catch(e) {}
 }
@@ -141,7 +142,7 @@ function select_category(category_id, menu_item)
 		//If the category is not currently selected...
 		if(curcat!=category_id)
 		{
-			populate_home({"category" : category_id}, menu_item, "adddate");
+			populate_home({"category" : category_id}, menu_item, "adddate", 0);
 			curcat = category_id;
 		}
 	}
