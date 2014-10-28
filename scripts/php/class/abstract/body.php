@@ -48,7 +48,17 @@ abstract class Body
 				<script type="text/javascript" src="/lib/jquery-sticky/jquery.sticky-kit.min.js"></script>
 				<script type="text/javascript" src="/lib/purl/purl.js"></script>
 				<script type="text/javascript" src="/lib/toastr/toastr.min.js"></script>
-				<script type="text/javascript" src="/lib/uikit-2.9.0/js/uikit.min.js"></script>
+				<script type="text/javascript" src="/lib/motio-2.2.2/motio.min.js"></script>
+				<script type="text/javascript" src="/lib/moment/moment.min.js"></script>
+				<script type="text/javascript" src="/lib/jquery-ui/js/jquery-ui-1.10.4.custom.min.js"></script>
+				<script type="text/javascript" src="/lib/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+				<script type="text/javascript" src="/lib/jcrop/js/jquery.Jcrop.js"></script>
+				<script type="text/javascript" src="/lib/vex-2.2.1/js/vex.combined.min.js"></script>
+				<script type="text/javascript" src="/lib/jquery-sticky/jquery.sticky-kit.min.js"></script>
+				<script type="text/javascript" src="/lib/uikit-2.10.0/js/uikit.min.js"></script>
+				<script type="text/javascript" src="/lib/complete.me-1.0.0/js/complete.me.js"></script>
+				<script type="text/javascript" src="/lib/uikit-2.10.0/js/addons/sticky.min.js"></script>
+				<script type="text/javascript" src="/lib/uikit-2.10.0/js/addons/notify.min.js"></script>
 				<script type="text/javascript" src="/lib/min/?g=js"></script>
 END;
 

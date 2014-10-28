@@ -14,94 +14,42 @@
 /* Alert info in any alert boxes displayed */
 #alertbox #alertinfo 											{ padding-top:25px; padding-bottom:25px; }
 
- /* The parent container */
-#hold  															{ box-shadow:0px 1px 4px rgba(100, 100, 0, 0.3); background:#FFFFFF; width:978px; display:block;  margin:10px auto; margin-bottom:20px; position:relative; overflow:hidden;  font-family:VegurLight, sans-serif; }
-#hold img 														{ border-radius:5px; -o-border-radius:5px; -ms-border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; behavior: url('/lib/pie/PIE.htc'); }
+.image_body						{ display:block; background-color:#FFF; width:100%; height:20em; box-shadow:inset 0px 0px 20px rgba(0, 0, 0, 0.3);  background-position:center center; background-repeat:no-repeat; }
+.image_toolbox 					{ display:block; font-size:1.5em; text-align:center; padding-bottom:10px; padding-top: 10px; background: #FFF; border: 1px solid #D3D3D3; }
+.image_toolbox span				{ margin-left:10px; cursor:pointer; color:lightgray; }
+.image_toolbox span:hover		{ color:gray; }
 
- /* The "cover", containing item name and info */
-#hold #cover  													{ font-family:VegurRegular, sans-serif; border-bottom:1px solid #dddddd; overflow:hidden; white-space:nowrap; margin:0 auto; position:relative; width:100%; }
-#hold #cover h1 												{ display:inline-block; text-align:left; padding:0px 10px 0px 10px; color:#2b2b2b; font-size:2.5em; margin:0px; padding-right:2px; margin-left:10px; margin-bottom:5px; }
-#hold #cover span 												{ display:inline-block; font-size:20px; font-family:VegurLight, sans-serif; font-weight:lighter; color:#696969; }
+#offer_board h2					{ color:lightgray; text-align:right; width:100%; border-bottom:1px solid #eee; } 
+#item_info h1					{ white-space:normal; margin-top:10px; line-height:1em; font-size:2.5em;  }
+#item_info #info_box > *		{ display:block; margin:0 auto; }
+#item_info .item_description	{ white-space:normal; color:#aaa; font-size:1em; display:block;  }
+#info_box						{ white-space:normal; background:transparent; border:none; margin-bottom:5px; font-family:VegurLight, sans-serif; border-radius:0px; -webkit-border-radius:0px; }
+#info_box h3					{ text-align:center; color:#ddd; margin:0; margin-bottom:10px; font-family:VegurLight, sans-serif;  }
+#info_box b						{ font-family:VegurRegular, sans-serif; }
 
-/* The main title container that holds item info */
-#hold #cover #titcont 											{ margin-top:20px; overflow: hidden;  position: relative;  width: 100%;  display: inline-block; }
-#hold #cover #titcont #desc 									{ float:left; font-style:italic; margin-top:10px; font-size:14px; color:#0B610B; margin-left:15%; width:500px; display:block; white-space:normal; }
-#hold #cover #titcont #ie  										{ float:left; position:relative; margin-top:0px; font-size:14px !important; margin-left:100px; overflow:hidden; color:#2b2b2b; }
+#specs							{ white-space:normal; }
 
-/* The item's profile picture */
-#hold #cover .pic 												{ border-right:1px solid #ddd; float:left; width:250px; height:auto; overflow: hidden;  font-size:18px;  behavior:url('/lib/pie/PIE.htc'); }
-#hold #cover .pic #itempic 										{ border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; -ms-border-radius:0px; -o-border-radius:0px; cursor:pointer; width:100%; overflow:hidden; display:block; height:auto;}
+#info_box .owner .infotxt h1			{ line-height:1em; font-family:VegurRegular, sans-serif; font-size:1.5em; }
+#info_box .owner #uinfo					{ color:#696969; font-size:0.9em; }
+#info_box .owner .owner_picture			{ border:2px solid lightgray; }
 
- /* The label that allows users to report an item */
-#hold #cover #repbtn  											{ position:absolute; font-size:14px; color:dimgray; right:10px; bottom:10px; cursor:pointer; }
-#hold #cover #repbtn:hover										{ font-family:VegurRegular, sans-serif; }
+#offer_board					{ min-height:300px; }
+#offer_board h6					{ font-size:1em; margin-top:20px; text-align:center; color:#aaa; }
 
- /* The hover label that displays the QR code */
-#hold #cover #qrbtn  											{ position:absolute; font-size:14px; color:dimgray; left:265px; bottom:10px; cursor:pointer; }
-#hold #cover #qrbtn:hover										{ font-family:VegurRegular, sans-serif; }  
+.offer .post_date				{ position:relative; text-align:right; font-size:0.6em; color:lightgray; padding-top:0.5em; }
+.offer .description				{ white-space:normal; margin-left:10px; font-size:0.6em; }
+.offer .info					{ padding-top:1em; padding-bottom:1em; }
 
-/* The lower half, below the cover */
-#hold #primary 													{ width:100%; height:auto; margin:10px auto; padding-bottom:15px; position:relative; display:inline-block; }
-
-/* THE RIGHT SIDE */
-#hold #primary #righti 											{ min-width:400px; min-height:100%; overflow:hidden; }
-
- /* The main offer board */
-#hold #primary #righti #offerbrd 								{ white-space:normal; overflow:hidden; margin:0px; margin-top:15px; padding-bottom:0px; width:100%; min-height:250px; float:right; font-family:VegurLight, sans-serif;  }
-#hold #primary #righti #offerbrd h2 							{ margin-top:15px; padding-left:10px; font-size: 32px; text-align:center; color: dimgray; margin-left: 10px; }
-#hold #primary #righti #offerbrd .notxt  						{ text-align:center; display:block; margin:10px; font-size:16px; color:dimgray; }
-#hold #primary #righti #offerbrd .chosen-select 				{ display:block; margin:0 auto; font-family:sans-serif !important;}
-
-/* An offer on an item */
-#hold #primary #righti #offerbrd .offer  						{ cursor:pointer; border-top:1px solid #eeeeee; padding-left:10px; padding-bottom:10px; overflow:hidden; display:block; padding-top:25px; padding-right:10px; position:relative;  }
-#hold #primary #righti #offerbrd .offer:hover  					{ background:#fcfcfc; }
-#hold #primary #righti #offerbrd .offer .uofu 	 				{ color:#00BFFF; font-size:24px; }
-#hold #primary #righti #offerbrd .offer .uofu .uoft  			{ color:black; width:100px; display:inline-block; }
-#hold #primary #righti #offerbrd .offer .uofu .uofd  			{ color:dimgray; float:right; text-align:right; font-size:16px; position:absolute; top:10px; right:20px; }
-#hold #primary #righti #offerbrd .offer .offer_pic				{ display:inline-block; }
-#hold #primary #righti #offerbrd .offer .uofu .oftxt  			{ font-family:VegurRegular, sans-serif; color:black; display:inline-block; width:400px; vertical-align: top; font-size:16px; white-space:normal; }
-#hold #primary #righti #offerbrd .offer .uofu .oftxt .ofdesc 	{ font-family:VegurLight, sans-serif; margin-left: 15px; font-size:16px;}
-#hold #primary #righti #offerbrd .offer .del  					{ font-size:16px; position:relative; float:right; color:red; cursor:pointer; }
-#hold #primary #righti #offerbrd .offer .acc 		 			{ font-size:16px; float:right; color:green; cursor:pointer; }
-
- /* The combobox with all of the available items */
-#hold #primary #righti #offerbrd #itemform #offerbox 			{ display:block; font-size:16px; width:90%; margin:10px auto; }
-
-/* THE LEFT SIDE */
-
-#hold #lefti 													{ border-right:1px solid #dddddd; float:left; width:425px; padding-top:15px; }
-
- /* Class for any boxes appearing on the left-hand side */
-#hold #primary #lefti .sidebox 									{ overflow:hidden; font-family:VegurLight, sans-serif; float:left; behavior: url('/lib/pie/PIE.htc'); }
-
- /* The panel with all of the owner info */
-#hold #primary #lefti #owner_info 								{ margin:0px; width:100%; height:250px; }
-#hold #primary #lefti #owner_info .otxt 						{ font-size: 32px; color: dimgray; margin-left: 10px; margin-top:15px; }
-#hold #primary #lefti #owner_info .profpic 						{ width:100px; cursor:pointer; float:left; margin-top:20px; margin-left:20px; height:100px; }
-#hold #primary #lefti #owner_info .infotxt 						{ cursor:pointer; display:inline-block; float:left; margin-top:20px; margin-left:20px; }
-#hold #primary #lefti #owner_info .infotxt #uinfo  				{ color:dimgray; font-size:14px; margin-left:20px; cursor:default; }
-
- /* The panel with similar items */
-#hold #primary #lefti #similar_items 								{ width:100%; }
-#hold #primary #lefti #similar_items .item 							{ width:100%; float:left; }
-#hold #primary #lefti #similar_items .otxt 							{ font-size: 32px; color: dimgray; margin-left: 10px; margin-top:15px; }
-#hold #primary #lefti #similar_items .itempic 						{ width:100px; cursor:pointer; float:left; margin-top:20px; margin-left:20px; height:auto; }
-#hold #primary #lefti #similar_items .infotxt 						{ cursor:pointer; display:inline-block; float:left; margin-top:20px; margin-left:20px; }
-#hold #primary #lefti #similar_items .infotxt #iinfo 		 		{ color:dimgray; font-size:14px; margin-left:20px; cursor:default; }
-
- /* The panel with other items by the user */
-#hold #primary #lefti #other_items 									{ width:100%; }
-#hold #primary #lefti #other_items .item 							{ width:100%; float:left; }
-#hold #primary #lefti #other_items .otxt 							{ font-size: 32px; color: dimgray; margin-left: 10px; margin-top:15px; }
-#hold #primary #lefti #other_items .itempic 						{ width:100px; cursor:pointer; float:left; margin-top:20px; margin-left:20px; height:auto; }
-#hold #primary #lefti #other_items .infotxt 						{ cursor:pointer; display:inline-block; float:left; margin-top:20px; margin-left:20px; }
-#hold #primary #lefti #other_items .infotxt #iinfo 		 			{ color:dimgray; font-size:14px; margin-left:20px; cursor:default; }
-
- /* The 'view more' option at the bottom of some left-hand panels */
-#hold #primary #lefti .tab-content .item_viewmore 					{ cursor:pointer; width:100%; height:50px; margin-top:10px; display:block; text-align:center; float:left; border-top:1px solid lightgray; }
-#hold #primary #lefti .tab-content .item_viewmore .inner 			{ color:dimgray; padding-top:17px; }
-#hold #primary #lefti .tab-content .item_viewmore:hover 			{ background:#F2F2F2; }
-#hold #primary #lefti .tab-content .item_viewmore:hover>.inner 		{ color:black; }
+.offer  						{ padding-right:1em; border-radius:4px; -webkit-border-radius:4px; border:1px solid transparent; font-size:1.5em; cursor:pointer; border-bottom:1px solid #eeeeee; overflow:hidden; display:block; position:relative;  }
+.offer .picture					{ height:5em; background-position:center center; }
+.offer:hover  					{ border:1px solid lightgray; background:#f6f6f6; }
+.offer .uofu 	 				{ color:#00BFFF; font-size:24px; }
+.offer .uofu .uoft  			{ color:black; width:100px; display:inline-block; }
+.offer .uofu .uofd  			{ color:dimgray; float:right; text-align:right; font-size:16px; position:absolute; top:10px; right:20px; }
+.offer .uofu .oftxt  			{ font-family:VegurRegular, sans-serif; color:black; display:inline-block; width:400px; vertical-align: top; font-size:16px; white-space:normal; }
+.offer .uofu .oftxt .ofdesc 	{ font-family:VegurLight, sans-serif; margin-left: 15px; font-size:16px;}
+.offer .del  					{ font-size:16px; position:absolute; right:1em; bottom:0.5em; color:red; cursor:pointer; }
+.offer .acc 		 			{ position:absolute; bottom:0; font-size:16px; float:right; color:green; cursor:pointer; }
 
 /* A CSS query */
 @media screen and (max-width: 1040px) {

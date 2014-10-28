@@ -12,13 +12,16 @@
 /* * * * * * * * * * * * * SYSTEM WIDE * * * * * * * * * * * * */
 
 /* General stuffs */
-html 			{ margin:0px; padding:0px; height:100%; width:100%; font-family: sans-serif; }
+html 			{ margin:0px; padding:0px; height:100%; width:100%; font-family: sans-serif; background:#26C281; }
 body 			{ overflow:auto; margin:0px; padding:0px; font-size:14px; width:100%; height:100%; font-family:VegurRegular, sans-serif; background:#26C281; }
 a 				{ text-decoration:none !important; color:black; cursor:pointer; }
 p				{ white-space:normal; }
 h1, h2 			{ margin: 0px; padding: 0px; font-family:VegurRegular, sans-serif; }
 dd i 			{ width:1.5em; }
-main 			{ white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
+main 			{ padding:2em 0 2em 0; white-space:nowrap; width:100%; min-width:978px; display:block; overflow:hidden; background:#FAFAFA; }
+
+div.layout-1200 		{ width:1200px; }
+div.layout-978			{ width:978px; }
 
 .panel						{ white-space:normal; }
 .background					{ background:url("/img/bg.jpg") repeat center center; background-size:cover; }
@@ -34,44 +37,26 @@ main 			{ white-space:nowrap; width:100%; min-width:978px; display:block; overfl
 .text_small 	{ font-size:1em !important; line-height:1em; }
 .text_medium  	{ font-size:1.2em !important; line-height:1.2em; }
 .text_large		{ font-size:4em !important; line-height:1em; }
+.text_error		{ color:#E74C3C; }
 .reset_padding	{ padding:0px !important; }
 .reset_margin	{ margin:0px !important; }
+.padding_small	{ padding:0px 10px 0px 10px; }
 
 /* The splash loader on every page */
 
 #loader 			{ background:#26C281; width:100%; top:0px; left:0px; height:100%; position: fixed; z-index:10000; }
 #loader span 		{ color:white; display:block; width:100%; text-align:center; font-size:2em; margin-top:25%; }
+
 /* Every textbox ever */
 .hidden_input 															{ outline:none; border:none; cursor:pointer; width:100%; }
 .hidden_input:focus														{ box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; -webkit-box-shadow:none; border:none; }
 
 input[type="text"], input[type="password"], textarea					{ box-sizing:border-box; font-size: 1em; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; outline:none; color: black; margin-top: 15px; text-align: center; font-family: VegurRegular, sans-serif !important; -webkit-border-radius:4px; -moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; border-radius:4px; border:1px solid lightgray; transition-property:border; -webkit-transition:0.4s; -moz-transition:0.4s; -ms-transition:0.4s; -o-transition:0.4s; transition:0.4s; behavior: url('/lib/pie/PIE.htc'); }
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-transition-property:border; -moz-transition-property:border; -ms-transition-property:border; -webkit-transition-property:border; transition-property:border; -moz-box-shadow:0px 0px 4px skyblue; -ms-box-shadow:0px 0px 4px skyblue; -o-box-shadow:0px 0px 4px skyblue; -webkit-box-shadow:0px 0px 4px skyblue; box-shadow:0px 0px 4px skyblue;box-shadow:0px 0px 4px skyblue; border:1px solid skyblue; transition:0.4s; -moz-transition:0.4s; -webkit-transition:0.4s; }
+input[type="search"]::-webkit-search-cancel-button 						{ -webkit-appearance: none; }
 
 .datebox input		  { margin:0px; font-size:14px; }
-
-.modal-dialog	{ white-space: normal; }
-
-/* Main parent container */
-#mc_cont 		{ white-space:normal; display:block; margin:0 auto; position:relative; width:800px; height:auto; }
-
-/* Main white, rounded-corner container */
-#mc 			{ background:white; overflow:hidden; width:100%; height:auto; display:inline-block; float:none; margin:10px; padding:15px; position:relative; border-radius:10px; -moz-border-radius:10px; -ms-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border:1px solid lightgray; behavior: url('/lib/pie/PIE.htc'); }
-#mc p 			{ text-indent:20px; color:black; margin:0px; margin-top:5px; margin-bottom:5px; text-align:left; padding:0px 50px 0px 50px; }
-#mc h1			{ color:black; text-align:center; font-size:50px; margin-top:20px; }
-#mc p a 		{ text-decoration:underline; color:black;}
-
-/* The loading bootscreen that appears on pages and whatnot */
-#ldpnl 			{ background: #2ecc71; position:fixed; z-index:300000; width:100%; height:100%; }
-#ldpnl img 		{ margin:0 auto; display:block; margin-top:20%; }
-
-/* Any custom alert (not modal) box */
-#alertbox		{ background:white; padding-bottom:25px; display:none; position:fixed; z-index:20000; top:30%; left:35%; width:500px; border:1px solid dimgray; }
-#alertbox p		{ text-align:center; width:100%; color:dimgray; white-space:normal; }
-#alertbox input	{ width:100px; height:40px; }
-
-/* The translucent black lightroom background for when an image is being viewed in view.php */
-#dimit			{ height:100%; background:#2ecc71; width:100%; z-index:5000; display:none; position:fixed; top:0px; }
+.modal-dialog		  { white-space: normal; }
 
 /* The banner notifications that sometimes appear at the top */
 #notification 		 { width:100%; min-width:945px; height:60px; max-height:60px; top:0px; display:block; position:fixed; z-index:1500; overflow:hidden; background: #A9E2F3; color:white; font-family:VegurLight; text-align:center; font-size:20px; border-bottom:1px solid #81BEF7; }
@@ -82,19 +67,19 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 
 /* The infamous green eDart banner */
 
-#banner_placeholder 											{ height:60px; width:100%; }
-#banner_placeholder #banner 									{ position:fixed; background: #26C281;  border-bottom:2px solid #3AA61C; width:100%; height:60px; z-index:1000; }
+#banner_placeholder 											{ height:50px; width:100%; }
+#banner_placeholder #banner 									{ position:fixed; background: #26C281;  border-bottom:2px solid #43A37C; width:100%; height:50px; z-index:1000; }
 #banner_placeholder #banner #inner 								{ width:978px; margin:0 auto; height:100%; max-height:60px; display:block; }
 
 /* The eDart logo */
-#banner_placeholder #banner #inner #logo						{ text-decoration:none; font-family:inherit; cursor:pointer; float:left; margin:12px 0px 0px 25px; color:yellow; font-size:32px; max-width:100%; width:150px; height:auto; }
+#banner_placeholder #banner #inner #logo						{ text-decoration:none; font-family:inherit; cursor:pointer; float:left; margin-top:14px; color:yellow; max-width:100%; width:80px; height:auto; }
 #banner_placeholder #banner #inner #logo img 					{ width:100%; height:auto; display:block; }
 
 /* The "So many users worldwide" text next to the logo */
 #banner_placeholder #banner #inner #subtxt						{ float:left; margin-left:10px; display:inline-block; margin-top:18px; color:green; font-family: VegurLight; font-size:22px; }
 
 /* The login box and accessories in the banner */
-#banner_placeholder #banner #inner #loginbx						{ float:right; margin-right:20px; overflow:hidden; height:100%; }
+#banner_placeholder #banner #inner #loginbx						{ float:right; margin-right:20px; margin-top:0.7em; overflow:hidden; height:100%; }
 #banner_placeholder #banner #inner #loginbx	input				{ margin:0px; }
 #banner_placeholder #banner #inner #loginbx	a					{ font-size:12px; color:#C0FFE5;  margin-left:5px; }
 
@@ -104,38 +89,36 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus  { -o-tra
 #banner_placeholder #banner #inner #loginbx .loginbtn    		{ color:white; font-size:35px; cursor:pointer; line-height:10px; margin-top:0px; margin-left:5px; float:right; }
 #banner_placeholder #banner #inner #loginbx .loginbtn:hover 	{ color:yellow; }
 
-#banner_placeholder #banner #inner #loginbx #cntlgnm 			{ width:250px; color:#39745B; padding-right:10px; font-size:12px; text-align:right; }
+#banner_placeholder #banner #inner #loginbx #cntlgnm 			{ width:350px; color:#39745B; padding-right:10px; font-size:12px; text-align:right; }
 
 /* The profile info box in the banner (right hand corner) */
-#banner_placeholder #banner #inner #infobox						{ float:right; font-weight:bold; margin-top:10px; margin-right:5px; color:white; }
-#banner_placeholder #banner #inner #infobox a 					{ color:white; text-decoration: none; }
-#banner_placeholder #banner #inner #infobox a:hover 			{ color:yellow; }
-
-/* The "Options" menu in the banner */
-#banner_placeholder #banner #inner #infobox #user_options			{ position:relative; color:#CEF6CE; font-size:12px; padding:0px; margin:0px; float:right; font-weight:normal; cursor:pointer; -webkit-user-select: none; /* Chrome/Safari */        -moz-user-select: none; /* Firefox */-ms-user-select: none; /* IE10+ *//* Rules below not implemented in browsers yet */-o-user-select: none; user-select: none; }
-#banner_placeholder #banner #inner #infobox #user_options:hover		{ color:white; }
+#banner_placeholder #banner #inner #infobox						{ float:right; font-weight:bold; margin-right:5px; color:white; }
 
 /* The mini profile picture in the banner */
-#banner_placeholder #banner #inner #minippic 						{ box-shadow:inset 0px 2px 4px rgba(0,0,0,0.3); overflow:hidden; position:relative; border-radius:100px; -webkit-border-radius:100px; width:50px; height:50px; float:right; margin-top:5px; margin-right:5px; behavior: url('/lib/pie/PIE.htc'); }
+#banner_placeholder #banner #inner #minippic 					{ cursor:pointer; box-shadow:inset 0px 2px 4px rgba(0,0,0,0.3); overflow:visible; position:relative; border-radius:100px; -webkit-border-radius:100px; width:42px; height:42px; float:right; margin-top:5px; margin-right:5px; behavior: url('/lib/pie/PIE.htc'); }
 
 /* The action buttons shown next to the mini profile panel in the banner */
-#banner_placeholder #banner #inner #tooltips		  			{ z-index:200; text-align:center; float:left; margin-right:10px; margin-top:10px; }
-#banner_placeholder #banner #inner #tooltips .icon				{ width:32px; height:45px; color:green; font-size:24px; cursor:pointer; position: relative;  }
-#banner_placeholder #banner #inner #tooltips .icon:hover 		{ color:darkgreen; }
+#banner_placeholder #banner #inner #tooltips		  			{ z-index:200; text-align:center; float:left; margin-right:10px; margin-top:15px; }
+#banner_placeholder #banner #inner #tooltips .icon				{ width:32px; height:45px; color:#1D865B; font-size:24px; cursor:pointer; position: relative;  }
+#banner_placeholder #banner #inner #tooltips .icon:hover 		{ color:#166D49; }
 #banner_placeholder #banner #inner #tooltips .icon .badge  		{ font-size:10px; min-width:10px; padding:3px; color:white; border-radius:100px; -webkit-border-radius:100px; -moz-border-radius:100px; -o-border-radius:100px; -ms-border-radius:100px; background:red; position: absolute; top:-6px; right:-2px; behavior: url('/lib/pie/PIE.htc'); }
 #banner_placeholder #banner #inner .active						{ color:white !important; }
 #banner_placeholder #banner #inner .static_active				{ color:white !important; }
 
 /* The main search form */
-#banner_placeholder #banner #inner #hfrm 						{ margin:0px; padding:0px; }
+#banner_placeholder #banner #inner #hfrm 						{ margin:0px; padding:0px; text-align:left; }
 
 /* The main search box */
-#banner_placeholder #banner #inner #hfrm #headsearch 									{ font-weight:lighter; font-size:22px; font-family:VegurLight, Trebuchet MS, sans-serif; vertical-align:middle; color:white; outline:none; width:400px; margin-left:50px; margin-top:15px; display:inline-block; background:none; float:left; border:none; text-align:left; white-space:nowrap; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; }
-#banner_placeholder #banner #inner #hfrm #headsearch .placeholder						{ font-family:VegurLight, sans-serif; color: #088A08; }
-#banner_placeholder #banner #inner #hfrm #headsearch::-webkit-input-placeholder			{ font-family:VegurLight, sans-serif; color: #088A08; }
-#banner_placeholder #banner #inner #hfrm #headsearch:-ms-input-placeholder 				{ font-family:VegurLight, sans-serif; color: #088A08; }
-#banner_placeholder #banner #inner #hfrm #headsearch:-moz-placeholder 					{ font-family:VegurLight, sans-serif; color: #088A08; opacity: 1; }
-#banner_placeholder #banner #inner #hfrm #headsearch::-moz-placeholder 					{ font-family:VegurLight, sans-serif; color: #088A08; opacity: 1; }
+#banner_placeholder #banner #inner #hfrm #headsearch 									{ background:transparent; font-family:VegurLight, sans-serif; font-size:18px; font-weight:lighter; vertical-align:middle; color:white; outline:none; width:400px; margin-left:50px; margin-top:12px; display:inline-block; background:transparent !important; float:left; border:none; text-align:left; white-space:nowrap; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; }
+#banner_placeholder #banner #inner #hfrm #headsearch input:focus						{ border:0; outline:0; box-shadow:none; -webkit-box-shadow:none; -o-box-shadow:none; -ms-box-shadow:none;  }
+#banner_placeholder #banner #inner #hfrm #headsearch .dropdown							{ margin-top:15px !important; border-top:0 !important; min-width:100%; font-family:VegurLight, sans-serif !important; color:dimgray; }
+#banner_placeholder #banner #inner #hfrm #headsearch .dropdown div						{ padding:10px; }
+
+#banner_placeholder #banner #inner #hfrm #headsearch .placeholder						{ font-family:VegurLight, sans-serif; color: #1E885C; }
+#banner_placeholder #banner #inner #hfrm #headsearch::-webkit-input-placeholder			{ font-family:VegurLight, sans-serif; color: #1E885C; }
+#banner_placeholder #banner #inner #hfrm #headsearch:-ms-input-placeholder 				{ font-family:VegurLight, sans-serif; color: #1E885C; }
+#banner_placeholder #banner #inner #hfrm #headsearch:-moz-placeholder 					{ font-family:VegurLight, sans-serif; color: #1E885C; opacity: 1; }
+#banner_placeholder #banner #inner #hfrm #headsearch::-moz-placeholder 					{ font-family:VegurLight, sans-serif; color: #1E885C; opacity: 1; }
 #banner_placeholder #banner #inner #hfrm #headsearch:focus::-webkit-input-placeholder 	{ color:transparent; }
 #banner_placeholder #banner #inner #hfrm #headsearch::-webkit-search-cancel-button 		{ display:none; }
 
@@ -176,7 +159,7 @@ footer a 			{ text-decoration:none; color:white !important; }
 footer section	{ color:white; position:relative; text-align:center; width:100%; height:auto; display:block; margin-bottom:10px; }
 
 /* The links in the footer */
-footer nav 		{ padding:1em; display:block; text-align:center; margin-bottom:10px; cursor:pointer; font-size:14px; margin-top:15px; text-transform:uppercase; letter-spacing:2px; color:white; }
+footer nav 		{ padding:0 1em 0 1em; display:block; text-align:center; margin-bottom:10px; cursor:pointer; font-size:14px; margin-top:15px; text-transform:uppercase; letter-spacing:2px; color:white; }
 
 /* * * * * * * * * * * * * REPORT ITEM * * * * * * * * * * * * */
 
@@ -213,20 +196,25 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
 	
 	main
 	{ min-width:100%; }
-
-	#banner_placeholder #banner #inner #logo
-	{ width:125px; margin:15px 0px 0px 10px; }
-
-	#mc_cont
-	{ width:90%;  }
-
-	#mc
-	{ margin:0px; margin-top:10px; padding:0px; }
+	
+	
+	#banner_placeholder #banner #inner {
+		width:100%;
+	}
 }
 
+@media (max-width: 1200px) {
+	.layout {
+		width:978px !important;
+	}
+}
 
 @media (max-width: 978px) {
-	.layout-978 {
+	.layout-1200 {
+		width:100% !important;
+	}
+	
+		.layout-978 {
 		width:100% !important;
 	}
 }

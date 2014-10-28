@@ -189,16 +189,6 @@ Body::begin();
 		#banner { border-bottom:none !important; }
 		</style>
 
-			<div id="alertbox">
-				<p id="alertinfo">Just Your Everyday Alert Box</p>
-				<table style="margin-right: auto; margin-left: auto;">
-					<tr>
-						<td><input id="ayes" type="button" value="Yes"></td>
-						<td><input id="ano" type="button" value="No"></td>
-					</tr>
-				</table>
-			</div>
-
 			<?php
 
 			/* * * PRINT OUT THE CHAT PANEL * * */

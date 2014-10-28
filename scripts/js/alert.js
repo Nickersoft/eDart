@@ -29,5 +29,33 @@ function init_error()
 	}
 }
 
+function push_confirm(message, yes_callback, no_callback)
+{
+    vex.defaultOptions.className = 'vex-theme-default';
+    vex.dialog.buttons.YES.text = "Yes";
+    vex.dialog.buttons.NO.text = "No";
+	vex.dialog.confirm({
+		  message: message,
+		  callback: function(value) {
+			  if(value)
+			  {
+				  yes_callback(); 
+			  }
+			  else
+			  {
+				  if(no_callback)
+					 {
+					  	no_callback();
+					 }
+			  }
+		  }
+		});	
+}
+
+function push_notify(message)
+{
+	$.UIkit.notify(message, {status:"warning"});
+}
+
 addEvent(window, "load", function() { init_alert(); });
 addEvent(window, "load", function() { init_error(); });

@@ -15,55 +15,6 @@ function delete_item(id)
 	});
 }
 
-function open_item_edit(id)
-{
-	$.get("/api/",
-		{
-			"lib" : "item",
-			"action" : "get",
-			"filter" : {"id" : id}
-		}, function(data) {
-			var $item = eval('(' + data + ')');
-			$item = $item[0];
-
-			//BASIC INFO
-			$("#wz_name").val($item["name"]);
-			$("#wz_desc").val($item["description"]);
-			$("#wz_title").html("Editing: " + $item["name"]);
-
-			//CLASSIFICATIONS
-			$("#wz_category")[0].selectedIndex  = (parseInt($item["category"]) - 1);
-			$("#wz_condition")[0].selectedIndex = (parseInt($item["condition"]) - 1);
-
-			//PICKUP LOCATION
-			$("#wz_pickup option").each(function(){
-				if($(this).html()==$item["stadd1"])
-				{
-					$(this).prop("selected", true);
-				}
-			});
-
-			//EXPIRATION & DUE DATE
-			var expiration_date = $("#wz_expiration").data('DateTimePicker');
-			var expiration_ts   = new Date($item["expiration"] * 1000);
-			expiration_date.setDate(expiration_ts);
-
-			if(parseInt($item["duedate"])!=0)
-			{
-				var due_date = $("#wz_duedate").data('DateTimePicker');
-				var due_ts   = new Date(parseInt($item["duedate"]) * 1000);
-				due_date.setDate(new Date(due_ts));
-			}
-
-			$("#itemupload_id").val(id);
-
-			//Forcibly enable "Next button"
-			$("#add_next").prop("disabled", false);
-
-			$("#postbox").modal();
-		});
-}
-
 $(".edit_button[data-id]").each(function() {
 	$(this).click(function(e) {
 		open_item_edit($(this).attr("data-id"));

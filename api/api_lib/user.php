@@ -76,7 +76,7 @@ class User
 		}
 
 		$info = $this->get($_SESSION["userid"], true);
-		if($info[0]["status"]!="2")
+		if(($info[0]["status"]!="2")&&!$sb)
 		{
 			return 403;
 		}
@@ -140,6 +140,7 @@ class User
 			}
 		}
 
+		$split_by_amp = explode($parameters["email"], '@');
 		if((array_key_exists("id", $parameters)||(array_key_exists("join_date", $parameters))))
 		{
 			return 402;
@@ -148,7 +149,7 @@ class User
 		{
 			return 401;
 		}
-		else if(strpos($parameters["email"], "@wpi.edu")===false)
+		else if($split_by_amp[count($split_by_amp)-1] != "@wpi.edu")
 		{
 			return 104;
 		}

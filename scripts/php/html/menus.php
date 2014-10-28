@@ -3,7 +3,7 @@
 	if(!isset($_SESSION["userid"])){ die; }
 ?>
 
-<div onclick="$('#postbox').modal();" class="icon uk-icon-plus"></div>
+<a href="#postbox" class="icon uk-icon-plus" data-uk-modal></a>
 
 <?php
 	$my_exchanges   = new Exchange(array("action"=>"find"));

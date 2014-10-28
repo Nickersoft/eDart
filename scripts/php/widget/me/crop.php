@@ -23,52 +23,63 @@ if(($_FILES['pp_upload']['size'] < $maxsize) && in_array($ext, $allowedexts))
     $base64 = base64_encode($img_contents);
 }
 
-HTML::begin();
-Head::make("Crop Your Image", false);
-Body::begin(false);
 ?>
-
-<div id="cropbox">
-  <div class="container">
-    <div class="row">
-      <div class="span12">
-        <div class="jc-demo-box">
-
-          <div class="page-header">
-            <h1>Crop Your Image</h1>
-          </div>
-
-          <img src="data:image/png;base64,<?php echo $base64; ?>" style="display:inline-block;" id="target" />
-
-          <div id="allcont">
-
-            <div id="preview-pane" >
-              <div class="preview-container" style="width:200px;height:200px;">
-                <img src="data:image/png;base64,<?php echo $base64; ?>" id="img_preview" class="jcrop-preview" alt="Preview" />
-              </div>
-            </div>
-
-            <!-- This is the form that our event handler fills -->
-            <form action="/scripts/php/ajax/me/crop.php" style="position:absolute;bottom:10px;right:10px;" method="post" onsubmit="return check_coordinates();">
-              <input type="hidden" id="x" name="x" />
-              <input type="hidden" id="y" name="y" />
-              <input type="hidden" id="w" name="w" />
-              <input type="hidden" id="h" name="h" />
-              <input type="hidden" id="img" name="img" value="<?php echo $base64; ?>" />
-              <input type="submit" value="Crop Image" class="gbtn" style="display:inline-block;" />
-              <input type="button" onclick="window.location='/me';" value="Cancel" class="bbtn" style="display:inline-block;" />
-            </form>
-          </div>
-
-          <div class="clearfix"></div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="dimit" style="display:block;"></div>
-<?php
-Body::end(false);
-HTML::end();
-?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crop Your Image</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
+</head>
+<body>
+	<main class="reset_padding">
+		
+		<div id="cropbox">
+		  <div class="container">
+		    <div class="row">
+		      <div class="span12">
+		        <div class="jc-demo-box">
+		
+		          <div class="page-header">
+		            <h1>Crop Your Image</h1>
+		          </div>
+		
+		          <img src="data:image/png;base64,<?php echo $base64; ?>" style="display:inline-block;" id="target" />
+		
+		          <div id="allcont">
+		
+		            <div id="preview-pane" >
+		              <div class="preview-container" style="width:200px;height:200px;">
+		                <img src="data:image/png;base64,<?php echo $base64; ?>" id="img_preview" class="jcrop-preview" alt="Preview" />
+		              </div>
+		            </div>
+		
+		            <!-- This is the form that our event handler fills -->
+		            <form action="/scripts/php/ajax/me/crop.php" style="position:absolute;bottom:10px;right:10px;" method="post" onsubmit="return check_coordinates();">
+		              <input type="hidden" id="x" name="x" />
+		              <input type="hidden" id="y" name="y" />
+		              <input type="hidden" id="w" name="w" />
+		              <input type="hidden" id="h" name="h" />
+		              <input type="hidden" id="img" name="img" value="<?php echo $base64; ?>" />
+		              <input type="submit" value="Crop Image" class="button_primary green" style="display:inline-block;" />
+		              <input type="button" onclick="window.location='/me';" value="Cancel" class="button_primary blue" style="display:inline-block;" />
+		            </form>
+		          </div>
+		
+		          <div class="clearfix"></div>
+		
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div id="dimit" style="display:block;"></div>
+		
+			
+	</main>
+	
+	<script type="text/javascript" src="/lib/jquery-1.10.2/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/lib/jcrop/js/jquery.Jcrop.js"></script>
+	<script type="text/javascript" src="/lib/min/?g=js"></script>
+</body>
+</html>

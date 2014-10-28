@@ -45,8 +45,8 @@ class Item
 					$filter = (isset($argv["filter"])) ? $argv["filter"] : null;
 					$sort   = (isset($argv["sort"]))   ? $argv["sort"]   : null;
 					$order  = (isset($argv["order"]))  ? $argv["order"]  : null;
-
-					$return = $this->get($filter, $sort, $order, $getBlock);
+					$limit  = (isset($argv["limit"]))  ? $argv["limit"]  : null;
+					$return = $this->get($filter, $sort, $order, $limit, $getBlock);
 					break;
 				case "update":
 					$return = $this->update($argv["id"], $argv["fields"], $updateBlock);
@@ -140,6 +140,8 @@ class Item
 				$vowels = array('a','e','i','o','u') ;
 				$a_str 	= in_array($item_info[0]["name"][0], $vowels) ? "an" : "a";
 
+				$pronoun = Lookup::Pronoun($authInfo[0]["gender"]);
+				
 				$feed = new Feed();
 				$feed->add($_SESSION["userid"], "offered $pronoun {$offeredInfo[0]["name"]} for $a_str {$item_info[0]["name"]}", time(), $link);
 			}
@@ -193,7 +195,7 @@ class Item
 		$curUser = new User(array("action"=>"get", "id"=>$_SESSION["userid"]));
 		$userInfo = $curUser->run(true);
 
-		return (($itemInfo[0]["status"]=="1")&&($userInfo[0]["status"]=="2"));
+		return (($itemInfo[0]["status"]!="0")&&($userInfo[0]["status"]=="2"));
 	}
 
 	private function calculateEMV($name)
@@ -374,7 +376,7 @@ class Item
 		}
 	}
 
-	private function get($filter, $sort = "adddate", $order = "ASC", $forbidden = array())
+	private function get($filter, $sort = "adddate", $order = "ASC", $limit=10, $forbidden = array())
 	{
 		global $con;
 
@@ -404,6 +406,12 @@ class Item
 		}
 
 		$query .= "ORDER BY " . mysqli_real_escape_string($con, $sort) . " " . mysqli_real_escape_string($con, $order);
+		
+		$limit = intval($limit);
+		
+		if($limit>0) {
+			$query .= " LIMIT " . mysqli_real_escape_string($con, $limit);
+		}
 
 		$ret_array = sqlToArray($con, $query, $forbidden);
 		$fin_array = array();

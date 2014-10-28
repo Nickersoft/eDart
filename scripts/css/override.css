@@ -1,9 +1,7 @@
 /* * * * * * * * * * * *
- *	   BOOTSTRAP	   *
+ *	     CHOSEN	       *
  * * * * * * * * * * * */
-.modal-content				{ border-radius:4px; } 
-.modal-header				{ background:#F8F8F8; border-bottom:1px solid #eee;  }
-.modal-title				{ color:#8A8A8A; text-align:center; font-family:TitilliumLight, sans-serif; }
+.chosen-container { width: 100% !important; }
 
 /* * * * * * * * * * * *
  *		UIKIT		   *
@@ -11,4 +9,37 @@
  
 .uk-nav-side>li>a 			{ border-radius:4px; -webkit-border-radius:4px; behavior:url('/lib/pie/PIE.htc'); }
 .uk-nav-side>li.uk-active>a { background:#26C281;}
-.uk-grid					{ padding:2em; }
+.uk-grid					{ padding:0 2em 0 2em; }
+.uk-panel-box				{ background:#FFFFFF; }
+.uk-panel-teaser			{ border-bottom:1px solid #ddd; }
+
+.uk-nav-side>li.uk-active>a>.uk-badge {
+	background:white;
+	border:1px solid transparent;
+	color:gray;
+}
+
+.uk-modal-footer 											{ padding: 19px 20px 20px; margin-top: 15px; text-align: right; border-top: 1px solid #E5E5E5; }
+.uk-modal-footer:before, .uk-modal-footer:after 			{ display: table; content: " "; }
+.uk-modal-footer:after 										{ clear: both; }
+.uk-badge													{ background: #26C281; border-color: #43A37C; }
+.uk-modal-dialog											{ overflow:hidden; border-radius:0px; }
+.uk-modal-header											{ border-bottom:1px solid #EEE; text-align:center; padding:20px 0px 20px 0px; background:#F8F8F8; font-size:16px; width:100%; color:#8A8A8A; font-family:TitilliumLight, sans-serif; }
+.uk-modal-dialog											{ padding:0px; }
+.uk-modal-content											{ padding: 20px; }
+.uk-modal-dialog>.uk-modal-header>.uk-close:first-child 	{ opacity:0.2; color:#000; position:absolute; right:15px; float: right; }
+.uk-tab>li>a												{ color:gray; }
+.uk-tab>li>a:hover											{ color:dimgray; }
+.uk-subnav-pill>li.uk-active>a								{ background:#26C281 !important; }
+.uk-subnav>li>a												{ color:gray; }
+.uk-subnav-pill>li>a:hover, .uk-subnav-pill>li>a:focus		{ background:#eee; }
+
+.uk-subnav>li												{ font-size:0.9rem; }
+
+.uk-modal-dialog-frameless									{ overflow:visible; }
+.uk-dropdown												{ width:100%; margin-top:10px; left:50px; border-radius:0px; border:1px solid lightgray; border-top:none; }
+.uk-nav-autocomplete>li.uk-active>a							{ background:#26C281; }
+
+ins															{ background:transparent; }
+
+.uk-placeholder												{ border:none; background:transparent; }

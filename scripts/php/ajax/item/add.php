@@ -39,8 +39,7 @@
 
 		//Run an update API call using the item ID
 		$newItem = new Item(array("action"=>"update", "id"=>$item_id, "fields"=>$post_array));
-		$newItem->run(true);
-
+		$code = $newItem->run(true);
 		$redirect_url = "/view.php?itemid=$item_id&userid={$_SESSION["userid"]}";
 	}
 	else

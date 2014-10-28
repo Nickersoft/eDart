@@ -14,7 +14,7 @@
 	include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; //Include core functionality
 
 	HTML::begin();
-	Head::make("eDart Beta", false);
+	Head::make("eDart", false);
 
 	//If the user is logged in...
 	if(isset($_SESSION["userid"]))

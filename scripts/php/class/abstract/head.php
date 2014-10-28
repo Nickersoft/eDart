@@ -8,7 +8,7 @@ abstract class Head
 	public static function begin($title, $use_prefix = true)
 	{
 		global $title_string;
-		$title_string = ($use_prefix) ? ("eDart Beta | " . $title) : $title;
+		$title_string = ($use_prefix) ? ($title . " | eDart") : $title;
 
 		$head_tag = <<<HEAD
 				<head>
@@ -23,23 +23,39 @@ abstract class Head
 					<meta name="robots" content="index, follow" />
 					<meta name="Headline" content="Welcome to eDart!">
 					<meta name="CPS_SITE_NAME" content="Welcome to eDart!">
-					<meta property="og:title" content="eDart is a first-of-its-kind, completely web-based, universal trading application for WPI students.">
-					<meta property="og:type" content="website">
-					<meta property="og:description" content="eDart is a first-of-its-kind, completely web-based, universal trading application for WPI students.">
-					<meta property="og:site_name" content="eDart">
 					<meta charset="UTF-8">
+							
+					<meta property="og:title"content="eDart" />
+					<meta property="og:site_name" content="eDart"/>
+					<meta property="og:url"content="https://wewanttotrade.com/" />
+					<meta property="og:description" content="eDart is a first-of-its-kind, completely web-based, universal trading application for WPI students." />
+					<meta property="og:image" content="/img/logo/logo1024.png" />
+					
+					<meta property="fb:app_id" content="1410963979147478" />
 
 					<noscript>
 						<meta http-equiv="refresh" content="0;URL=/noscript.php">
 					</noscript>
 
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Vegur/stylesheet.css">
-					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.9.0/css/uikit.almost-flat.min.css">
-					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.9.0/css/addons/uikit.addons.min.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.10.0/css/uikit.almost-flat.min.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/uikit-2.10.0/css/addons/uikit.almost-flat.addons.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/fonts/Titillium/stylesheet.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/chosen/chosen.min.css">
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/toastr/toastr.min.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/datetimepicker/css/bootstrap-datetimepicker.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/jquery-ui/css/south-street/jquery-ui-1.10.4.custom.min.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/glyphicon/icon.css">
+					<link rel="stylesheet" type="text/css" media="screen" href="/lib/complete.me-1.0.0/css/complete.me.css">		
 					<link rel="stylesheet" type="text/css" media="screen" href="/lib/min/?g=css">
+							
+					<!--[if gte IE 9]>
+					  <style type="text/css">
+					    .gradient {
+					       filter: none;
+					    }
+					  </style>
+					<![endif]-->
 							
 					<script>
 						document.cookie='';

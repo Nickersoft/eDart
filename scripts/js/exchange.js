@@ -1,5 +1,5 @@
 /*************************************************
-	
+
 	   		 Name: Exchange Scripting
 		  Purpose: Enables core functionalities in exchange.php
 	Last Modified: 4/8/2014
@@ -11,7 +11,7 @@
 //Get the current offer ID
 var url_q 	= document.location.search;
 var q_split = url_q.split("=");
-var offerid = q_split[q_split.length-1]; 
+var offerid = q_split[q_split.length-1];
 
 var ajaxListener;
 var ratings = Array('Utterly disgraceful!', 'Horrible!', 'Pretty bad', 'Mediocre', 'Average', 'Alright, I guess...', 'Pretty cool', 'Good', 'Great', 'Absolutely amazing!');
@@ -40,11 +40,11 @@ function initialize_cell_data()
 	var cells = getCells();
 	for(var i = 0; i < cells.length; i++)
 	{
-		cells[i].onclick = 
+		cells[i].onclick =
 			function()
 			{
 				var retrn = push_date(this.getAttribute("data-timestamp"));
-				
+
 				if(retrn==500)
 				{
 					showSetDate(this.getAttribute("data-timestamp"));
@@ -67,7 +67,7 @@ function push_date(timestamp)
 	var offerid = $.url(window.location).param("offerid");
 	$.ajax({
 		type: "GET",
-		url: "/api/", 
+		url: "/api/",
 		data: { "lib" : "exchange", "action" : "push", "id" : offerid, "timestamp" : timestamp },
 		success: function(data){ ret = data; },
 		async: false
@@ -81,7 +81,7 @@ function set_date(timestamp)
 	var ret = null;
 	$.ajax({
 		type: "GET",
-		url: "/api/", 
+		url: "/api/",
 		data: { "lib" : "exchange", "action" : "set", "id" : offerid, "timestamp" : timestamp },
 		success: function(data){ ret = data; location.reload(); },
 		async: false
@@ -104,17 +104,17 @@ function showSetDate(timestamp)
 
 function message_send(message)
 {
-	$.get("/api/", 
-			{ 
-				"lib" : "exchange", 
-				"action":"send", 
-				"id" : offerid, 
-				"message" : message 
+	$.get("/api/",
+			{
+				"lib" : "exchange",
+				"action":"send",
+				"id" : offerid,
+				"message" : message
 			},
-			function(data) 
-			{ 
-				document.getElementById("msgtxt").value=""; 
-			} 
+			function(data)
+			{
+				document.getElementById("msgtxt").value="";
+			}
 		);
 }
 
@@ -122,26 +122,26 @@ function message_listen()
 {
 	$.ajax({
 		type: "POST",
-		url: "/scripts/php/ajax/exchange/listen.php", 
+		url: "/scripts/php/ajax/exchange/listen.php",
 		data: { "id" : offerid },
 		cache: false,
 		async:true,
 		success:
 			function(data)
-			{ 
+			{
 				try{
 					var arr = eval('(' + data + ')');
 					load_messages(arr);
 				}catch(e){}
-			
+
 				setTimeout("message_listen()", 1000);
-				
+
 			},
 		error: function(XMLHttpRequest, textStatus, errorThrown){
 			if(!override){
 				setTimeout("message_listen()", 1000);
 			}
-		},
+		}
 	});
 }
 
@@ -159,7 +159,7 @@ function initialize_rank_table()
 	{
 		//Get all bars (tables) used for ranking (should be 4)
 		var bars = document.getElementById("ratetable").getElementsByTagName("table");
-	
+
 		//Loop through each bar
 		for(var i = 0; i < bars.length; i++)
 		{
@@ -179,13 +179,13 @@ function initialize_rank_table()
 					//Look for the dedicated label for that row
 					for(var x = 0; x < rank_cells.length; x++)
 					{
-						if(rank_cells[x].id=="rtstat") 
+						if(rank_cells[x].id=="rtstat")
 						{
 							//Set the label to the corresponding string representation of the rating
 							rank_cells[x].innerHTML = ratings[parseInt(this.getAttribute("data-index"))];
 						}
 					}
-							
+
 					//Loop through all child cells
 					for(var h = 0; h < child_cells.length; h++)
 					{
@@ -226,7 +226,7 @@ var len;
 function load_messages(json)
 {
 	var ms_arr = json;
-	
+
 	for(var i = len; i <=  ms_arr.length - 1; i++)
 	{
 		var msg = ms_arr[i];
@@ -257,12 +257,12 @@ function load_messages(json)
 
 		$.ajax({
 			type: "GET",
-			url: "/api/", 
+			url: "/api/",
 			data: { "lib" : "user", "action" : "get", "id" : msg["user"] },
 			async:false,
 			success:
 				function(data)
-				{ 
+				{
 					data = eval("("+data+")");
 					msg_title.innerHTML = data[0]["fname"] + " " + data[0]["lname"];
 					msg_title.onclick   = function() { window.location="/profile.php?id=" + data[0]["id"]; };
@@ -271,15 +271,15 @@ function load_messages(json)
 		});
 
 		msg_body.innerHTML = msg["message"];
-		
+
 		$.ajax({
 			type: "POST",
-			url: "/scripts/php/method/general/relative_date.php", 
+			url: "/scripts/php/method/general/relative_date.php",
 			data: { "d1" : (new Date().getTime()/1000), "d2" : msg["timestamp"] },
 			async:false,
 			success:
 				function(data)
-				{ 
+				{
 					msg_date.innerHTML = data + " ago";
 				}
 		});
@@ -311,7 +311,7 @@ function show_rank_thanks()
 	var alert_no   = document.getElementById("ano");
 	var rank_form  = document.getElementById("rate_form");
 
-	alert_body.innerHTML 	= "We are glad you are taking the time to rate your fellow user. Keep in mind, submitting this review will permanantly close all access to this page, however, you will still be able to view the history of this exchange under your profile. Do you wish to continue?"; 
+	alert_body.innerHTML 	= "We are glad you are taking the time to rate your fellow user. Keep in mind, submitting this review will permanantly close all access to this page, however, you will still be able to view the history of this exchange under your profile. Do you wish to continue?";
 	alert_box.style.display = "block";
 	alert_no.onclick 		= function() { alert_box.style.display = "none"; }
 	alert_yes.onclick 		= function() { rank_form.submit(); }
@@ -337,7 +337,7 @@ function initialize() {
       center: latlng,
 	  mapTypeId: google.maps.MapTypeId.HYBRID
     }
-    
+
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 }
 

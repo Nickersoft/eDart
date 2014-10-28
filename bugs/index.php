@@ -26,23 +26,6 @@ Head::begin("Report a Bug");
 
 <style type="text/css">
 
-.norm{
-color:black;
-text-align:center;
-font-size:50px;
-margin-top:20px;
-}
-
-p {
-text-indent:20px;
-color:black;
-margin:0px;
-margin-top:5px;
-margin-bottom:5px;
-text-align:left;
-padding:0px 50px 0px 50px;
-}
-
 .align { width:800px; display:block; margin:0px auto; margin-bottom:50px; }
 
 #bug_desc { resize:none; width:300px; height:100px; font-size:12px; margin-bottom:10px; }
@@ -80,8 +63,7 @@ Body::begin();
 				}
 			?>
 
-		<div class="norm">
-			<a name="bugs"><?php echo $title; ?></a></div>
+			<h1 style="font-size:3.5em;" class="uk-text-center"><?php echo $title; ?></h1>
 		
 			<p>
 				<?php
@@ -93,9 +75,9 @@ Body::begin();
 
 				//Here is our form
 				$form = <<<EOD
-				<form id="bug_form" name="bug_form" method="POST" action="./">
-					<textarea name="bug_desc" class="inpt center" id="bug_desc">	</textarea>
-					<input type="submit" class="bbtn center" value="Send" />
+				<form id="bug_form" name="bug_form" method="POST" class="uk-text-center" action="./">
+					<textarea name="bug_desc" class="inpt uk-align-center" id="bug_desc"></textarea>
+					<input type="submit" class="button_primary blue" value="Send" />
 				</form>
 EOD;
 

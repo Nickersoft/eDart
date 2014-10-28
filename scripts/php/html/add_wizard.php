@@ -1,22 +1,11 @@
 <?php include_once $_SERVER["DOC_ROOT"] . "/scripts/php/core.php"; ?>
-<div id="postbox" class="modal fade">
-
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-
-				<h4 class="modal-title" data-default="New Item" id="wz_title">
-					New Item
-				</h4>
-
-				</div>
-
-  			<div class="modal-body">
-
+<div id="postbox" class="uk-modal">
+	<div class="uk-modal-dialog">
+		<div class="uk-modal-header">
+			<a class="uk-modal-close uk-close"></a>
+			<div data-default="New Item" id="wz_title">New Item</div>
+		</div>
+		<div class="uk-modal-content">
   				<div id="add_wizard">
   					<div class="add_slide" id="basics">
 
@@ -31,17 +20,17 @@
 									Uploading to the</br>interwebs...
 								</div>
 								<div id="overlay" onclick="$('#item_image_browser').click();">
-									<div id="inner">
-										Upload Image
-									</div>
-								</div>
+							<div id="inner">
+								Upload Image
 							</div>
+						</div>
+					</div>
 
-							<form id="itemupload_image_form" method="post" target="hidden_frame" action="/scripts/php/ajax/item/image_upload.php" enctype="multipart/form-data">
-								<input style="z-index:-200" accept="image/*" onchange="start_upload();" type="file" name="item_upload" id="item_image_browser" />
-							</form>
+					<form id="itemupload_image_form" method="post" target="hidden_frame" action="/scripts/php/ajax/item/image_upload.php" enctype="multipart/form-data">
+						<input style="z-index:-200" accept="image/*" onchange="start_upload();" type="file" name="item_upload" id="item_image_browser" />
+					</form>
 
-							<iframe name="hidden_frame" id="hidden_frame" style="visibility:hidden;"></iframe>
+					<iframe name="hidden_frame" id="hidden_frame" style="visibility:hidden;"></iframe>
 
 	       				</div>
 
@@ -58,17 +47,17 @@
 							<h2>Category</h2>
 	       					<select id="wz_category" class="small_text selectbox">
 								<?php foreach(Lookup::Category() as $category): ?>
-									<option><?php echo $category["text"]; ?></option>
-								<?php endforeach; ?>
-	       					</select>
-	       				</div>
+							<option><?php echo $category["text"]; ?></option>
+						<?php endforeach; ?>
+       					</select>
+       				</div>
 
-	       				<div id="ai_right">
-							    <h2>Condition</h2>
-	       						<select id="wz_condition" class="small_text selectbox">
-									<?php foreach(Lookup::Condition() as $condition): ?>
-	       								<option><?php echo $condition["text"]; ?></option>
-	       							<?php endforeach; ?>
+       				<div id="ai_right">
+						    <h2>Condition</h2>
+       						<select id="wz_condition" class="small_text selectbox">
+								<?php foreach(Lookup::Condition() as $condition): ?>
+       								<option><?php echo $condition["text"]; ?></option>
+       							<?php endforeach; ?>
 	       						</select>
 						</div>
 	       			</div><div class="add_slide" id="pickup">
@@ -169,10 +158,9 @@
        					</form>
 
 				</div>
-      		</div>
-
-  			<div class="modal-footer">
-
+		</div>
+		
+			<div class="uk-modal-footer">
   				<ul id="pacer">
   					<li class="bullet"></li>
   					<li class="bullet"></li>
@@ -189,9 +177,6 @@
     			<button type="button" id="add_next" data-action="next" onclick="activate_next();" class="button_primary green">
     				Next
     			</button>
-
-  			</div>
-
-		</div>
+			</div>
 		</div>
 </div>

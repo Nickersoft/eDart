@@ -61,7 +61,19 @@ CREATE TABLE `feed` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+# Dump of table pass_reset
+# ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `pass_reset`;
+
+CREATE TABLE `pass_reset` (
+  `index` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `usr` int(11) DEFAULT NULL,
+  `key` longtext,
+  PRIMARY KEY (`index`),
+  KEY `user` (`usr`),
+  CONSTRAINT `user` FOREIGN KEY (`usr`) REFERENCES `usr` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 # Dump of table item
 # ------------------------------------------------------------
@@ -227,14 +239,15 @@ VALUES
 	(23,2,'She',4),
 	(24,3,'Their',4),
 	(25,600,'Operation Successful!',6),
-	(26,104,'Invalid email address',5),
-	(27,105,'Passwords do not match',5),
-	(28,106,'WPI address required',5),
-	(29,601,'Password change successful!',6),
-	(30,602,'Item successfully deleted!',6),
-	(31,603,'Information successfully saved!',6),
-	(32,604,'Privacy settings changed!',6),
-	(36,103,'This user already exists. If you forgot your password, click \"Forgot\" to reset it.',5);
+	(26,103,'This user already exists. If you forgot your password, click \"Forgot\" to reset it.',5),
+	(27,104,'Invalid email address',5),
+	(28,105,'Passwords do not match',5),
+	(29,106,'WPI address required',5),
+	(30,106,'Please enter all fields before continuing',5),
+	(31,601,'Password change successful!',6),
+	(32,602,'Item successfully deleted!',6),
+	(33,603,'Information successfully saved!',6),
+	(34,604,'Privacy settings changed!',6);
 
 # Dump of table validate
 # ------------------------------------------------------------

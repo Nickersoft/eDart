@@ -32,7 +32,6 @@ function hideNotify(obj)
 	document.cookie = "notify = off;"
 }
 
-
 function addEvent(target, eventName, handler) //Adds event listening based on browser
 {
 	try{

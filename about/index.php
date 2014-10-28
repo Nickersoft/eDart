@@ -78,10 +78,10 @@ Body::begin();
 		#code_count { border-top:1px solid green; font-family:TitilliumrRegular,Trebuchet MS, sans-serif;font-size:45px;color:green; padding:25px !important; text-align:center;}
 
 		</style>
-			<div style="min-height:520px;" class="layout-978 uk-container-center">
+			<div style="min-height:520px;" class="layout-1200 uk-container-center">
 				<div class="uk-grid">
 					<div class="uk-width-medium-1-5">
-						<ul class="uk-nav uk-nav-side" data-switcher-parent="#panel_parent">
+						<ul id="about_nav" class="uk-nav uk-nav-side" data-switcher-parent="#panel_parent">
 						    <li><a data-switcher-id="#story">Story</a></li>
 						    <li><a data-switcher-id="#team">Team</a></li>
 						    <li><a data-switcher-id="#backend">Backend</a></li>
@@ -164,7 +164,7 @@ Body::begin();
 										<td>Description</td>
 									</tr>
 									<tr>
-										<td><a href="http://jquery.com/">jQuery</td>
+										<td><a href="http://jquery.com/">jQuery</a></td>
 										<td>The crazy-popular JavaScript library for doing everything from UI design to insane animation. Us? We just use it to make AJAX calls (and some UI stuff, too).</td>
 									</tr>
 									<tr>
@@ -244,10 +244,21 @@ Body::begin();
 										<td><a href="http://getuikit.com/">UIKit</a></td>
 										<td>A faster, lighter, way-cooler alternative to Bootstrap that we're using to enforce mobile compatibility. It also makes the rest of the site look neater and way awesomer.</td>
 									</tr>
-	
+									<tr>
+										<td><a href="http://darsa.in/motio/">Motio</a></td>
+										<td>A nifty little script for doing Ken Burns-styled pans on images.</td>
+									</tr>
+									<tr>
+										<td><a href="http://github.hubspot.com/vex/docs/welcome/">Vex</a></td>
+										<td>Slick as silk dialog boxes for the site.</td>
+									</tr>
+									<tr>
+										<td><a href="http://complete-ly.appspot.com/">complete.ly</a></td>
+										<td>Our minimalistic autocomplete search engine.</td>
+									</tr>
 								</table>
 	
-							</br>
+							<br/>
 	
 							Don't try to hack us. We like our jobs.
 	
@@ -259,7 +270,7 @@ Body::begin();
 				</div>
 				
 			</div>
-			</div>
+		
 			<?php
 				Body::end();
 				HTML::end();

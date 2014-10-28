@@ -44,7 +44,7 @@
  /* * * THE TRANSACTION DROPDOWN * * */
 
 /* The main container */
-#banner_placeholder #banner #infobox #exchange_menu 											{ text-align:left; margin-top:18px; right:-6px; width:500px; position:absolute;  }
+#banner_placeholder #banner #infobox #exchange_menu 											{ text-align:left; margin-top:13px; right:-6px; width:500px; position:absolute;  }
 #banner_placeholder #banner #infobox #exchange_menu:hover										{ display:block; }
 
 #banner_placeholder #banner #infobox #exchange_menu h1 											{ line-height:1em; background:#F8F8F8; text-align: right; font-size:0.65em; padding-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
@@ -55,7 +55,7 @@
 #banner_placeholder #banner #infobox #exchange_menu .divide 									{ height:1px; width:90%; margin:0 auto; display:block; background:lightgray; margin:10px; }
 
 #banner_placeholder #banner #infobox #exchange_menu .exchange 						 			{ border-bottom:1px solid #eee; cursor:pointer; width:100%; overflow:hidden; color:#bbbbbb; font-family:VegurRegular, sans-serif; }
-#banner_placeholder #banner #infobox #exchange_menu .exchange .content:hover					{ background:#f7f7f7; }
+#banner_placeholder #banner #infobox #exchange_menu .exchange:hover								{ background:#EBEBEB; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content 							{ padding:20px; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .text 					{ display:inline-block; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .text .title .primary	{ color:black; }
@@ -68,11 +68,10 @@
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-clock-o					{ color:royalblue; }
 #banner_placeholder #banner #infobox #exchange_menu .exchange .content .uk-icon-exclamation-circle		{ color:red; }
 
-
  /* * * THE NOTIFICATION DROPDOWN * * */
 
 /* The main container */
-#banner_placeholder #banner #infobox #notification_menu 											{ text-align:left; margin-top:18px; right:-6px; position:absolute; width:500px; }
+#banner_placeholder #banner #infobox #notification_menu 											{ text-align:left; margin-top:13px; right:-6px; position:absolute; width:500px; }
 #banner_placeholder #banner #infobox #notification_menu:hover										{ display:block; }
 
 #banner_placeholder #banner #infobox #notification_menu h1 											{ line-height:1em; background:#F8F8F8; line-height:1em; text-align: right; font-size:16px; padding-top:10px; font-family: VegurLight, sans-serif; padding-bottom:5px; color:dimgray; border-bottom: 1px solid #eee; padding-right:10px; }
@@ -89,10 +88,26 @@
 #banner_placeholder #banner #infobox #notification_menu .divide 	{ height:1px; width:90%; margin:0 auto; display:block; background:lightgray; margin:10px; }
 
 #banner_placeholder #banner #infobox #notification_menu .notification 						 		{ border-bottom:1px solid #ddd; cursor:pointer; width:100%; overflow:hidden; color:#bbbbbb; font-family:VegurRegular, sans-serif; }
-#banner_placeholder #banner #infobox #notification_menu .notification .content:hover				{ background:#f7f7f7; }
+#banner_placeholder #banner #infobox #notification_menu .notification:hover							{ background:#EBEBEB; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content 						{ padding:20px; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .text 				{ display:inline-block; color:#2b2b2b; width:400px; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .text .title .primary{ color:black; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .text .title 		{ font-size:16px; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .text .date   		{ margin-left:25px; margin-top:2px; font-size:12px; color:#696969; text-align:right; }
 #banner_placeholder #banner #infobox #notification_menu .notification .content .icon   				{ display:inline-block; float:left; color:green; font-size:12px; margin-right:10px; margin-left:10px; margin-top:10px; }
+
+ /* * * THE CONTROL PANEL * * */
+
+/* The main container */
+#banner_placeholder #banner #infobox #control_panel 															{ display:none; min-width:15em; height:auto; position:absolute; padding:10px; right:0px; top:47px; }
+#banner_placeholder #banner #infobox #control_panel:hover														{ display:block; }
+#banner_placeholder #banner #infobox #control_panel .tip														{ border-bottom: 5px solid white; border-left-width:15px; border-right-width:15px; margin-top:15px; }
+
+/* Its list elements */
+#banner_placeholder #banner #infobox #control_panel h1 															{ font-size:1.5em; text-align:center; color:#696969; }
+#banner_placeholder #banner #infobox #control_panel h2 															{ font-size:1em; text-align:center; color:gray; }
+
+#banner_placeholder #banner #infobox #control_panel ul li 														{ cursor:pointer; text-align:center; font-size:0.9em; color:#2b2b2b; padding:2px; }
+
+/* The divider in the menu */
+#banner_placeholder #banner #infobox #control_panel .divide 													{ height:1px; width:90%; margin:0 auto; display:block; background:lightgray; margin:10px; }

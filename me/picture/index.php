@@ -34,7 +34,7 @@ if(trim($contents)=="")
 		{
 			//Change the image accordingly
 			case "small":
-				$contents = WideImage::loadFromString($contents)->resize(59)->asString('jpg');
+				$contents = WideImage::loadFromString($contents)->resize(50)->asString('jpg');
 				break;
 		}	
 	}

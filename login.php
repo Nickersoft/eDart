@@ -19,7 +19,7 @@ Body::begin(true, true);
 ?>
 
 <div id="home_container">
-	<div class="layout-978 uk-container uk-container-center">
+	<div class="layout-1200 uk-container uk-container-center">
 			<div id="signup_panel" class="uk-width-1-1 uk-border-rounded uk-container-center uk-text-center">
 				<h1>Login to eDart</h1>
 					<form method="POST" onsubmit="clearIncomplete(this);" action="/signup/process.php" id="signup_form">
@@ -39,7 +39,7 @@ Body::begin(true, true);
 								}
 							?>
 							
-							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('lpeaddr').value,document.getElementById('lppword').value, '<?php echo $rdr; ?>',function(){});" value="Let's Go!" />
+							<input type="button" style="margin-top:10px;" class="uk-width-1-1 button_primary green" id="loginbtn" onclick="login(document.getElementById('lpeaddr').value,document.getElementById('lppword').value, '<?php echo $rdr; ?>',function(){ display_login_error(); });" value="Let's Go!" />
 					</form>
 			</div>
 		</div>

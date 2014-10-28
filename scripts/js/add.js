@@ -70,7 +70,7 @@ function activate_next()
 function show_add_loader()
 {
 	$("#wz_title").html("Posting your item...");
-	$("#postbox .modal-footer").css("display","none");
+	$("#postbox .uk-modal-footer").css("display","none");
 	$("#done").html("<img class=\"posting\" src=\"/img/add_loader.gif\">");
 }
 
@@ -205,10 +205,10 @@ function reset_add_wizard()
 {
 	$("#add_wizard").scrollLeft(0);
 
-	$("#wz_title[data-default]").html($("wz_title[data-default]").attr("data-default"));
+	$("#wz_title[data-default]").html($("#wz_title[data-default]").attr("data-default"));
 	$("#wz_dodue").prop("checked", true);
 	$("#wz_picture").css("background","");
-	$("#add_wizard .modal-footer").css("display","block");
+	$("#add_wizard .uk-modal-footer").css("display","block");
 
 	var inputs_and_textareas = $("#add_wizard").find("input, textarea");
 	for(var i = 0; i < inputs_and_textareas.length; i++)
@@ -258,14 +258,13 @@ function pre_add()
 	init_overview_listener();
 	reset_add_wizard();
 
-	$('#postbox').on('hide.bs.modal', function (e) {
+	$('#postbox').on('uk.modal.show', function (e) {
     	reset_add_wizard();
 	});
 }
 
 function submit_item()
 {
-	console.log($("#itemupload_id").val());
 	clear_incomplete(document.getElementById("add_wizard"));
 	document.getElementById("submit_item_form").submit();
 }

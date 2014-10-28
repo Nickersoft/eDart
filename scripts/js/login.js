@@ -34,12 +34,15 @@ function logout()
 	);
 }
 
+function display_login_error() {
+	push_notify("Incorrect credentials. Try again?");
+}
+
 function return_login(e, login_button_id)
 {
 	if(e.keyCode == 13)
 	{
-		//console.log(document.getElementById(login_button_id));
-		console.log(document.getElementById(login_button_id).click());
+		$("#" + login_button_id).click();
 	}
 }
 
