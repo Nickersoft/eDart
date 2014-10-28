@@ -1,7 +1,4 @@
 <?php
-header("Location:/beta/");
-die;
-
 //Define some constants
 define("EXPIRED", "expiration");
 define("TRANSACTION", "transactions");
