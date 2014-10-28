@@ -39,4 +39,4 @@ $.get("/api/", { "lib":"item", "action" : "get" }, function(data) {
 		
 	auto.options.sort();
 });
-}catch(e){alert(e);}
+}catch(e){}
