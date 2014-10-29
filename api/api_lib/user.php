@@ -140,7 +140,7 @@ class User
 			}
 		}
 
-		$split_by_amp = explode($parameters["email"], '@');
+		$split_by_amp = explode('@', $parameters["email"]);
 		if((array_key_exists("id", $parameters)||(array_key_exists("join_date", $parameters))))
 		{
 			return 402;
@@ -149,7 +149,7 @@ class User
 		{
 			return 401;
 		}
-		else if($split_by_amp[count($split_by_amp)-1] != "@wpi.edu")
+		else if($split_by_amp[count($split_by_amp)-1] != "wpi.edu")
 		{
 			return 104;
 		}
