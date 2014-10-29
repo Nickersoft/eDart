@@ -305,12 +305,9 @@ class Item
 			{
 				return 401;
 			}
-			else
+			else if(trim($fields[$v])=="")
 			{
-				if(trim($fields[$v])=="")
-				{
-					return 401;
-				}
+				return 401;
 			}
 		}
 

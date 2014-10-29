@@ -25,7 +25,7 @@ foreach($required_fields as $f)
 	if((trim($_POST[$f])=="")||(!isset($_POST[$f])))
 	{
 		//Throw an error
-		header("Location:/?error=401");
+		header("Location:/signup/?error=401");
 		exit;
 	}
 }
@@ -34,7 +34,7 @@ foreach($required_fields as $f)
 if($_POST["pword"]!=$_POST["rpword"])
 {
 	//Throw an error
-	header("Location:/?error=105");
+	header("Location:/signup/?error=105");
 	exit;
 }
 
@@ -52,7 +52,7 @@ $response = $new_user->run(true);
 if($response!=200)
 {
 	//Throw a custom error
-	header("Location:/?error=".$response);
+	header("Location:/signup/?error=".$response);
 }
 else //If the signup was successful...
 {
