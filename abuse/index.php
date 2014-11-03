@@ -42,7 +42,7 @@ Head::end();
 Body::add_action("showError()");
 Body::begin();
 ?>
-					<div class="layout-1200 uk-container-center">
+					<div class="layout-978 uk-container-center">
 						<h1 class="uk-text-center" style="font-size:3.5em;">Report Abuse</h1>
 
 						<?php
