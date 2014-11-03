@@ -13,7 +13,7 @@
 include_once $_SERVER["DOC_ROOT"]."/scripts/php/core.php"; //Import core functionality
 
 HTML::begin();
-Head::begin("Report Abuse");
+Head::begin("Internships | eDart");
 ?>
 <style>p { text-indent:25px; text-align:justify; }</style>
 <?php 
