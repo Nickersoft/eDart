@@ -45,6 +45,7 @@ Body::begin();
 							<li>Laravel, Rails, or other MVC Frameworks</li>
 							<li>Photoshop and Graphic Design</li>
 							<li>iOS Development (Swift and/or Objective C)</li>
+							<li>Marketing and/or Branding</li>
 						</ul>
 						<p>
 							If accepted into an internship, you will be added to the developer's mailing list. 
