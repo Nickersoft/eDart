@@ -6,7 +6,7 @@
 		<a target="_blank" href="/terms.htm">Terms of Service</a>
 	</nav>
 	<section>
-		<div style="width:100%;text-align:center;">Created by <a href="http://twitter.com/tylernickerson">Tyler Nickerson</a>, '17</div>
+		<div style="width:100%;text-align:center;">Think this is sexy? <a href="/intern">Work with us.</a></div>
 		<div style="width:100%;text-align:center;">Copyright &copy; 2014 eDart</div>
 	</section>
 </footer>
