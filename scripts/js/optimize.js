@@ -272,5 +272,11 @@ function init_chosen()
 		}
 	}
 
+	function fade_loader()
+	{
+		$("#loader").fadeTo(150, 0, function() { $("#loader").css("display","none"); });
+	}
+
 	addEvent(window, "load", function() { $('input, textarea').placeholder(); });
+	addEvent(window, "load", function() { fade_loader(); });
 	addEvent(window, "load", function() { init_chosen(); });
