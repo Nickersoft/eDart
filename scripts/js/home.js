@@ -268,6 +268,8 @@ function init_home()
 {
 	var speed = 10;
 	var $home_cover = $("#home_cover[data-height]");
+	
+	/*
 	var $motio = new Motio($home_cover[0],
 			{
 				speedY : (speed*-1),
@@ -288,8 +290,7 @@ function init_home()
 			$motio.set("speedY",speed*-1);
 		}
 	});
-
-	//$motio.play();
+	$motio.play();*/
 
 	try
 	{
@@ -312,19 +313,6 @@ function init_home()
 		});
 	}
 	catch(e){}
-}
-
-function align_items()
-{
-//	$(".thumbnail img").each(function() {
-//		console.log($(this).height() < $(this).closest(".thumbnail").height());
-//		if($(this).height() < $(this).closest(".thumbnail").height())
-//		{
-//			$(this).css("height","100%");
-//			$(this).css("width", "auto");
-//			console.log($(this).width());
-//		}
-//	});
 }
 
 (function(d){

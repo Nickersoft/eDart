@@ -33,8 +33,6 @@ abstract class Body
 		
 		$body_tag .= ">";
 
-		$body_tag .= "<div id=\"loader\"><span class=\"uk-icon-circle-o-notch uk-icon-spin\"></span></div>";
-
 		echo minify($body_tag);
 	}
 
