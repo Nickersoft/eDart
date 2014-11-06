@@ -220,7 +220,7 @@ Body::begin();
 		  				<textarea onclick="this.select();" class="hidden_input"><link rel="stylesheet" type="text/css" media="screen" href="https://<?php echo $_SERVER["HTTP_HOST"]; ?>/scripts/css/embed.css"><iframe class="edart_iframe" src="https://<?php echo $_SERVER["HTTP_HOST"]; ?>/embed/?item=<?php echo $_GET['itemid']; ?>&user=<?php echo $_GET['userid'];?>" width="320" height="150" frameBorder="0"></iframe></textarea>
 		      		</div>
 		  			<div class="uk-modal-footer">
-		    			<button type="button" id="close" data-dismiss="modal" aria-hidden="true" class="button_primary green">Close</button>
+		    			<button type="button" class=" uk-modal-close button_primary green">Close</button>
 		  			</div>
 				</div>
 			</div>
@@ -236,7 +236,7 @@ Body::begin();
 						<div id="qrdisp" style="background: url('https://api.qrserver.com/v1/create-qr-code/?size=200x200&ecc=L&data=<?php echo $full_url; ?>') no-repeat 0 0;"></div>
 					</div>
 					<div class="uk-modal-footer">
-						<button type="button" id="close" data-dismiss="modal" aria-hidden="true" class="button_primary green">Close</button>
+						<button type="button" class="uk-modal-close button_primary green">Close</button>
 					</div>
 				</div>
 			</div>
