@@ -50,8 +50,10 @@ foreach($items_info as $item)
 				<div class="child uk-hidden-small">
 					<div class="title">Categories</div>
 		    		<ul id="category_list" class="uk-nav uk-nav-side">
-		    			<li>
-		    				<a href="javascript:void(0);" onclick="select_recent(this);" >Recent 
+		    			<li >
+		    				<a style="overflow:hidden" href="javascript:void(0);" onclick="select_recent(this);" >
+		    				
+		    					<span class="uk-float-left">Recent</span> 
 		    					<?php if(count($items_info)!=0): ?>
 		    					<span style="margin-top:2px;" class="uk-float-right uk-flex-middle uk-badge">
 			    					<?php 

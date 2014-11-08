@@ -332,7 +332,6 @@ window.fbAsyncInit = function() {
 		});
 	}
 
-
 function facebook_login()
 {
 	try
@@ -368,12 +367,10 @@ $(document).ready(function() {
 function align_items()
 {
 	$(".thumbnail img").each(function() {
-		console.log($(this).height() < $(this).closest(".thumbnail").height());
 		if($(this).height() < $(this).closest(".thumbnail").height())
 		{
 			$(this).css("height","100%");
 			$(this).css("width", "auto");
-			console.log($(this).width());
 		}
 	});
 }

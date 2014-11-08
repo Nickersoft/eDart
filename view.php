@@ -306,7 +306,7 @@ Body::begin();
 											for($i = 0; $i < 3; $i++):
 												if((isset($other_items[$i]))&&($other_items[$i]["id"]!=$_GET["itemid"])):
 									?>															
-													<div class="item" onclick="window.location='/view.php?itemid=<?php echo $other_items[$i]["id"]; ?>d&userid=<?php echo $other_items[$i]["usr"]; ?>';">
+													<div class="item" onclick="window.location='/view.php?itemid=<?php echo $other_items[$i]["id"]; ?>&userid=<?php echo $other_items[$i]["usr"]; ?>';">
 														<div class="uk-grid uk-grid-preserve reset_padding">
 															<div class="uk-width-4-6 info">
 																<div class="header"><?php echo $other_items[$i]["name"]; ?></div>
@@ -345,7 +345,7 @@ Body::begin();
 											for($i = 0; $i < 3; $i++):
 												if((isset($sim_items[$i]))&&($sim_items[$i]["id"]!=$_GET["itemid"])):
 									?>															
-													<div class="item" onclick="window.location='/view.php?itemid=<?php echo $sim_items[$i]["id"]; ?>d&userid=<?php echo $sim_items[$i]["usr"]; ?>';">
+													<div class="item" onclick="window.location='/view.php?itemid=<?php echo $sim_items[$i]["id"]; ?>&userid=<?php echo $sim_items[$i]["usr"]; ?>';">
 														<div class="uk-grid uk-grid-preserve reset_padding">
 															<div class="uk-width-4-6 info">
 																<div class="header"><?php echo $sim_items[$i]["name"]; ?></div>
@@ -432,7 +432,7 @@ Body::begin();
 										Please select an offered item below.
 										<input type="hidden" value="" name="accept" id="accept_item"/>
 									<?php elseif(count($user_items)==0): ?>
-										You currently have no items you may offer. Why not <a href="./me/?load=additem" target="_blank">add</a> one?
+										You currently have no items you may offer. Why not <a href="#postbox" data-uk-modal>add</a> one?
 									<?php else:
 											$disallow_offers = false;
 										  endif; ?>
