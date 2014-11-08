@@ -332,9 +332,6 @@ Body::begin();
 													</div>
 									<?php 		endif;
 										  	endfor; ?>
-											<div class="item_viewmore" onclick="window.location='/search.php?keyword=<?php echo urlencode("User:$aid"); ?>';">
-												<div class="uk-hidden-small uk-width-1-1 uk-button" style="padding:5px;">View More</div>
-											</div>
 									<?php endif; ?>										
 								</div>			
 								
