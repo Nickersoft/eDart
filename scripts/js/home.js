@@ -365,4 +365,17 @@ $(document).ready(function() {
 	$("#about_nav li a").eq(0).click();
 });
 
+function align_items()
+{
+	$(".thumbnail img").each(function() {
+		console.log($(this).height() < $(this).closest(".thumbnail").height());
+		if($(this).height() < $(this).closest(".thumbnail").height())
+		{
+			$(this).css("height","100%");
+			$(this).css("width", "auto");
+			console.log($(this).width());
+		}
+	});
+}
+
 addEvent(window, "load", function() { init_home(); });
