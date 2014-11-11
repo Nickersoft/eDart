@@ -66,7 +66,7 @@ Body::begin();
 ?>
 			<div id="mc_cont" style="width:500px;margin-top:50px;margin-bottom:50px;">
 				<div id="mc" style="width:500px;">
-					<h1 style="text-align:center;margin-bottom:10px;margin-top:10px;"><?php echo $head; ?></h1>
+					<h1 class="uk-text-center" style="text-align:center;margin-bottom:10px;margin-top:10px;"><?php echo $head; ?></h1>
 
 					<?php
 
@@ -76,10 +76,10 @@ Body::begin();
 							//...create the continue button
 							echo "<table id=\"loginbx\" style=\"height:auto;width:500px;margin-top:30px;\">
 									<tr>
-										<td>
+										<td class=\"uk-text-center\">
 									<input 	type=	\"button\"
 										style=	\"width:100px;font-size:14px;display:block;margin:0 auto;text-align:center;\"
-										class=	\"gbtn\"
+										class=	\"button_primary green\"
 										onclick=\"window.location='/terms.php';\"
 										value=	\"Continue\"
 									/>
