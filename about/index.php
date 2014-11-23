@@ -206,7 +206,7 @@ Body::begin();
 									</tr>
 									<tr>
 										<td><a href="http://glyphicons.com/">GLYPHICONS</a> <span>(Depreciated)</span></td>
-										<td>The same icons that come with Boostrap, only in PNG form. That way we can load them into custom elements as background images.</td>
+										<td>The same icons that come with Bootstrap, only in PNG form. That way we can load them into custom elements as background images.</td>
 									</tr>
 									<tr>
 										<td><a href="https://code.google.com/p/minify/">Minify</a></td>
