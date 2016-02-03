@@ -1,4 +1,4 @@
-<center><img src="img/logo.png" width="250px"></center><br/>
+<p align="center"><img src="img/logo.png" width="250px"></p>
 
 **IMPORTANT: This code is no longer maintained! It relies on many API calls which may or may not work. This codebase is archival and not intended for production use!**
 
