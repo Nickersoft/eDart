@@ -1,5 +1,5 @@
-Welcome to eDart
-================
+![eDart Logo](img/logo.png)
+
 **IMPORTANT: This code is no longer maintained! It relies on many API calls which may or may not work. This codebase is archival and not intended for production use!**
 
 eDart was an online marketplace for college students to trade the textbooks, notebooks, and electronic devices they no longer needed for the ones they do. Users would post items, which would then receive item offers on their dedicated pages. Users could accept the most appealing offer then make the transaction. The site was online from the fall of 2013 to the fall of 2014, and was accessible at http://wewanttotrade.com.
