@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./setup:/docker-entrypoint-initdb.d
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: edart
+      MYSQL_USER: edart
+      MYSQL_PASSWORD: 7AFfnNJcWpn6HPEcbmPja
+  edart:
+    build: ./
+    ports:
+      - "8080:80"
+    links:
+      - db

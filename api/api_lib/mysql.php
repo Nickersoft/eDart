@@ -2,7 +2,7 @@
 
 function host()
 {
-	return "127.0.0.1";
+	return "db";
 }
 
 function username()
